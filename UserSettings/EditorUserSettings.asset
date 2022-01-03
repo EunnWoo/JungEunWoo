@@ -26,6 +26,7 @@ EditorUserSettings:
     RecentlyUsedScenePath-6:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       value: 224247031146460b5c403f21152d5a03593b17282e3168252320092a
 =======
       value: 224247031146464819011e275f0e5014031b19381e180118283b1236f1d0160aadd306cae8342b2e360ee3391671323cf7040c44c23b29041f1aef011dc0341c04c714c029df100ecf5709c0c409c8
@@ -39,16 +40,23 @@ EditorUserSettings:
       value: 224247031146460b5c403f21152d5a03593b172d252668252320092a
 =======
       value: 224247031146460b5c403f21152d5a0359070a2b2f3c2f332867083debf42d
+=======
+      value: 224247031146460b5c403f21152d5a03593b17282e3168252320092a
+>>>>>>> parent of 62d04c8 (로비씬 삭제 및 새로운 로비씬 정리)
       flags: 0
     RecentlyUsedScenePath-7:
-      value: 224247031146460b5c403f21152d5a03593b172d252668252320092a
+      value: 224247031146460b5c403f21152d5a0359070a2b2f3c2f332867083debf42d
       flags: 0
     RecentlyUsedScenePath-8:
+<<<<<<< HEAD
       value: 224247031146460b5c403f21152d5a03593b17282e3168252320092a
 >>>>>>> parent of 0574268 (Merge branch 'main' of https://github.com/EunnWoo/TeamProjectUnity)
 =======
       value: 224247031146460b5c403f21152d5a035923173d2266333e243d04
 >>>>>>> parent of d88c353 (Revert "Revert "Revert "Update EditorUserSettings.asset""")
+=======
+      value: 224247031146460b5c403f21152d5a03593b172d252668252320092a
+>>>>>>> parent of 62d04c8 (로비씬 삭제 및 새로운 로비씬 정리)
       flags: 0
     RecentlyUsedScenePath-9:
       value: 224247031146460b5c403f21152d5a03593b172d252668252320092a
