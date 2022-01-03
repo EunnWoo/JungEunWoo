@@ -5364,10 +5364,13 @@ PrefabInstance:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of da797b0 (Revert "네트워크")
 =======
 >>>>>>> parent of 344fede (test)
+=======
+>>>>>>> parent of 8752a0a (Revert "네트워크")
 --- !u!1 &414155694 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4431993696956804730, guid: 9463bbab58cb27243b3d7aa88236670a, type: 3}
@@ -5462,11 +5465,14 @@ RectTransform:
   m_SynchronizeParameters: []
   m_SynchronizeLayers: []
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> parent of d2f5aad (아이템 획득 구현)
 =======
 >>>>>>> parent of d2f5aad (아이템 획득 구현)
+=======
+>>>>>>> parent of 8752a0a (Revert "네트워크")
 =======
   m_GameObject: {fileID: 417280639}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -5483,9 +5489,12 @@ RectTransform:
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 >>>>>>> 3f546fae2b5e1a3e159668ca5aea334896ff09c4
+<<<<<<< HEAD
 >>>>>>> parent of da797b0 (Revert "네트워크")
 =======
 >>>>>>> parent of 344fede (test)
+=======
+>>>>>>> parent of 8752a0a (Revert "네트워크")
 --- !u!1001 &417581633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7888,6 +7897,7 @@ Transform:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 5
 =======
   m_RootOrder: 8
@@ -7904,6 +7914,12 @@ Transform:
 =======
   m_RootOrder: 5
 >>>>>>> parent of 344fede (test)
+=======
+  m_RootOrder: 5
+=======
+  m_RootOrder: 10
+>>>>>>> 3f546fae2b5e1a3e159668ca5aea334896ff09c4
+>>>>>>> parent of 8752a0a (Revert "네트워크")
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &639299890 stripped
 Transform:
@@ -10431,6 +10447,9 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 679444084a776cb41a6a642071dd3daa, type: 3}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 8752a0a (Revert "네트워크")
 =======
 --- !u!1 &861653290
 GameObject:
@@ -10527,6 +10546,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 >>>>>>> parent of d2f5aad (아이템 획득 구현)
@@ -10537,6 +10557,11 @@ Transform:
 >>>>>>> parent of da797b0 (Revert "네트워크")
 =======
 >>>>>>> parent of 344fede (test)
+=======
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> 3f546fae2b5e1a3e159668ca5aea334896ff09c4
+>>>>>>> parent of 8752a0a (Revert "네트워크")
 --- !u!1001 &862365267
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11067,6 +11092,7 @@ RectTransform:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 3
 =======
   m_RootOrder: 6
@@ -11083,6 +11109,12 @@ RectTransform:
 =======
   m_RootOrder: 3
 >>>>>>> parent of 344fede (test)
+=======
+  m_RootOrder: 3
+=======
+  m_RootOrder: 8
+>>>>>>> 3f546fae2b5e1a3e159668ca5aea334896ff09c4
+>>>>>>> parent of 8752a0a (Revert "네트워크")
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -15869,6 +15901,9 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 72370e8c5a44c9c4fb72ab4ad015f6d4, type: 3}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 8752a0a (Revert "네트워크")
 =======
 --- !u!1 &1231489305
 GameObject:
@@ -15965,6 +16000,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 >>>>>>> parent of d2f5aad (아이템 획득 구현)
@@ -15975,6 +16011,11 @@ Transform:
 >>>>>>> parent of da797b0 (Revert "네트워크")
 =======
 >>>>>>> parent of 344fede (test)
+=======
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> 3f546fae2b5e1a3e159668ca5aea334896ff09c4
+>>>>>>> parent of 8752a0a (Revert "네트워크")
 --- !u!1001 &1236853353
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20441,6 +20482,7 @@ Transform:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 4
 =======
   m_RootOrder: 7
@@ -20457,6 +20499,12 @@ Transform:
 =======
   m_RootOrder: 4
 >>>>>>> parent of 344fede (test)
+=======
+  m_RootOrder: 4
+=======
+  m_RootOrder: 9
+>>>>>>> 3f546fae2b5e1a3e159668ca5aea334896ff09c4
+>>>>>>> parent of 8752a0a (Revert "네트워크")
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1556675610 stripped
 Transform:
@@ -24133,6 +24181,7 @@ Transform:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 6
 =======
   m_RootOrder: 9
@@ -24141,14 +24190,19 @@ Transform:
   m_RootOrder: 9
 >>>>>>> parent of d2f5aad (아이템 획득 구현)
 =======
+=======
+>>>>>>> parent of 8752a0a (Revert "네트워크")
   m_RootOrder: 6
 =======
   m_RootOrder: 11
 >>>>>>> 3f546fae2b5e1a3e159668ca5aea334896ff09c4
+<<<<<<< HEAD
 >>>>>>> parent of da797b0 (Revert "네트워크")
 =======
   m_RootOrder: 6
 >>>>>>> parent of 344fede (test)
+=======
+>>>>>>> parent of 8752a0a (Revert "네트워크")
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1799714907
 GameObject:
@@ -26778,6 +26832,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 8752a0a (Revert "네트워크")
 =======
 --- !u!1 &1969357128
 GameObject:
@@ -26874,6 +26931,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 >>>>>>> parent of d2f5aad (아이템 획득 구현)
@@ -26884,6 +26942,11 @@ Transform:
 >>>>>>> parent of da797b0 (Revert "네트워크")
 =======
 >>>>>>> parent of 344fede (test)
+=======
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> 3f546fae2b5e1a3e159668ca5aea334896ff09c4
+>>>>>>> parent of 8752a0a (Revert "네트워크")
 --- !u!1001 &1969499449
 PrefabInstance:
   m_ObjectHideFlags: 0
