@@ -7056,8 +7056,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae25b1ea3a3bfc44a9de81464d709cd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction_light: {fileID: 1216859510}
-  DropDown: {fileID: 1537378794}
 --- !u!114 &638092687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7070,11 +7068,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cabc131cbd6af1409dc551725ee39a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseImage: {fileID: 2138476686}
-  PauseMenu: {fileID: 735035772}
-  SoundMenu: {fileID: 837846807}
-  ScreenMenu: {fileID: 1567404584}
-  PlayerObj: {fileID: 0}
 --- !u!4 &638092688
 Transform:
   m_ObjectHideFlags: 0
@@ -7101,9 +7094,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a17d61ab02c6f1a47b1f957ee3361e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equip: {fileID: 716229048}
-  use: {fileID: 640071627}
-  etc: {fileID: 1996842081}
 --- !u!1 &640071626
 GameObject:
   m_ObjectHideFlags: 0
@@ -18709,18 +18699,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0369074e7b752cb4aaeece782d2de214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slots: []
-  Description_Text: {fileID: 1370679251}
-  tabDescription:
-  - "\uC7A5 \uBE44 : \uC7A5\uBE44 \uC544\uC774\uD15C \uB9AC\uC2A4\uD2B8"
-  - "\uC18C\uBAA8\uD488 : \uC18C\uBAA8\uD488 \uC544\uC774\uD15C \uB9AC\uC2A4\uD2B8"
-  - "\uAE30 \uD0C0 : \uD0C0 \uC544\uC774\uD15C \uB9AC\uC2A4\uD2B8"
-  tf: {fileID: 716229048}
-  go: {fileID: 1305554641}
-  selectedTabImages:
-  - {fileID: 913996920}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!4 &1446001141 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 483478, guid: ce1b1c89cc01b594b97ffd660fb7409e, type: 3}
@@ -23300,7 +23278,7 @@ Animator:
   m_GameObject: {fileID: 1718214921}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cfa5421b7a574144db48ea8e825faa30, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -24237,17 +24215,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcc874c58aa20bc43a29309371a6d18a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  var_name: []
-  var: []
-  switch_name: []
-  switches: 0
-  itemList:
-  - itemID: 0
-    itemName: 
-    itemDescription: 
-    itemCount: 0
-    itemIcon: {fileID: 0}
-    itemType: 0
 --- !u!4 &1798932870
 Transform:
   m_ObjectHideFlags: 0
