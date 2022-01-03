@@ -59,22 +59,24 @@ public class CharacterMove : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.A) && vAxis == 0f)
         {
-            moveInput = moveInput * 0.7f;
+            moveDir *= 0.7f;
             ani.SetBool("IsLeft", true);
+            ani.SetBool("IsLeftRoll", isRoll);
         }
         else if (Input.GetKeyUp(KeyCode.A) || vAxis != 0f)
         {
-            //moveInput = moveInput * 1f;
+            //moveDir *= 1f;
             ani.SetBool("IsLeft", false);
         }
         if (Input.GetKey(KeyCode.D) && vAxis == 0f)
         {
-            moveInput = moveInput * 0.7f;
+            moveDir *= 0.7f;
             ani.SetBool("IsRight", true);
+            ani.SetBool("IsRightRoll", isRoll);
         }
         else if (Input.GetKeyUp(KeyCode.D) || vAxis != 0f)
         {
-            //moveInput = moveInput * 1;
+            //moveDir *= 1f;
             ani.SetBool("IsRight", false);
         }
         ani.SetFloat("vAxis", vAxis, 0.2f, Time.deltaTime);
