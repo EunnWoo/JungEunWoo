@@ -10,7 +10,11 @@ public class LoginManager : MonoBehaviourPunCallbacks
     public Button joinButton; // 룸 접속 버튼
     private void Start() // 게임 실행과 동시에 마스터 서버 접속 시도
     {
-        
+        PhotonNetwork.GameVersion = gameVersion; // 접속에 필요한 정보(게임 버전) 설정
+        PhotonNetwork.ConnectUsingSettings(); // 설정한 정보로 마스터 서버 접속 시도
+
+        joinButton.interactable = false; // 접속버튼 비활
+        connectionInfoText.text = "마스터 서버에 접속 중...";
     }
 
     public override void OnConnectedToMaster() // 마스터 서버 접속 성공시 자동 실행
