@@ -9,9 +9,9 @@ public enum eItemType
     ETC//기타
 
 }
+
 [System.Serializable]
-[CreateAssetMenu(fileName = "New Item", menuName = "New Item/item")]
-public class Item : ScriptableObject { 
+public class Item { 
     
     public int itemID;  //아이템의 고유 ID값. 중복 불가능
     public string itemName; //아이템의 이름. 중복 불가능.(고대유물, 고대유물)
@@ -19,9 +19,8 @@ public class Item : ScriptableObject {
     public int itemCount; //아이템 소지 개수.
     public Sprite itemIcon; //아이템의 아이콘
     public eItemType itemType;   // 아이템 타입(장비,소모품,기타)
-    public GameObject itemPrefab; // 아이템의 프리팹.
 
-
+   
 
     public Item(int _itemID, string _itemName, string _itemDes, eItemType _itemType, int _itemCount = 1)
     {
