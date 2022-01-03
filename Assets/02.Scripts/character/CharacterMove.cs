@@ -13,7 +13,7 @@ public class CharacterMove : MonoBehaviour
     Animator ani;
     float hAxis;
     float vAxis;
-    bool isRun;
+    bool isRun, isRoll = false;
     bool isBack = false;
     bool isGround;
     void Start()
@@ -32,6 +32,7 @@ public class CharacterMove : MonoBehaviour
         hAxis = Input.GetAxis("Horizontal");//a,d이동 값
         vAxis = Input.GetAxis("Vertical");//w,s이동 값
         isRun = Input.GetButton("Run");//left shift가 눌렸는지
+        isRoll = Input.GetButton("Roll");
         if (Input.GetKeyDown(KeyCode.S))
         {
             isBack = true;
@@ -78,6 +79,8 @@ public class CharacterMove : MonoBehaviour
         }
         ani.SetFloat("vAxis", vAxis, 0.2f, Time.deltaTime);
         ani.SetBool("IsRun", isRun && !isBack);
+        ani.SetBool("IsRoll", isRoll && !isBack);
+        ani.SetBool("IsBackRoll", isRoll && isBack);
         characterBody.forward = lookForward;
         transform.position += moveDir * Time.deltaTime * 5f;
     }
