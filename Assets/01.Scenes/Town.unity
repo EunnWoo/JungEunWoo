@@ -5361,6 +5361,7 @@ PrefabInstance:
     - {fileID: 5657571041974570092, guid: 9463bbab58cb27243b3d7aa88236670a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9463bbab58cb27243b3d7aa88236670a, type: 3}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &414155694 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4431993696956804730, guid: 9463bbab58cb27243b3d7aa88236670a, type: 3}
@@ -5434,6 +5435,8 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters: []
   m_SynchronizeLayers: []
+=======
+>>>>>>> parent of d2f5aad (아이템 획득 구현)
 =======
 >>>>>>> parent of d2f5aad (아이템 획득 구현)
 --- !u!1001 &417581633
@@ -7835,7 +7838,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 5
+=======
+  m_RootOrder: 8
+>>>>>>> parent of d2f5aad (아이템 획득 구현)
 =======
   m_RootOrder: 8
 >>>>>>> parent of d2f5aad (아이템 획득 구현)
@@ -10928,7 +10935,11 @@ RectTransform:
   - {fileID: 1444540526}
   m_Father: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 3
+=======
+  m_RootOrder: 6
+>>>>>>> parent of d2f5aad (아이템 획득 구현)
 =======
   m_RootOrder: 6
 >>>>>>> parent of d2f5aad (아이템 획득 구현)
@@ -20216,7 +20227,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 4
+=======
+  m_RootOrder: 7
+>>>>>>> parent of d2f5aad (아이템 획득 구현)
 =======
   m_RootOrder: 7
 >>>>>>> parent of d2f5aad (아이템 획득 구현)
@@ -23893,7 +23908,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 6
+=======
+  m_RootOrder: 9
+>>>>>>> parent of d2f5aad (아이템 획득 구현)
 =======
   m_RootOrder: 9
 >>>>>>> parent of d2f5aad (아이템 획득 구현)
