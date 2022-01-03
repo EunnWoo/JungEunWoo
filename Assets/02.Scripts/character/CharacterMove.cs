@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class CharacterMove : MonoBehaviour
+using Photon.Pun;
+public class CharacterMove : MonoBehaviourPun
 {
     [SerializeField]
     private Transform characterBody;
@@ -23,6 +23,10 @@ public class CharacterMove : MonoBehaviour
     }
     void Update()
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
         Move();
         if (Input.GetKeyDown(KeyCode.Space) && isGround == true)
             Jump();

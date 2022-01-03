@@ -63,7 +63,7 @@ public class LoginManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom() // 룸에 가 완료된 경우 자동실행
     {
         connectionInfoText.text = "방 참가 성공";
-        PhotonNetwork.LoadLevel("Lobby");
+        PhotonNetwork.LoadLevel("Town");
 
         PhotonNetwork.LocalPlayer.NickName = userId.text;//로컬 플레이어 이름을 설정 
         PlayerPrefs.SetString("USER_ID", userId.text); //플레이어 이름 저장 
