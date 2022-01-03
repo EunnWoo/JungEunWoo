@@ -21,7 +21,7 @@ public class UI_Inventory : MonoBehaviour
     public GameObject goETCSlot;
     public GameObject body;
 
-    public int MAX_EQUIP = 20;
+    public int MAX_EQUIP = 20; //최대 인벤토리 슬롯 갯수
     public List<Item> listEquip = new List<Item>();
     public List<Item> listUse = new List<Item>();
     public List<Item> listETC = new List<Item>();
@@ -29,14 +29,14 @@ public class UI_Inventory : MonoBehaviour
     // private InventorySlot inven;
     void Start()
     {
-        slotsEquip.AddRange (goEquipSlot.transform.GetChild(0).GetComponentsInChildren<InventorySlot>());
-        slotsUse.AddRange(goUseSlot.transform.GetChild(0).GetComponentsInChildren<InventorySlot>());
-        slotsETC.AddRange(goETCSlot.transform.GetChild(0).GetComponentsInChildren<InventorySlot>());
+        slotsEquip.AddRange (goEquipSlot.transform.GetChild(0).GetComponentsInChildren<InventorySlot>());//장비창에 추가
+        slotsUse.AddRange(goUseSlot.transform.GetChild(0).GetComponentsInChildren<InventorySlot>());//소비창에 추가
+        slotsETC.AddRange(goETCSlot.transform.GetChild(0).GetComponentsInChildren<InventorySlot>());//기타창에 추가
     }
 
     
     public void Invoke_SelectTab(int _kind) 
-    {
+    {   //인벤토리 탭과 슬롯들을 전부 펄스로
          goEquipTab.SetActive(false);
          goEquipSlot.SetActive(false);
          goUseTab.SetActive(false);
@@ -46,9 +46,9 @@ public class UI_Inventory : MonoBehaviour
         switch (_kind)
         {
             case 0:
-                goEquipTab.gameObject.SetActive(true);
-                goEquipSlot.SetActive(true);
-                Description_Text.text = tabDescription[_kind];    
+                goEquipTab.gameObject.SetActive(true); //장비탭을 누르면 장비탭과 장비슬롯이 트루로 전환
+                goEquipSlot.SetActive(true);    ////장비탭을 누르면 장비탭과 장비슬롯이 트루로 전환
+                Description_Text.text = tabDescription[_kind]; //장비탭을 누르면 장비탭에 대한 부연설명을 해줌
 
 
                 break;
@@ -68,12 +68,12 @@ public class UI_Inventory : MonoBehaviour
         }
             
     }  
-    public void Invoke_Close()
+    public void Invoke_Close()  //인벤토리 창을 닫음
     {
         body.SetActive(false);
     }
 
-    public void OpenInventory()
+    public void OpenInventory() //인벤토리창을 열음
     {
         if (!body.activeSelf)
         {
@@ -133,7 +133,7 @@ public class UI_Inventory : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        if(Input.GetKeyDown(KeyCode.Alpha1))    
         {
             AddItem(DatabaseManager.instance.GetItem(100001));
         }
