@@ -147,16 +147,7 @@ public class UI_Inventory : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.I ))
             {
-
-                if(!body.activeSelf)
-                {
-                    body.SetActive(true);  
-                }
-                else
-                {
-                    body.SetActive(false);
-                }
-
+            OpenInventory();
             }
     }
 }
