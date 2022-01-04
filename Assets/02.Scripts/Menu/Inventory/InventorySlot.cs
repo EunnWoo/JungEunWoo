@@ -6,30 +6,32 @@ using UnityEngine.UI;
 public class InventorySlot : MonoBehaviour
 {
     public Item item;
+    public int itemCount;
     public Image icon;
-    public void SetItem(Item _item)
+
+    //필요한 컴퍼넌트
+    [SerializeField]
+    private Text text_Count;
+    
+    public void SetItem(Item _item) //아이템 획득
     {
         item = _item;
+        icon.sprite = item.itemIcon;
+        text_Count.text = itemCount.ToString();
     }
-//    public Image icon;
-//    public Text itemCount_Text;
-//    public GameObject selected_Item;
 
-    //    public void Additem(Item _item)
-    //    {
-    //        icon.sprite = _item.itemIcon;
-    //        if(eItemType.Use == _item.itemType)
-    //        {
-    //        if(_item.itemCount >0)
-    //        itemCount_Text.text = "x" + _item.itemCount.ToString();
-    //        else
-    //        itemCount_Text.text = "";
-    //        }
-    //    }
+    public void SetSlotCount(int _count) //아이템 갯수조정
+    {
+        itemCount += _count;
+        text_Count.text = itemCount.ToString();
+        if (itemCount <= 0)
+            ClearSlot();
+    }
 
-    //    public void RemoveItem()
-    //    {
-    //        itemCount_Text.text = "";
-    //        icon.sprite = null;
-    //    }
+    private void ClearSlot()    //아이템이 0일시 슬롯 초기화
+    {
+        item = null;
+        itemCount = 0;
+        icon.sprite = null;
+    }
 }
