@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 2540fb86777f3fd4889244b7260d9ff7
+=======
+guid: fd06a92e8f973084d87aa750d7dc991b
+>>>>>>> parent of 6a36be2 (Merge branch 'main' of https://github.com/EunnWoo/TeamProjectUnity)
 timeCreated: 1461833952
 licenseType: Store
 DefaultImporter:

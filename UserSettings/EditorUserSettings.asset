@@ -30,7 +30,11 @@ EditorUserSettings:
       value: 224247031146460b5c403f21152d5a035923173d2266333e243d04
       flags: 0
     RecentlyUsedScenePath-8:
+<<<<<<< HEAD
       value: 224247031146460b5c403f21152d5a0359070a2b2f3c2f332867083debf42d
+=======
+      value: 224247031146460b5c403f21152d5a03593b172d252668252320092a
+>>>>>>> parent of 6a36be2 (Merge branch 'main' of https://github.com/EunnWoo/TeamProjectUnity)
       flags: 0
     RecentlyUsedScenePath-9:
       value: 224247031146460b5c403f21152d5a03593b17282e3168252320092a
