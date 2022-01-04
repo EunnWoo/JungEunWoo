@@ -110,8 +110,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions: []
   m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: 1102036580687679564, guid: c757a20a6395acf4294e2e190f8062b7,
-    type: 2}
+  m_DstState: {fileID: 1102036580687679564, guid: c757a20a6395acf4294e2e190f8062b7, type: 2}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
@@ -488,7 +487,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Magician
+  m_Name: Magician 2
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: IsRun
