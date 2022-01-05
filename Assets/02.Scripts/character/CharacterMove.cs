@@ -16,20 +16,26 @@ public class CharacterMove : MonoBehaviourPun
     bool isRun, isLeft, isRight, isRoll;
     bool isBack = false;
     bool isGround;
+    private PhotonView pv;
+
     void Start()
     {
         ani = characterBody.GetComponent<Animator>();
         characterrigid = GetComponent<Rigidbody>();
+        pv = GetComponent<PhotonView>();
     }
     void Update()
     {
-        GetInput();
-        Move();
-        if (Input.GetKeyDown(KeyCode.Space) && isGround == true && !ani.GetCurrentAnimatorStateInfo(0).IsTag("Roll"))
-        {
-            Jump();
-        }
-        Animation();
+        if (!pv.IsMine)
+        { return; }
+            GetInput();
+            Move();
+            if (Input.GetKeyDown(KeyCode.Space) && isGround == true && !ani.GetCurrentAnimatorStateInfo(0).IsTag("Roll"))
+            {
+                Jump();
+            }
+            Animation();
+        
     }
     void GetInput()
     {
