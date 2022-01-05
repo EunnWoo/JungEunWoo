@@ -6,6 +6,13 @@ using UnityEngine.UI;
 
 public class UI_Inventory : MonoBehaviour
 {
+    #region sigletone
+    public static UI_Inventory ins;
+    private void Awake()
+    {
+        ins = this;
+    }
+    #endregion
     public List<InventorySlot> slotsEquip = new List<InventorySlot>();  //인벤토리 슬롯들
     public List<InventorySlot> slotsUse = new List<InventorySlot>();
     public List<InventorySlot> slotsETC = new List<InventorySlot>(); 
@@ -98,6 +105,7 @@ public class UI_Inventory : MonoBehaviour
                 {
                     listEquip.Add(_newItem);
                     _index = listEquip.Count - 1;
+                    Debug.Log("장비: " + _index);
                     slotsEquip[_index].SetItem(_newItem);
                     _rtn = true;
                 }
@@ -108,6 +116,7 @@ public class UI_Inventory : MonoBehaviour
                 {
                     listUse.Add(_newItem);
                     _index = listUse.Count - 1;
+                    Debug.Log("소비: " + _index);
                     slotsUse[_index].SetItem(_newItem);
                     _rtn = true;
                 }

@@ -32,7 +32,7 @@ public class ActionController : MonoBehaviour
     private void Start()
     {
         camera = Camera.main;
-        Cursor.visible = true;
+       // Cursor.visible = true;
 
         Vector3 _dir = parentTrans.position - transform.position;
         dirDistance = _dir.magnitude;
@@ -54,38 +54,9 @@ public class ActionController : MonoBehaviour
 
         else
         {
-            InfoDisappear();
+            IteminfoDisappear();
         }
     }
-
-    void InfoDisappear()
-    {
-        pickupActivated = false;
-        actionText.gameObject.SetActive(false);
-    }
-
-    private void TryAction()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            CheckItem();
-            CanPickUp();
-        }
-    }
-
-    private void CanPickUp()
-    {
-        if (pickupActivated)
-        {
-            if (hitInfo.transform != null)
-            {
-                Debug.Log(hitInfo.transform.GetComponent<ItemPickUp>().item.itemName + " »πµÊ«ﬂΩ¿¥œ¥Ÿ");
-                Destroy(hitInfo.transform.gameObject);
-                InfoDisappear();
-            }
-        }
-    }
-
 
     private void ItemInfoAppear()
     {
@@ -93,6 +64,30 @@ public class ActionController : MonoBehaviour
         actionText.gameObject.SetActive(true);
         actionText.text = hitInfo.transform.GetComponent<ItemPickUp>().item.itemName + " »πµÊ " + "<color=yellow>" + "(F)" + "</color>";
     }
+    void IteminfoDisappear()
+    {
+        pickupActivated = false;
+        actionText.gameObject.SetActive(false);
+    }
+
+    private void TryAction()
+    {
+        if (pickupActivated && Input.GetKeyDown(KeyCode.F))
+        {
+            if (hitInfo.transform != null)
+            {
+                ItemPickUp _Pick = hitInfo.transform.GetComponent<ItemPickUp>();
+                Debug.Log(_Pick.GetItem().itemName + " »πµÊ«ﬂΩ¿¥œ¥Ÿ");
+                IteminfoDisappear();
+
+                //¿Œ∫•≈‰∏Æø° ≥÷æÓ¡÷±‚
+                UI_Inventory.ins.AddItem(_Pick.GetItem());
+                Destroy(hitInfo.transform.gameObject);
+            }
+        }
+    }
+
+  
     private void OnDrawGizmos()
     {
         Vector3 _dir = parentTrans.position - transform.position;
