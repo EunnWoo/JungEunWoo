@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 5657571041274623884}
   - component: {fileID: 5657571041274623883}
   - component: {fileID: 5657571041274623882}
+  - component: {fileID: 5945781030218834487}
   m_Layer: 0
-  m_Name: Camera
-  m_TagString: Untagged
+  m_Name: MainCamera
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,6 +84,26 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5657571041274623881}
   m_Enabled: 1
+--- !u!114 &5945781030218834487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5657571041274623881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89506badff817f640a982239ede64753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkRange: 0
+  checkRadius: 0.3
+  parentTrans: {fileID: 5657571041974570090}
+  screenCenter: {x: 0.5, y: 0.5, z: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  actionText: {fileID: 0}
 --- !u!1 &5657571041974570089
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,9 +114,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5657571041974570090}
   - component: {fileID: 5657571041974570091}
-  - component: {fileID: 2103013152}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: CameraReg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,23 +152,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &2103013152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5657571041974570089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89506badff817f640a982239ede64753, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 3
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  actionText: {fileID: 0}
 --- !u!1 &5657571042912488101
 GameObject:
   m_ObjectHideFlags: 0
