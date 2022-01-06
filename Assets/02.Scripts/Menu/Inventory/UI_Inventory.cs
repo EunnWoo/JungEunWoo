@@ -77,17 +77,21 @@ public class UI_Inventory : MonoBehaviour
     }
     public void Invoke_Close()
     {
+        //GameManager.isOpenInventory = false;
         body.SetActive(false);
     }
 
     public void OpenInventory()
     {
+        //GameManager.isOpenInventory = true;
         if (!body.activeSelf)
         {
+            GameManager.isOpenInventory = true;
             body.SetActive(true);
         }
         else
         {
+            GameManager.isOpenInventory = false;
             body.SetActive(false);
         }
 
@@ -156,16 +160,7 @@ public class UI_Inventory : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.I))
         {
-
-            if (!body.activeSelf)
-            {
-                body.SetActive(true);
-            }
-            else
-            {
-                body.SetActive(false);
-            }
-
+            OpenInventory();
         }
     }
 }

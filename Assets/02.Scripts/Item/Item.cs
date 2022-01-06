@@ -22,7 +22,6 @@ public class Item : ScriptableObject{
     public GameObject itemPrefab; // 아이템의 프리팹.
     public eItemType itemType;   // 아이템 타입(장비,소모품,기타)
 
-   
 
     public Item(int _itemID, string _itemName, string _itemDes, eItemType _itemType, int _itemCount = 1)
     {

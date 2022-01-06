@@ -2956,7 +2956,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 638092687}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuCtrl, Assembly-CSharp
         m_MethodName: Sounds
         m_Mode: 6
@@ -6085,7 +6085,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 638092687}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuCtrl, Assembly-CSharp
         m_MethodName: ScreenSetting
         m_Mode: 6
@@ -7947,69 +7947,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 636884302}
   m_Mesh: {fileID: 4300000, guid: fa49c75d9f552b44da0b8528454f5470, type: 3}
---- !u!1 &638092685
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 638092688}
-  - component: {fileID: 638092687}
-  - component: {fileID: 638092686}
-  m_Layer: 0
-  m_Name: MenuCtrl
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &638092686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 638092685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7f3d66384c02cf428bd984f6818cd30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direction_light: {fileID: 1216859510}
-  DropDown: {fileID: 1537378794}
---- !u!114 &638092687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 638092685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6638348330264b54aafcb7120b127557, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PauseImage: {fileID: 2138476686}
-  PauseMenu: {fileID: 735035772}
-  SoundMenu: {fileID: 837846807}
-  ScreenMenu: {fileID: 1567404584}
-  PlayerObj: {fileID: 0}
---- !u!4 &638092688
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 638092685}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 484.5, y: 214, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &639299890 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 432034, guid: ab62650cacde7b0418ed7bae8ee0b771, type: 3}
@@ -9350,7 +9287,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 638092687}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuCtrl, Assembly-CSharp
         m_MethodName: Pause
         m_Mode: 1
@@ -15455,6 +15392,69 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7300112281970868074, guid: 13abab9026a96f042bcf7fb8bce80131, type: 3}
   m_PrefabInstance: {fileID: 981906320}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1203345182
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1203345185}
+  - component: {fileID: 1203345184}
+  - component: {fileID: 1203345183}
+  m_Layer: 0
+  m_Name: MenuCtrl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1203345183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203345182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7f3d66384c02cf428bd984f6818cd30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction_light: {fileID: 1216859510}
+  DropDown: {fileID: 1537378794}
+--- !u!114 &1203345184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203345182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6638348330264b54aafcb7120b127557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PauseImage: {fileID: 2138476686}
+  PauseMenu: {fileID: 735035772}
+  SoundMenu: {fileID: 837846807}
+  ScreenMenu: {fileID: 1567404584}
+  PlayerObj: {fileID: 0}
+--- !u!4 &1203345185
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203345182}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.105738, y: -1.8866482, z: 0.20993376}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1207541007
 GameObject:
   m_ObjectHideFlags: 0
@@ -15628,7 +15628,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216859510}
   m_LocalRotation: {x: 0.3070728, y: 0.41749135, z: -0.26599252, w: 0.8128071}
-  m_LocalPosition: {x: 0, y: 5.9, z: 2.5}
+  m_LocalPosition: {x: 1.07, y: 5.53, z: 0.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -17159,7 +17159,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 638092687}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuCtrl, Assembly-CSharp
         m_MethodName: Pause
         m_Mode: 1
@@ -20358,7 +20358,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1556675610 stripped
 Transform:
@@ -24721,7 +24721,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 638092687}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuCtrl, Assembly-CSharp
         m_MethodName: ScreenSetting
         m_Mode: 6
@@ -27324,7 +27324,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 638092687}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuCtrl, Assembly-CSharp
         m_MethodName: Sounds
         m_Mode: 6
