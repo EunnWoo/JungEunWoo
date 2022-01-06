@@ -67,7 +67,7 @@ public class ActionController : MonoBehaviour
     void IteminfoDisappear()
     {
         pickupActivated = false;
-       // actionText.gameObject.SetActive(false);
+        actionText.gameObject.SetActive(false);
     }
 
     private void TryAction()
