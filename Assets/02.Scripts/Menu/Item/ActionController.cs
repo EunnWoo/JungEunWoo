@@ -36,6 +36,8 @@ public class ActionController : MonoBehaviour
 
         Vector3 _dir = parentTrans.position - transform.position;
         dirDistance = _dir.magnitude;
+        actionText = GameObject.Find("Canvas").transform.Find("ShowText").GetComponent<Text>();
+        
     }
     void Update()
     {
