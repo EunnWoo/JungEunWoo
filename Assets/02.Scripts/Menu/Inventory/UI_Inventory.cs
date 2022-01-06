@@ -15,7 +15,7 @@ public class UI_Inventory : MonoBehaviour
     #endregion
     public List<InventorySlot> slotsEquip = new List<InventorySlot>();  //인벤토리 슬롯들
     public List<InventorySlot> slotsUse = new List<InventorySlot>();
-    public List<InventorySlot> slotsETC = new List<InventorySlot>(); 
+    public List<InventorySlot> slotsETC = new List<InventorySlot>();
 
     public Text Description_Text; //아이템에 대한 부연설명
     public string[] tabDescription; //탭 부연설명
@@ -36,45 +36,45 @@ public class UI_Inventory : MonoBehaviour
     // private InventorySlot inven;
     void Start()
     {
-        slotsEquip.AddRange (goEquipSlot.transform.GetChild(0).GetComponentsInChildren<InventorySlot>());
+        slotsEquip.AddRange(goEquipSlot.transform.GetChild(0).GetComponentsInChildren<InventorySlot>());
         slotsUse.AddRange(goUseSlot.transform.GetChild(0).GetComponentsInChildren<InventorySlot>());
         slotsETC.AddRange(goETCSlot.transform.GetChild(0).GetComponentsInChildren<InventorySlot>());
     }
 
-    
-    public void Invoke_SelectTab(int _kind) 
+
+    public void Invoke_SelectTab(int _kind)
     {
-         goEquipTab.SetActive(false);
-         goEquipSlot.SetActive(false);
-         goUseTab.SetActive(false);
-         goUseSlot.SetActive(false);
-         goETCTab.SetActive(false);
-         goETCSlot.SetActive(false);
+        goEquipTab.SetActive(false);
+        goEquipSlot.SetActive(false);
+        goUseTab.SetActive(false);
+        goUseSlot.SetActive(false);
+        goETCTab.SetActive(false);
+        goETCSlot.SetActive(false);
         switch (_kind)
         {
             case 0:
                 goEquipTab.gameObject.SetActive(true);
                 goEquipSlot.SetActive(true);
-                Description_Text.text = tabDescription[_kind];    
+                Description_Text.text = tabDescription[_kind];
 
 
                 break;
             case 1:
                 goUseTab.SetActive(true);
                 goUseSlot.SetActive(true);
-                Description_Text.text = tabDescription[_kind];   
+                Description_Text.text = tabDescription[_kind];
 
                 break;
             case 2:
                 goETCTab.SetActive(true);
                 goETCSlot.SetActive(true);
-                Description_Text.text = tabDescription[_kind];   
+                Description_Text.text = tabDescription[_kind];
 
                 break;
 
         }
-            
-    }  
+
+    }
     public void Invoke_Close()
     {
         body.SetActive(false);
@@ -109,7 +109,7 @@ public class UI_Inventory : MonoBehaviour
                     slotsEquip[_index].SetItem(_newItem);
                     _rtn = true;
                 }
-            break;
+                break;
 
             case eItemType.Use: //소비창
                 if (listUse.Count < MAX_EQUIP)
@@ -131,18 +131,18 @@ public class UI_Inventory : MonoBehaviour
                     _rtn = true;
                 }
 
-                break;          
+                break;
         }
         return _rtn;
     }
 
 
-   
+
 
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             AddItem(DatabaseManager.instance.GetItem(100001));
         }
@@ -154,18 +154,18 @@ public class UI_Inventory : MonoBehaviour
         {
             AddItem(DatabaseManager.instance.GetItem(300001));
         }
-        if (Input.GetKeyDown(KeyCode.I ))
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+
+            if (!body.activeSelf)
             {
-
-                if(!body.activeSelf)
-                {
-                    body.SetActive(true);  
-                }
-                else
-                {
-                    body.SetActive(false);
-                }
-
+                body.SetActive(true);
             }
+            else
+            {
+                body.SetActive(false);
+            }
+
+        }
     }
 }
