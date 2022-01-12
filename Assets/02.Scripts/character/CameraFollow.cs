@@ -6,9 +6,15 @@ public class CameraFollow : MonoBehaviour
 {
     [SerializeField]
     private Transform camera;
+    private DialogManager manager; 
+    void Start() {
+        manager = GameObject.Find("GameManager").GetComponent<DialogManager>();
+    }
     void Update()
     {
-        LookAround();
+        if(!manager.isAction){
+            LookAround();
+        }        
     }
     private void LookAround(){
        Vector2 mouseDelta = new Vector2(Input.GetAxis("Mouse X"),Input.GetAxis("Mouse Y"));
