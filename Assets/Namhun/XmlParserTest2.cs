@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.U2D;
+
 
 public class XmlParserTest2 : MonoBehaviour
 {
-    public SpriteAtlas attlas;
+    
     public List<ItemData> list = new List<ItemData>();
     void Start()
     {

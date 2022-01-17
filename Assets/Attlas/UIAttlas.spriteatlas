@@ -38,12 +38,14 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 963a4a43983994b44b9b704505fd1a3f, type: 3}
+  - {fileID: 21300000, guid: 41abdf3a8c39ff84bbf9c571392c7adf, type: 3}
   - {fileID: 21300000, guid: 76bf8a4a17e1449489753eba8b678dac, type: 3}
   - {fileID: 21300000, guid: 5b1cbecabddd7bb46823e853e706fdfc, type: 3}
   - {fileID: 21300000, guid: a923afbc4224f814f9247434b1d82171, type: 3}
   - {fileID: 21300000, guid: 72513f3ef4e09f04db5696c285c74e2c, type: 3}
   m_PackedSpriteNamesToIndex:
   - 10002
+  - Npc_Face
   - 10001
   - 20001
   - 20003
