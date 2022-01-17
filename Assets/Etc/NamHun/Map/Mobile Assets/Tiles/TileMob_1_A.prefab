@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &426002
 Transform:
   m_ObjectHideFlags: 0
@@ -92,10 +92,10 @@ GameObject:
   - component: {fileID: 482800}
   - component: {fileID: 3348112}
   - component: {fileID: 2394088}
-  - component: {fileID: 6491176}
+  - component: {fileID: 8525129896434049623}
   m_Layer: 0
   m_Name: TileMob_1_A
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -164,7 +164,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6491176
+--- !u!64 &8525129896434049623
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -15,7 +15,7 @@ MonoBehaviour:
   itemID: 20001
   itemName: "\uC591\uC190\uAC80"
   itemDescription: "\uC591\uC190\uC73C\uB85C \uC950\uB294 \uAC80"
-  itemCount: 0
+  itemCount: 1
   itemIcon: {fileID: 21300000, guid: 5b1cbecabddd7bb46823e853e706fdfc, type: 3}
   itemPrefab: {fileID: 7551559358133591340, guid: bf5617390a676fc478be08d30fabde69, type: 3}
   itemType: 1
