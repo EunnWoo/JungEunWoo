@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89506badff817f640a982239ede64753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkRange: 0.3
+  checkRange: 0.5
   checkRadius: 0.6
   parentTrans: {fileID: 5657571041974570090}
   screenCenter: {x: 0.5, y: 0.6, z: 0}
@@ -349,6 +349,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5657571042990092109}
     m_Modifications:
+    - target: {fileID: 8287221629447647258, guid: a3a5c54b935136a47a5b6f6de372652a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.477
+      objectReference: {fileID: 0}
     - target: {fileID: 8287221630021940156, guid: a3a5c54b935136a47a5b6f6de372652a, type: 3}
       propertyPath: m_Name
       value: Magician
