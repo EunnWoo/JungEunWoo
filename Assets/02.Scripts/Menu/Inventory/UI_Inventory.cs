@@ -29,9 +29,9 @@ public class UI_Inventory : MonoBehaviour
     public GameObject body;
 
     public int MAX_EQUIP = 20;
-    public List<Item> listEquip = new List<Item>();
-    public List<Item> listUse = new List<Item>();
-    public List<Item> listETC = new List<Item>();
+    public List<ItemData> listEquip = new List<ItemData>();
+    public List<ItemData> listUse = new List<ItemData>();
+    public List<ItemData> listETC = new List<ItemData>();
 
     // private InventorySlot inven;
     void Start()
@@ -98,19 +98,20 @@ public class UI_Inventory : MonoBehaviour
 
     }
 
-    public bool AddItem(Item _newItem)
+    public bool AddItem(int _itemcode)
     {
+        ItemData _itemData = new ItemData(_itemcode);
         int _index = -1;
         bool _rtn = false;
-        switch (_newItem.itemType)    //탭 에따른 아이템 분류, 그것을 인벤토리 탭 리스트에 추가
+        switch (_itemData.itemType)    //탭 에따른 아이템 분류, 그것을 인벤토리 탭 리스트에 추가
         {
             case eItemType.Equip: //장비창
                 if (listEquip.Count < MAX_EQUIP)
                 {
-                    listEquip.Add(_newItem);
+                    listEquip.Add(_itemData);
                     _index = listEquip.Count - 1;
                     Debug.Log("장비: " + _index);
-                    slotsEquip[_index].SetItem(_newItem);
+                    slotsEquip[_index].SetItem(_itemData);
                     _rtn = true;
                 }
                 break;
@@ -118,10 +119,10 @@ public class UI_Inventory : MonoBehaviour
             case eItemType.Use: //소비창
                 if (listUse.Count < MAX_EQUIP)
                 {
-                    listUse.Add(_newItem);
+                    listUse.Add(_itemData);
                     _index = listUse.Count - 1;
                     Debug.Log("소비: " + _index);
-                    slotsUse[_index].SetItem(_newItem);
+                    slotsUse[_index].SetItem(_itemData);
                     _rtn = true;
                 }
                 break;
@@ -129,9 +130,9 @@ public class UI_Inventory : MonoBehaviour
             case eItemType.ETC: //기타창
                 if (listETC.Count < MAX_EQUIP)
                 {
-                    listETC.Add(_newItem);
+                    listETC.Add(_itemData);
                     _index = listETC.Count - 1;
-                    slotsETC[_index].SetItem(_newItem);
+                    slotsETC[_index].SetItem(_itemData);
                     _rtn = true;
                 }
 
@@ -148,16 +149,13 @@ public class UI_Inventory : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            AddItem(DatabaseManager.instance.GetItem(100001));
+            AddItem(20001);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            AddItem(DatabaseManager.instance.GetItem(200001));
+            AddItem(20002);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            AddItem(DatabaseManager.instance.GetItem(300001));
-        }
+        
         if (Input.GetKeyDown(KeyCode.I))
         {
             OpenInventory();

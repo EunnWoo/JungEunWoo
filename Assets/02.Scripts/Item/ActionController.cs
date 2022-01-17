@@ -83,7 +83,7 @@ public class ActionController : MonoBehaviour
                 IteminfoDisappear();
 
                 //인벤토리에 넣어주기
-                UI_Inventory.ins.AddItem(_Pick.GetItem());
+                //UI_Inventory.ins.AddItem(_Pick.GetItem());
                 Destroy(hitInfo.transform.gameObject);
             }
         }

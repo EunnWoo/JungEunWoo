@@ -12,13 +12,13 @@ public class InventorySlot : MonoBehaviour
             itemCount.gameObject.SetActive(false);
         }
     }
-    public Item item;
+    public ItemData item;
     public Image icon;
     public Text itemCount;
-    public void SetItem(Item _item)
+    public void SetItem(ItemData _item)
     {
         item = _item;
-        icon.sprite = item.itemIcon;
+        icon.sprite = ItemInfo.ins.GetItemInfoSpriteIcon(_item.itemcode);
         if (item.itemCount <= 1)
         {
             itemCount.gameObject.SetActive(false);
@@ -29,27 +29,4 @@ public class InventorySlot : MonoBehaviour
             itemCount.text = "x" + item.itemCount;
         }
     }
-
-
-    //    public Image icon;
-    //    public Text itemCount_Text;
-    //    public GameObject selected_Item;
-
-    //    public void Additem(Item _item)
-    //    {
-    //        icon.sprite = _item.itemIcon;
-    //        if(eItemType.Use == _item.itemType)
-    //        {
-    //        if(_item.itemCount >0)
-    //        itemCount_Text.text = "x" + _item.itemCount.ToString();
-    //        else
-    //        itemCount_Text.text = "";
-    //        }
-    //    }
-
-    //    public void RemoveItem()
-    //    {
-    //        itemCount_Text.text = "";
-    //        icon.sprite = null;
-    //    }
 }
