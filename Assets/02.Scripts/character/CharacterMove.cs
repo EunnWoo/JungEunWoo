@@ -91,7 +91,7 @@ public class CharacterMove : MonoBehaviourPun
         ani.SetBool("IsLeft", isLeft && vAxis == 0f);
         ani.SetBool("IsRight", isRight && vAxis == 0f);
         ani.SetFloat("vAxis", vAxis, 0.2f, Time.deltaTime);
-        ani.SetBool("IsRun", isRun && !isBack && vAxis != 0f && hAxis != 0f);
+        ani.SetBool("IsRun", isRun && !isBack && vAxis != 0f);
         if (isRoll && isGround)
         {
             ani.SetTrigger("IsRoll");
@@ -99,7 +99,7 @@ public class CharacterMove : MonoBehaviourPun
     }
     private void Jump()
     {
-        characterrigid.AddForce(Vector3.up * 5, ForceMode.Impulse);
+        characterrigid.AddForce(Vector3.up * 13, ForceMode.Impulse);
         ani.SetBool("IsJump", true);
     }
     private void OnTriggerStay(Collider other)

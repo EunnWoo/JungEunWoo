@@ -218,6 +218,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 32117302}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &33285414
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 33285416}
+  - component: {fileID: 33285415}
+  m_Layer: 0
+  m_Name: QuestManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &33285415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33285414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f465b9b89651c804a975be0412a9ec63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questId: 10
+  questActionIndex: 0
+--- !u!4 &33285416
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33285414}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.385233, y: -0.3755796, z: 0.7193394}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &93525762
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,6 +546,110 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &315143828
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7184805044447416128, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+      propertyPath: m_Name
+      value: NPC 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184805044447416130, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184805044447416130, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184805044447416130, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.9391322
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184805044447416130, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184805044447416130, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184805044447416130, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184805044447416130, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184805044447416130, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184805044447416130, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184805044447416130, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184805044447416130, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184805044447416131, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'goggle'\n\tTransform 'goggle'\n\tFrom animation
+        clip 'Idle_noWeapon'\n\tFrom animation clip 'PickUp_noWeapon'\n\tFrom animation
+        clip 'PotionDrink_noWeapon'\n\tFrom animation clip 'Sleep_noWeapon'\n\tFrom
+        animation clip 'Idle_noWeapon'\n\tFrom animation clip 'JumpStart_noWeapon'\n\tFrom
+        animation clip 'JumpAir_noWeapon'\n\tFrom animation clip 'JumpEnd_noWeapon'\n\tFrom
+        animation clip 'Idle_noWeapon'\n\tFrom animation clip 'NormalRun_noWeapon'\n\tand
+        more ..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184805044989549338, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184805045422780612, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184805045861970731, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184805046280474782, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+--- !u!1 &315143829 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7184805044447416128, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+  m_PrefabInstance: {fileID: 315143828}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &315143830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315143829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c7889f02eb80634fb5f407765e18163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 2000
+  isNpc: 0
 --- !u!1 &324160717
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,6 +1076,81 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1000
   isNpc: 0
+--- !u!1 &610740641
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 610740642}
+  - component: {fileID: 610740644}
+  - component: {fileID: 610740643}
+  m_Layer: 5
+  m_Name: NpcFace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &610740642
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610740641}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1860217722}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -100, y: -50}
+  m_SizeDelta: {x: 200, y: 200}
+  m_Pivot: {x: 1, y: 1}
+--- !u!114 &610740643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610740641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 41abdf3a8c39ff84bbf9c571392c7adf, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &610740644
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610740641}
+  m_CullTransparentMesh: 1
 --- !u!1001 &636042711
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -941,6 +1165,18 @@ PrefabInstance:
     - target: {fileID: 4431993696651341276, guid: 9463bbab58cb27243b3d7aa88236670a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.477
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431993696956804729, guid: 9463bbab58cb27243b3d7aa88236670a, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'goggle'\n\tTransform 'goggle'\n\tFrom animation
+        clip 'Run_MagicWand'\n\tFrom animation clip 'WalkBack_MagicWand'\n\tFrom
+        animation clip 'Idle_MagicWand'\n\tFrom animation clip 'Walk_MagicWand'\n\tFrom
+        animation clip 'WalkLeft_MagicWand'\n\tFrom animation clip 'WalkRight_MagicWand'\n\tFrom
+        animation clip 'JumpStart_MagicWand'\n\tFrom animation clip 'JumpEnd_MagicWand'\n\tFrom
+        animation clip 'JumpAir_MagicWand'\n\tFrom animation clip 'Roll_MagicWand'\n\tand
+        more ..."
       objectReference: {fileID: 0}
     - target: {fileID: 5657571042990092107, guid: 9463bbab58cb27243b3d7aa88236670a, type: 3}
       propertyPath: m_Name
@@ -1010,7 +1246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &653799712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1882,7 +2118,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   talkManager: {fileID: 0}
+  questManager: {fileID: 33285415}
   dialogPanel: {fileID: 653799711}
+  portraitImg: {fileID: 0}
   talkText: {fileID: 385317091}
   nameText: {fileID: 1309568530}
   NPC: {fileID: 0}
@@ -2830,6 +3068,7 @@ RectTransform:
   - {fileID: 385317090}
   - {fileID: 1309568529}
   - {fileID: 356848433}
+  - {fileID: 610740642}
   m_Father: {fileID: 653799715}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3566,6 +3805,22 @@ PrefabInstance:
     - target: {fileID: 7184805044447416130, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184805044989549338, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184805045422780612, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184805045861970731, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184805046280474782, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}

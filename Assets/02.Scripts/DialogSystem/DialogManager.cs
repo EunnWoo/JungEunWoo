@@ -6,7 +6,9 @@ public class DialogManager : MonoBehaviour
 {
     [SerializeField]
     private TalkManager talkManager;
+    public QuestManager questManager;
     public GameObject dialogPanel;
+    public Image portraitImg;//Npc 얼굴
     public Text talkText;
     public Text nameText;
     public GameObject NPC;
@@ -25,18 +27,22 @@ public class DialogManager : MonoBehaviour
     }
     void Talk(int id, bool isNpc)
     {
-        string talkData = talkManager.GetTalk(id, talkIndex);
-        if(talkData == null){
+        int questTalkIndex = questManager.GetQuestTalkIndex(id);
+        string talkData = talkManager.GetTalk(id + questTalkIndex, talkIndex);
+        if(talkData == null){//End Talk
             isAction = false;
             talkIndex = 0;
+            Debug.Log(questManager.CheckQuest(id));
             return;
         }
 
         if(isNpc){
             talkText.text = talkData;
+            //portraitImg.color = new Color(1,1,1,1);
         }
         else{
             talkText.text = talkData;
+            //portraitImg.color = new Color(1,1,1,0);
         }
         isAction = true;
         talkIndex++;
