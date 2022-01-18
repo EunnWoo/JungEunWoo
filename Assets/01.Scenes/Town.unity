@@ -482,7 +482,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sword
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4704428597030141153, guid: bf5617390a676fc478be08d30fabde69, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bf5617390a676fc478be08d30fabde69, type: 3}
 --- !u!4 &30590416 stripped
 Transform:
@@ -6635,7 +6636,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemcode: 20003
   count: 1
-  item:
+  itemData:
     itemcode: 0
     iteminfoBase:
       itemcode: 0
@@ -8331,7 +8332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemcode: 20001
   count: 1
-  item:
+  itemData:
     itemcode: 0
     iteminfoBase:
       itemcode: 0
@@ -10059,7 +10060,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemcode: 20001
   count: 1
-  item:
+  itemData:
     itemcode: 0
     iteminfoBase:
       itemcode: 0
@@ -14544,7 +14545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemcode: 20002
   count: 1
-  item:
+  itemData:
     itemcode: 0
     iteminfoBase:
       itemcode: 0
@@ -24577,7 +24578,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemcode: 20001
   count: 1
-  item:
+  itemData:
     itemcode: 0
     iteminfoBase:
       itemcode: 0
@@ -26362,7 +26363,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6472179209224097345, guid: a4389909293e61141a72099ba9c5e1bd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a4389909293e61141a72099ba9c5e1bd, type: 3}
 --- !u!4 &1908165027 stripped
 Transform:
