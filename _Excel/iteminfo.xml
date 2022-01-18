@@ -67,72 +67,6 @@
 		<plushp>0</plushp>
 	</wearpart>
 	<wearpart>
-		<itemcode>20004</itemcode>
-		<category>1</category>
-		<subcategory>1</subcategory>
-		<equpslot>1</equpslot>
-		<itemname>은 헬멧</itemname>
-		<activate>0</activate>
-		<toplist>0</toplist>
-		<grade>0</grade>
-		<discount>0</discount>
-		<icon>20004</icon>
-		<playerlv>0</playerlv>
-		<multistate>0</multistate>
-		<gamecost>0</gamecost>
-		<cashcost>0</cashcost>
-		<buyamount>1</buyamount>
-		<sellcost>0</sellcost>
-		<description>은 조각으로 조합한 장비</description>
-		<plusatt>40</plusatt>
-		<plusdef>0</plusdef>
-		<plushp>0</plushp>
-	</wearpart>
-	<wearpart>
-		<itemcode>20005</itemcode>
-		<category>1</category>
-		<subcategory>1</subcategory>
-		<equpslot>1</equpslot>
-		<itemname>금 헬멧</itemname>
-		<activate>0</activate>
-		<toplist>0</toplist>
-		<grade>0</grade>
-		<discount>0</discount>
-		<icon>20005</icon>
-		<playerlv>0</playerlv>
-		<multistate>0</multistate>
-		<gamecost>0</gamecost>
-		<cashcost>0</cashcost>
-		<buyamount>1</buyamount>
-		<sellcost>0</sellcost>
-		<description>금 조각으로 조합한 장비</description>
-		<plusatt>50</plusatt>
-		<plusdef>0</plusdef>
-		<plushp>0</plushp>
-	</wearpart>
-	<wearpart>
-		<itemcode>20006</itemcode>
-		<category>1</category>
-		<subcategory>1</subcategory>
-		<equpslot>1</equpslot>
-		<itemname>티타늄 헬멧</itemname>
-		<activate>0</activate>
-		<toplist>0</toplist>
-		<grade>0</grade>
-		<discount>0</discount>
-		<icon>20006</icon>
-		<playerlv>0</playerlv>
-		<multistate>0</multistate>
-		<gamecost>0</gamecost>
-		<cashcost>0</cashcost>
-		<buyamount>1</buyamount>
-		<sellcost>0</sellcost>
-		<description>티타늄 조각으로 조합한 장비</description>
-		<plusatt>60</plusatt>
-		<plusdef>0</plusdef>
-		<plushp>0</plushp>
-	</wearpart>
-	<wearpart>
 		<itemcode>200</itemcode>
 		<category>1</category>
 		<subcategory>2</subcategory>
@@ -398,7 +332,7 @@
 	</wearpart>
 	<usepart>
 		<itemcode>10001</itemcode>
-		<category>40</category>
+		<category>2</category>
 		<subcategory>40</subcategory>
 		<equpslot>3</equpslot>
 		<itemname>빨간 포션</itemname>
@@ -406,18 +340,20 @@
 		<toplist>0</toplist>
 		<grade>1</grade>
 		<discount>0</discount>
-		<icon>box01</icon>
+		<icon>10001</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
 		<gamecost>0</gamecost>
 		<cashcost>300</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
-		<description>돌 조각의상 52종 중 랜덤 하나</description>
+		<description>HP를 100회복</description>
+		<hp>100</hp>
+		<mp>0</mp>
 	</usepart>
 	<usepart>
 		<itemcode>10002</itemcode>
-		<category>40</category>
+		<category>2</category>
 		<subcategory>40</subcategory>
 		<equpslot>3</equpslot>
 		<itemname>파란 포션</itemname>
@@ -425,343 +361,37 @@
 		<toplist>0</toplist>
 		<grade>2</grade>
 		<discount>0</discount>
-		<icon>box02</icon>
+		<icon>10002</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
 		<gamecost>0</gamecost>
 		<cashcost>1000</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
-		<description>동 조각의상 52종이나 응원의 소리 중 랜덤 하나</description>
+		<description>MP를 100회복</description>
+		<hp>0</hp>
+		<mp>100</mp>
 	</usepart>
-	<levelupreward>
-		<itemcode>51000</itemcode>
-		<category>510</category>
+	<etcpart>
+		<itemcode>30001</itemcode>
+		<category>3</category>
 		<subcategory>510</subcategory>
 		<equpslot>60</equpslot>
-		<itemname>레벨업보상1</itemname>
+		<itemname>기타템1</itemname>
 		<activate>0</activate>
 		<toplist>0</toplist>
 		<grade>1</grade>
 		<discount>0</discount>
-		<icon>orderxx1</icon>
+		<icon>10001</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
 		<gamecost>0</gamecost>
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>1</sellcost>
-		<description>없음</description>
+		<description>기타템1</description>
 		<lvup>10</lvup>
 		<lvupitem>4000</lvupitem>
 		<lvupitemcnt>1</lvupitemcnt>
-	</levelupreward>
-	<levelupreward>
-		<itemcode>51001</itemcode>
-		<category>510</category>
-		<subcategory>510</subcategory>
-		<equpslot>60</equpslot>
-		<itemname>레벨업보상2</itemname>
-		<activate>0</activate>
-		<toplist>0</toplist>
-		<grade>1</grade>
-		<discount>0</discount>
-		<icon>orderxx1</icon>
-		<playerlv>0</playerlv>
-		<multistate>0</multistate>
-		<gamecost>0</gamecost>
-		<cashcost>0</cashcost>
-		<buyamount>1</buyamount>
-		<sellcost>1</sellcost>
-		<description>없음</description>
-		<lvup>20</lvup>
-		<lvupitem>4000</lvupitem>
-		<lvupitemcnt>1</lvupitemcnt>
-	</levelupreward>
-	<levelupreward>
-		<itemcode>51002</itemcode>
-		<category>510</category>
-		<subcategory>510</subcategory>
-		<equpslot>60</equpslot>
-		<itemname>레벨업보상3</itemname>
-		<activate>0</activate>
-		<toplist>0</toplist>
-		<grade>1</grade>
-		<discount>0</discount>
-		<icon>orderxx1</icon>
-		<playerlv>0</playerlv>
-		<multistate>0</multistate>
-		<gamecost>0</gamecost>
-		<cashcost>0</cashcost>
-		<buyamount>1</buyamount>
-		<sellcost>1</sellcost>
-		<description>없음</description>
-		<lvup>30</lvup>
-		<lvupitem>4000</lvupitem>
-		<lvupitemcnt>1</lvupitemcnt>
-	</levelupreward>
-	<levelupreward>
-		<itemcode>51003</itemcode>
-		<category>510</category>
-		<subcategory>510</subcategory>
-		<equpslot>60</equpslot>
-		<itemname>레벨업보상4</itemname>
-		<activate>0</activate>
-		<toplist>0</toplist>
-		<grade>1</grade>
-		<discount>0</discount>
-		<icon>orderxx1</icon>
-		<playerlv>0</playerlv>
-		<multistate>0</multistate>
-		<gamecost>0</gamecost>
-		<cashcost>0</cashcost>
-		<buyamount>1</buyamount>
-		<sellcost>1</sellcost>
-		<description>없음</description>
-		<lvup>40</lvup>
-		<lvupitem>4000</lvupitem>
-		<lvupitemcnt>2</lvupitemcnt>
-	</levelupreward>
-	<levelupreward>
-		<itemcode>51004</itemcode>
-		<category>510</category>
-		<subcategory>510</subcategory>
-		<equpslot>60</equpslot>
-		<itemname>레벨업보상5</itemname>
-		<activate>0</activate>
-		<toplist>0</toplist>
-		<grade>1</grade>
-		<discount>0</discount>
-		<icon>orderxx1</icon>
-		<playerlv>0</playerlv>
-		<multistate>0</multistate>
-		<gamecost>0</gamecost>
-		<cashcost>0</cashcost>
-		<buyamount>1</buyamount>
-		<sellcost>1</sellcost>
-		<description>없음</description>
-		<lvup>50</lvup>
-		<lvupitem>4000</lvupitem>
-		<lvupitemcnt>2</lvupitemcnt>
-	</levelupreward>
-	<levelupreward>
-		<itemcode>51005</itemcode>
-		<category>510</category>
-		<subcategory>510</subcategory>
-		<equpslot>60</equpslot>
-		<itemname>레벨업보상6</itemname>
-		<activate>0</activate>
-		<toplist>0</toplist>
-		<grade>1</grade>
-		<discount>0</discount>
-		<icon>orderxx1</icon>
-		<playerlv>0</playerlv>
-		<multistate>0</multistate>
-		<gamecost>0</gamecost>
-		<cashcost>0</cashcost>
-		<buyamount>1</buyamount>
-		<sellcost>1</sellcost>
-		<description>없음</description>
-		<lvup>60</lvup>
-		<lvupitem>4000</lvupitem>
-		<lvupitemcnt>2</lvupitemcnt>
-	</levelupreward>
-	<levelupreward>
-		<itemcode>51006</itemcode>
-		<category>510</category>
-		<subcategory>510</subcategory>
-		<equpslot>60</equpslot>
-		<itemname>레벨업보상7</itemname>
-		<activate>0</activate>
-		<toplist>0</toplist>
-		<grade>1</grade>
-		<discount>0</discount>
-		<icon>orderxx1</icon>
-		<playerlv>0</playerlv>
-		<multistate>0</multistate>
-		<gamecost>0</gamecost>
-		<cashcost>0</cashcost>
-		<buyamount>1</buyamount>
-		<sellcost>1</sellcost>
-		<description>없음</description>
-		<lvup>70</lvup>
-		<lvupitem>4000</lvupitem>
-		<lvupitemcnt>3</lvupitemcnt>
-	</levelupreward>
-	<levelupreward>
-		<itemcode>51007</itemcode>
-		<category>510</category>
-		<subcategory>510</subcategory>
-		<equpslot>60</equpslot>
-		<itemname>레벨업보상8</itemname>
-		<activate>0</activate>
-		<toplist>0</toplist>
-		<grade>1</grade>
-		<discount>0</discount>
-		<icon>orderxx1</icon>
-		<playerlv>0</playerlv>
-		<multistate>0</multistate>
-		<gamecost>0</gamecost>
-		<cashcost>0</cashcost>
-		<buyamount>1</buyamount>
-		<sellcost>1</sellcost>
-		<description>없음</description>
-		<lvup>80</lvup>
-		<lvupitem>4000</lvupitem>
-		<lvupitemcnt>3</lvupitemcnt>
-	</levelupreward>
-	<levelupreward>
-		<itemcode>51008</itemcode>
-		<category>510</category>
-		<subcategory>510</subcategory>
-		<equpslot>60</equpslot>
-		<itemname>레벨업보상9</itemname>
-		<activate>0</activate>
-		<toplist>0</toplist>
-		<grade>1</grade>
-		<discount>0</discount>
-		<icon>orderxx1</icon>
-		<playerlv>0</playerlv>
-		<multistate>0</multistate>
-		<gamecost>0</gamecost>
-		<cashcost>0</cashcost>
-		<buyamount>1</buyamount>
-		<sellcost>1</sellcost>
-		<description>없음</description>
-		<lvup>90</lvup>
-		<lvupitem>4000</lvupitem>
-		<lvupitemcnt>3</lvupitemcnt>
-	</levelupreward>
-	<levelupreward>
-		<itemcode>51009</itemcode>
-		<category>510</category>
-		<subcategory>510</subcategory>
-		<equpslot>60</equpslot>
-		<itemname>레벨업보상10</itemname>
-		<activate>0</activate>
-		<toplist>0</toplist>
-		<grade>1</grade>
-		<discount>0</discount>
-		<icon>orderxx1</icon>
-		<playerlv>0</playerlv>
-		<multistate>0</multistate>
-		<gamecost>0</gamecost>
-		<cashcost>0</cashcost>
-		<buyamount>1</buyamount>
-		<sellcost>1</sellcost>
-		<description>없음</description>
-		<lvup>100</lvup>
-		<lvupitem>4000</lvupitem>
-		<lvupitemcnt>4</lvupitemcnt>
-	</levelupreward>
-	<levelupreward>
-		<itemcode>51010</itemcode>
-		<category>510</category>
-		<subcategory>510</subcategory>
-		<equpslot>60</equpslot>
-		<itemname>레벨업보상11</itemname>
-		<activate>0</activate>
-		<toplist>0</toplist>
-		<grade>1</grade>
-		<discount>0</discount>
-		<icon>orderxx1</icon>
-		<playerlv>0</playerlv>
-		<multistate>0</multistate>
-		<gamecost>0</gamecost>
-		<cashcost>0</cashcost>
-		<buyamount>1</buyamount>
-		<sellcost>1</sellcost>
-		<description>없음</description>
-		<lvup>110</lvup>
-		<lvupitem>4000</lvupitem>
-		<lvupitemcnt>4</lvupitemcnt>
-	</levelupreward>
-	<levelupreward>
-		<itemcode>51011</itemcode>
-		<category>510</category>
-		<subcategory>510</subcategory>
-		<equpslot>60</equpslot>
-		<itemname>레벨업보상12</itemname>
-		<activate>0</activate>
-		<toplist>0</toplist>
-		<grade>1</grade>
-		<discount>0</discount>
-		<icon>orderxx1</icon>
-		<playerlv>0</playerlv>
-		<multistate>0</multistate>
-		<gamecost>0</gamecost>
-		<cashcost>0</cashcost>
-		<buyamount>1</buyamount>
-		<sellcost>1</sellcost>
-		<description>없음</description>
-		<lvup>120</lvup>
-		<lvupitem>4000</lvupitem>
-		<lvupitemcnt>4</lvupitemcnt>
-	</levelupreward>
-	<levelupreward>
-		<itemcode>51012</itemcode>
-		<category>510</category>
-		<subcategory>510</subcategory>
-		<equpslot>60</equpslot>
-		<itemname>레벨업보상13</itemname>
-		<activate>0</activate>
-		<toplist>0</toplist>
-		<grade>1</grade>
-		<discount>0</discount>
-		<icon>orderxx1</icon>
-		<playerlv>0</playerlv>
-		<multistate>0</multistate>
-		<gamecost>0</gamecost>
-		<cashcost>0</cashcost>
-		<buyamount>1</buyamount>
-		<sellcost>1</sellcost>
-		<description>없음</description>
-		<lvup>130</lvup>
-		<lvupitem>4100</lvupitem>
-		<lvupitemcnt>1</lvupitemcnt>
-	</levelupreward>
-	<levelupreward>
-		<itemcode>51013</itemcode>
-		<category>510</category>
-		<subcategory>510</subcategory>
-		<equpslot>60</equpslot>
-		<itemname>레벨업보상14</itemname>
-		<activate>0</activate>
-		<toplist>0</toplist>
-		<grade>1</grade>
-		<discount>0</discount>
-		<icon>orderxx1</icon>
-		<playerlv>0</playerlv>
-		<multistate>0</multistate>
-		<gamecost>0</gamecost>
-		<cashcost>0</cashcost>
-		<buyamount>1</buyamount>
-		<sellcost>1</sellcost>
-		<description>없음</description>
-		<lvup>140</lvup>
-		<lvupitem>4001</lvupitem>
-		<lvupitemcnt>1</lvupitemcnt>
-	</levelupreward>
-	<levelupreward>
-		<itemcode>51014</itemcode>
-		<category>510</category>
-		<subcategory>510</subcategory>
-		<equpslot>60</equpslot>
-		<itemname>레벨업보상15</itemname>
-		<activate>0</activate>
-		<toplist>0</toplist>
-		<grade>1</grade>
-		<discount>0</discount>
-		<icon>orderxx1</icon>
-		<playerlv>0</playerlv>
-		<multistate>0</multistate>
-		<gamecost>0</gamecost>
-		<cashcost>0</cashcost>
-		<buyamount>1</buyamount>
-		<sellcost>1</sellcost>
-		<description>없음</description>
-		<lvup>150</lvup>
-		<lvupitem>4001</lvupitem>
-		<lvupitemcnt>1</lvupitemcnt>
-	</levelupreward>
+	</etcpart>
 </rows>
