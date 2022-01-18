@@ -27,8 +27,9 @@ public class ItemData
 	public string itemName 
 	{
 		get 
-		{ 
-			return iteminfoBase.itemname;
+		{
+
+			return iteminfoBase != null ? iteminfoBase.itemname : "";
 		}
 	}
 

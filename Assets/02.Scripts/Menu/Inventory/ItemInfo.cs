@@ -25,8 +25,8 @@ public class ItemInfo : MonoBehaviour
         //wearpart\
         ParseWearPart(strItemInfo, "wearpart");
     }
-    #region wearpart
 
+    #region common data
     public string GetItemInfoIcon(int _itemcode)
     {
         string _rtn = null;
@@ -51,7 +51,9 @@ public class ItemInfo : MonoBehaviour
         }
         return _rtn;
     }
+    #endregion
 
+    #region wearpart
     public ItemInfoWearPart GetItemInfoWearPart(int _itemcode)
     {
         ItemInfoWearPart _rtn = null;
@@ -61,6 +63,7 @@ public class ItemInfo : MonoBehaviour
         }
         return _rtn;
     }
+
     void ParseWearPart(string _src, string _label)
     {
         //파트 이름으로 Parsing

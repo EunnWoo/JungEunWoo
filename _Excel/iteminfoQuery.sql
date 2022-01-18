@@ -74,11 +74,11 @@ values('wearpart', '305', '1', '3', '1', '티타늄 하의', '0', '0', '5', '0', '305
 GO
 
 insert into dbo.tItemInfo(labelname, itemcode, category, subcategory, equpslot, itemname, activate, toplist, grade, discount, icon, playerlv, multistate, gamecost, cashcost, buyamount, sellcost, description) 
-values('piecebox', '10001', '40', '40', '3', '빨간 포션', '0', '0', '1', '0', 'box01', '0', '0', '0', '300', '1', '0', '돌 조각의상 52종 중 랜덤 하나')
+values('usepart', '10001', '40', '40', '3', '빨간 포션', '1', '0', '1', '0', 'box01', '0', '0', '0', '300', '1', '0', '돌 조각의상 52종 중 랜덤 하나')
 GO
 
 insert into dbo.tItemInfo(labelname, itemcode, category, subcategory, equpslot, itemname, activate, toplist, grade, discount, icon, playerlv, multistate, gamecost, cashcost, buyamount, sellcost, description) 
-values('piecebox', '10002', '40', '40', '3', '파란 포션', '1', '0', '2', '0', 'box02', '0', '0', '0', '1000', '1', '0', '동 조각의상 52종이나 응원의 소리 중 랜덤 하나')
+values('usepart', '10002', '40', '40', '3', '파란 포션', '1', '0', '2', '0', 'box02', '0', '0', '0', '1000', '1', '0', '동 조각의상 52종이나 응원의 소리 중 랜덤 하나')
 GO
 
 insert into dbo.tItemInfo(labelname, itemcode, category, subcategory, equpslot, itemname, activate, toplist, grade, discount, icon, playerlv, multistate, gamecost, cashcost, buyamount, sellcost, description, param1, param2, param3) 

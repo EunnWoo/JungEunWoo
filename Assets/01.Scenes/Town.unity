@@ -482,6 +482,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sword
       objectReference: {fileID: 0}
+    - target: {fileID: 7551559358133591340, guid: bf5617390a676fc478be08d30fabde69, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4704428597030141153, guid: bf5617390a676fc478be08d30fabde69, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bf5617390a676fc478be08d30fabde69, type: 3}
@@ -2530,6 +2534,10 @@ PrefabInstance:
     - target: {fileID: 125176, guid: 9bfa651af0d3e52469944fdb4764eb39, type: 3}
       propertyPath: m_Name
       value: RedPotion
+      objectReference: {fileID: 0}
+    - target: {fileID: 125176, guid: 9bfa651af0d3e52469944fdb4764eb39, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 452362, guid: 9bfa651af0d3e52469944fdb4764eb39, type: 3}
       propertyPath: m_RootOrder
@@ -18291,6 +18299,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bow
       objectReference: {fileID: 0}
+    - target: {fileID: 197178, guid: 789a1120cd4f73b44b7dd706adea53d1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 418402, guid: 789a1120cd4f73b44b7dd706adea53d1, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -20765,6 +20777,10 @@ PrefabInstance:
     - target: {fileID: 137134, guid: b4764c369e0da174abc2f1da38219316, type: 3}
       propertyPath: m_Name
       value: Black_Slime_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 137134, guid: b4764c369e0da174abc2f1da38219316, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 453064, guid: b4764c369e0da174abc2f1da38219316, type: 3}
       propertyPath: m_RootOrder
@@ -26318,6 +26334,10 @@ PrefabInstance:
     - target: {fileID: 157278, guid: a4389909293e61141a72099ba9c5e1bd, type: 3}
       propertyPath: m_Name
       value: Wand
+      objectReference: {fileID: 0}
+    - target: {fileID: 157278, guid: a4389909293e61141a72099ba9c5e1bd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 426852, guid: a4389909293e61141a72099ba9c5e1bd, type: 3}
       propertyPath: m_RootOrder

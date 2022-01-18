@@ -396,13 +396,13 @@
 		<plusdef>1</plusdef>
 		<plushp>500</plushp>
 	</wearpart>
-	<piecebox>
+	<usepart>
 		<itemcode>10001</itemcode>
 		<category>40</category>
 		<subcategory>40</subcategory>
 		<equpslot>3</equpslot>
 		<itemname>빨간 포션</itemname>
-		<activate>0</activate>
+		<activate>1</activate>
 		<toplist>0</toplist>
 		<grade>1</grade>
 		<discount>0</discount>
@@ -414,8 +414,8 @@
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
 		<description>돌 조각의상 52종 중 랜덤 하나</description>
-	</piecebox>
-	<piecebox>
+	</usepart>
+	<usepart>
 		<itemcode>10002</itemcode>
 		<category>40</category>
 		<subcategory>40</subcategory>
@@ -433,7 +433,7 @@
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
 		<description>동 조각의상 52종이나 응원의 소리 중 랜덤 하나</description>
-	</piecebox>
+	</usepart>
 	<levelupreward>
 		<itemcode>51000</itemcode>
 		<category>510</category>
