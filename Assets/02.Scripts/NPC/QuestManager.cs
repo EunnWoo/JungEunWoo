@@ -6,6 +6,7 @@ public class QuestManager : MonoBehaviour
 {
     public int questId;
     public int questActionIndex = 0;
+    public GameObject[] gameObject;
     Dictionary<int,QuestData> quesetList;
     void Awake()
     {

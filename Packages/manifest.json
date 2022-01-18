@@ -1,9 +1,6 @@
 {
   "dependencies": {
-<<<<<<< HEAD
     "com.unity.2d.animation": "5.0.10",
-=======
->>>>>>> 32a6028ef3c6e68abc961170fc62d3aecdf786fc
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.cinemachine": "2.6.11",
     "com.unity.collab-proxy": "1.15.4",
