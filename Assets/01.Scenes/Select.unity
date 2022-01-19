@@ -477,6 +477,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   isNpc: 0
+--- !u!136 &42943362
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42943358}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 2
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1001 &94227046
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1439,7 +1453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4431993697379697830, guid: 9463bbab58cb27243b3d7aa88236670a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4431993698003509595, guid: 9463bbab58cb27243b3d7aa88236670a, type: 3}
       propertyPath: m_IsActive
@@ -2943,7 +2957,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &430004786
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3989,6 +4003,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   isNpc: 0
+--- !u!136 &540056545
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540056541}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 2
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &548430012
 GameObject:
   m_ObjectHideFlags: 0
@@ -10597,7 +10625,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1282032283
 RectTransform:
   m_ObjectHideFlags: 0

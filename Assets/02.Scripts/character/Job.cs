@@ -6,12 +6,15 @@ enum JobState { COMMON, BOW, SWORD, MAGIC }
 public class Job : MonoBehaviour
 {
     
-    private  JobState jobstate = JobState.COMMON;
-    private Animator animator;
+    private  JobState jobstate = JobState.COMMON; // 현재 전직 가능한 직업
+    private Animator animator;  //직업에 플레이어 애니메이터 변경
 
-    private GameObject equipWeapon;
+   // private GameObject equipWeapon;  // 
     public GameObject[] Weapons;  // 0 ,1  궁수 2,3 전사 법사 4
-   
+
+    private bool Bow = false;
+    private bool Sword = false;
+    private bool Magic = false;
     void Awake()
     {
         animator = GetComponent<Animator>();
@@ -19,9 +22,9 @@ public class Job : MonoBehaviour
 
     private void Update()
     {
-        if(jobstate != JobState.COMMON && Input.GetKeyDown(KeyCode.Space))
+        if(jobstate != JobState.COMMON && Input.GetKeyDown(KeyCode.Space) && (!Bow || !Sword || !Magic))
         {
-            JobChoice(jobstate);
+            JobChoice(jobstate); // 직업선택 함수
  
         }
     }
@@ -36,7 +39,7 @@ public class Job : MonoBehaviour
     {
         if (other.tag == "Npc")
         {
-            if (other.gameObject.GetComponent<ObjData>().id == 1)
+            if (other.gameObject.GetComponent<ObjData>().id == 1)  //objdata id 값이 1일떄 궁수
             {
                 jobstate = JobState.BOW;
             }
@@ -53,10 +56,22 @@ public class Job : MonoBehaviour
 
     void JobChoice(JobState state)  // 직업 활성화
     {
-        if(JobState.BOW == state)
+        if(JobState.BOW == state) // 궁수 전직
         {
+            Bow = true;
             Weapons[0].SetActive(true);
             Weapons[1].SetActive(true);
+        }
+        else if (JobState.SWORD == state) // 궁수 전직
+        {
+            Sword = true;
+            Weapons[2].SetActive(true);
+            Weapons[3].SetActive(true);
+        }
+        else if (JobState.MAGIC == state) // 법사 전직
+        {
+            Magic = true;
+            Weapons[4].SetActive(true);
         }
     }
 
