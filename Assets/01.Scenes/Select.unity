@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 4
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -3736,6 +3736,10 @@ PrefabInstance:
     - target: {fileID: 121372, guid: 8619ecaf83cc34c41be381a24345db09, type: 3}
       propertyPath: m_Name
       value: quiver
+      objectReference: {fileID: 0}
+    - target: {fileID: 121372, guid: 8619ecaf83cc34c41be381a24345db09, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 421372, guid: 8619ecaf83cc34c41be381a24345db09, type: 3}
       propertyPath: m_RootOrder
@@ -13960,6 +13964,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593722013}
   m_CullTransparentMesh: 0
+--- !u!1 &1599401173 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 121372, guid: 8619ecaf83cc34c41be381a24345db09, type: 3}
+  m_PrefabInstance: {fileID: 494745095}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1601032570
 GameObject:
   m_ObjectHideFlags: 0
@@ -14187,6 +14196,7 @@ MonoBehaviour:
   - {fileID: 1540106404}
   - {fileID: 1036720843}
   - {fileID: 656896096}
+  - {fileID: 1599401173}
   Bow: 0
   Sword: 0
   Magic: 0
