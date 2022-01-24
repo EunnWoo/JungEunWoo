@@ -65,6 +65,8 @@ public class Job : MonoBehaviour
             Bow = true;
             Weapons[0].SetActive(true);
             Weapons[1].SetActive(true);
+            Weapons[5].SetActive(true);
+            
         }
         else if (JobState.SWORD == state) // ±Ã¼ö ÀüÁ÷
         {
@@ -77,6 +79,7 @@ public class Job : MonoBehaviour
             Magic = true;
             Weapons[4].SetActive(true);
         }
+        animator.SetInteger("JobState", (int)state);
     }
 
 }

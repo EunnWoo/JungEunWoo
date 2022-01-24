@@ -37,9 +37,9 @@ public class Attack : MonoBehaviour
     {
         animator.SetTrigger("Attack");
 
-
-        yield return new WaitForSeconds(0.3f);
-        animator.SetTrigger("IsReload");
+        yield return null;
+       // yield return new WaitForSeconds(1.2f);
+        //animator.SetTrigger("IsReload");
 
     }
 }
