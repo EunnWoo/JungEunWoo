@@ -12,12 +12,16 @@ public class Job : MonoBehaviour
    // private GameObject equipWeapon;  // 
     public GameObject[] Weapons;  // 0 ,1  궁수 2,3 전사 법사 4
 
-    private bool Bow = false;
-    private bool Sword = false;
-    private bool Magic = false;
+    public bool Bow = false;
+    public bool Sword = false;
+    public bool Magic = false;
+
+    static public Job instance;
+
     void Awake()
     {
         animator = GetComponent<Animator>();
+        instance = this;
     }
 
     private void Update()
