@@ -67,7 +67,8 @@ public class CharacterMove : MonoBehaviourPun
     }
     public void Move()
     {
-        Vector2 moveInput = new Vector2(hAxis, vAxis).normalized * (isRun && !isBack ? 1.3f : 1f) * (!isBack ? 1f : 0.5f) * ((isLeft || isRight) && vAxis == 0f ? 0.7f : 1f);//이동을 하고 있는지 뛰면 속도가 1.3 뒤로가고있으면 원래 속도의 0.5
+        Vector2 moveInput = new Vector2(hAxis, vAxis).normalized * 
+            (isRun && !isBack ? 1.3f : 1f) * (!isBack ? 1f : 0.5f) * ((isLeft || isRight) && vAxis == 0f ? 0.7f : 1f);//이동을 하고 있는지 뛰면 속도가 1.3 뒤로가고있으면 원래 속도의 0.5
         bool isMove = moveInput.magnitude != 0;//움직이고 있는가?
         lookForward = new Vector3(camera.forward.x, 0f, camera.forward.z).normalized;//카메라가 보는 방향
         Vector3 lookRight = new Vector3(camera.right.x, 0f, camera.right.z).normalized;

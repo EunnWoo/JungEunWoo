@@ -20,7 +20,7 @@ public class Job : MonoBehaviour
 
     void Awake()
     {
-        animator = GetComponent<Animator>();
+        animator =GetComponentInChildren<Animator>();              //GetComponent<Animator>();
         instance = this;
     }
 
