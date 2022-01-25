@@ -93,17 +93,17 @@ public class CharacterMove : MonoBehaviourPun
         Vector3 lookRight = new Vector3(camera.right.x, 0f, camera.right.z).normalized;
         Vector3 moveDir = lookForward * moveInput.y + lookRight * moveInput.x;
 
-        if (vAxis != 0f && hAxis != 0f)//대각선 바라보기
-        {
-            if (hAxis * vAxis >= 0f)
-            {
-                lookForward = Quaternion.Euler(0, 45, 0) * lookForward;
-            }
-            else if (hAxis * vAxis < 0f)
-            {
-                lookForward = Quaternion.Euler(0, -45, 0) * lookForward;
-            }
-        }
+        //if (vAxis != 0f && hAxis != 0f)//대각선 바라보기
+        //{
+        //    if (hAxis * vAxis >= 0f)
+        //    {
+        //        lookForward = Quaternion.Euler(0, 45, 0) * lookForward;
+        //    }
+        //    else if (hAxis * vAxis < 0f)
+        //    {
+        //        lookForward = Quaternion.Euler(0, -45, 0) * lookForward;
+        //    }
+        //}
         //if(!isBack)
         characterBody.LookAt(characterBody.position + moveDir);
         //characterBody.rotation = Quaternion.Slerp(characterBody.rotation, , Time.deltaTime);
