@@ -91,7 +91,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf864f3266bd2824caa6afdeeece1dc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 0}
+  item:
+    itemcode: 0
+    iteminfoBase:
+      itemcode: 0
+      subcategory: 0
+      equpslot: 0
+      itemname: 
+      activate: 0
+      toplist: 0
+      grade: 0
+      discount: 0
+      icon: 
+      playerlv: 0
+      multistate: 0
+      gamecost: 0
+      cashcost: 0
+      buyamount: 0
+      sellcost: 0
+      description: 
+      itemType: 0
+    itemCount: 0
+    upgradeCount: 0
   icon: {fileID: 4947865148033927537}
   itemCount: {fileID: 4947865147997314216}
 --- !u!1 &4947865147997314214
@@ -152,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -166,13 +187,13 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: x 10
+  m_Text: 999
 --- !u!1 &4947865148033927503
 GameObject:
   m_ObjectHideFlags: 0
