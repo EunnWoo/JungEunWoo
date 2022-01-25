@@ -98,77 +98,41 @@ public class UI_Inventory : MonoBehaviour
 
     }
 
-    ItemData CheckItemData(List <ItemData>_list, ItemData _newItemData, out int _index)//동일한 아이템이 있는지 검사
+    public bool AddItem(int _itemcode)
     {
-        _index = -1;
-        foreach(ItemData _itemData in _list)
-        {
-            _index++;
-            if(_itemData.itemcode == _newItemData.itemcode)//아이템이 새로들어온게 현재에 있는 아이템과 같을경우
-            {
-                return _itemData;
-            }
-        }
-        return null;
-    }
-
-    public bool AddItemData(ItemData _itemDataNew)
-    {
-        
+        ItemData _itemData = new ItemData(_itemcode);
         int _index = -1;
         bool _rtn = false;
-        ItemData _itemDataOld = null;
-        switch (_itemDataNew.itemType)    //탭 에따른 아이템 분류, 그것을 인벤토리 탭 리스트에 추가
+        switch (_itemData.itemType)    //탭 에따른 아이템 분류, 그것을 인벤토리 탭 리스트에 추가
         {
-           case eItemType.Equip: //장비창
+            case eItemType.Equip: //장비창
                 if (listEquip.Count < MAX_EQUIP)
                 {
-                    listEquip.Add(_itemDataNew);
+                    listEquip.Add(_itemData);
                     _index = listEquip.Count - 1;
                     Debug.Log("장비: " + _index);
-                    slotsEquip[_index].SetItem(_itemDataNew);
+                    slotsEquip[_index].SetItem(_itemData);
                     _rtn = true;
                 }
                 break;
 
             case eItemType.Use: //소비창
-
-                //아이템리스트에서 같은 아이템이 있는지 검색해서 같은 아이템이 있으면 추가기능
-                _itemDataOld = CheckItemData(listUse, _itemDataNew, out _index);
-                if(_itemDataOld != null)
-                {//새로 얻은 아이템이 기존에 있는경우
-                    //기존값에 plus
-                    _itemDataOld.itemCount += _itemDataNew.itemCount;
-                    slotsUse[_index].ReDisplayCount();
-                    _rtn = true;
-
-                }
-
-                else if (listUse.Count < MAX_EQUIP)
-                {   //신규획득 할경우
-                    listUse.Add(_itemDataNew);
+                if (listUse.Count < MAX_EQUIP)
+                {
+                    listUse.Add(_itemData);
                     _index = listUse.Count - 1;
                     Debug.Log("소비: " + _index);
-                    slotsUse[_index].SetItem(_itemDataNew);
+                    slotsUse[_index].SetItem(_itemData);
                     _rtn = true;
                 }
                 break;
 
             case eItemType.ETC: //기타창
-                _itemDataOld = CheckItemData(listETC, _itemDataNew, out _index);
-                if (_itemDataOld != null)
-                {//새로 얻은 아이템이 기존에 있는경우
-                    //기존값에 plus
-                    _itemDataOld.itemCount += _itemDataNew.itemCount;
-                    slotsETC[_index].ReDisplayCount();
-                    _rtn = true;
-
-                }
-                else if (listETC.Count < MAX_EQUIP)
+                if (listETC.Count < MAX_EQUIP)
                 {
-                    listETC.Add(_itemDataNew);
+                    listETC.Add(_itemData);
                     _index = listETC.Count - 1;
-                    slotsETC[_index].SetItem(_itemDataNew);
+                    slotsETC[_index].SetItem(_itemData);
                     _rtn = true;
                 }
 
@@ -176,14 +140,9 @@ public class UI_Inventory : MonoBehaviour
         }
         return _rtn;
     }
-#if UNITY_EDITOR
-    #region 직접입력
 
-    public void AddItem(int _itemcode)
-    {
-        ItemData _itemData = new ItemData(_itemcode);
-        AddItemData(_itemData);
-    }
+
+
 
 
     void Update()
@@ -202,7 +161,4 @@ public class UI_Inventory : MonoBehaviour
             OpenInventory();
         }
     }
-
-    #endregion
-#endif
 }

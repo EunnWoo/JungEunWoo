@@ -7,19 +7,13 @@ public class ItemPickUp : MonoBehaviour
     public int itemcode;
     public int count = 1;
     public ItemData itemData;
-    //public ItemData GetItemData()
-    //{
-    //    return itemData;
-    //}
-
+    public ItemData GetItemData()
+    {
+        return itemData;
+    }
     private void Start()
     {
         InitData(itemcode, count);
-    }
-
-    public void ClearDestroy()
-    {
-        Destroy(gameObject);
     }
 
     public void InitData(int _itemcode = -1, int _count = 1)

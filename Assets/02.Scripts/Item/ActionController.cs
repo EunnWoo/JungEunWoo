@@ -79,12 +79,12 @@ public class ActionController : MonoBehaviour
             if (hitInfo.transform != null)
             {
                 ItemPickUp _Pick = hitInfo.transform.GetComponent<ItemPickUp>();
-                Debug.Log(_Pick.itemData.itemName + " 획득했습니다");
-                IteminfoDisappear(); //메세지창 사라지기
+                Debug.Log(_Pick.GetItemData().itemName + " 획득했습니다");
+                IteminfoDisappear();
 
                 //인벤토리에 넣어주기
-                UI_Inventory.ins.AddItemData(_Pick.itemData);
-                _Pick.ClearDestroy();//오브젝트 주운후 사라지게하기
+                //UI_Inventory.ins.AddItem(_Pick.GetItem());
+                Destroy(hitInfo.transform.gameObject);
             }
         }
     }

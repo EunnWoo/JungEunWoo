@@ -29,10 +29,4 @@ public class InventorySlot : MonoBehaviour
             itemCount.text = "x" + item.itemCount;
         }
     }
-    public void ReDisplayCount()
-    {
-        itemCount.gameObject.SetActive(true);
-        itemCount.text = "x" + item.itemCount;
-        
-    }
 }
