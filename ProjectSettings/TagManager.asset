@@ -8,6 +8,7 @@ TagManager:
   - loot
   - Item
   - Npc
+  - Monster
   layers:
   - Default
   - TransparentFX
