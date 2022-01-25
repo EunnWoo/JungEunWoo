@@ -22,20 +22,20 @@ public class DialogManager : MonoBehaviour
         ObjData objData = NPC.GetComponent<ObjData>();
         nameText.text = npc.name;
         Talk(objData.id, objData.isNpc);
+
         dialogPanel.SetActive(isAction);
     }
-    public void Talk(int id, bool isNpc)
+    void Talk(int id, bool isNpc)
     {
         int questTalkIndex = questManager.GetQuestTalkIndex(id);
-        string talkData = talkManager.GetTalk(id, talkIndex);
-        if(id == 2000){
-            dialogPanel.transform.GetChild(0).GetChild(3).gameObject.SetActive(true);
-        }
+        string talkData = talkManager.GetTalk(id + questTalkIndex, talkIndex);
         if(talkData == null){//End Talk
             isAction = false;
             talkIndex = 0;
+            Debug.Log(questManager.CheckQuest(id));
             return;
         }
+
         if(isNpc){
             talkText.text = talkData;
             //portraitImg.color = new Color(1,1,1,1);

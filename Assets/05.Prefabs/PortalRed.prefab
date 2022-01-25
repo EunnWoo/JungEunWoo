@@ -4861,7 +4861,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2582453469011672344}
-  - component: {fileID: 4087698125939352186}
   m_Layer: 0
   m_Name: PortalRed
   m_TagString: Untagged
@@ -4876,7 +4875,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4472635702324957797}
-  m_LocalRotation: {x: 0, y: 0.6884053, z: 0, w: 0.7253263}
+  m_LocalRotation: {x: -0, y: 0.6884029, z: -0, w: 0.7253285}
   m_LocalPosition: {x: 17.24, y: -1.96, z: -3.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4885,20 +4884,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 87.008, z: 0}
---- !u!136 &4087698125939352186
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4472635702324957797}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 1.4610158
-  m_Height: 3.1397781
-  m_Direction: 1
-  m_Center: {x: 0.05016399, y: 1.3161154, z: 0.09815455}
 --- !u!1 &5725689905844710938
 GameObject:
   m_ObjectHideFlags: 0

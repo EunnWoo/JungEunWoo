@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.5440993, g: 0.6145988, b: 0.7205642, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2824,7 +2824,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -67.400024, y: 8.599976}
+  m_AnchoredPosition: {x: -67.4, y: 8.6}
   m_SizeDelta: {x: 33.5, y: 26.5}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &869337920
@@ -4074,7 +4074,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -142.20001, y: -21.599976}
+  m_AnchoredPosition: {x: -142.2, y: -21.6}
   m_SizeDelta: {x: 26.6, y: 29.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1110299796
@@ -4292,46 +4292,6 @@ PrefabInstance:
     - target: {fileID: 4793414793545048, guid: 0205ad0993780b64bab3d4dceac2f090, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4862521104440151181, guid: 0205ad0993780b64bab3d4dceac2f090, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4862521105145768784, guid: 0205ad0993780b64bab3d4dceac2f090, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4862521105552747700, guid: 0205ad0993780b64bab3d4dceac2f090, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4862521105622278402, guid: 0205ad0993780b64bab3d4dceac2f090, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4862521105883106552, guid: 0205ad0993780b64bab3d4dceac2f090, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4862521105974207192, guid: 0205ad0993780b64bab3d4dceac2f090, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4862521105984068967, guid: 0205ad0993780b64bab3d4dceac2f090, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4862521106051018512, guid: 0205ad0993780b64bab3d4dceac2f090, type: 3}
-      propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'goggle'\n\tTransform 'goggle'\n\tFrom animation
-        clip 'Idle_SwordShield'\n\tFrom animation clip 'Run_SwordShield'\n\tFrom
-        animation clip 'JumpAir_SwordShield'\n\tFrom animation clip 'Sprint_SwordShield'\n\tFrom
-        animation clip 'JumpEnd_SwordShield'\n\tFrom animation clip 'NormalAttack01_SwordShield'\n\tFrom
-        animation clip 'NormalAttack02_SwordShield'\n\tFrom animation clip 'Combo01_RM'\n\tFrom
-        animation clip 'Combo02_RM'\n\tFrom animation clip 'combo03_RM'\n\tand more
-        ..."
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0205ad0993780b64bab3d4dceac2f090, type: 3}
@@ -5040,7 +5000,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -3, y: 4.5999756}
+  m_AnchoredPosition: {x: -3, y: 4.600006}
   m_SizeDelta: {x: 67.7, y: 30.5}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1294111730
@@ -5255,7 +5215,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -182.15002, y: -21.650024}
+  m_AnchoredPosition: {x: -182.15, y: -21.649994}
   m_SizeDelta: {x: 95.29999, y: 26.5}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1353289960
@@ -5351,7 +5311,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -103.29999, y: 4.5999756}
+  m_AnchoredPosition: {x: -103.29999, y: 4.600006}
   m_SizeDelta: {x: 67.7, y: 30.5}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1399439289
@@ -6330,7 +6290,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -71.849976, y: -23.650024}
+  m_AnchoredPosition: {x: -71.850006, y: -23.649994}
   m_SizeDelta: {x: 33.5, y: 26.5}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1525302001
@@ -7004,7 +6964,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7.450012, y: -21.150024}
+  m_AnchoredPosition: {x: -7.450012, y: -21.149994}
   m_SizeDelta: {x: 67.7, y: 30.5}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1751161995
@@ -7340,7 +7300,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -177.09998, y: 6.5999756}
+  m_AnchoredPosition: {x: -177.1, y: 6.600006}
   m_SizeDelta: {x: 95.29999, y: 26.5}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1784571786
