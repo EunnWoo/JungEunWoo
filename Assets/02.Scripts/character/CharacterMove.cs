@@ -7,22 +7,29 @@ public class CharacterMove : MonoBehaviourPun
     [SerializeField]
     private Transform characterBody;
     [SerializeField]
+    private Transform target;
+    [SerializeField]
     private Transform camera;
     private Rigidbody characterrigid;
     private DialogManager manager; 
-    Vector3 moveVec;
     Animator ani;
+    public float speed = 5f;
+
     float hAxis;
     float vAxis;
+
     bool isRun, isLeft, isRight, isRoll;
-    bool isBack = false;
+    bool isForward = false,isBack = false;
     bool isGround;
+
+    
     Vector3 lookForward;
     void Start()
     {
         ani = characterBody.GetComponent<Animator>();
         characterrigid = GetComponent<Rigidbody>();
         manager = GameObject.Find("GameManager").GetComponent<DialogManager>();
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
     void Update()
     {
@@ -40,6 +47,16 @@ public class CharacterMove : MonoBehaviourPun
         vAxis = manager.isAction? 0 : Input.GetAxis("Vertical");//w,s이동 값
         isRun = Input.GetButton("Run");//left shift가 눌렸는지
         isRoll = Input.GetButtonDown("Roll");
+
+        #region input wasd
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            isForward = true;
+        }
+        else if (Input.GetKeyUp(KeyCode.W))
+        {
+            isForward = false;
+        }
         if (Input.GetKeyDown(KeyCode.S))
         {
             isBack = true;
@@ -64,15 +81,18 @@ public class CharacterMove : MonoBehaviourPun
         {
             isRight = false;
         }
+        #endregion
     }
     public void Move()
     {
-        Vector2 moveInput = new Vector2(hAxis, vAxis).normalized * 
-            (isRun && !isBack ? 1.3f : 1f) * (!isBack ? 1f : 0.5f) * ((isLeft || isRight) && vAxis == 0f ? 0.7f : 1f);//이동을 하고 있는지 뛰면 속도가 1.3 뒤로가고있으면 원래 속도의 0.5
+        Vector2 moveInput = new Vector2(hAxis, vAxis).normalized;
+
         bool isMove = moveInput.magnitude != 0;//움직이고 있는가?
+
         lookForward = new Vector3(camera.forward.x, 0f, camera.forward.z).normalized;//카메라가 보는 방향
         Vector3 lookRight = new Vector3(camera.right.x, 0f, camera.right.z).normalized;
         Vector3 moveDir = lookForward * moveInput.y + lookRight * moveInput.x;
+
         if (vAxis != 0f && hAxis != 0f)//대각선 바라보기
         {
             if (hAxis * vAxis >= 0f)
@@ -84,8 +104,15 @@ public class CharacterMove : MonoBehaviourPun
                 lookForward = Quaternion.Euler(0, -45, 0) * lookForward;
             }
         }
-        characterBody.forward = lookForward;
-        transform.position += moveDir * Time.deltaTime * 5f;
+        //if(!isBack)
+        characterBody.LookAt(characterBody.position + moveDir);
+        //characterBody.rotation = Quaternion.Slerp(characterBody.rotation, , Time.deltaTime);
+        
+       // characterBody.forward = lookForward;
+        transform.position += moveDir * Time.deltaTime * speed;
+
+
+
     }
     void Animation()
     {
