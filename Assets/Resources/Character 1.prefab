@@ -1,140 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5657571041274623881
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5657571041274623884}
-  - component: {fileID: 5657571041274623883}
-  - component: {fileID: 5657571041274623882}
-  - component: {fileID: 2013213812}
-  m_Layer: 0
-  m_Name: Main Camera
-  m_TagString: MainCamera
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5657571041274623884
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5657571041274623881}
-  m_LocalRotation: {x: 0.2588191, y: -0, z: -0, w: 0.9659258}
-  m_LocalPosition: {x: 0, y: 3.95, z: -6.84}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 5657571041974570090}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
---- !u!20 &5657571041274623883
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5657571041274623881}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: -1
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
---- !u!81 &5657571041274623882
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5657571041274623881}
-  m_Enabled: 1
---- !u!114 &2013213812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5657571041274623881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89506badff817f640a982239ede64753, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkRange: 0.5
-  checkRadius: 0.6
-  parentTrans: {fileID: 5657571041974570090}
-  screenCenter: {x: 0.5, y: 0.6, z: 0}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  actionText: {fileID: 0}
---- !u!1 &5657571041974570089
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5657571041974570090}
-  m_Layer: 0
-  m_Name: CameraReg
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5657571041974570090
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5657571041974570089}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.26, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 5657571041274623884}
-  m_Father: {fileID: 5657571042990092109}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5657571042912488101
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,7 +46,6 @@ GameObject:
   - component: {fileID: 5657571042990092108}
   - component: {fileID: 1655756688}
   - component: {fileID: 1655756689}
-  - component: {fileID: 655028044}
   - component: {fileID: 475254669}
   m_Layer: 0
   m_Name: Character 1
@@ -202,7 +66,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4431993696956804728}
-  - {fileID: 5657571041974570090}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -261,7 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 933cee24f0495724fa309df9b41b219c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 5657571041974570090}
+  target: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &5657571042990092108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,7 +139,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterBody: {fileID: 4431993696956804728}
-  camera: {fileID: 5657571041974570090}
+  target: {fileID: 0}
+  camera: {fileID: 0}
+  speed: 5
 --- !u!114 &1655756688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,18 +181,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &655028044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5657571042990092107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: baaaae126ec87cf4ba4394da2b4249f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &475254669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,12 +264,10 @@ PrefabInstance:
       value: "\nBinding warning: Some generic clip(s) animate transforms that are
         already bound by a Humanoid avatar. These transforms can only be changed
         by Humanoid clips.\n\tTransform 'goggle'\n\tTransform 'goggle'\n\tFrom animation
-        clip 'Run_MagicWand'\n\tFrom animation clip 'WalkBack_MagicWand'\n\tFrom
-        animation clip 'Idle_MagicWand'\n\tFrom animation clip 'Walk_MagicWand'\n\tFrom
-        animation clip 'WalkLeft_MagicWand'\n\tFrom animation clip 'WalkRight_MagicWand'\n\tFrom
-        animation clip 'JumpStart_MagicWand'\n\tFrom animation clip 'JumpEnd_MagicWand'\n\tFrom
-        animation clip 'JumpAir_MagicWand'\n\tFrom animation clip 'Roll_MagicWand'\n\tand
-        more ..."
+        clip 'Run_MagicWand'\n\tFrom animation clip 'Idle_MagicWand'\n\tFrom animation
+        clip 'Walk_MagicWand'\n\tFrom animation clip 'JumpStart_MagicWand'\n\tFrom
+        animation clip 'JumpEnd_MagicWand'\n\tFrom animation clip 'JumpAir_MagicWand'\n\tFrom
+        animation clip 'Attack01_Bow'\n\tFrom animation clip 'Roll_MagicWand'"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3a5c54b935136a47a5b6f6de372652a, type: 3}
