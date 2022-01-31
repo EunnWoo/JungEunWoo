@@ -26,7 +26,7 @@ public class Job : MonoBehaviour
 
     private void Update()
     {
-        if(jobstate != JobState.COMMON && Input.GetKeyDown(KeyCode.Space) && (!Bow || !Sword || !Magic))
+        if(jobstate != JobState.COMMON && Input.GetKeyDown(KeyCode.Space) && !Bow && !Sword && !Magic)
         {
             JobChoice(jobstate); // 직업선택 함수
  

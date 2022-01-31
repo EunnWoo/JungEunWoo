@@ -19,7 +19,7 @@ public class CharacterMove : MonoBehaviourPun
     float vAxis;
     float moveAmount;
 
-    bool isRun, isRoll;
+    bool isRun, isRoll, roll;
     bool isForward = false;
     [SerializeField]
     bool isGround;
@@ -66,7 +66,8 @@ public class CharacterMove : MonoBehaviourPun
     public void Move()
     {
         moveVec = new Vector3(hAxis, 0, vAxis).normalized;
-        if (isRoll)
+
+        if (roll)
             moveVec = RollVec;
 
        // if (!isFireReady)
@@ -82,19 +83,19 @@ public class CharacterMove : MonoBehaviourPun
     }
     void Roll()
     {
-        if (isJump && moveVec != Vector3.zero && !isJump && !isRoll)
+        if (isGround && moveVec != Vector3.zero && isRoll && !roll )
         {
             RollVec = moveVec;
-            speed *= 2;
-            isRoll = true;
+            speed = 10f;
+            roll = true;
            
-            Invoke("RollOut", 0.4f);
+            Invoke("RollOut", 0.6f);
         }
     }
     void RollOut()
     {
-        speed *= 0.5f;
-        isRoll = false;
+        speed = 5f;
+        roll = false;
     }
     void Animation()
     {

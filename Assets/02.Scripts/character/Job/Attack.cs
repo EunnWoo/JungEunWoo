@@ -30,10 +30,15 @@ public class Attack : MonoBehaviour
             StartCoroutine(Arrow());
                 
         }
+        if(Job.instance.Sword)
+        {
+            StopCoroutine(Swing());
+            StartCoroutine(Swing());
+        }
               
     }
 
-    public IEnumerator Arrow()
+    IEnumerator Arrow()
     {
         animator.SetTrigger("Attack");
 
@@ -42,4 +47,10 @@ public class Attack : MonoBehaviour
         //animator.SetTrigger("IsReload");
 
     }
+    IEnumerator Swing()
+    {
+        animator.SetTrigger("Attack");
+        yield return null;
+    }
 }
+
