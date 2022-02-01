@@ -8,10 +8,12 @@ public class Attack : MonoBehaviour
     public GameObject arrow;
     [SerializeField]
     private Animator animator;
+  //  private Transform target;
     void Start()
     {
         instance = this;
         animator = GetComponentInChildren<Animator>();
+       // target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -50,6 +52,8 @@ public class Attack : MonoBehaviour
     IEnumerator Swing()
     {
         animator.SetTrigger("Attack");
+
+       // transform.position = target.position;
         yield return null;
     }
 }

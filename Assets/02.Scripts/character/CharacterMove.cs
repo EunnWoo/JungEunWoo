@@ -38,6 +38,7 @@ public class CharacterMove : MonoBehaviourPun
     }
     void Update()
     {
+       
         GetInput();     
         Move();
         Jump();
