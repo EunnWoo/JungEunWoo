@@ -19,25 +19,26 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Use();
         }
     }
     public void Use()
     {
-        if(Job.instance.Bow)
-        {
-            StopCoroutine(Arrow());
-            StartCoroutine(Arrow());
-                
-        }
-        if(Job.instance.Sword)
-        {
-            StopCoroutine(Swing());
-            StartCoroutine(Swing());
-        }
-              
+       
+            if (Job.instance.Bow)
+            {
+                StopCoroutine(Arrow());
+                StartCoroutine(Arrow());
+
+            }
+     
+            if (Job.instance.Sword)
+            {
+                StopCoroutine(Swing());
+                StartCoroutine(Swing());
+            }   
     }
 
     IEnumerator Arrow()
@@ -45,8 +46,27 @@ public class Attack : MonoBehaviour
         animator.SetTrigger("Attack");
 
         yield return null;
-       // yield return new WaitForSeconds(1.2f);
+        // yield return new WaitForSeconds(1.2f);
         //animator.SetTrigger("IsReload");
+        while (true)
+        {
+            if (Input.GetMouseButtonUp(0))
+            {
+                animator.SetTrigger("Fire");
+
+                yield return new WaitForSeconds(0.7f);
+                animator.SetTrigger("IsReload");
+            }
+
+            
+            yield return null;
+        }
+
+
+        
+
+
+
 
     }
     IEnumerator Swing()

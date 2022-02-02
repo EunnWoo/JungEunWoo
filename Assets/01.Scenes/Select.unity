@@ -1467,9 +1467,9 @@ PrefabInstance:
         clip 'Run_MagicWand'\n\tFrom animation clip 'Idle_MagicWand'\n\tFrom animation
         clip 'Walk_MagicWand'\n\tFrom animation clip 'JumpStart_MagicWand'\n\tFrom
         animation clip 'JumpEnd_MagicWand'\n\tFrom animation clip 'JumpAir_MagicWand'\n\tFrom
-        animation clip 'Roll_MagicWand'\n\tFrom animation clip 'Attack01_Bow'\n\tFrom
-        animation clip 'Combo03_RM'\n\tFrom animation clip 'Combo04_RM'\n\tand more
-        ..."
+        animation clip 'Roll_MagicWand'\n\tFrom animation clip 'Attack01Start_Bow'\n\tFrom
+        animation clip 'Attack01Maintain_Bow'\n\tFrom animation clip 'Attack01RepeatFire_Bow'\n\tand
+        more ..."
       objectReference: {fileID: 0}
     - target: {fileID: 4431993696956804729, guid: 9463bbab58cb27243b3d7aa88236670a, type: 3}
       propertyPath: m_ApplyRootMotion
