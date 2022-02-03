@@ -54,7 +54,7 @@ public class Attack : MonoBehaviour
             {
                 animator.SetTrigger("Fire");
 
-                yield return new WaitForSeconds(0.7f);
+                yield return new WaitForSeconds(0.4f);
                 animator.SetTrigger("IsReload");
             }
 

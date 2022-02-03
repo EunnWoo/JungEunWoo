@@ -24,7 +24,8 @@ public class CharacterMove : MonoBehaviourPun
     [SerializeField]
     bool isGround;
     bool isJump;
-
+    [HideInInspector]
+    public bool canMove;
 
 
     Vector3 moveVec;
@@ -35,15 +36,17 @@ public class CharacterMove : MonoBehaviourPun
         characterrigid = GetComponent<Rigidbody>();
         manager = GameObject.Find("GameManager").GetComponent<DialogManager>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        canMove = true;
     }
     void Update()
     {
        
-        GetInput();     
-        Move();
+        GetInput();
         Jump();
+        Move();
+       
         Roll();
-        Animation();
+       
     }
     void GetInput()
     {
@@ -71,25 +74,32 @@ public class CharacterMove : MonoBehaviourPun
         if (roll)
             moveVec = RollVec;
 
-       // if (!isFireReady)
-         //   moveVec = Vector3.zero; // 정지시키기 못움직이게하게
+        if (!canMove)
+        {
+            moveVec = Vector3.zero; // 정지시키기 못움직이게하게
+            Debug.Log(canMove);
+        }
 
         transform.position += moveVec * speed * (isRun ? 1f : 0.5f) * Time.deltaTime;
 
-
-        ani.SetBool("IsRun", moveVec != Vector3.zero);
+        float m = Mathf.Abs(hAxis) + Mathf.Abs(vAxis);
+        moveAmount = Mathf.Clamp01(m);
+        ani.SetFloat("vAxis", moveAmount, 0.2f, Time.deltaTime);
+        ani.SetBool("IsRun", isRun && moveAmount != 0f);
+      //  ani.SetBool("IsRun", moveVec != Vector3.zero);
         //ani.SetBool("IsWalk", isRun);
         transform.LookAt(transform.position + moveVec);
 
     }
     void Roll()
     {
-        if (isGround && moveVec != Vector3.zero && isRoll && !roll )
+        if (isGround && moveVec != Vector3.zero && isRoll && !roll &&canMove )
         {
+            
             RollVec = moveVec;
             speed = 10f;
             roll = true;
-           
+            ani.SetTrigger("IsRoll");
             Invoke("RollOut", 0.6f);
         }
     }
@@ -97,25 +107,17 @@ public class CharacterMove : MonoBehaviourPun
     {
         speed = 5f;
         roll = false;
+        
     }
-    void Animation()
-    {
-        float m = Mathf.Abs(hAxis) + Mathf.Abs(vAxis);
-        moveAmount = Mathf.Clamp01(m);
-        ani.SetFloat("vAxis", moveAmount, 0.2f, Time.deltaTime);
-        ani.SetBool("IsRun", isRun && moveAmount != 0f);
-        if (isRoll && isGround)
-        {
-            ani.SetTrigger("IsRoll");
-        }
-    }
+
     private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGround == true && !ani.GetCurrentAnimatorStateInfo(0).IsTag("Roll") && !manager.isAction)
+        if (Input.GetKeyDown(KeyCode.Space) && isGround == true && 
+            !ani.GetCurrentAnimatorStateInfo(0).IsTag("Roll") && !manager.isAction)
         {
-            characterrigid.AddForce(Vector3.up * 13, ForceMode.Impulse);
+            characterrigid.AddForce(Vector3.up * 17, ForceMode.Impulse);
 
-            ani.SetBool("IsJump", true);
+            
         }
     }
     private void OnTriggerStay(Collider other)
@@ -131,6 +133,7 @@ public class CharacterMove : MonoBehaviourPun
         if (collision.gameObject.tag == "Ground")
         {
             isGround = false;
+            ani.SetBool("IsJump", true);
         }
     }
 }
