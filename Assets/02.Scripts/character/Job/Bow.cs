@@ -10,12 +10,8 @@ public class Bow : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //if(Job.instance.Bow == true)
-        //{
-        //    Attack.instance.attack();
-        //}
+    
     }
 }

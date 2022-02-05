@@ -14348,6 +14348,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrow: {fileID: 103019762}
   animator: {fileID: 0}
+--- !u!114 &1610294076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610294073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5df36155d95ec648a3ba87203735ec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowPrefab: {fileID: 4286124645412131205, guid: 4d298c96799dc3245914c38cc62c6271, type: 3}
 --- !u!4 &1610294084 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5657571042990092109, guid: 9463bbab58cb27243b3d7aa88236670a, type: 3}
