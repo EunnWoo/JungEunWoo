@@ -114,7 +114,7 @@ public class CharacterMove : MonoBehaviourPun
     private void Jump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGround == true && 
-            !ani.GetCurrentAnimatorStateInfo(0).IsTag("Roll") && !manager.isAction)
+            !roll && !manager.isAction)
         {
             characterrigid.AddForce(Vector3.up * 17, ForceMode.Impulse);
 
