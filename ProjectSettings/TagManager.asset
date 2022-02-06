@@ -9,6 +9,7 @@ TagManager:
   - Item
   - Npc
   - Monster
+  - Arrow
   layers:
   - Default
   - TransparentFX

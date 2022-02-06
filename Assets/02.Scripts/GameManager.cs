@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
             // 자신을 파괴
             Destroy(gameObject);
         }
+        DontDestroyOnLoad(this.gameObject);
     }
     private void Start()
     {

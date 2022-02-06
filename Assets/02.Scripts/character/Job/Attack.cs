@@ -5,15 +5,25 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     static public Attack instance;
-    public GameObject arrow;
+    string arrowobj;
     [SerializeField]
     private Animator animator;
-  //  private Transform target;
+    [SerializeField]
+    private ObjPoolArrow objpool;
+
+    public Transform firepos;
+
+
     void Start()
     {
         instance = this;
         animator = GetComponentInChildren<Animator>();
-       // target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        // target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+     //   objpool = GetComponentInChildren<ObjPoolArrow>();
+    }
+    private void Awake()
+    {
+        arrowobj = "Arrow";
     }
 
     // Update is called once per frame
@@ -52,8 +62,18 @@ public class Attack : MonoBehaviour
         {
             if (Input.GetMouseButtonUp(0))
             {
+                Debug.Log("fire");
                 animator.SetTrigger("Fire");
-
+                var arrow = objpool.MakeObj(arrowobj);
+                if (arrow != null)
+                {
+                    Debug.Log("발싸 오브젝트풀 입장");
+                    arrow.transform.position = firepos.transform.position;
+                    arrow.transform.rotation = firepos.transform.rotation;
+                    arrow.SetActive(true);
+                }
+               
+                
                 yield return new WaitForSeconds(0.4f);
                 animator.SetTrigger("IsReload");
             }
