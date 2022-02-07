@@ -60,34 +60,29 @@ public class Attack : MonoBehaviour
         //animator.SetTrigger("IsReload");
         while (true)
         {
-            if (Input.GetMouseButtonUp(0))
-            {
-                Debug.Log("fire");
-                animator.SetTrigger("Fire");
-                var arrow = objpool.MakeObj(arrowobj);
-                if (arrow != null)
+           
+                if (Input.GetMouseButtonUp(0))
                 {
-                    Debug.Log("발싸 오브젝트풀 입장");
-                    arrow.transform.position = firepos.transform.position;
-                    arrow.transform.rotation = firepos.transform.rotation;
-                    arrow.SetActive(true);
-                }
-               
-                
-                yield return new WaitForSeconds(0.4f);
-                animator.SetTrigger("IsReload");
-            }
+                    Debug.Log("fire");
+                    animator.SetTrigger("Fire");
+                    var arrow = objpool.MakeObj(arrowobj);
+                    if (arrow != null)
+                    {
+                        Debug.Log("발싸 오브젝트풀 입장");
+                        arrow.transform.position = firepos.transform.position;
+                        arrow.transform.rotation = firepos.transform.rotation;
+                        arrow.SetActive(true);
 
-            
+                    }
+
+                    yield return new WaitForSeconds(0.4f);
+                    animator.SetTrigger("IsReload");
+                    break;
+                }
+
             yield return null;
         }
-
-
-        
-
-
-
-
+        yield return null;
     }
     IEnumerator Swing()
     {
