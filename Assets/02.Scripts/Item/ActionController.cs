@@ -74,17 +74,21 @@ public class ActionController : MonoBehaviour
 
     private void TryAction()
     {
+        //아이템과 일정거리 이상 유지하고있는 상태에서 f키를 누르면 아이템을 습득
         if (pickupActivated && Input.GetKeyDown(KeyCode.F))
         {
             if (hitInfo.transform != null)
             {
+                //획득한 아이템에는 ItemPickUp이라는 컴포넌트
+                //<ItemPickUp>().ItemData(고유정보 + 가변정보)
+                //고유정보 : Itemcode, Itemname등등
                 ItemPickUp _Pick = hitInfo.transform.GetComponent<ItemPickUp>();
                 Debug.Log(_Pick.itemData.itemName + " 획득했습니다");
                 IteminfoDisappear(); //메세지창 사라지기
 
                 //인벤토리에 넣어주기
                 UI_Inventory.ins.AddItemData(_Pick.itemData);
-                _Pick.ClearDestroy();//오브젝트 주운후 사라지게하기
+                _Pick.ClearDestroy();//오브젝트 주우면 필드에 주운아이템은 사라지게하기
             }
         }
     }

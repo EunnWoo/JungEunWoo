@@ -112,6 +112,7 @@ public class UI_Inventory : MonoBehaviour
         return null;
     }
 
+    //획득한 아이템 클래스를 그대로 받아서 넣어줌
     public bool AddItemData(ItemData _itemDataNew)
     {
         
@@ -120,13 +121,17 @@ public class UI_Inventory : MonoBehaviour
         ItemData _itemDataOld = null;
         switch (_itemDataNew.itemType)    //탭 에따른 아이템 분류, 그것을 인벤토리 탭 리스트에 추가
         {
-           case eItemType.Equip: //장비창
-                if (listEquip.Count < MAX_EQUIP)
+           case eItemType.Equip: //장비창, 장비템이면 한칸에 한개씩
+                if (listEquip.Count < MAX_EQUIP) 
                 {
+                    //Max 상태가 아니면 추가작업, 인덱스도 증가
                     listEquip.Add(_itemDataNew);
                     _index = listEquip.Count - 1;
                     Debug.Log("장비: " + _index);
                     slotsEquip[_index].SetItem(_itemDataNew);
+
+                    //추가 되었다는 플래그를 알려줌
+
                     _rtn = true;
                 }
                 break;
@@ -136,7 +141,8 @@ public class UI_Inventory : MonoBehaviour
                 //아이템리스트에서 같은 아이템이 있는지 검색해서 같은 아이템이 있으면 추가기능
                 _itemDataOld = CheckItemData(listUse, _itemDataNew, out _index);
                 if(_itemDataOld != null)
-                {//새로 얻은 아이템이 기존에 있는경우
+                {
+                    //새로 얻은 아이템이 기존에 있는경우
                     //기존값에 plus
                     _itemDataOld.itemCount += _itemDataNew.itemCount;
                     slotsUse[_index].ReDisplayCount();
@@ -188,14 +194,14 @@ public class UI_Inventory : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            AddItem(20001);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            AddItem(20002);
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha1))
+        //{
+        //    AddItem(20001);
+        //}
+        //if (Input.GetKeyDown(KeyCode.Alpha2))
+        //{
+        //    AddItem(20002);
+        //}
         
         if (Input.GetKeyDown(KeyCode.I))
         {
