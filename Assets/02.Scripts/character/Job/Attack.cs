@@ -10,17 +10,22 @@ public class Attack : MonoBehaviour
     private Animator animator;
     [SerializeField]
     private ObjPoolArrow objpool;
-
+    public bool hasArrow;
+    public bool isFire;
     public Transform firepos;
 
 
     void Start()
     {
+        
         instance = this;
         animator = GetComponentInChildren<Animator>();
         // target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-     //   objpool = GetComponentInChildren<ObjPoolArrow>();
+        //   objpool = GetComponentInChildren<ObjPoolArrow>();
+        hasArrow = false;
     }
+    
+    
     private void Awake()
     {
         arrowobj = "Arrow";
@@ -33,12 +38,15 @@ public class Attack : MonoBehaviour
         {
             Use();
         }
+        Reload();
+        
     }
     public void Use()
     {
        
             if (Job.instance.Bow)
             {
+                
                 StopCoroutine(Arrow());
                 StartCoroutine(Arrow());
 
@@ -53,6 +61,9 @@ public class Attack : MonoBehaviour
 
     IEnumerator Arrow()
     {
+        if (!hasArrow) yield break;
+
+        isFire = true;
         animator.SetTrigger("Attack");
 
         yield return null;
@@ -60,23 +71,16 @@ public class Attack : MonoBehaviour
         //animator.SetTrigger("IsReload");
         while (true)
         {
-           
-                if (Input.GetMouseButtonUp(0))
+             if (Input.GetMouseButtonUp(0))
                 {
                     Debug.Log("fire");
                     animator.SetTrigger("Fire");
-                    var arrow = objpool.MakeObj(arrowobj);
-                    if (arrow != null)
-                    {
-                        Debug.Log("발싸 오브젝트풀 입장");
-                        arrow.transform.position = firepos.transform.position;
-                        arrow.transform.rotation = firepos.transform.rotation;
-                        arrow.SetActive(true);
-
-                    }
+                    
 
                     yield return new WaitForSeconds(0.4f);
-                    animator.SetTrigger("IsReload");
+                    
+                    
+                    hasArrow = false;
                     break;
                 }
 
@@ -90,6 +94,31 @@ public class Attack : MonoBehaviour
 
        // transform.position = target.position;
         yield return null;
+    }
+    public void Reload()
+    {
+        if (Job.instance.Bow)
+        {
+            var arrow = objpool.MakeObj(arrowobj);
+            if (hasArrow && !isFire)
+            {
+                arrow.transform.position = firepos.transform.position;
+                arrow.transform.rotation = firepos.transform.rotation;
+            }
+            else if (!hasArrow)
+            {
+                animator.SetTrigger("IsReload");
+
+                if (arrow != null)
+                {
+                    Debug.Log("화살 SetActive");
+                    hasArrow = true;
+                    arrow.SetActive(true);
+                }
+                
+
+            }
+        }
     }
 }
 
