@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attack : MonoBehaviour
+public class Attack : MonoBehaviour 
 {
     static public Attack instance;
     string arrowobj;
@@ -10,10 +10,8 @@ public class Attack : MonoBehaviour
     private Animator animator;
     [SerializeField]
     private ObjPoolArrow objpool;
-    public bool hasArrow;
-    public bool isFire;
     public Transform firepos;
-
+    Arrow arrow; // arrow 스크립트
 
     void Start()
     {
@@ -22,7 +20,7 @@ public class Attack : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         // target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         //   objpool = GetComponentInChildren<ObjPoolArrow>();
-        hasArrow = false;
+        
     }
     
     
@@ -38,7 +36,7 @@ public class Attack : MonoBehaviour
         {
             Use();
         }
-        Reload();
+       // Reload();
         
     }
     public void Use()
@@ -47,8 +45,8 @@ public class Attack : MonoBehaviour
             if (Job.instance.Bow)
             {
                 
-                StopCoroutine(Arrow());
-                StartCoroutine(Arrow());
+                StopCoroutine(Shoot());
+                StartCoroutine(Shoot());
 
             }
      
@@ -59,11 +57,14 @@ public class Attack : MonoBehaviour
             }   
     }
 
-    IEnumerator Arrow()
+    IEnumerator Shoot()
     {
-        if (!hasArrow) yield break;
-
-        isFire = true;
+        var arrowObj = objpool.MakeObj(arrowobj);  // 화살 생성
+        if (arrowObj != null)
+        {
+            arrow = arrowObj.GetComponent<Arrow>();
+            arrowObj.SetActive(true);
+        }
         animator.SetTrigger("Attack");
 
         yield return null;
@@ -71,18 +72,20 @@ public class Attack : MonoBehaviour
         //animator.SetTrigger("IsReload");
         while (true)
         {
-             if (Input.GetMouseButtonUp(0))
-                {
-                    Debug.Log("fire");
-                    animator.SetTrigger("Fire");
-                    
+            arrowObj.transform.position = firepos.transform.position;
+            arrowObj.transform.rotation = firepos.transform.rotation;
+            if (Input.GetMouseButtonUp(0))
+             {
+                Debug.Log("fire");
+                animator.SetTrigger("Fire");
+                arrow.Fire = true;
 
-                    yield return new WaitForSeconds(0.4f);
+                yield return new WaitForSeconds(0.4f);
                     
                     
-                    hasArrow = false;
-                    break;
-                }
+              
+                break;
+             }
 
             yield return null;
         }
@@ -95,30 +98,12 @@ public class Attack : MonoBehaviour
        // transform.position = target.position;
         yield return null;
     }
-    public void Reload()
-    {
-        if (Job.instance.Bow)
-        {
-            var arrow = objpool.MakeObj(arrowobj);
-            if (hasArrow && !isFire)
-            {
-                arrow.transform.position = firepos.transform.position;
-                arrow.transform.rotation = firepos.transform.rotation;
-            }
-            else if (!hasArrow)
-            {
-                animator.SetTrigger("IsReload");
+    //public void Reload()
+    //{
+      
+    //            animator.SetTrigger("IsReload");
+    
 
-                if (arrow != null)
-                {
-                    Debug.Log("화살 SetActive");
-                    hasArrow = true;
-                    arrow.SetActive(true);
-                }
-                
-
-            }
-        }
-    }
+    //}
 }
 

@@ -7,10 +7,10 @@ public class Arrow : MonoBehaviour
     public float speed = 500f;
     private Rigidbody rigid;
     private Transform tr;
-
+    public bool Fire { get; set; }
     private void Update()
     {
-        if (Attack.instance.isFire == true) // 고쳐야함 가다가 hasArrow 없어지면 발사 안 됨
+        if (Fire) 
         {
             GetComponent<Rigidbody>().AddForce(transform.right * speed);
         }
