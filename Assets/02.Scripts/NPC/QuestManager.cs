@@ -6,7 +6,8 @@ public class QuestManager : MonoBehaviour
 {
     public int questId;
     public int questActionIndex = 0;
-    public GameObject[] gameObject;
+    public GameObject[] questObject;
+
     Dictionary<int,QuestData> quesetList;
     void Awake()
     {
@@ -24,10 +25,14 @@ public class QuestManager : MonoBehaviour
     }
     public string CheckQuest(int id)
     {
+        //Next Talk target
         if(id == quesetList[questId].npcId[questActionIndex]){
             questActionIndex++;
         }
-        if(questActionIndex == quesetList[questId].npcId.Length){
+        //Control Quest Object
+        ControlObject();
+        //Talk Complete & Next Quest
+        if (questActionIndex == quesetList[questId].npcId.Length){
             NextQuest();
         }
         return quesetList[questId].questName;
@@ -36,5 +41,24 @@ public class QuestManager : MonoBehaviour
     {
         questId += 10;
         questActionIndex = 0;
+    }
+    void ControlObject()
+    {
+        switch (questId)
+        {
+            case 10:
+                if(questActionIndex == 2)
+                {
+                    questObject[0].SetActive(true);
+                }
+                break;
+            case 20:
+                if (questActionIndex == 1)
+                {
+                    questObject[0].SetActive(false);
+                }
+                break;
+
+        }
     }
 }

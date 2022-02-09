@@ -13,7 +13,7 @@ public class ItemData
 	public int itemcode;
 	public ItemInfoBase iteminfoBase;
 	public int itemCount = 1;
-	public int upgradeCount = 0;
+	public int upgradeCount = 0;	
 	
 	public ItemData(int _itemcode, int _count = 1)
     {
@@ -27,8 +27,9 @@ public class ItemData
 	public string itemName 
 	{
 		get 
-		{ 
-			return iteminfoBase.itemname;
+		{
+
+			return iteminfoBase != null ? iteminfoBase.itemname : "";
 		}
 	}
 
@@ -55,10 +56,13 @@ public class ItemData
 public class ItemInfoBase
 {
 	public int itemcode;
+	private int category_;
 	public int category 
 	{
+        get { return category_; }
         set
         {
+			category_ = value;
 			if(value == 1)
             {
 				itemType = eItemType.Equip;
@@ -98,4 +102,19 @@ public class ItemInfoWearPart : ItemInfoBase
 	public int plusatt;
 	public int plusdef;
 	public int plushp;
+}
+
+
+[System.Serializable]
+public class ItemInfoUsepart : ItemInfoBase
+{
+	public int hp;
+	public int mp;
+}
+
+[System.Serializable]
+public class ItemInfoETCpart : ItemInfoBase
+{
+	public int hp;
+	public int mp;
 }

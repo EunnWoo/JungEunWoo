@@ -2,37 +2,52 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+
 public class CharacterMove : MonoBehaviourPun
 {
     [SerializeField]
     private Transform characterBody;
     [SerializeField]
+    private Transform target;
+    [SerializeField]
     private Transform camera;
     private Rigidbody characterrigid;
     private DialogManager manager; 
-    Vector3 moveVec;
     Animator ani;
+    public float speed = 5f;
+
     float hAxis;
     float vAxis;
-    bool isRun, isLeft, isRight, isRoll;
-    bool isBack = false;
+    float moveAmount;
+
+    bool isRun, isRoll, roll;
+    bool isForward = false;
+    [SerializeField]
     bool isGround;
-    Vector3 lookForward;
+    bool isJump;
+    [HideInInspector]
+    public bool canMove;
+
+
+    Vector3 moveVec;
+    Vector3 RollVec;
     void Start()
     {
         ani = characterBody.GetComponent<Animator>();
         characterrigid = GetComponent<Rigidbody>();
         manager = GameObject.Find("GameManager").GetComponent<DialogManager>();
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        canMove = true;
     }
     void Update()
     {
-        GetInput();     
+       
+        GetInput();
+        Jump();
         Move();
-        if (Input.GetKeyDown(KeyCode.Space) && isGround == true && !ani.GetCurrentAnimatorStateInfo(0).IsTag("Roll") && !manager.isAction)
-        {
-            Jump();
-        }
-        Animation();
+       
+        Roll();
+       
     }
     void GetInput()
     {
@@ -40,67 +55,71 @@ public class CharacterMove : MonoBehaviourPun
         vAxis = manager.isAction? 0 : Input.GetAxis("Vertical");//w,s이동 값
         isRun = Input.GetButton("Run");//left shift가 눌렸는지
         isRoll = Input.GetButtonDown("Roll");
-        if (Input.GetKeyDown(KeyCode.S))
+        isJump = Input.GetKeyDown(KeyCode.Space);
+
+
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            isBack = true;
+            isForward = true;
         }
-        else if (Input.GetKeyUp(KeyCode.S))
+        else if (Input.GetKeyUp(KeyCode.W))
         {
-            isBack = false;
+            isForward = false;
         }
-        if (Input.GetKey(KeyCode.A))
-        {
-            isLeft = true;
-        }
-        else if (Input.GetKeyUp(KeyCode.A))
-        {
-            isLeft = false;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            isRight = true;
-        }
-        else if (Input.GetKeyUp(KeyCode.D))
-        {
-            isRight = false;
-        }
+       
     }
     public void Move()
     {
-        Vector2 moveInput = new Vector2(hAxis, vAxis).normalized * (isRun && !isBack ? 1.3f : 1f) * (!isBack ? 1f : 0.5f) * ((isLeft || isRight) && vAxis == 0f ? 0.7f : 1f);//이동을 하고 있는지 뛰면 속도가 1.3 뒤로가고있으면 원래 속도의 0.5
-        bool isMove = moveInput.magnitude != 0;//움직이고 있는가?
-        lookForward = new Vector3(camera.forward.x, 0f, camera.forward.z).normalized;//카메라가 보는 방향
-        Vector3 lookRight = new Vector3(camera.right.x, 0f, camera.right.z).normalized;
-        Vector3 moveDir = lookForward * moveInput.y + lookRight * moveInput.x;
-        if (vAxis != 0f && hAxis != 0f)//대각선 바라보기
+        moveVec = new Vector3(hAxis, 0, vAxis).normalized;
+
+        if (roll)
+            moveVec = RollVec;
+
+        if (!canMove)
         {
-            if (hAxis * vAxis >= 0f)
-            {
-                lookForward = Quaternion.Euler(0, 45, 0) * lookForward;
-            }
-            else if (hAxis * vAxis < 0f)
-            {
-                lookForward = Quaternion.Euler(0, -45, 0) * lookForward;
-            }
+            moveVec = Vector3.zero; // 정지시키기 못움직이게하게
+            Debug.Log(canMove);
         }
-        characterBody.forward = lookForward;
-        transform.position += moveDir * Time.deltaTime * 5f;
+
+        transform.position += moveVec * speed * (isRun ? 1f : 0.5f) * Time.deltaTime;
+
+        float m = Mathf.Abs(hAxis) + Mathf.Abs(vAxis);
+        moveAmount = Mathf.Clamp01(m);
+        ani.SetFloat("vAxis", moveAmount, 0.2f, Time.deltaTime);
+        ani.SetBool("IsRun", isRun && moveAmount != 0f);
+      //  ani.SetBool("IsRun", moveVec != Vector3.zero);
+        //ani.SetBool("IsWalk", isRun);
+        transform.LookAt(transform.position + moveVec);
+
     }
-    void Animation()
+    void Roll()
     {
-        ani.SetBool("IsLeft", isLeft && vAxis == 0f);
-        ani.SetBool("IsRight", isRight && vAxis == 0f);
-        ani.SetFloat("vAxis", vAxis, 0.2f, Time.deltaTime);
-        ani.SetBool("IsRun", isRun && !isBack && vAxis != 0f);
-        if (isRoll && isGround)
+        if (isGround && moveVec != Vector3.zero && isRoll && !roll &&canMove )
         {
+            
+            RollVec = moveVec;
+            speed = 10f;
+            roll = true;
             ani.SetTrigger("IsRoll");
+            Invoke("RollOut", 0.6f);
         }
     }
+    void RollOut()
+    {
+        speed = 5f;
+        roll = false;
+        
+    }
+
     private void Jump()
     {
-        characterrigid.AddForce(Vector3.up * 13, ForceMode.Impulse);
-        ani.SetBool("IsJump", true);
+        if (Input.GetKeyDown(KeyCode.Space) && isGround == true && 
+            !roll && !manager.isAction)
+        {
+            characterrigid.AddForce(Vector3.up * 17, ForceMode.Impulse);
+
+            
+        }
     }
     private void OnTriggerStay(Collider other)
     {
@@ -115,6 +134,7 @@ public class CharacterMove : MonoBehaviourPun
         if (collision.gameObject.tag == "Ground")
         {
             isGround = false;
+            ani.SetBool("IsJump", true);
         }
     }
 }
