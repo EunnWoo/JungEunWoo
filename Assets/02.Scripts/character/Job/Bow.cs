@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-//
-//public class Bow : IAttack, Job
-//{
-//   
+
+public class Bow : Job//, Job
+{
+   
     
-//}
+}
