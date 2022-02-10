@@ -18,7 +18,7 @@ public class DialogManager : MonoBehaviour
         talkManager = GameObject.Find("TalkManager").GetComponent<TalkManager>();
     }
     public void Action(GameObject npc){
-        Debug.Log("액션 들어옴");
+        
         NPC = npc;
         ObjData objData = NPC.GetComponent<ObjData>();
         nameText.text = npc.name;
@@ -27,9 +27,9 @@ public class DialogManager : MonoBehaviour
     }
     public void Talk(int id, bool isNpc)
     {
-        Debug.Log("토크 들어옴");
+       
       //  int questTalkIndex = questManager.GetQuestTalkIndex(id);
-        Debug.Log("퀘스트 못빠져나감");
+        
         string talkData = talkManager.GetTalk(id, talkIndex);
         if(id == 2000){
             dialogPanel.transform.GetChild(0).GetChild(3).gameObject.SetActive(true);
@@ -49,5 +49,20 @@ public class DialogManager : MonoBehaviour
         }
         isAction = true;
         talkIndex++;
+    }
+    public void JobExitClickButton()
+    {
+        dialogPanel.SetActive(false);
+        isAction = false;
+    }
+    public void JobChoiceButton()
+    {
+        if (Job.instance.jobFix != JobInfo.COMMON)
+        {
+            //전직이 이미 있을때 실행
+        }
+        Job.instance.JobChoice();
+        dialogPanel.SetActive(false);
+        isAction = false;
     }
 }

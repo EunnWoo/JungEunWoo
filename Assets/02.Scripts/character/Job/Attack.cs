@@ -41,7 +41,7 @@ public class Attack : MonoBehaviour
     public void Use()
     {
        
-            if (Job.instance.Bow)
+            if (Job.instance.jobFix == JobInfo.BOW)
             {
                 
                 StopCoroutine(Shoot());
@@ -49,7 +49,7 @@ public class Attack : MonoBehaviour
 
             }
      
-            if (Job.instance.Sword)
+            if (Job.instance.jobFix == JobInfo.SWORD)
             {
                 StopCoroutine(Swing());
                 StartCoroutine(Swing());
