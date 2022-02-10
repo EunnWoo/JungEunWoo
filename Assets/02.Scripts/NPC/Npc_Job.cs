@@ -16,14 +16,14 @@ public class Npc_Job : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             Debug.Log("Á÷¾÷°ü");
-            other.gameObject.GetComponent<Job>().jobstate = (JobState)objdata.id;
+            other.gameObject.GetComponent<Job>().jobstate = (JobInfo)objdata.id;
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<Job>().jobstate = JobState.COMMON;
+            other.gameObject.GetComponent<Job>().jobstate = JobInfo.COMMON;
         }
     }
    
