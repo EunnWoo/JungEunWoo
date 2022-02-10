@@ -1,20 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-enum JobState { COMMON, BOW, SWORD, MAGIC }
+
+public enum JobState { COMMON, BOW, SWORD, MAGIC }
+//부모
 public class Job : MonoBehaviour
 {
+    [SerializeField]
     
-    private  JobState jobstate = JobState.COMMON; // 현재 전직 가능한 직업
+  
     private Animator animator;  //직업에 플레이어 애니메이터 변경
-
-   // private GameObject equipWeapon;  // 
     public GameObject[] Weapons;  // 0 ,1  궁수 2,3 전사 법사 4
+    
+    public JobState jobstate { get; set; }//= JobState.COMMON; // 현재 전직 가능한 직업
+    public bool Bow { get; private set; }
+    public bool Sword { get; private set; }
+    public bool Magic { get; private set; }
 
-    public bool Bow = false;
-    public bool Sword = false;
-    public bool Magic = false;
+    public event Action SelectJob;
+    ObjData objdata;
 
     static public Job instance;
 
@@ -26,41 +32,12 @@ public class Job : MonoBehaviour
 
     private void Update()
     {
-        if(jobstate != JobState.COMMON && Input.GetKeyDown(KeyCode.Space) && !Bow && !Sword && !Magic)
-        {
-            JobChoice(jobstate); // 직업선택 함수
- 
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Npc")
-        {
-            jobstate = JobState.COMMON;
-        }
-    }
-    private void OnTriggerStay(Collider other)   // npc의 id별로 state값 변경
-    {
-        if (other.tag == "Npc")
-        {
-            if (other.gameObject.GetComponent<ObjData>().id == 1)  //objdata id 값이 1일떄 궁수
-            {
-                jobstate = JobState.BOW;
-            }
-            else if (other.gameObject.GetComponent<ObjData>().id == 2)
-            {
-                jobstate = JobState.SWORD;
-            }
-            else if (other.gameObject.GetComponent<ObjData>().id == 3)
-            {
-                jobstate = JobState.MAGIC;
-            }
-        }
+        Debug.Log(jobstate);
     }
 
-    void JobChoice(JobState state)  // 직업 활성화
+    public void JobChoice()  // 직업 활성화
     {
-        if(JobState.BOW == state) // 궁수 전직
+        if(JobState.BOW == jobstate) // 궁수 전직
         {
             Bow = true;
             Weapons[0].SetActive(true);
@@ -68,18 +45,19 @@ public class Job : MonoBehaviour
             Weapons[5].SetActive(true);
             
         }
-        else if (JobState.SWORD == state) // 궁수 전직
+        else if (JobState.SWORD == jobstate) // 궁수 전직
         {
             Sword = true;
             Weapons[2].SetActive(true);
             Weapons[3].SetActive(true);
         }
-        else if (JobState.MAGIC == state) // 법사 전직
+        else if (JobState.MAGIC == jobstate) // 법사 전직
         {
             Magic = true;
             Weapons[4].SetActive(true);
         }
-        animator.SetInteger("JobState", (int)state);
+        animator.SetInteger("JobState", (int)jobstate);
     }
+
 
 }

@@ -9,16 +9,16 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
     public static bool isOpenSystemMenu = false; //시스템 메뉴 활성화 여부
     void Update()
     {
-        if(isOpenInventory || isOpenSystemMenu) //인벤토리, 시스템메뉴 가 켜져있을시
-        {
-            Cursor.lockState = CursorLockMode.None; //마우스 커서 고정을 해제함
-            Cursor.visible = true; //마우스 커서를 보이게함
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.Locked; //마우스 커서를고정시킴
-            Cursor.visible = false; //마우스 커서를 안보이게함
-        }
+        //if(isOpenInventory || isOpenSystemMenu) //인벤토리, 시스템메뉴 가 켜져있을시
+        //{
+        //    Cursor.lockState = CursorLockMode.None; //마우스 커서 고정을 해제함
+        //    Cursor.visible = true; //마우스 커서를 보이게함
+        //}
+        //else
+        //{
+        //    Cursor.lockState = CursorLockMode.Locked; //마우스 커서를고정시킴
+        //    Cursor.visible = false; //마우스 커서를 안보이게함
+        //}
     }
     public static GameManager instance // 프로퍼티
     {
@@ -52,8 +52,8 @@ public class GameManager : MonoBehaviourPunCallbacks, IPunObservable
 
     private void Awake()
     {
-        Cursor.lockState = CursorLockMode.Locked; //마우스를 가운데로 고정
-        Cursor.visible = false; //마우스 커서를 보이지 않게함
+        //Cursor.lockState = CursorLockMode.Locked; //마우스를 가운데로 고정
+        //Cursor.visible = false; //마우스 커서를 보이지 않게함
         // 씬에 싱글톤 오브젝트가 된 다른 GameManager 오브젝트가 있다면
         if (instance != this)
         {

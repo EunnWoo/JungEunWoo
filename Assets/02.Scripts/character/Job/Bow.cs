@@ -1,17 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-
-public class Bow : MonoBehaviour
-{
+//
+//public class Bow : IAttack, Job
+//{
+//   
     
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-    
-    }
-}
+//}

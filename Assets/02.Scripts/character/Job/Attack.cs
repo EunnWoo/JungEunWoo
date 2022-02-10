@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//인터페이스
 public class Attack : MonoBehaviour 
 {
     static public Attack instance;
@@ -12,14 +12,13 @@ public class Attack : MonoBehaviour
     private ObjPoolArrow objpool;
     public Transform firepos;
     Arrow arrow; // arrow 스크립트
-
+    public bool Fire { get; private set; }
     void Start()
     {
         
         instance = this;
         animator = GetComponentInChildren<Animator>();
-        // target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        //   objpool = GetComponentInChildren<ObjPoolArrow>();
+        
         
     }
     
@@ -29,14 +28,14 @@ public class Attack : MonoBehaviour
         arrowobj = "Arrow";
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             Use();
         }
-       // Reload();
+
         
     }
     public void Use()
@@ -68,8 +67,7 @@ public class Attack : MonoBehaviour
         animator.SetTrigger("Attack");
 
         yield return null;
-        // yield return new WaitForSeconds(1.2f);
-        //animator.SetTrigger("IsReload");
+    
         while (true)
         {
             arrowObj.transform.position = firepos.transform.position;
@@ -78,7 +76,7 @@ public class Attack : MonoBehaviour
              {
                 Debug.Log("fire");
                 animator.SetTrigger("Fire");
-                arrow.Fire = true;
+                Fire = true;
 
                 yield return new WaitForSeconds(0.4f);
                     
@@ -95,15 +93,9 @@ public class Attack : MonoBehaviour
     {
         animator.SetTrigger("Attack");
 
-       // transform.position = target.position;
+     
         yield return null;
     }
-    //public void Reload()
-    //{
-      
-    //            animator.SetTrigger("IsReload");
-    
 
-    //}
 }
 

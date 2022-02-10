@@ -7,10 +7,10 @@ public class Arrow : MonoBehaviour
     public float speed = 500f;
     private Rigidbody rigid;
     private Transform tr;
-    public bool Fire { get; set; }
+    
     private void Update()
     {
-        if (Fire) 
+        if (Attack.instance.Fire) 
         {
             GetComponent<Rigidbody>().AddForce(transform.right * speed);
         }
