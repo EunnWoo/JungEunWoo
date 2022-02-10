@@ -14,11 +14,13 @@ public class PlayerAction : MonoBehaviour
     {
         manager = GameObject.Find("GameManager").GetComponent<DialogManager>();
     }
-    public void OnTriggerEnter(Collider other) {
-        if(other.gameObject.tag =="Npc"){
+    public void OnTriggerStay(Collider other) {
+        if (other.gameObject.tag == "Npc")
+        {
             nearNPC = true;
-            scanNPC = other. gameObject;
+            scanNPC = other.gameObject;
         }
+        else return;
     }
     public void OnTriggerExit(Collider other) {
          
@@ -28,6 +30,7 @@ public class PlayerAction : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.F) && scanNPC != null){
+            Debug.Log("F´©¸§");
             manager.Action(scanNPC);
         }
     }

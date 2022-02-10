@@ -18,6 +18,7 @@ public class DialogManager : MonoBehaviour
         talkManager = GameObject.Find("TalkManager").GetComponent<TalkManager>();
     }
     public void Action(GameObject npc){
+        Debug.Log("액션 들어옴");
         NPC = npc;
         ObjData objData = NPC.GetComponent<ObjData>();
         nameText.text = npc.name;
@@ -26,7 +27,9 @@ public class DialogManager : MonoBehaviour
     }
     public void Talk(int id, bool isNpc)
     {
-        int questTalkIndex = questManager.GetQuestTalkIndex(id);
+        Debug.Log("토크 들어옴");
+      //  int questTalkIndex = questManager.GetQuestTalkIndex(id);
+        Debug.Log("퀘스트 못빠져나감");
         string talkData = talkManager.GetTalk(id, talkIndex);
         if(id == 2000){
             dialogPanel.transform.GetChild(0).GetChild(3).gameObject.SetActive(true);
