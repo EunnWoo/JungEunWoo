@@ -14,8 +14,10 @@ public class DialogManager : MonoBehaviour
     public GameObject NPC;
     public int talkIndex;
     public bool isAction = false;
+    public Job job;
     void Start() {
         talkManager = GameObject.Find("TalkManager").GetComponent<TalkManager>();
+        
     }
     public void Action(GameObject npc){
         
@@ -50,6 +52,8 @@ public class DialogManager : MonoBehaviour
         isAction = true;
         talkIndex++;
     }
+
+    //직업 관련 버튼 함수
     public void JobExitClickButton()
     {
         dialogPanel.SetActive(false);
@@ -57,11 +61,11 @@ public class DialogManager : MonoBehaviour
     }
     public void JobChoiceButton()
     {
-        if (Job.instance.jobFix != JobInfo.COMMON)
+        if (job.jobFix != JobInfo.COMMON)
         {
             //전직이 이미 있을때 실행
         }
-        Job.instance.JobChoice();
+        job.JobChoice();
         dialogPanel.SetActive(false);
         isAction = false;
     }
