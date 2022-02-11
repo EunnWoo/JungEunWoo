@@ -6,7 +6,7 @@ using System;
 
 public enum JobInfo { COMMON, BOW, SWORD, MAGIC }
 //부모
-public class Job : MonoBehaviour, IAttack
+public class Job : MonoBehaviour
 {
    
     
@@ -25,21 +25,17 @@ public class Job : MonoBehaviour, IAttack
         instance = this;
         jobFix = JobInfo.COMMON;
     }
-    void Update()
-    {
-        Debug.Log("Update(jobstate)" + jobstate);
-        Debug.Log("jobfix"+jobFix);
-    }
+
     public void JobChoice()  // 직업 활성화
     {
-        Debug.Log("JobChoice(jobstate)" + jobstate);
+      
         if (jobFix != JobInfo.COMMON) return;
         if(jobstate == JobInfo.BOW) // 궁수 전직
         {
             Debug.Log("궁수전직");
             gameObject.GetComponent<Bow>().enabled = true;
             Weapons[0].SetActive(true);
-          //  Weapons[1].SetActive(true);
+        //    Weapons[1].SetActive(true);
             Weapons[5].SetActive(true);
             
         }
@@ -59,10 +55,6 @@ public class Job : MonoBehaviour, IAttack
         
     }
 
-    public virtual void IsAttack()
-    {
-
-    }
    
 
 

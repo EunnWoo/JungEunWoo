@@ -13,6 +13,8 @@ public class DialogManager : MonoBehaviour
     public Text nameText;
     public GameObject NPC;
     public int talkIndex;
+
+
     public bool isAction = false;
     public Job job;
     void Start() {
