@@ -6,14 +6,14 @@ using System;
 
 public enum JobInfo { COMMON, BOW, SWORD, MAGIC }
 //부모
-public class Job : MonoBehaviour, IAttack
+public class Job : MonoBehaviour
 {
-    [SerializeField]
+   
     
   
     private Animator animator;  //직업에 플레이어 애니메이터 변경
     public GameObject[] Weapons;  // 0 ,1  궁수 2,3 전사 법사 4
-    
+    [SerializeField]
     public JobInfo jobstate { get; set; }//= JobState.COMMON; // 현재 전직 가능한 직업
     public JobInfo jobFix { get; private set; }
 
@@ -23,16 +23,19 @@ public class Job : MonoBehaviour, IAttack
     {
         animator =GetComponentInChildren<Animator>();              //GetComponent<Animator>();
         instance = this;
+        jobFix = JobInfo.COMMON;
     }
 
     public void JobChoice()  // 직업 활성화
     {
+      
         if (jobFix != JobInfo.COMMON) return;
-        if(JobInfo.BOW == jobstate) // 궁수 전직
+        if(jobstate == JobInfo.BOW) // 궁수 전직
         {
+            Debug.Log("궁수전직");
             gameObject.GetComponent<Bow>().enabled = true;
             Weapons[0].SetActive(true);
-          //  Weapons[1].SetActive(true);
+        //    Weapons[1].SetActive(true);
             Weapons[5].SetActive(true);
             
         }
@@ -52,10 +55,6 @@ public class Job : MonoBehaviour, IAttack
         
     }
 
-    public virtual void IsAttack()
-    {
-
-    }
    
 
 
