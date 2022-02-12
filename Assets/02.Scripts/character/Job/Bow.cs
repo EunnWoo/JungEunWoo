@@ -9,11 +9,12 @@ public class Bow : PlayerAttack
     public Transform firepos;
 
     private string arrowobj;
-    private ObjPoolArrow objpool;
+    private ObjPoolManager objpool;
     private void Awake()
     {
-        GameObject.Find("GameManager").GetComponent<ObjPoolArrow>();
+        GameObject.Find("GameManager").GetComponent<ObjPoolManager>();
         arrowobj = "Arrow";
+       
     }
 
 

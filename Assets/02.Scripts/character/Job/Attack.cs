@@ -9,7 +9,7 @@ public class Attack : MonoBehaviour
     [SerializeField]
     private Animator animator;
     [SerializeField]
-    private ObjPoolArrow objpool;
+    private ObjPoolManager objpool;
     public Transform firepos;
     Arrow arrow; // arrow 스크립트
     public bool Fire { get; private set; }
