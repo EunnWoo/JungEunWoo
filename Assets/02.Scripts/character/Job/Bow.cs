@@ -10,11 +10,12 @@ public class Bow : PlayerAttack
 
     private string arrowobj;
     private ObjPoolManager objpool;
+    
     private void Awake()
     {
         GameObject.Find("GameManager").GetComponent<ObjPoolManager>();
         arrowobj = "Arrow";
-       
+      // tank =  Managers.Resource.Instantiate("Tank");
     }
 
 

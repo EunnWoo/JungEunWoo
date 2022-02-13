@@ -6,13 +6,20 @@ public class Managers : MonoBehaviour
 {
     public static Managers s_instance;
     public static Managers instance {get{ Init(); return s_instance; } }
-    //private void Awake()
-    //{
-    //    Init();
-    //}
+
+    ResourceManager _resource = new ResourceManager();
+
+    public static ResourceManager Resource { get { return instance._resource; } }
+
+    private void Start()
+    {
+        Init();
+    }
+
 
     static void Init()
     {
+       
         if(s_instance == null)
         {
             GameObject managers = GameObject.Find("@Managers");
