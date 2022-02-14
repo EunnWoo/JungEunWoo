@@ -28,10 +28,9 @@ public class PlayerInput : MonoBehaviour
 
         hAxis = Input.GetAxisRaw(hAxisName);
         vAxis = Input.GetAxisRaw(vAxisName);
-
-        roll = Input.GetButtonDown(rollName);
+        roll = Input.GetButton(rollName);
         fire = Input.GetButtonDown(fireName);
-        jump = Input.GetButtonDown(jumpName);
+        jump = Input.GetButton(jumpName);
         talk = Input.GetButtonDown(talkName);
 
         run = Input.GetButton(runName);

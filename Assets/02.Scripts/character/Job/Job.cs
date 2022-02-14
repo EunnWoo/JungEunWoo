@@ -35,7 +35,7 @@ public class Job : MonoBehaviour
             Debug.Log("±Ã¼öÀüÁ÷");
             gameObject.GetComponent<Bow>().enabled = true;
             Weapons[0].SetActive(true);
-        //    Weapons[1].SetActive(true);
+          //  Weapons[1].SetActive(true);
             Weapons[5].SetActive(true);
             
         }

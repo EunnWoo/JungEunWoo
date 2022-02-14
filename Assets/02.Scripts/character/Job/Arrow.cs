@@ -8,13 +8,7 @@ public class Arrow : MonoBehaviour
     private Rigidbody rigid;
     private Transform tr;
     
-    private void Update()
-    {
-        if (Attack.instance.Fire) 
-        {
-            GetComponent<Rigidbody>().AddForce(transform.right * speed);
-        }
-    }
+    
 
     private void Awake()
     {
@@ -22,8 +16,14 @@ public class Arrow : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
     }
 
-    
-       
+    private void Update()
+    {
+        if (Bow.instance.Fire == true)
+        {
+            rigid.AddForce(transform.right * speed);
+        }
+    }
+
 
     private void OnDisable()//오브젝트 비활성화
     {

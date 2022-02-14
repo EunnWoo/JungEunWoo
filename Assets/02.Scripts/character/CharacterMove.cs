@@ -12,7 +12,7 @@
 //    [SerializeField]
 //    private Transform camera;
 //    private Rigidbody characterrigid;
-//    private DialogManager manager; 
+//    private DialogManager manager;
 //    Animator ani;
 //    public float speed = 5f;
 
@@ -41,18 +41,18 @@
 //    }
 //    void Update()
 //    {
-       
+
 //        GetInput();
 //        Jump();
 //        Move();
-       
-//        Roll();
-       
+
+//      //  Roll();
+
 //    }
 //    void GetInput()
 //    {
-//        hAxis = manager.isAction? 0 : Input.GetAxis("Horizontal");//a,d이동 값
-//        vAxis = manager.isAction? 0 : Input.GetAxis("Vertical");//w,s이동 값
+//        hAxis = manager.isAction ? 0 : Input.GetAxis("Horizontal");//a,d이동 값
+//        vAxis = manager.isAction ? 0 : Input.GetAxis("Vertical");//w,s이동 값
 //        isRun = Input.GetButton("Run");//left shift가 눌렸는지
 //        isRoll = Input.GetButtonDown("Roll");
 //        isJump = Input.GetKeyDown(KeyCode.Space);
@@ -66,7 +66,7 @@
 //        {
 //            isForward = false;
 //        }
-       
+
 //    }
 //    public void Move()
 //    {
@@ -87,7 +87,7 @@
 //        moveAmount = Mathf.Clamp01(m);
 //        ani.SetFloat("vAxis", moveAmount, 0.2f, Time.deltaTime);
 //        ani.SetBool("IsRun", isRun && moveAmount != 0f);
-//      //  ani.SetBool("IsRun", moveVec != Vector3.zero);
+//        //  ani.SetBool("IsRun", moveVec != Vector3.zero);
 //        //ani.SetBool("IsWalk", isRun);
 //        transform.LookAt(transform.position + moveVec);
 
@@ -96,12 +96,12 @@
 
 //    private void Jump()
 //    {
-//        if (Input.GetKeyDown(KeyCode.Space) && isGround == true && 
+//        if (Input.GetKeyDown(KeyCode.Space) && isGround == true &&
 //            !roll && !manager.isAction)
 //        {
 //            characterrigid.AddForce(Vector3.up * 17, ForceMode.Impulse);
 
-            
+
 //        }
 //    }
 //    //private void OnTriggerStay(Collider other)

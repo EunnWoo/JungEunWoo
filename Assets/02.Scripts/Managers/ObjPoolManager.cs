@@ -6,8 +6,9 @@ public class ObjPoolManager : MonoBehaviour
 {
     [SerializeField]
     GameObject[] arrow;
-    public GameObject arrowPrefab;
 
+    public GameObject arrowPrefab;
+   
     [SerializeField]
     GameObject[] targetPool;
 
@@ -43,7 +44,7 @@ public class ObjPoolManager : MonoBehaviour
             if(!targetPool[i].activeSelf) // 비활성화라면
             {
                // targetPool[i].SetActive(true);
-                Debug.Log("화살 리턴");
+                
                 return targetPool[i];
             }
         }

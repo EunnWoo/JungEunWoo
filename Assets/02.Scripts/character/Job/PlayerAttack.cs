@@ -4,26 +4,37 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    [SerializeField]
     private Animator animator;
+    [SerializeField]
     private PlayerInput playerInput;
+    public float del { get; protected set; }
+
     void Awake()
     {
         animator = GetComponentInChildren<Animator>();
         playerInput = GetComponent<PlayerInput>();
     }
-    private void Update()
+    //private void Update()
+    //{
+    //    if (playerInput.fire)
+    //    OnAttack();
+
+    //}
+    protected virtual void OnAttack()
     {
         if (playerInput.fire)
-            OnAttack();
-    }
-    public virtual void OnAttack()
-    {
-        Use();
-        
+        {
+
+            StartCoroutine(Use());
+            StopCoroutine(Use());
+        }
+
+
     }
     protected virtual IEnumerator Use()
     {
-
+        Debug.Log("부모 코루틴");
         yield return null;
     }
 
