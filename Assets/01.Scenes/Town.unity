@@ -2690,6 +2690,7 @@ MonoBehaviour:
   NPC: {fileID: 0}
   talkIndex: 0
   isAction: 0
+  job: {fileID: 0}
 --- !u!1 &162949414
 GameObject:
   m_ObjectHideFlags: 0
@@ -94160,6 +94161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 732aadf02380a37419db287c54f0ac6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextMap: Map1
 --- !u!199 &6366042533291081094
 ParticleSystemRenderer:
   serializedVersion: 6
