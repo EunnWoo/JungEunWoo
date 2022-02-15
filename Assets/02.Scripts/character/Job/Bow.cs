@@ -13,8 +13,10 @@ public class Bow : PlayerAttack
     private ObjPoolManager objpool;
     public static Bow instance;
     Arrow arrow;
-    public bool Fire;
-    
+    public bool canFire;
+    private float range = 20f;
+
+
     //private void Awake()
     //{
     //    GameObject.Find("GameManager").GetComponent<ObjPoolManager>();
@@ -31,11 +33,14 @@ public class Bow : PlayerAttack
         animator = GetComponentInChildren<Animator>();
         arrowobj = "Arrow";
         instance = this;
-        Fire = true;
+        canFire = true;
+        Range = 10.0f;
+        
     }
     private void Update()
     {
         OnAttack();
+
     }
     protected override void OnAttack()
     {
@@ -45,13 +50,9 @@ public class Bow : PlayerAttack
     
     protected override IEnumerator Use()
     {
-        if (!Fire)
-        {
-            Debug.Log("ÄÚ·çÆ¾ Å»Ãâ");
-            yield break;
-        }
+       
 
-        Fire = false;
+        
         var arrowObj = objpool.MakeObj(arrowobj);
         if (arrowObj != null)
         {
@@ -60,21 +61,20 @@ public class Bow : PlayerAttack
         }
         animator.SetTrigger("Attack");
 
-        yield return null;
-
         while (true)
         {
+          
             arrowObj.transform.position = firepos.transform.position;
             arrowObj.transform.rotation = firepos.transform.rotation;
             if (Input.GetMouseButtonUp(0))
             {
+                arrow.FireArrow(firepos);
                 Debug.Log("fire");
                 animator.SetTrigger("Fire");
-                Fire = true;
 
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(1f);
 
-
+                
 
                 break;
             }

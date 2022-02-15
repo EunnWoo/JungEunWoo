@@ -11,8 +11,8 @@ public class CameraFollow : MonoBehaviour
    // private bool RightClick;
     void Start()
     {
-        manager = GameObject.Find("GameManager").GetComponent<DialogManager>();
-       
+        manager = GameObject.Find("@Managers").GetComponent<DialogManager>();
+        DontDestroyOnLoad(this);
        
     }
     

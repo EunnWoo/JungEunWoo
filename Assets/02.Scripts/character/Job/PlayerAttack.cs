@@ -9,6 +9,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private PlayerInput playerInput;
     public float del { get; protected set; }
+    public float Range { get; protected set; }
+    
 
     void Awake()
     {

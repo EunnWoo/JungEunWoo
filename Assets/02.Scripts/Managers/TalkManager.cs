@@ -5,7 +5,7 @@ using UnityEngine;
 public class TalkManager : MonoBehaviour
 {
     Dictionary<int, string[]> talkData;
-    public Player progress;
+    
     void Start()
     {
         talkData = new Dictionary<int, string[]>();

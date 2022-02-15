@@ -8,12 +8,15 @@ public class Managers : MonoBehaviour
     public static Managers instance {get{ Init(); return s_instance; } }
 
     ResourceManager _resource = new ResourceManager();
-
+    SceneManagerEx _scene = new SceneManagerEx();
+    
     public static ResourceManager Resource { get { return instance._resource; } }
+    public static SceneManagerEx Scene { get { return instance._scene; } }
 
     private void Start()
     {
         Init();
+       // DontDestroyOnLoad(this);
     }
 
 
@@ -27,7 +30,11 @@ public class Managers : MonoBehaviour
             {
                 managers = new GameObject { name = "@Managers" };
                 managers.AddComponent<Managers>();
+                
+
+
             }
+
             DontDestroyOnLoad(managers);
             s_instance = managers.GetComponent<Managers>();
         }

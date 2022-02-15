@@ -6,7 +6,7 @@ public class DialogManager : MonoBehaviour
 {
     [SerializeField]
     private TalkManager talkManager;
-    public QuestManager questManager;
+   
     public GameObject dialogPanel;
     public Image portraitImg;//Npc 얼굴
     public Text talkText;
@@ -18,8 +18,9 @@ public class DialogManager : MonoBehaviour
     public bool isAction = false;
     public Job job;
     void Start() {
-        talkManager = GameObject.Find("TalkManager").GetComponent<TalkManager>();
-        
+        talkManager = GameObject.Find("GameManager").GetComponent<TalkManager>();
+
+    
     }
     public void Action(GameObject npc){
         

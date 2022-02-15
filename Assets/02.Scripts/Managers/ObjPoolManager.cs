@@ -7,12 +7,12 @@ public class ObjPoolManager : MonoBehaviour
     [SerializeField]
     GameObject[] arrow;
 
-    public GameObject arrowPrefab;
+    private GameObject arrowPrefab;
    
     [SerializeField]
     GameObject[] targetPool;
 
-    private void Awake()
+    private void Start()
     {
         arrow = new GameObject[10];
 
@@ -25,7 +25,8 @@ public class ObjPoolManager : MonoBehaviour
 
         for (int i =0; i< arrow.Length;i++)
         {
-            arrow[i] = Instantiate(arrowPrefab, ObjPoolManager.transform);
+            arrow[i] = Managers.Resource.Instantiate("Arrow", ObjPoolManager.transform);
+
             arrow[i].SetActive(false);
         }
     }
