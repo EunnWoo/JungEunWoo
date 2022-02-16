@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private DialogManager dialogManager;
+   // private DialogManager dialogManager;
     private PlayerInput playerInput;
     private Rigidbody rigid;
     private Animator animator;
@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         rigid = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>(); 
-        dialogManager = GameObject.Find("GameManager").GetComponent<DialogManager>();
+      //  dialogManager = GameObject.Find("Canvas").transform.Find("DialogPanel").gameObject.GetComponent<DialogManager>();
         canMove = true;
     }
 
@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
     {
         
         if (playerInput.jump && isGround == true &&
-            !playerInput.roll && !dialogManager.isAction)
+            !playerInput.roll/* && !dialogManager.isAction*/)
         {
             rigid.AddForce(Vector3.up * 17, ForceMode.Impulse);
             isGround = false;

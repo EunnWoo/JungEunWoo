@@ -9,6 +9,7 @@ public class GameScene : BaseScene
     {
         base.Init();
         SceneType = SceneState.Game;
+        gameObject.AddComponent<CursorController>();
 
     }
 

@@ -12,7 +12,7 @@ public class PlayerAction : MonoBehaviour
     GameObject scanNPC;
     void Start()
     {
-        manager = GameObject.Find("GameManager").GetComponent<DialogManager>();
+       // manager = GameObject.Find("Canvas").transform.Find("DialogPanel").gameObject.GetComponent<DialogManager>();
     }
     public void OnTriggerStay(Collider other) {
         if (other.gameObject.tag == "Npc")
@@ -31,7 +31,7 @@ public class PlayerAction : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.F) && scanNPC != null){
             Debug.Log("F´©¸§");
-            manager.Action(scanNPC);
+            Managers.dialog.Action(scanNPC);
         }
     }
     

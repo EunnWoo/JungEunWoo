@@ -2,25 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjPoolManager : MonoBehaviour
+public class ObjPoolManager
 {
-    [SerializeField]
     GameObject[] arrow;
-
-    private GameObject arrowPrefab;
-   
-    [SerializeField]
     GameObject[] targetPool;
 
-    private void Start()
+    private void Awake()
     {
-        arrow = new GameObject[10];
+       
 
-        Generate();
+      //  Generate();
     }
 
-    void Generate()
+    public void Generate()
     {
+        arrow = new GameObject[10];
         GameObject ObjPoolManager = new GameObject("ObjPoolManager"); // 오브젝트 풀 담을 오브젝트 생성
 
         for (int i =0; i< arrow.Length;i++)
