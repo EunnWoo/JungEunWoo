@@ -20,11 +20,7 @@ public class Arrow : MonoBehaviour
 
     private void Update()
     {
-        if ((Vector3.Distance(transform.position, offset) >= 20f))
-        {
-            gameObject.SetActive(false);
-
-        }
+        DisableArrow();
 
 
     }
@@ -36,7 +32,14 @@ public class Arrow : MonoBehaviour
 
     }
   
-        
+    public void DisableArrow()
+    {
+        if ((Vector3.Distance(transform.position, offset) >= 20f))
+        {
+            gameObject.SetActive(false);
+
+        }
+    }
        
     
     private void OnDisable()//오브젝트 비활성화
