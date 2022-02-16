@@ -11,44 +11,44 @@ public class GameManager : MonoBehaviour
     {
 
     }
-    //public static GameManager instance // 프로퍼티
-    //{
-    //    get
-    //    {
+    public static GameManager instance // 프로퍼티
+    {
+        get
+        {
             
-    //        // 만약 싱글톤 변수에 아직 오브젝트가 할당되지 않았다면
-    //        if (m_instance == null)
-    //        {
-    //            // 씬에서 GameManager 오브젝트를 찾아 할당
-    //            m_instance = FindObjectOfType<GameManager>();
-    //        }
+            // 만약 싱글톤 변수에 아직 오브젝트가 할당되지 않았다면
+            if (m_instance == null)
+            {
+                // 씬에서 GameManager 오브젝트를 찾아 할당
+                m_instance = FindObjectOfType<GameManager>();
+            }
 
-    //        // 싱글톤 오브젝트를 반환
-    //        return m_instance;
-    //    }
-    //}
-   // private static GameManager m_instance; // 싱글톤이 할당될 static 변수
-  //  public GameObject playerPrefab;// 플레이어 프리팹
+            // 싱글톤 오브젝트를 반환
+            return m_instance;
+        }
+    }
+    private static GameManager m_instance; // 싱글톤이 할당될 static 변수
+    public GameObject playerPrefab;// 플레이어 프리팹
 
 
 
     private void Start()
     {
-       //if(instance ==null)
-       // {
-       //     GameObject gameManager = GameObject.Find("GameManager");
-       //     if(gameManager==null)
-       //     {
-       //         Managers.Resource.Instantiate("GameManager");
-       //     }
-       // }
+       if(instance ==null)
+        {
+            GameObject gameManager = GameObject.Find("GameManager");
+            if(gameManager==null)
+            {
+                Managers.Resource.Instantiate("GameManager");
+            }
+        }
         // 씬에 싱글톤 오브젝트가 된 다른 GameManager 오브젝트가 있다면
-       //if (instance != this)
-       // {
-       //     // 자신을 파괴
-       //     Destroy(gameObject);
-       // }
-       // DontDestroyOnLoad(this);
+       if (instance != this)
+        {
+            // 자신을 파괴
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(this);
       
     }
     //private void Start()

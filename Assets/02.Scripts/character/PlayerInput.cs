@@ -17,7 +17,7 @@ public class PlayerInput : MonoBehaviour
     public bool fire { get; private set; }
     public bool run { get; private set; }
     public bool jump { get; private set; }
-    public bool talking { get; private set; }
+    public bool talk { get; private set; }
    
     private void Update()
     {
@@ -31,7 +31,7 @@ public class PlayerInput : MonoBehaviour
         roll = Input.GetButton(rollName);
         fire = Input.GetButtonDown(fireName);
         jump = Input.GetButton(jumpName);
-        talking = Input.GetButtonDown(talkName);
+        talk = Input.GetButtonDown(talkName);
 
         run = Input.GetButton(runName);
         

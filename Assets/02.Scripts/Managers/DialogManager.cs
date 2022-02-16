@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class DialogManager
+public class DialogManager : MonoBehaviour
 {
-  
+    [SerializeField]
+    private TalkManager talkManager;
+   
     public GameObject dialogPanel;
     public Image portraitImg;//Npc 얼굴
     public Text talkText;
@@ -15,12 +17,10 @@ public class DialogManager
 
     public bool isAction = false;
     public Job job;
-    public void Setup()
-    {
-        dialogPanel = Managers.Resource.Load<GameObject>("UI/DialogPanel");
-        talkText = Managers.Resource.Load<Text>("UI/DialogText");
-        nameText = Managers.Resource.Load<Text>("UI/NameText");
+    void Start() {
+        talkManager = GameObject.Find("GameManager").GetComponent<TalkManager>();
 
+    
     }
     public void Action(GameObject npc){
         
@@ -35,7 +35,7 @@ public class DialogManager
        
       //  int questTalkIndex = questManager.GetQuestTalkIndex(id);
         
-        string talkData = Managers.talk.GetTalk(id, talkIndex);
+        string talkData = talkManager.GetTalk(id, talkIndex);
         if(id == 2000){
             dialogPanel.transform.GetChild(0).GetChild(3).gameObject.SetActive(true);
         }

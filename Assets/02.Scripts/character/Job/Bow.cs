@@ -10,7 +10,7 @@ public class Bow : PlayerAttack
 
     private string arrowobj;
     private Animator animator;
-   // private ObjPoolManager objpool;
+    private ObjPoolManager objpool;
     public static Bow instance;
     Arrow arrow;
     public bool canFire;
@@ -29,7 +29,7 @@ public class Bow : PlayerAttack
 
     private void OnEnable()
     {
-       // objpool = GameObject.Find("@Manager").GetComponent<ObjPoolManager>();
+        objpool = GameObject.Find("GameManager").GetComponent<ObjPoolManager>();
         animator = GetComponentInChildren<Animator>();
         arrowobj = "Arrow";
         instance = this;
@@ -50,10 +50,10 @@ public class Bow : PlayerAttack
     
     protected override IEnumerator Use()
     {
+       
 
-
-        var arrowObj = Managers.pool.MakeObj(arrowobj);
-       // var arrowObj = objpool.MakeObj(arrowobj);
+        
+        var arrowObj = objpool.MakeObj(arrowobj);
         if (arrowObj != null)
         {
             arrow = arrowObj.GetComponent<Arrow>();
