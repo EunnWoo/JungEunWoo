@@ -14,7 +14,7 @@ public class Bow : PlayerAttack
     public static Bow instance;
     Arrow arrow;
     public bool canFire;
-    private float range = 20f;
+    
 
 
     //private void Awake()
@@ -34,7 +34,7 @@ public class Bow : PlayerAttack
         arrowobj = "Arrow";
         instance = this;
         canFire = true;
-        Range = 10.0f;
+        range = 10.0f;
         
     }
     private void Update()
