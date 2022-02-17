@@ -39,20 +39,20 @@ public class Bow : PlayerAttack
     }
     private void Update()
     {
-        OnAttack();
+       // OnAttack();
 
     }
-    protected override void OnAttack()
+    public override void OnAttack()
     {
-        
+
         base.OnAttack();
     }
-    
+
     protected override IEnumerator Use()
     {
-       
+        Debug.Log("IEnumerator Bow");
 
-        
+
         var arrowObj = objpool.MakeObj(arrowobj);
         if (arrowObj != null)
         {

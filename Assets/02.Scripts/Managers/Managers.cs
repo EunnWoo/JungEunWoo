@@ -5,19 +5,20 @@ using UnityEngine;
 public class Managers : MonoBehaviour
 {
     public static Managers s_instance;
-    public static Managers instance {get{ Init(); return s_instance; } }
+    public static Managers instance { get { Init(); return s_instance; } }
 
     ResourceManager _resource = new ResourceManager();
     SceneManagerEx _scene = new SceneManagerEx();
     MouseInputManager _mouse = new MouseInputManager();
-    
+    TalkManager _talk = new TalkManager();
     public static ResourceManager Resource { get { return instance._resource; } }
     public static SceneManagerEx Scene { get { return instance._scene; } }
     public static MouseInputManager Mouse { get { return instance._mouse; } }
+    public static TalkManager talk { get { return instance._talk; } }
     private void Start()
     {
         Init();
-       // DontDestroyOnLoad(this);
+        // DontDestroyOnLoad(this);
     }
     private void Update()
     {
@@ -26,15 +27,15 @@ public class Managers : MonoBehaviour
 
     static void Init()
     {
-       
-        if(s_instance == null)
+
+        if (s_instance == null)
         {
             GameObject managers = GameObject.Find("@Managers");
-            if(managers == null)
+            if (managers == null)
             {
                 managers = new GameObject { name = "@Managers" };
                 managers.AddComponent<Managers>();
-                
+
 
 
             }
@@ -42,7 +43,11 @@ public class Managers : MonoBehaviour
             DontDestroyOnLoad(managers);
             s_instance = managers.GetComponent<Managers>();
         }
-        
 
+
+    }
+    public static void Clear()
+    {
+        Mouse.Clear();
     }
 }

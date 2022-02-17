@@ -6,13 +6,16 @@ public class TalkManager : MonoBehaviour
 {
     Dictionary<int, string[]> talkData;
     
+
+
     void Start()
     {
-        talkData = new Dictionary<int, string[]>();
+        
         GenerateData();
     }
     void GenerateData()
     {
+        talkData = new Dictionary<int, string[]>();
         talkData.Add(1000, new string[]{"...."});
         talkData.Add(2000, new string[]{"없는거 빼고 다 있음"});
         talkData.Add(1, new string[] {"궁수" });

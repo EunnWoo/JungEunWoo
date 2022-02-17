@@ -23,12 +23,12 @@ public class PlayerAttack : MonoBehaviour
     //    OnAttack();
 
     //}
-    protected virtual void OnAttack()
+    public virtual void OnAttack()
     {
-
+        
         if (playerInput.fire)
         {
-
+            
             StartCoroutine(Use());
             StopCoroutine(Use());
         }
