@@ -27,3 +27,24 @@ public class StatData : ILoader<int, Stat>
 
 }
 #endregion
+
+public class TalkMessage
+{
+    public int id;
+    public string message; 
+        
+}
+public class TalkData : ILoader<int,TalkMessage>
+{
+
+    public List<TalkMessage> talks = new List<TalkMessage>();
+    public Dictionary<int, TalkMessage> MakeDict()
+    {
+        Dictionary<int, TalkMessage> dict = new Dictionary<int, TalkMessage>();
+
+        foreach (TalkMessage talk in talks)
+            dict.Add(talk.id, talk);
+        return dict;
+
+    }
+}

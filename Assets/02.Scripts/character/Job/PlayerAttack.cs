@@ -9,7 +9,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private PlayerInput playerInput;
     public float del { get; protected set; }
-    public float Range { get; protected set; }
+    public float range { get; protected set; }
     
 
     void Awake()
@@ -23,11 +23,12 @@ public class PlayerAttack : MonoBehaviour
     //    OnAttack();
 
     //}
-    protected virtual void OnAttack()
+    public virtual void OnAttack()
     {
+        
         if (playerInput.fire)
         {
-
+            
             StartCoroutine(Use());
             StopCoroutine(Use());
         }

@@ -4,57 +4,147 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
     private DialogManager dialogManager;
     private PlayerInput playerInput;
     private Rigidbody rigid;
     private Animator animator;
+    private PlayerAttack playerAttack;
 
     Vector3 moveVec = Vector3.zero;
+    Vector3 dir = Vector3.zero;
 
-    float moveAmount;
+    GameObject _locktarget;
+
+    float moveAmount = 0f;
     float moveSpeed = 8f;
 
     [SerializeField]
     bool isGround;
     [SerializeField]
     bool canMove;
+
+
+    int _mask = (1 << (int) Layer.Npc) | (1 << (int) Layer.Monster) | (1 << (int) Layer.Ground);
+
     void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
         rigid = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>(); 
         dialogManager = GameObject.Find("GameManager").GetComponent<DialogManager>();
+        playerAttack = GetComponent<PlayerAttack>();
         canMove = true;
+        Managers.Mouse.MouseAction -= MouseEventMove;
+        Managers.Mouse.MouseAction += MouseEventMove;
+         
     }
 
     // Update is called once per frame
     void FixedUpdate()
-    {
+    {  
         Move();
+        Run();
+        //  MouseEventMove();
+        OnUpdateMove();
         Jump();
         Roll();
+        
+        //Debug.Log(_locktarget);
+        
     }
+    //void OnMouseEvent(MouseEvent evt)
+    //{
 
+    //}
     #region move&run
     private void Move()
     {
-        if (!playerInput.roll && canMove)
+        if (canMove && !playerInput.fire)
+        {
 
+            moveVec = new Vector3(playerInput.hAxis, 0, playerInput.vAxis).normalized;
 
-        moveVec = new Vector3(playerInput.hAxis, 0, playerInput.vAxis).normalized;
+            float m = Mathf.Abs(playerInput.hAxis) + Mathf.Abs(playerInput.vAxis);
+            moveAmount = Mathf.Clamp01(m);
 
-        float m = Mathf.Abs(playerInput.hAxis) + Mathf.Abs(playerInput.vAxis);
-        moveAmount = Mathf.Clamp01(m);
-        
-        animator.SetFloat("Move", moveAmount, 0.2f, Time.deltaTime);
-        transform.LookAt(transform.position + moveVec);
-        //런이면 1.3배 이동속도
-        transform.position += moveVec * moveSpeed * (playerInput.run ? 1.3f : 0.8f) * Time.deltaTime;
-        //런 애니메이션
-        animator.SetBool("IsRun", playerInput.run && moveAmount != 0f);
-
+            
+            transform.LookAt(transform.position + moveVec);
+            //런이면 1.3배 이동속도
+            
+            transform.position += moveVec * moveSpeed /** (playerInput.run ? 1.3f : 0.8f)*/ * Time.deltaTime;
+            animator.SetFloat("Move", moveAmount, 0.2f, Time.deltaTime);
+            //런 애니메이션
+            
+        }
+  
     }
+    void Run()
+    {
 
+        moveSpeed = playerInput.run ? 8f * 1.3f : 8f * 0.8f;
+        animator.SetBool("IsRun", playerInput.run && moveAmount != 0f);
+    }
+    void MouseEventMove(MouseEvent evt)
+    {
+        
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        bool raycastHit = Physics.Raycast(ray, out hit, 100.0f, _mask);
+        if (hit.collider.gameObject.layer == (int)Layer.Npc)
+        {
+            switch (evt)
+            {
+                case MouseEvent.PointerDown:
+
+                    _locktarget = hit.collider.gameObject;
+
+
+                    break;
+            }
+        }
+        else
+        {
+            switch (evt)
+            {
+                case MouseEvent.PointerDown:
+                playerAttack.OnAttack();
+                break;
+        }
+        }
+    }
+    void OnUpdateMove()
+    {
+        if (playerInput.hAxis != 0f || playerInput.vAxis != 0f) _locktarget = null;
+        if(_locktarget != null)
+        {
+            dir = DestPos(_locktarget.transform.position);
+          
+            if (dir.magnitude < 0.5f)
+            {
+                //Debug.Log("dir.magnitude 입장");
+                _locktarget = null;
+                return;
+            }
+            else
+            {
+                
+                moveAmount = Mathf.Clamp01(/*moveSpeed * Time.deltaTime, 0,*/ dir.magnitude);
+                animator.SetFloat("Move", moveAmount, 0.2f,Time.deltaTime);
+               
+                transform.position += dir.normalized * moveSpeed * moveAmount * Time.deltaTime;
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 20 * Time.deltaTime);
+            }
+        }
+    }
+    Vector3 DestPos(Vector3 hitpoint)
+    {
+        Vector3 dest = hitpoint - transform.position;
+        
+        dest.y = 0;
+        
+        return dest;
+    }
     #endregion
     #region jump
     private void Jump()
