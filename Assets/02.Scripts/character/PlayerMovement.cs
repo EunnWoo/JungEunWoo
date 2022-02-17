@@ -90,27 +90,39 @@ public class PlayerMovement : MonoBehaviour
         
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Debug.DrawRay(Camera.main.transform.position, ray.direction * 100.0f, Color.red, 1.0f);
         bool raycastHit = Physics.Raycast(ray, out hit, 100.0f, _mask);
         if (hit.collider.gameObject.layer == (int)Layer.Npc)
         {
-            switch (evt)
+            if (raycastHit)
             {
-                case MouseEvent.PointerDown:
+                switch (evt)
+                {
+                    case MouseEvent.PointerDown:
 
-                    _locktarget = hit.collider.gameObject;
+                        _locktarget = hit.collider.gameObject;
 
 
-                    break;
+                        break;
+                }
             }
         }
         else
         {
-            switch (evt)
+
+            if (raycastHit)
             {
-                case MouseEvent.PointerDown:
-                playerAttack.OnAttack();
-                break;
-        }
+                switch (evt)
+                {
+                    case MouseEvent.PointerDown:
+
+                        Vector3 turnVec = hit.point - transform.position;
+                        turnVec.y = 0;
+                        transform.LookAt(transform.position + turnVec);
+                        playerAttack.OnAttack();
+                        break;
+                }
+            }
         }
     }
     void OnUpdateMove()
