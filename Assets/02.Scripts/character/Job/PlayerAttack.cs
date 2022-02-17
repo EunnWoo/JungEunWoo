@@ -25,13 +25,13 @@ public class PlayerAttack : MonoBehaviour
     //}
     public virtual void OnAttack()
     {
+     //   Debug.Log("OnAttack¿‘¿Â");
         
-        if (playerInput.fire)
-        {
-            
             StartCoroutine(Use());
             StopCoroutine(Use());
-        }
+            
+            
+      
 
 
     }

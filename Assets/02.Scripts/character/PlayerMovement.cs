@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private PlayerAttack playerAttack;
 
+ 
     Vector3 moveVec = Vector3.zero;
     Vector3 dir = Vector3.zero;
 
@@ -34,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponentInChildren<Animator>(); 
         dialogManager = GameObject.Find("GameManager").GetComponent<DialogManager>();
         playerAttack = GetComponent<PlayerAttack>();
+      
         canMove = true;
         Managers.Mouse.MouseAction -= MouseEventMove;
         Managers.Mouse.MouseAction += MouseEventMove;
@@ -44,19 +46,14 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {  
         Move();
-        Run();
-        //  MouseEventMove();
+        Run();       
         OnUpdateMove();
         Jump();
         Roll();
         
-        //Debug.Log(_locktarget);
-        
+       
     }
-    //void OnMouseEvent(MouseEvent evt)
-    //{
 
-    //}
     #region move&run
     private void Move()
     {
@@ -70,20 +67,21 @@ public class PlayerMovement : MonoBehaviour
 
             
             transform.LookAt(transform.position + moveVec);
-            //런이면 1.3배 이동속도
             
-            transform.position += moveVec * moveSpeed /** (playerInput.run ? 1.3f : 0.8f)*/ * Time.deltaTime;
+            
+            transform.position += moveVec * moveSpeed * Time.deltaTime;
             animator.SetFloat("Move", moveAmount, 0.2f, Time.deltaTime);
-            //런 애니메이션
-            
+          
         }
   
     }
     void Run()
     {
-
-        moveSpeed = playerInput.run ? 8f * 1.3f : 8f * 0.8f;
-        animator.SetBool("IsRun", playerInput.run && moveAmount != 0f);
+        bool runnig = false;
+        runnig = playerInput.run && moveVec.magnitude != 0f;
+        moveSpeed = runnig ? 8f * 1.3f : 8f * 0.8f;
+        animator.SetBool("IsRun", runnig);
+    
     }
     void MouseEventMove(MouseEvent evt)
     {

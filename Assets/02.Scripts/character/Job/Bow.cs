@@ -42,11 +42,11 @@ public class Bow : PlayerAttack
        // OnAttack();
 
     }
-    //public override void OnAttack()
-    //{
+    public override void OnAttack()
+    {
 
-    //    base.OnAttack();
-    //}
+        base.OnAttack();
+    }
 
     protected override IEnumerator Use()
     {
