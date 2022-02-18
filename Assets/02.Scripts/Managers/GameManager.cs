@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
         }
     }
     private static GameManager m_instance; // 싱글톤이 할당될 static 변수
-    public GameObject playerPrefab;// 플레이어 프리팹
+   // public GameObject playerPrefab;// 플레이어 프리팹
 
 
 

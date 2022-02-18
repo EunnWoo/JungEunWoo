@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private PlayerAttack playerAttack;
 
+ 
     Vector3 moveVec = Vector3.zero;
     Vector3 dir = Vector3.zero;
 
@@ -34,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponentInChildren<Animator>(); 
         dialogManager = GameObject.Find("GameManager").GetComponent<DialogManager>();
         playerAttack = GetComponent<PlayerAttack>();
+      
         canMove = true;
         Managers.Mouse.MouseAction -= MouseEventMove;
         Managers.Mouse.MouseAction += MouseEventMove;
@@ -44,20 +46,15 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {  
         Move();
-        Run();
-        //  MouseEventMove();
+        Run();       
         OnUpdateMove();
         Jump();
         Roll();
         
-        //Debug.Log(_locktarget);
-        
+       
     }
-    //void OnMouseEvent(MouseEvent evt)
-    //{
 
-    //}
-    #region move&run
+    #region move
     private void Move()
     {
         if (canMove && !playerInput.fire)
@@ -70,47 +67,60 @@ public class PlayerMovement : MonoBehaviour
 
             
             transform.LookAt(transform.position + moveVec);
-            //런이면 1.3배 이동속도
             
-            transform.position += moveVec * moveSpeed /** (playerInput.run ? 1.3f : 0.8f)*/ * Time.deltaTime;
+            
+            transform.position += moveVec * moveSpeed * Time.deltaTime;
             animator.SetFloat("Move", moveAmount, 0.2f, Time.deltaTime);
-            //런 애니메이션
-            
+          
         }
   
     }
     void Run()
     {
-
-        moveSpeed = playerInput.run ? 8f * 1.3f : 8f * 0.8f;
-        animator.SetBool("IsRun", playerInput.run && moveAmount != 0f);
+        bool runnig = false;
+        runnig = playerInput.run && moveVec.magnitude != 0f;
+        moveSpeed = runnig ? 8f * 1.3f : 8f * 0.8f;
+        animator.SetBool("IsRun", runnig);
+    
     }
     void MouseEventMove(MouseEvent evt)
     {
         
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Debug.DrawRay(Camera.main.transform.position, ray.direction * 100.0f, Color.red, 1.0f);
         bool raycastHit = Physics.Raycast(ray, out hit, 100.0f, _mask);
         if (hit.collider.gameObject.layer == (int)Layer.Npc)
         {
-            switch (evt)
+            if (raycastHit)
             {
-                case MouseEvent.PointerDown:
+                switch (evt)
+                {
+                    case MouseEvent.PointerDown:
 
-                    _locktarget = hit.collider.gameObject;
+                        _locktarget = hit.collider.gameObject;
 
 
-                    break;
+                        break;
+                }
             }
         }
         else
         {
-            switch (evt)
+
+            if (raycastHit)
             {
-                case MouseEvent.PointerDown:
-                playerAttack.OnAttack();
-                break;
-        }
+                switch (evt)
+                {
+                    case MouseEvent.PointerDown:
+                        if (_locktarget != null) _locktarget = null;
+                        Vector3 turnVec = hit.point - transform.position;
+                        turnVec.y = 0;
+                        transform.LookAt(transform.position + turnVec);
+                        playerAttack.OnAttack();
+                        break;
+                }
+            }
         }
     }
     void OnUpdateMove()

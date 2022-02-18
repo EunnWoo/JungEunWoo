@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public enum Layer
 {
+	
 	Monster = 7,
 	Npc = 8,
 	Ground = 9

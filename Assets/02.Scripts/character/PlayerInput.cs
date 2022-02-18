@@ -29,7 +29,7 @@ public class PlayerInput : MonoBehaviour
         hAxis = Input.GetAxisRaw(hAxisName);
         vAxis = Input.GetAxisRaw(vAxisName);
         roll = Input.GetButton(rollName);
-        fire = Input.GetButtonDown(fireName);
+        fire = Input.GetButton(fireName);
         jump = Input.GetButton(jumpName);
         talking = Input.GetButtonDown(talkName);
 

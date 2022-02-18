@@ -17,20 +17,13 @@ public class Bow : PlayerAttack
     
 
 
-    //private void Awake()
-    //{
-    //    GameObject.Find("GameManager").GetComponent<ObjPoolManager>();
-    //    animator = GetComponentInChildren<Animator>();
-    //    arrowobj = "Arrow";
-    //    instance = this;
-    //    Fire = false;
-    //  // tank =  Managers.Resource.Instantiate("Tank");
-    //}
+    
 
     private void OnEnable()
     {
         objpool = GameObject.Find("GameManager").GetComponent<ObjPoolManager>();
         animator = GetComponentInChildren<Animator>();
+        animator.runtimeAnimatorController = Managers.Resource.Instantiate_Ani(GetType().ToString());
         arrowobj = "Arrow";
         instance = this;
         canFire = true;
@@ -50,7 +43,7 @@ public class Bow : PlayerAttack
 
     protected override IEnumerator Use()
     {
-        Debug.Log("IEnumerator Bow");
+       
 
 
         var arrowObj = objpool.MakeObj(arrowobj);
