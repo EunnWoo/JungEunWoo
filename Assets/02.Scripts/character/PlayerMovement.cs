@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
        
     }
 
-    #region move&run
+    #region move
     private void Move()
     {
         if (canMove && !playerInput.fire)
@@ -113,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
                 switch (evt)
                 {
                     case MouseEvent.PointerDown:
-
+                        if (_locktarget != null) _locktarget = null;
                         Vector3 turnVec = hit.point - transform.position;
                         turnVec.y = 0;
                         transform.LookAt(transform.position + turnVec);
