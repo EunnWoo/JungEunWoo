@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Bow : PlayerAttack
 {
-
-    public Transform firepos;
+    [SerializeField]
+    private Transform firepos;
 
     private string arrowobj;
     private Animator animator;
@@ -19,8 +19,10 @@ public class Bow : PlayerAttack
 
     
 
-    private void OnEnable()
+    private void Awake()
     {
+        //firepos = Managers.Resource.Load<GameObject>("Prefabs/Firepos").transform;
+        firepos = GameObject.Find("Firepos").transform;
         objpool = GameObject.Find("GameManager").GetComponent<ObjPoolManager>();
         animator = GetComponentInChildren<Animator>();
         animator.runtimeAnimatorController = Managers.Resource.Instantiate_Ani(GetType().ToString());
@@ -43,7 +45,7 @@ public class Bow : PlayerAttack
 
     protected override IEnumerator Use()
     {
-       
+        Debug.Log("Use¿‘¿Â");
 
 
         var arrowObj = objpool.MakeObj(arrowobj);

@@ -5,13 +5,12 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
    
-    public Transform target;
+    private Transform target;
     public Vector3 offset;
-    private DialogManager manager;
-   // private bool RightClick;
+ 
     void Start()
     {
-        manager = GameObject.Find("@Managers").GetComponent<DialogManager>();
+        target = GameObject.FindWithTag("Player").GetComponent<Transform>();
         DontDestroyOnLoad(this);
        
     }

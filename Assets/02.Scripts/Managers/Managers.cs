@@ -7,6 +7,8 @@ public class Managers : MonoBehaviour
     public static Managers s_instance;
     public static Managers instance { get { Init(); return s_instance; } }
 
+
+    #region managers
     ResourceManager _resource = new ResourceManager();
     SceneManagerEx _scene = new SceneManagerEx();
     MouseInputManager _mouse = new MouseInputManager();
@@ -15,6 +17,10 @@ public class Managers : MonoBehaviour
     public static SceneManagerEx Scene { get { return instance._scene; } }
     public static MouseInputManager Mouse { get { return instance._mouse; } }
     public static TalkManager talk { get { return instance._talk; } }
+    #endregion
+
+    
+
     private void Start()
     {
         Init();
@@ -42,6 +48,8 @@ public class Managers : MonoBehaviour
 
             DontDestroyOnLoad(managers);
             s_instance = managers.GetComponent<Managers>();
+
+
         }
 
 

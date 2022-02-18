@@ -9,7 +9,9 @@ public class PlayerMovement : MonoBehaviour
     private PlayerInput playerInput;
     private Rigidbody rigid;
     private Animator animator;
-    private PlayerAttack playerAttack;
+
+    [HideInInspector]
+    public PlayerAttack playerAttack;
 
  
     Vector3 moveVec = Vector3.zero;
