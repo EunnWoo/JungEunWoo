@@ -11,7 +11,7 @@ public class Job : MonoBehaviour
    
     
   
-    private Animator animator;  //직업에 플레이어 애니메이터 변경
+    //private Animator animator;  //직업에 플레이어 애니메이터 변경
     public GameObject[] Weapons;  // 0 ,1  궁수 2,3 전사 법사 4
     [SerializeField]
     public JobInfo jobstate { get; set; }//= JobState.COMMON; // 현재 전직 가능한 직업
@@ -21,9 +21,10 @@ public class Job : MonoBehaviour
 
     void Awake()
     {
-        animator =GetComponentInChildren<Animator>();              //GetComponent<Animator>();
+    //    animator =GetComponentInChildren<Animator>();              //GetComponent<Animator>();
         instance = this;
         jobFix = JobInfo.COMMON;
+        
     }
 
     public void JobChoice()  // 직업 활성화
@@ -32,11 +33,11 @@ public class Job : MonoBehaviour
         if (jobFix != JobInfo.COMMON) return;
         if(jobstate == JobInfo.BOW) // 궁수 전직
         {
-            Debug.Log("궁수전직");
+          
             gameObject.GetComponent<Bow>().enabled = true;
             Weapons[0].SetActive(true);
-          //  Weapons[1].SetActive(true);
             Weapons[5].SetActive(true);
+
             
         }
         else if (JobInfo.SWORD == jobstate) // 궁수 전직
@@ -50,7 +51,7 @@ public class Job : MonoBehaviour
             gameObject.GetComponent<Magic>().enabled = true;
             Weapons[4].SetActive(true);
         }
-        animator.SetInteger("JobState", (int)jobstate);
+       
         jobFix = jobstate;
         
     }
