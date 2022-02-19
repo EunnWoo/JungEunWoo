@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
  
     Vector3 moveVec = Vector3.zero;
     Vector3 dir = Vector3.zero;
+    Vector3 rollVec = Vector3.zero;
 
     GameObject _locktarget;
 
@@ -26,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     bool isGround;
     [SerializeField]
     bool canMove;
-
+    bool isRoll;
 
     int _mask = (1 << (int) Layer.Npc) | (1 << (int) Layer.Monster) | (1 << (int) Layer.Ground);
 
@@ -36,8 +37,6 @@ public class PlayerMovement : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>(); 
         dialogManager = GameObject.Find("GameManager").GetComponent<DialogManager>();
-        playerAttack = GetComponent<PlayerAttack>();
-      
         canMove = true;
         Managers.Mouse.MouseAction -= MouseEventMove;
         Managers.Mouse.MouseAction += MouseEventMove;
@@ -59,10 +58,11 @@ public class PlayerMovement : MonoBehaviour
     #region move
     private void Move()
     {
-        if (canMove && !playerInput.fire)
+        if (!playerInput.fire && !playerInput.roll) // 공격할때 멈추기
         {
 
             moveVec = new Vector3(playerInput.hAxis, 0, playerInput.vAxis).normalized;
+            if (isRoll) moveVec = rollVec;
 
             float m = Mathf.Abs(playerInput.hAxis) + Mathf.Abs(playerInput.vAxis);
             moveAmount = Mathf.Clamp01(m);
@@ -119,7 +119,12 @@ public class PlayerMovement : MonoBehaviour
                         Vector3 turnVec = hit.point - transform.position;
                         turnVec.y = 0;
                         transform.LookAt(transform.position + turnVec);
+
+
+                        if (playerAttack == null) break;
                         playerAttack.OnAttack();
+
+
                         break;
                 }
             }
@@ -188,10 +193,10 @@ public class PlayerMovement : MonoBehaviour
     private void Roll()
     {
         if (isGround && moveAmount !=0 && playerInput.roll && canMove)
-
         {
             canMove = false;
-            //RollVec = moveVec;
+            rollVec = moveVec;
+            isRoll = true;
             moveSpeed *= 2;
             
             animator.SetTrigger("IsRoll");
@@ -201,7 +206,8 @@ public class PlayerMovement : MonoBehaviour
     private void RollOut()
     {
         canMove = true;
-        moveSpeed = 5f;
+        isRoll = false;
+        moveSpeed /= 2;
         
 
     }

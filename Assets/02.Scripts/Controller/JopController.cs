@@ -8,55 +8,49 @@ public enum JobInfo { COMMON, BOW, SWORD, MAGIC }
 public class JopController : MonoBehaviour
 {
     ObjData objdata;
-    PlayerMovement playerMovement;
+
+    Animator animator;
 
     public DialogManager dialogManager;
-
-
     public GameObject[] Weapons;  // 0 ,1  궁수 2,3 전사 법사 4
-    [SerializeField]
-    public JobInfo jobstate { get; set; }//= JobState.COMMON; // 현재 전직 가능한 직업
-    public JobInfo jobFix { get; private set; }
 
-    //static public Job instance;
+    public JobInfo jobstate { get; set; }//= JobState.COMMON; // 현재 전직 가능한 직업
+    public string jobstring { get; private set; }
 
     void Awake()
     {
+        animator = GetComponentInChildren<Animator>();
 
-     //   instance = this;
-        jobFix = JobInfo.COMMON;
-        playerMovement = GetComponent<PlayerMovement>();
+        jobstring = null;
     }
 
     void JobChoice()  // 직업 활성화
-    {
-
-        if (jobFix != JobInfo.COMMON) return;
+    { 
         if (jobstate == JobInfo.BOW) // 궁수 전직
         {
-
-            gameObject.AddComponent<Bow>();
+            jobstring = "Bow";
+       
             Weapons[0].SetActive(true);
             Weapons[1].SetActive(true);
 
 
         }
-        else if (JobInfo.SWORD == jobstate) // 궁수 전직
+        else if (JobInfo.SWORD == jobstate) // 전사
         {
-         //   gameObject.GetComponent<Sword>().enabled = true;
+            jobstring = "Sword";
             Weapons[2].SetActive(true);
             Weapons[3].SetActive(true);
         }
         else if (JobInfo.MAGIC == jobstate) // 법사 전직
         {
-         //   gameObject.GetComponent<Magic>().enabled = true;
+            jobstring = "Magic";
             Weapons[4].SetActive(true);
         }
-
-        jobFix = jobstate;
-        playerMovement.playerAttack = GetComponent<PlayerAttack>();
-
+        animator.runtimeAnimatorController = Managers.Resource.Instantiate_Ani(jobstring); // 직업에 맞는 애니메이터로 변경
+        gameObject.AddComponent(System.Type.GetType(jobstring)); // 직업에 맞는 스크립트 부여
     }
+  
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -66,7 +60,7 @@ public class JopController : MonoBehaviour
             objdata =other.gameObject.GetComponent<ObjData>();
             Debug.Log("직업관");
             jobstate = (JobInfo)objdata.id;
-            // Debug.Log("NPC잡이 리턴해주는 잡스테이트 값 :"+other.gameObject.GetComponent<Job>().jobstate);
+           
         }
     }
     private void OnTriggerExit(Collider other)
@@ -86,12 +80,20 @@ public class JopController : MonoBehaviour
     }
     public void JobChoiceButton()
     {
-        if (jobFix != JobInfo.COMMON)
+        if (jobstring != null)
         {
-            //전직이 이미 있을때 실행
+
+            Debug.Log("직업이 이미 있습니다");
+
         }
-        JobChoice();
+        else 
+        {
+            JobChoice();
+        }
         dialogManager.dialogPanel.SetActive(false);
         dialogManager.isAction = false;
+        
     }
+
+
 }

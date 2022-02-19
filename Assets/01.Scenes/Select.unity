@@ -1169,19 +1169,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   isNpc: 1
---- !u!114 &42943360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 42943358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2b77d0c232832644b13c469adea3928, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objdata: {fileID: 0}
 --- !u!136 &42943362
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5686,19 +5673,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   isNpc: 1
---- !u!114 &540056543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 540056541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2b77d0c232832644b13c469adea3928, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objdata: {fileID: 0}
 --- !u!136 &540056545
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11777,9 +11751,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2067651316, guid: 9463bbab58cb27243b3d7aa88236670a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 4431993696956804729, guid: 9463bbab58cb27243b3d7aa88236670a, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'goggle'\n\tTransform 'goggle'\n\tFrom animation
+        clip 'NormalSprint_noWeapon'\n\tFrom animation clip 'Idle_noWeapon'\n\tFrom
+        animation clip 'NormalWalk_noWeapon'\n\tFrom animation clip 'JumpEnd_noWeapon'\n\tFrom
+        animation clip 'JumpAir_noWeapon'\n\tFrom animation clip 'Roll_noWeapon'"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431993696956804729, guid: 9463bbab58cb27243b3d7aa88236670a, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5657571042990092107, guid: 9463bbab58cb27243b3d7aa88236670a, type: 3}
       propertyPath: m_Name
@@ -15631,19 +15614,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   isNpc: 1
---- !u!114 &1509596852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1509596850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2b77d0c232832644b13c469adea3928, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objdata: {fileID: 0}
 --- !u!136 &1509596854
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -22529,5 +22499,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PortalBlue
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8455306518605453990, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}

@@ -5,15 +5,14 @@ using UnityEngine;
 
 public class Bow : PlayerAttack
 {
-    [SerializeField]
+   
     private Transform firepos;
 
     private string arrowobj;
-    private Animator animator;
+    
     private ObjPoolManager objpool;
-    public static Bow instance;
     Arrow arrow;
-    public bool canFire;
+ 
     
 
 
@@ -21,21 +20,14 @@ public class Bow : PlayerAttack
 
     private void Awake()
     {
-        //firepos = Managers.Resource.Load<GameObject>("Prefabs/Firepos").transform;
+     
+       
         firepos = GameObject.Find("Firepos").transform;
         objpool = GameObject.Find("GameManager").GetComponent<ObjPoolManager>();
-        animator = GetComponentInChildren<Animator>();
-        animator.runtimeAnimatorController = Managers.Resource.Instantiate_Ani(GetType().ToString());
-        arrowobj = "Arrow";
-        instance = this;
-        canFire = true;
+        
+        arrowobj = "Arrow";  
         range = 10.0f;
         
-    }
-    private void Update()
-    {
-       // OnAttack();
-
     }
     public override void OnAttack()
     {
