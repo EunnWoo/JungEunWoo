@@ -7,26 +7,20 @@ public class Bow : PlayerAttack
 {
    
     private Transform firepos;
-
-    private string arrowobj;
-    
     private ObjPoolManager objpool;
-    Arrow arrow;
+    private PlayerInput playerInput;
+    private string arrowobj;
+    private Arrow arrow;
  
     
-
-
-    
-
     private void Awake()
     {
-     
-       
         firepos = GameObject.Find("Firepos").transform;
         objpool = GameObject.Find("GameManager").GetComponent<ObjPoolManager>();
-        
+        playerInput = GetComponent<PlayerInput>();
         arrowobj = "Arrow";  
         range = 10.0f;
+        attackRate = 1.0f;
         
     }
     public override void OnAttack()
@@ -37,9 +31,8 @@ public class Bow : PlayerAttack
 
     protected override IEnumerator Use()
     {
-        Debug.Log("Use¿‘¿Â");
-
-
+        attackDelay += Time.deltaTime;
+        isAttackReady = attackRate < attackDelay;
         var arrowObj = objpool.MakeObj(arrowobj);
         if (arrowObj != null)
         {
@@ -50,19 +43,16 @@ public class Bow : PlayerAttack
 
         while (true)
         {
-          
             arrowObj.transform.position = firepos.transform.position;
             arrowObj.transform.rotation = firepos.transform.rotation;
-            if (Input.GetMouseButtonUp(0))
+            if (!playerInput.fire)
             {
                 arrow.FireArrow(firepos);
-                Debug.Log("fire");
                 animator.SetTrigger("Fire");
-
                 yield return new WaitForSeconds(1f);
 
-                
 
+                attackDelay = 0;
                 break;
             }
 

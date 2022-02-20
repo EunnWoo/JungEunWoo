@@ -92,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Debug.DrawRay(Camera.main.transform.position, ray.direction * 100.0f, Color.red, 1.0f);
         bool raycastHit = Physics.Raycast(ray, out hit, 100.0f, _mask);
+
         if (hit.collider.gameObject.layer == (int)Layer.Npc)
         {
             if (raycastHit)
@@ -107,21 +108,22 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
-        else
+        else  // 레이어가 npc가 아닐때
         {
 
             if (raycastHit)
             {
                 switch (evt)
                 {
-                    case MouseEvent.PointerDown:
-                        if (_locktarget != null) _locktarget = null;
+                    case MouseEvent.PointerDown:  // 
+                        if (_locktarget != null) _locktarget = null; // 타겟이 널일때 널 집어넣고 추적
                         Vector3 turnVec = hit.point - transform.position;
                         turnVec.y = 0;
                         transform.LookAt(transform.position + turnVec);
 
 
                         if (playerAttack == null) break;
+                        if (playerAttack.isAttackReady)
                         playerAttack.OnAttack();
 
 
