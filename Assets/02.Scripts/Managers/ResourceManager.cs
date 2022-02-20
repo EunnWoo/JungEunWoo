@@ -32,6 +32,7 @@ public class ResourceManager
         }
         return Object.Instantiate(controller, parent);  // 오브젝트 안 붙이면 재귀적인 함수 구현된다.
     }
+    
     public void Destroy(GameObject go)
     {
         if (go == null)

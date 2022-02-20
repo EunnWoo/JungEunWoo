@@ -16,7 +16,7 @@ public class DialogManager : MonoBehaviour
 
 
     public bool isAction = false;
-    public Job job;
+   
     void Start() {
         talkManager = GameObject.Find("GameManager").GetComponent<TalkManager>();
 
@@ -57,19 +57,19 @@ public class DialogManager : MonoBehaviour
     }
 
     //직업 관련 버튼 함수
-    public void JobExitClickButton()
-    {
-        dialogPanel.SetActive(false);
-        isAction = false;
-    }
-    public void JobChoiceButton()
-    {
-        if (job.jobFix != JobInfo.COMMON)
-        {
-            //전직이 이미 있을때 실행
-        }
-        job.JobChoice();
-        dialogPanel.SetActive(false);
-        isAction = false;
-    }
+    //public void JobExitClickButton()
+    //{
+    //    dialogPanel.SetActive(false);
+    //    isAction = false;
+    //}
+    //public void JobChoiceButton()
+    //{
+    //    if (job.jobFix != JobInfo.COMMON)
+    //    {
+    //        //전직이 이미 있을때 실행
+    //    }
+    //    job.JobChoice();
+    //    dialogPanel.SetActive(false);
+    //    isAction = false;
+    //}
 }
