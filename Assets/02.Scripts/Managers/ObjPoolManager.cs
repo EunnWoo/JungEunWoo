@@ -6,29 +6,33 @@ public class ObjPoolManager : MonoBehaviour
 {
     [SerializeField]
     GameObject[] arrow;
+    [SerializeField]
+    GameObject[] fireBall;
 
-    private GameObject arrowPrefab;
-   
     [SerializeField]
     GameObject[] targetPool;
 
     private void Start()
     {
-        arrow = new GameObject[10];
-
+        arrow = new GameObject[20];
+      //  fireBall = new GameObject[10];
         Generate();
     }
 
     void Generate()
     {
         GameObject ObjPoolManager = new GameObject("ObjPoolManager"); // 오브젝트 풀 담을 오브젝트 생성
-
+     //   GameObject FireballGroup = new GameObject("FireballGroup");
         for (int i =0; i< arrow.Length;i++)
         {
             arrow[i] = Managers.Resource.Instantiate("Arrow", ObjPoolManager.transform);
 
             arrow[i].SetActive(false);
         }
+        //for(int i =0; i< fireBall.Length;i++)
+        //{
+        //    fireBall[i] = Managers.Resource.Instantiate("")
+        //}
     }
 
     public GameObject MakeObj(string type)

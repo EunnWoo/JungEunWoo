@@ -17,20 +17,30 @@ public class PlayerAttack : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("Onenable");
+        
         animator = GetComponentInChildren<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
         playerMovement.playerAttack = GetComponent<PlayerAttack>(); // 어택을 상속받아 수정되는 값 다시 받아오기
         isAttackReady = true;
     }
 
-
+    private void Update()
+    {
+        attackDelay += Time.deltaTime;
+        isAttackReady = attackRate < attackDelay;
+        Debug.Log(isAttackReady);
+        
+    }
 
     public virtual void OnAttack()
     {
- 
-            StartCoroutine(Use());
+
+        if (isAttackReady && playerMovement.isGround && playerMovement.canMove)
+        {
             StopCoroutine(Use());
+            StartCoroutine(Use());
+            attackDelay = 0;
+        }
 
 
     }

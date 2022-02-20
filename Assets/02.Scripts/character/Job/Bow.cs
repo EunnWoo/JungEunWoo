@@ -20,19 +20,18 @@ public class Bow : PlayerAttack
         playerInput = GetComponent<PlayerInput>();
         arrowobj = "Arrow";  
         range = 10.0f;
-        attackRate = 1.0f;
+        attackRate = 0.55f;
         
     }
-    public override void OnAttack()
-    {
+    //public override void OnAttack()
+    //{
 
-        base.OnAttack();
-    }
+    //    base.OnAttack();
+    //}
 
     protected override IEnumerator Use()
     {
-        attackDelay += Time.deltaTime;
-        isAttackReady = attackRate < attackDelay;
+        
         var arrowObj = objpool.MakeObj(arrowobj);
         if (arrowObj != null)
         {
@@ -40,7 +39,7 @@ public class Bow : PlayerAttack
             arrowObj.SetActive(true);
         }
         animator.SetTrigger("Attack");
-
+        yield return new WaitForSeconds(0.2f);
         while (true)
         {
             arrowObj.transform.position = firepos.transform.position;
@@ -49,10 +48,7 @@ public class Bow : PlayerAttack
             {
                 arrow.FireArrow(firepos);
                 animator.SetTrigger("Fire");
-                yield return new WaitForSeconds(1f);
-
-
-                attackDelay = 0;
+         
                 break;
             }
 

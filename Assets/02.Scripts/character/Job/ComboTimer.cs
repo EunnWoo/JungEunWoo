@@ -13,6 +13,7 @@ public class ComboTimer : StateMachineBehaviour
         time += Time.deltaTime; //storing time passing.
 
         animator.SetFloat(timerName, time); //setting up "timerName"'s float value according to timer variable.
+        
 
     }
 

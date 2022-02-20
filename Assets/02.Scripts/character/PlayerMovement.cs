@@ -23,10 +23,10 @@ public class PlayerMovement : MonoBehaviour
     float moveAmount = 0f;
     float moveSpeed = 8f;
 
+
+    public bool isGround { get; private set; }
     [SerializeField]
-    bool isGround;
-    [SerializeField]
-    bool canMove;
+    public bool canMove { get; private set; }
     bool isRoll;
 
     int _mask = (1 << (int) Layer.Npc) | (1 << (int) Layer.Monster) | (1 << (int) Layer.Ground);
@@ -58,11 +58,15 @@ public class PlayerMovement : MonoBehaviour
     #region move
     private void Move()
     {
-        if (!playerInput.fire && !playerInput.roll) // 공격할때 멈추기
-        {
+        //if (!playerInput.fire && !playerInput.roll) // 공격할때 멈추기
+        //{
 
             moveVec = new Vector3(playerInput.hAxis, 0, playerInput.vAxis).normalized;
             if (isRoll) moveVec = rollVec;
+            if (playerAttack != null)  // 공격중 이동 막기
+            {
+                if (!playerAttack.isAttackReady) moveVec = Vector3.zero;
+            }
 
             float m = Mathf.Abs(playerInput.hAxis) + Mathf.Abs(playerInput.vAxis);
             moveAmount = Mathf.Clamp01(m);
@@ -74,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
             transform.position += moveVec * moveSpeed * Time.deltaTime;
             animator.SetFloat("Move", moveAmount, 0.2f, Time.deltaTime);
           
-        }
+      //  }
   
     }
     void Run()
@@ -123,7 +127,6 @@ public class PlayerMovement : MonoBehaviour
 
 
                         if (playerAttack == null) break;
-                        if (playerAttack.isAttackReady)
                         playerAttack.OnAttack();
 
 

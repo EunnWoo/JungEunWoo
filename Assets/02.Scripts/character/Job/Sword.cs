@@ -9,7 +9,7 @@ public class Sword : PlayerAttack
 
     private void Awake()
     {
-        
+        attackRate = 0.55f;
 
     }
     public override void OnAttack()
