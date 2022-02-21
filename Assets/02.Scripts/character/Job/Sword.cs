@@ -9,7 +9,8 @@ public class Sword : PlayerAttack
 
     private void Awake()
     {
-        attackRate = 0.55f;
+        attackRate = 0.2f;
+        range = 2f;
 
     }
     public override void OnAttack()
@@ -22,7 +23,8 @@ public class Sword : PlayerAttack
     {
 
         animator.SetTrigger("Attack");
-        
+
+        isAttack = false;
         yield return null;
     }
 }

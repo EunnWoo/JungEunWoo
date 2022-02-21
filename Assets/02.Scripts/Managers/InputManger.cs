@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInput : MonoBehaviour
+public class InputManager 
 {
     public string hAxisName = "Horizontal";
     public string vAxisName = "Vertical";
@@ -11,6 +11,7 @@ public class PlayerInput : MonoBehaviour
     public string runName = "Run";
     public string jumpName = "Jump";
     public string talkName = "Talk";
+   
     public float hAxis { get; private set; }
     public float vAxis { get; private set; }
     public bool roll { get; private set; }
@@ -19,13 +20,9 @@ public class PlayerInput : MonoBehaviour
     public bool jump { get; private set; }
     public bool talking { get; private set; }
    
-    private void Update()
+    
+    public void OnUpdate()
     {
-
-
-
-
-
         hAxis = Input.GetAxisRaw(hAxisName);
         vAxis = Input.GetAxisRaw(vAxisName);
         roll = Input.GetButton(rollName);
@@ -34,6 +31,5 @@ public class PlayerInput : MonoBehaviour
         talking = Input.GetButtonDown(talkName);
 
         run = Input.GetButton(runName);
-        
     }
 }

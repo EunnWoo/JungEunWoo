@@ -6,16 +6,11 @@ public class Magic : PlayerAttack
 {
 
     private Transform firepos;
-    
-    private PlayerInput playerInput;
-   
+
 
     private void Awake()
     {
         firepos = GameObject.Find("Firepos").transform;
-        
-        playerInput = GetComponent<PlayerInput>();
-        
         range = 10.0f;
         attackRate = 0.55f;
 
@@ -30,7 +25,7 @@ public class Magic : PlayerAttack
         while (true)
         {
        
-            if (!playerInput.fire)
+            if (!Managers.Input.fire)
             {
               
                 animator.SetTrigger("Fire");

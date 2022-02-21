@@ -17,7 +17,7 @@ public abstract class BaseScene : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("BaseScene ½ÇÇà");
+        
         Init();
     }
 

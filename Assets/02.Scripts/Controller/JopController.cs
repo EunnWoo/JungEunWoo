@@ -58,7 +58,7 @@ public class JopController : MonoBehaviour
         {
 
             objdata =other.gameObject.GetComponent<ObjData>();
-            Debug.Log("Á÷¾÷°ü");
+            
             jobstate = (JobInfo)objdata.id;
            
         }

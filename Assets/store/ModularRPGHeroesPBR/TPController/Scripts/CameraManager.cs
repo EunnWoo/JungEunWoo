@@ -53,8 +53,8 @@ namespace DM
                 targetSpeed = controllerSpeed;
             }
 
-            FollowTarget(d);
-            HandleRotations(d, 0/*v*/, h, targetSpeed);
+           // FollowTarget(d);
+            HandleRotations(d, h, targetSpeed);
         }
 
         void FollowTarget(float d)  //defines how camera follows the target.
@@ -64,17 +64,17 @@ namespace DM
             transform.position = targetPosition;
         }
 
-        void HandleRotations(float d, float v, float h, float targetSpeed)  //defines the rotation of camera.
+        void HandleRotations(float d, float h, float targetSpeed)  //defines the rotation of camera.
         {
             if (turnSmoothing > 0)
             {
                 smoothX = Mathf.SmoothDamp(smoothX, h, ref smoothXVelocity, turnSmoothing);
-                // smoothY = Mathf.SmoothDamp(smoothY, v, ref smoothYVelocity, turnSmoothing);
+                
             }
             else
             {
                 smoothX = h;
-                // smoothY = v;
+                
             }
 
             lookAngle += smoothX * targetSpeed;

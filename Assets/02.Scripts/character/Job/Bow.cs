@@ -8,7 +8,7 @@ public class Bow : PlayerAttack
    
     private Transform firepos;
     private ObjPoolManager objpool;
-    private PlayerInput playerInput;
+    
     private string arrowobj;
     private Arrow arrow;
  
@@ -17,10 +17,10 @@ public class Bow : PlayerAttack
     {
         firepos = GameObject.Find("Firepos").transform;
         objpool = GameObject.Find("GameManager").GetComponent<ObjPoolManager>();
-        playerInput = GetComponent<PlayerInput>();
+        
         arrowobj = "Arrow";  
         range = 10.0f;
-        attackRate = 0.55f;
+        attackRate = 0.5f;
         
     }
     //public override void OnAttack()
@@ -44,11 +44,12 @@ public class Bow : PlayerAttack
         {
             arrowObj.transform.position = firepos.transform.position;
             arrowObj.transform.rotation = firepos.transform.rotation;
-            if (!playerInput.fire)
+            if (!Managers.Input.fire)
             {
                 arrow.FireArrow(firepos);
                 animator.SetTrigger("Fire");
-         
+                attackDelay = 0;
+                isAttack = false;
                 break;
             }
 

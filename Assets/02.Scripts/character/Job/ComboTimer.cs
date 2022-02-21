@@ -6,7 +6,7 @@ public class ComboTimer : StateMachineBehaviour
 {
     public string timerName;    //timer for combo timing.
     float time;
-
+   
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
 

@@ -12,10 +12,12 @@ public class Managers : MonoBehaviour
     ResourceManager _resource = new ResourceManager();
     SceneManagerEx _scene = new SceneManagerEx();
     MouseInputManager _mouse = new MouseInputManager();
+    InputManager _input = new InputManager();
     TalkManager _talk = new TalkManager();
     public static ResourceManager Resource { get { return instance._resource; } }
     public static SceneManagerEx Scene { get { return instance._scene; } }
     public static MouseInputManager Mouse { get { return instance._mouse; } }
+    public static InputManager Input { get { return instance._input; } }
     public static TalkManager talk { get { return instance._talk; } }
     #endregion
 
@@ -29,6 +31,7 @@ public class Managers : MonoBehaviour
     private void Update()
     {
         _mouse.OnUpdate();
+        _input.OnUpdate();
     }
 
     static void Init()

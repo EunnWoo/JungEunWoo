@@ -30,7 +30,7 @@ public class PlayerAction : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.F) && scanNPC != null){
-            Debug.Log("F´©¸§");
+            
             manager.Action(scanNPC);
         }
     }
