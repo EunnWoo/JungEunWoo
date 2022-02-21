@@ -13,6 +13,7 @@ TagManager:
   - Bow
   - Collide
   - FireBall
+  - FirePos
   layers:
   - Default
   - TransparentFX
