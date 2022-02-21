@@ -50,6 +50,7 @@ public class Bow : PlayerAttack
                 animator.SetTrigger("Fire");
                 attackDelay = 0;
                 isAttack = false;
+             
                 break;
             }
 

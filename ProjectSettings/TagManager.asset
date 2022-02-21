@@ -11,6 +11,8 @@ TagManager:
   - Monster
   - Arrow
   - Bow
+  - Collide
+  - FireBall
   layers:
   - Default
   - TransparentFX

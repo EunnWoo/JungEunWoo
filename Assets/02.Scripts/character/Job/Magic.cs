@@ -6,11 +6,11 @@ public class Magic : PlayerAttack
 {
 
     private Transform firepos;
-
+    GameObject fireBallGroup;
 
     private void Awake()
     {
-        firepos = GameObject.Find("Firepos").transform;
+        fireBallGroup = GameObject.Find("FireBallGroup");
         range = 10.0f;
         attackRate = 0.55f;
 

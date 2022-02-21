@@ -45,7 +45,7 @@ public class PlayerAttack : MonoBehaviour
     public virtual void OnAttack()
     {
 
-        if (isAttackReady && playerMovement.isGround /*&& canMove*/&&!playerMovement.isRoll && !isAttack)
+        if (isAttackReady && playerMovement.isGround &&!playerMovement.isRoll && !isAttack)
         {
             isAttack = true;
             StopCoroutine(Use());
