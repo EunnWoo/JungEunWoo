@@ -10,7 +10,6 @@ public class Arrow : MonoBehaviour
     
     public Vector3 offset { get; private set; }
 
-    bool FireUp;
     private void Awake()
     {
         tr = GetComponent<Transform>();

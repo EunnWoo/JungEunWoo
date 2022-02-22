@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>(); 
-        dialogManager = GameObject.Find("GameManager").GetComponent<DialogManager>();
+        dialogManager = GameObject.Find("@Scene").GetComponent<DialogManager>();
         
         Managers.Mouse.MouseAction -= MouseEventMove;
         Managers.Mouse.MouseAction += MouseEventMove;

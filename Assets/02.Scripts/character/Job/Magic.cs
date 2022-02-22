@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class Magic : PlayerAttack
 {
+    [SerializeField]
+    private GameObject[] fireBallPos;
+    private ObjPoolManager objpool;
 
-    private Transform[] firePosBall;
-   
+    private int hasFireBall;
+    private string fireballobj;
     private float charge;
+
     private void Awake()
     {
-        GameObject[] go = GameObject.FindGameObjectsWithTag("FirePos");
-        for(int i=0; i<go.Length; i++)
-        {
-            firePosBall[i] = go[i].transform;
-        }
+        objpool = GameObject.Find("GameManager").GetComponent<ObjPoolManager>();
+
+        fireBallPos = GameObject.FindGameObjectsWithTag("FirePos");
+        fireballobj = "FireBall";
+        hasFireBall = 0;
+
         range = 10.0f;
         attackRate = 0.55f;
 
@@ -26,14 +31,32 @@ public class Magic : PlayerAttack
      
         animator.SetTrigger("Attack");
         yield return new WaitForSeconds(0.2f);
+
+
         while (true)
         {
+
             charge += Time.deltaTime;
-            Debug.Log(charge);
-            if (!Managers.Input.fire)
+            
+            if (hasFireBall < 5? charge >= hasFireBall : false) // 차징만큼 담기
+            { 
+                var fireBallObj = objpool.MakeObj(fireballobj);
+                if (fireBallObj != null)
+                {
+                    fireBallObj.transform.position = fireBallPos[hasFireBall].transform.position;
+               
+                    fireBallObj.SetActive(true);
+                    hasFireBall++;
+                }
+               
+            }
+
+            if (!Managers.Input.fire) // 발사
             {
-              
                 animator.SetTrigger("Fire");
+                isAttack = false;
+                hasFireBall = 0;
+                charge = 0;
 
                 break;
             }

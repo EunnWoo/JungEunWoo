@@ -8,8 +8,9 @@ public enum SceneState
     Unknown,
     Login,
     Lobby,
-    Game,
-    Select
+    Select,
+    Map1
+
 }
 public abstract class BaseScene : MonoBehaviour
 {

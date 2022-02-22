@@ -13,7 +13,7 @@ public class ObjPoolManager : MonoBehaviour
     private void Start()
     {
         arrow = new GameObject[20];
-        fireBall = new GameObject[5];
+        fireBall = new GameObject[10];
         
         Generate();
     }
@@ -21,7 +21,7 @@ public class ObjPoolManager : MonoBehaviour
     void Generate()
     {
         GameObject ObjPoolManager = new GameObject("ObjPoolManager"); // 오브젝트 풀 담을 오브젝트 생성
-        GameObject FireballGroup = new GameObject("FireballGroup");
+        
 
         for (int i =0; i< arrow.Length;i++)
         {
@@ -31,7 +31,7 @@ public class ObjPoolManager : MonoBehaviour
         }
         for (int i = 0; i < fireBall.Length; i++)
         {
-            fireBall[i] = Managers.Resource.Instantiate("Magic fire");
+            fireBall[i] = Managers.Resource.Instantiate("Magic fire", ObjPoolManager.transform);
             fireBall[i].SetActive(false);
         }
     }

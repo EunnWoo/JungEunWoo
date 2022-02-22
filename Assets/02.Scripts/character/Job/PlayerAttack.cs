@@ -13,8 +13,9 @@ public class PlayerAttack : MonoBehaviour
     public bool isAttack { get; protected set; }
     protected Animator animator;
 
+    public GameObject attackTarget { get; private set; }
     PlayerMovement playerMovement;
-    GameObject _locktarget;
+   
 
 
     int _mask = (1 << (int)Layer.Monster) | (1 << (int)Layer.Ground);
@@ -77,7 +78,7 @@ public class PlayerAttack : MonoBehaviour
                     case MouseEvent.Press:
                         if (DistanceAttackPos(hit)) // 클릭한 지점과의 거리가 range보다 짧을경우 공격.
                         {
-                            
+                            attackTarget = hit.collider.gameObject;
                             OnAttack();
                             
                         }

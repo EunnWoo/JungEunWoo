@@ -12,7 +12,7 @@ public class PlayerAction : MonoBehaviour
     GameObject scanNPC;
     void Start()
     {
-        manager = GameObject.Find("GameManager").GetComponent<DialogManager>();
+        manager = GameObject.Find("@Scene").GetComponent<DialogManager>();
     }
     public void OnTriggerStay(Collider other) {
         if (other.gameObject.tag == "Npc")
