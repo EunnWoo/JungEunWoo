@@ -33,6 +33,12 @@ public class UI_Inventory : MonoBehaviour
     public List<ItemData> listUse = new List<ItemData>();
     public List<ItemData> listETC = new List<ItemData>();
 
+
+    public GameObject ItemInfo; //인벤토리에서 마우스 올려놓으면 아이템 정보 뜨게하는 오브젝트
+    public RectTransform CanvaRect;
+    IEnumerator PointerCoroutine;
+
+
     // private InventorySlot inven;
     void Start()
     {
@@ -182,6 +188,28 @@ public class UI_Inventory : MonoBehaviour
         }
         return _rtn;
     }
+
+    public void PointerEnter(int slotNum) //마우스가 인벤토리 슬롯 위에 올려져있을때
+    {
+        PointerCoroutine = PointerEnterDelay(slotNum);
+        StartCoroutine(PointerCoroutine);
+        //ItemInfo.GetComponentInChildren<Text>().text = goEquipSlot[slotNum].Name;
+        
+    }
+
+    IEnumerator PointerEnterDelay(int slotNum) //마우스가 인벤토리 슬롯 위에 올려져있을때 0.5초뒤에 실행
+    {
+        yield return new WaitForSeconds(0.3f);
+        ItemInfo.SetActive(true);
+    }
+
+    public void PointerExit(int slotNum)//마우스가 인벤토리 슬롯 위에 빠져나갈때
+    {
+        StopCoroutine(PointerCoroutine);
+        ItemInfo.SetActive(false);
+    }
+
+
 #if UNITY_EDITOR
     #region 직접입력
 
@@ -194,19 +222,16 @@ public class UI_Inventory : MonoBehaviour
 
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Alpha1))
-        //{
-        //    AddItem(20001);
-        //}
-        //if (Input.GetKeyDown(KeyCode.Alpha2))
-        //{
-        //    AddItem(20002);
-        //}
-        
+       
         if (Input.GetKeyDown(KeyCode.I))
         {
             OpenInventory();
         }
+        //스크린린포인트 0,0부터 1920,1080 를 새로운 사각형 위치로 변환
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(CanvaRect, Input.mousePosition, Camera.main, out Vector2 anchoredPos);
+
+        //유아이창이 뜰위치
+        ItemInfo.GetComponent<RectTransform>().anchoredPosition = anchoredPos + new Vector2(700,570);
     }
 
     #endregion
