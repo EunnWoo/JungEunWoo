@@ -32,7 +32,7 @@ public class ActionController : MonoBehaviour
     private void Start()
     {
         camera = Camera.main;
-       // Cursor.visible = true;
+        //Cursor.visible = true;
 
         Vector3 _dir = parentTrans.position - transform.position;
         dirDistance = _dir.magnitude;

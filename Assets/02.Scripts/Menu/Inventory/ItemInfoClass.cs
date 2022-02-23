@@ -108,8 +108,8 @@ public class ItemInfoWearPart : ItemInfoBase
 [System.Serializable]
 public class ItemInfoUsepart : ItemInfoBase
 {
-	public int hp;
-	public int mp;
+	public float hp;
+	public float mp;
 }
 
 [System.Serializable]

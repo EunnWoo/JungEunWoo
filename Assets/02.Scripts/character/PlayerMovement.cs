@@ -97,7 +97,11 @@ public class PlayerMovement : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         //Debug.DrawRay(Camera.main.transform.position, ray.direction * 100.0f, Color.red, 1.0f);
         bool raycastHit = Physics.Raycast(ray, out hit, 100.0f, _mask);
+<<<<<<< HEAD
         if (raycastHit)
+=======
+        if (raycastHit && hit.collider.gameObject.layer == (int)Layer.Npc)
+>>>>>>> main
         {
             if (hit.collider.gameObject.layer == (int)Layer.Npc || hit.collider.gameObject.layer == (int)Layer.Monster || hit.collider.gameObject.layer == (int)Layer.Ground)
             {
