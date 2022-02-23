@@ -27,8 +27,8 @@ public class Magic : PlayerAttack
 
     protected override IEnumerator Use()
     {
+        animator.SetBool("Fire", false);
 
-     
         animator.SetTrigger("Attack");
         yield return new WaitForSeconds(0.2f);
 
@@ -53,7 +53,7 @@ public class Magic : PlayerAttack
 
             if (!Managers.Input.fire) // น฿ป็
             {
-                animator.SetTrigger("Fire");
+                animator.SetBool("Fire",true);
                 isAttack = false;
                 attackDelay = 0;
                 hasFireBall = 0;

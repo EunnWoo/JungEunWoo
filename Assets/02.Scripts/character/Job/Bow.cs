@@ -31,7 +31,7 @@ public class Bow : PlayerAttack
 
     protected override IEnumerator Use()
     {
-        
+        animator.SetBool("Fire",false);
         var arrowObj = objpool.MakeObj(arrowobj);
         if (arrowObj != null)
         {
@@ -47,7 +47,7 @@ public class Bow : PlayerAttack
             if (!Managers.Input.fire)
             {
                 arrow.FireArrow(firepos);
-                animator.SetTrigger("Fire");
+                animator.SetBool("Fire", true);
                 attackDelay = 0;
                 isAttack = false;
              

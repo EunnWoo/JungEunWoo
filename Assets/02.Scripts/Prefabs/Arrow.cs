@@ -31,7 +31,7 @@ public class Arrow : MonoBehaviour
 
     }
   
-    public void DisableArrow()
+    public void DisableArrow() //사정거리 벗어나면
     {
         if ((Vector3.Distance(transform.position, offset) >= 20f))
         {

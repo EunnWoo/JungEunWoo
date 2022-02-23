@@ -25,9 +25,10 @@ public class PlayerController : MonoBehaviour
 
 
     public bool isGround { get; private set; }
-    [SerializeField]
 
     public bool isRoll { get; private set; }
+    public bool isMoveAttack { get; private set; }
+    public bool isNormalAttack { get; private set; }
 
     int _mask = (1 << (int)Layer.Npc) | (1 << (int)Layer.Monster) | (1 << (int)Layer.Ground);
 
@@ -37,8 +38,8 @@ public class PlayerController : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         dialogManager = GameObject.Find("@Scene").GetComponent<DialogManager>();
 
-        Managers.Mouse.MouseAction -= MouseEventMove;
-        Managers.Mouse.MouseAction += MouseEventMove;
+        Managers.Mouse.MouseAction -= OnMouseEvent;
+        Managers.Mouse.MouseAction += OnMouseEvent;
 
     }
 
@@ -47,11 +48,12 @@ public class PlayerController : MonoBehaviour
 
         Move();
         Run();
-        OnUpdateMove();
         Jump();
         Roll();
+        OnMouseUpdate();
 
-
+        if (_locktarget != null)
+            Debug.Log(_locktarget);
 
     }
 
@@ -63,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
         if (playerAttack != null)  // 공격중 이동 막기
         {
-            if (!playerAttack.canMove || !playerAttack.isAttackReady) MoveStop();
+            if (!playerAttack.canMove /*|| !playerAttack.isAttackReady*/) MoveStop();
 
         }
 
@@ -77,11 +79,6 @@ public class PlayerController : MonoBehaviour
         transform.position += moveVec * moveSpeed * Time.deltaTime;
         animator.SetFloat("Move", moveAmount, 0.2f, Time.deltaTime);
     }
-    public void MoveStop()
-    {
-        moveVec = Vector3.zero;
-
-    }
     void Run()
     {
         bool runnig = false;
@@ -90,46 +87,17 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("IsRun", runnig);
 
     }
-    void MouseEventMove(MouseEvent evt)
+    void OnMouseUpdate()
     {
-
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //Debug.DrawRay(Camera.main.transform.position, ray.direction * 100.0f, Color.red, 1.0f);
-        bool raycastHit = Physics.Raycast(ray, out hit, 100.0f, _mask);
-
-        if (raycastHit)
+        
+        if (Managers.Input.hAxis != 0f || Managers.Input.vAxis != 0f || Managers.Input.jump || Managers.Input.roll) //키보드 조작시 타겟 지우기
         {
-            if (hit.collider.gameObject.layer == (int)Layer.Npc || hit.collider.gameObject.layer == (int)Layer.Monster || hit.collider.gameObject.layer == (int)Layer.Ground)
-            {
-
-                switch (evt)
-                {
-                    case MouseEvent.PointerDown:
-                        if (_locktarget != null) // 이벤트 발생시 비어있지않다면 비어주고 다시 부여
-                        {
-                            _locktarget = null;
-                        }
-                        _locktarget = hit.collider.gameObject;
-
-                        break;
-                }
-            }
-            else
-            {
-                _locktarget = null;
-            }
-
+            _locktarget = null;
         }
-    }
-    void OnUpdateMove()
-    {
 
-        if (Managers.Input.hAxis != 0f || Managers.Input.vAxis != 0f || Managers.Input.jump || Managers.Input.roll) _locktarget = null;
         if (_locktarget != null)
         {
-
-            dir = DestPos(_locktarget.transform.position);
+            dir = DestPos(_locktarget.transform.position); // 타겟과의 거리 값
 
             if (_locktarget.layer == (int)Layer.Npc)
             {
@@ -143,20 +111,33 @@ public class PlayerController : MonoBehaviour
                     MouseMove(); // 마우스로 이동할때의 함수
                 }
             }
-            else if (_locktarget.layer == (int)Layer.Monster)
+            else if (_locktarget.layer == (int)Layer.Monster || _locktarget.layer ==(int)Layer.Ground)
             {
-                if (dir.magnitude < playerAttack.range) // 사정거리 이내 도달시 목표물을 한번 공격 후 비우기
+                
+                if (DistanceAttackPos(dir)) //거리 비교 bool
                 {
-
+                    playerAttack.OnAttack();
+                    playerAttack.AttackTacrgetSet(_locktarget);
                     _locktarget = null;
                     return;
                 }
                 else
                 {
+
                     MouseMove();
                 }
             }
+            //else if(_locktarget.layer == (int)Layer.Ground)
+            //{
+            //    playerAttack.OnAttack();
+            //    _locktarget = null;
+            //}
         }
+    }
+    public void MoveStop()
+    {
+        moveVec = Vector3.zero;
+
     }
     //hitpoint와 거리반환 함수
     Vector3 DestPos(Vector3 hitpoint)
@@ -175,6 +156,7 @@ public class PlayerController : MonoBehaviour
         transform.position += dir.normalized * moveSpeed * moveAmount * Time.deltaTime;
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 20 * Time.deltaTime);
     }
+
     #endregion
     #region jump
     private void Jump()
@@ -225,4 +207,54 @@ public class PlayerController : MonoBehaviour
 
     }
     #endregion
+    #region Attack
+
+
+
+    bool DistanceAttackPos(Vector3 destpos)
+    {
+        return Vector3.Distance(transform.position, destpos) <= playerAttack.range;
+    }
+
+
+    #endregion
+
+    void OnMouseEvent(MouseEvent evt)
+    {
+
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        bool raycastHit = Physics.Raycast(ray, out hit, 100.0f, _mask);
+
+        if (raycastHit)
+        {
+
+                switch (evt)
+                {
+                    case MouseEvent.PointerDown:
+                    LookHitPoint(hit);
+                  
+                        isMoveAttack = false; // 새로운 이벤트 발생시 마우스 어택 초기화
+                        if (_locktarget != null) // 이벤트 발생시 비어있지않다면 비어주고 다시 부여
+                        {
+                            _locktarget = null;
+                        }
+                        _locktarget = hit.collider.gameObject;
+                 
+
+                    break;
+                }
+            
+        }
+    }
+    void LookHitPoint(RaycastHit hit)
+    {
+        if (!isRoll && playerAttack != null ?playerAttack.canMove :true)
+        {
+            Vector3 turnVec = hit.point - transform.position;
+            turnVec.y = 0;
+            transform.LookAt(transform.position + turnVec);
+        }
+    }
+
 }

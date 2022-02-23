@@ -8,6 +8,8 @@ public class FireBall : MonoBehaviour
     Rigidbody rigid;
     [SerializeField]
     PlayerAttack playerAttack;
+    Animator animator;
+
     private ParticleSystem ps;
     private float red = 0f;
     private float green = 0f;
@@ -19,7 +21,7 @@ public class FireBall : MonoBehaviour
         tr = GetComponent<Transform>();
         rigid = GetComponent<Rigidbody>();
         playerAttack = GameObject.FindWithTag("Player").GetComponent<PlayerAttack>();
-
+        animator = GameObject.FindWithTag("Player").GetComponentInChildren<Animator>();
         ps = GetComponent<ParticleSystem>();
         red = Random.Range(0, 255);
         green = Random.Range(0, 255);
@@ -35,9 +37,10 @@ public class FireBall : MonoBehaviour
         
         if (playerAttack != null)
         {
-            if (!playerAttack.isAttack)
+            if (animator.GetBool("Fire"))
             {
-                if( playerAttack.attackTarget) tr.position = Vector3.Lerp(tr.position, playerAttack.attackTarget.transform.position, 0.1f);
+                if (playerAttack.attackTarget.layer == (int)Layer.Monster) tr.position = Vector3.Lerp(tr.position, playerAttack.attackTarget.transform.position, 0.1f);
+               
                 
             }
 
