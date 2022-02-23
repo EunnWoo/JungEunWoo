@@ -21,7 +21,7 @@ public class Magic : PlayerAttack
         hasFireBall = 0;
 
         range = 10.0f;
-        attackRate = 0.55f;
+        attackRate = 0.8f;
 
     }
 
@@ -55,6 +55,7 @@ public class Magic : PlayerAttack
             {
                 animator.SetTrigger("Fire");
                 isAttack = false;
+                attackDelay = 0;
                 hasFireBall = 0;
                 charge = 0;
 

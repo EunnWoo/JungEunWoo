@@ -37,7 +37,7 @@ public class FireBall : MonoBehaviour
         {
             if (!playerAttack.isAttack)
             {
-                if( playerAttack.attackTarget) tr.position = Vector3.Lerp(tr.position, playerAttack.attackTarget.transform.position, 0.03f);
+                if( playerAttack.attackTarget) tr.position = Vector3.Lerp(tr.position, playerAttack.attackTarget.transform.position, 0.1f);
                 
             }
 

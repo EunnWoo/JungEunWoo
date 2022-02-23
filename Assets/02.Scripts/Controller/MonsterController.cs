@@ -9,7 +9,7 @@ public class MonsterController : MonoBehaviour
     public float scanRange { get; protected set; }
 
 
-    private void Update()
+    void Update()
     {
         
     }

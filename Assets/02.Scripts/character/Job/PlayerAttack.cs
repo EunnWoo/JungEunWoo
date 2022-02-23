@@ -14,7 +14,7 @@ public class PlayerAttack : MonoBehaviour
     protected Animator animator;
 
     public GameObject attackTarget { get; private set; }
-    PlayerMovement playerMovement;
+    PlayerController playerController;
    
 
 
@@ -25,8 +25,8 @@ public class PlayerAttack : MonoBehaviour
     {
 
         animator = GetComponentInChildren<Animator>();
-        playerMovement = GetComponent<PlayerMovement>();
-        playerMovement.playerAttack = GetComponent<PlayerAttack>(); // 어택을 상속받아 수정되는 값 다시 받아오기
+        playerController = GetComponent<PlayerController>();
+        playerController.playerAttack = GetComponent<PlayerAttack>(); // 어택을 상속받아 수정되는 값 다시 받아오기
         isAttackReady = true;
         canMove = true;
         animator.SetBool("canMove",canMove);
@@ -46,7 +46,7 @@ public class PlayerAttack : MonoBehaviour
     public virtual void OnAttack()
     {
 
-        if (isAttackReady && playerMovement.isGround &&!playerMovement.isRoll && !isAttack)
+        if (isAttackReady && playerController.isGround &&!playerController.isRoll && !isAttack)
         {
             isAttack = true;
             StopCoroutine(Use());
@@ -103,7 +103,7 @@ public class PlayerAttack : MonoBehaviour
 
     void LookHitPoint(RaycastHit hit)
     {
-        if (!playerMovement.isRoll && canMove )
+        if (!playerController.isRoll && canMove )
         {
             Vector3 turnVec = hit.point - transform.position;
             turnVec.y = 0;

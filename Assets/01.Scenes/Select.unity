@@ -12552,6 +12552,8 @@ MonoBehaviour:
   listEquip: []
   listUse: []
   listETC: []
+  ItemInfo: {fileID: 0}
+  CanvaRect: {fileID: 0}
 --- !u!1 &1285277986
 GameObject:
   m_ObjectHideFlags: 0
@@ -12610,6 +12612,24 @@ Transform:
   m_Father: {fileID: 960090943}
   m_RootOrder: 68
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1293059054 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3703478273467530502, guid: 30187c8f7e11ff0409181d72cfc033f8, type: 3}
+  m_PrefabInstance: {fileID: 344164431}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1293059056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293059054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 933cee24f0495724fa309df9b41b219c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 10, z: -12}
 --- !u!1 &1293117884
 GameObject:
   m_ObjectHideFlags: 0
