@@ -19,10 +19,7 @@ public class Arrow : MonoBehaviour
 
     private void Update()
     {
-        if ((Vector3.Distance(transform.position, offset) >= 20f))//사정거리 벗어나면
-        {
-            DisableArrow();
-        }
+        DisableArrow();
 
 
     }
@@ -34,24 +31,16 @@ public class Arrow : MonoBehaviour
 
     }
   
-    public void DisableArrow() 
-    { 
-            gameObject.SetActive(false);
-    }
-    private void OnTriggerEnter(Collider other)
+    public void DisableArrow() //사정거리 벗어나면
     {
-        tr.position = other.bounds.center;
-        Debug.Log("TriggerEnter 발생");
+        if ((Vector3.Distance(transform.position, offset) >= 20f))
+        {
+            gameObject.SetActive(false);
+
+        }
     }
-  
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    Vector3 hitpos = collision.contacts[0].point;
-    //    tr.position = hitpos;
-
-    //    Invoke("DisableArrow", 3f);
-    //}
-
+       
+    
     private void OnDisable()//오브젝트 비활성화
     {
         //값 초기화

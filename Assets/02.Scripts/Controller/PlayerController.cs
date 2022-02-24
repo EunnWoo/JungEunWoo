@@ -1,15 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum AttackType
-{
-    NormalAttack,
-    SkillAttack
-}
+
 public class PlayerController : MonoBehaviour
 {
-    
-    public AttackType attackType { get; private set; }
+
     private DialogManager dialogManager;
 
     private Rigidbody rigid;
@@ -30,7 +25,10 @@ public class PlayerController : MonoBehaviour
 
 
     public bool isGround { get; private set; }
+
     public bool isRoll { get; private set; }
+    public bool isMoveAttack { get; private set; }
+    public bool isNormalAttack { get; private set; }
 
     int _mask = (1 << (int)Layer.Npc) | (1 << (int)Layer.Monster) | (1 << (int)Layer.Ground);
 
@@ -53,6 +51,10 @@ public class PlayerController : MonoBehaviour
         Jump();
         Roll();
         OnMouseUpdate();
+
+        if (_locktarget != null)
+            Debug.Log(_locktarget);
+
     }
 
     #region move
@@ -63,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
         if (playerAttack != null)  // 공격중 이동 막기
         {
-            if (!playerAttack.canMove ) MoveStop();
+            if (!playerAttack.canMove /*|| !playerAttack.isAttackReady*/) MoveStop();
 
         }
 
@@ -88,7 +90,7 @@ public class PlayerController : MonoBehaviour
     void OnMouseUpdate()
     {
         
-        if (Managers.Input.hAxis !=0 || Managers.Input.vAxis !=0 || Managers.Input.roll || Managers.Input.jump) //키보드 조작시 타겟 지우기
+        if (Managers.Input.hAxis != 0f || Managers.Input.vAxis != 0f || Managers.Input.jump || Managers.Input.roll) //키보드 조작시 타겟 지우기
         {
             _locktarget = null;
         }
@@ -111,12 +113,10 @@ public class PlayerController : MonoBehaviour
             }
             else if (_locktarget.layer == (int)Layer.Monster || _locktarget.layer ==(int)Layer.Ground)
             {
-                if (playerAttack == null) return;
-
+                
                 if (DistanceAttackPos(dir)) //거리 비교 bool
                 {
                     playerAttack.OnAttack();
-
                     playerAttack.AttackTacrgetSet(_locktarget);
                     _locktarget = null;
                     return;
@@ -192,8 +192,9 @@ public class PlayerController : MonoBehaviour
 
             rollVec = moveVec;
             isRoll = true;
+
             animator.SetTrigger("IsRoll");
-            moveSpeed *= 1.5f;
+            moveSpeed *= 2;
             Invoke("RollOut", 0.5f);
         }
     }
@@ -201,7 +202,7 @@ public class PlayerController : MonoBehaviour
     {
         isRoll = false;
         animator.ResetTrigger("IsRoll");
-        moveSpeed /= 1.5f;
+        moveSpeed /= 2;
 
 
     }
@@ -228,35 +229,21 @@ public class PlayerController : MonoBehaviour
         if (raycastHit)
         {
 
-            switch (evt)
-            {
-
-                case MouseEvent.PointerDown: 
-
-                    attackType = AttackType.NormalAttack;  // 일반공격
+                switch (evt)
+                {
+                    case MouseEvent.PointerDown:
                     LookHitPoint(hit);
-                    if (_locktarget != null) // 이벤트 발생시 비어있지않다면 비어주고 다시 부여
-                    {
-                        _locktarget = null;
-                    }
-                    _locktarget = hit.collider.gameObject;
+                  
+                        isMoveAttack = false; // 새로운 이벤트 발생시 마우스 어택 초기화
+                        if (_locktarget != null) // 이벤트 발생시 비어있지않다면 비어주고 다시 부여
+                        {
+                            _locktarget = null;
+                        }
+                        _locktarget = hit.collider.gameObject;
+                 
 
                     break;
-
-                case MouseEvent.PointerRightDown:
-
-                    attackType = AttackType.SkillAttack;
-                    LookHitPoint(hit);
-                    if (_locktarget != null) // 이벤트 발생시 비어있지않다면 비어주고 다시 부여
-                    {
-                        _locktarget = null;
-                    }
-                    _locktarget = hit.collider.gameObject;
-
-
-
-                    break;
-            }
+                }
             
         }
     }

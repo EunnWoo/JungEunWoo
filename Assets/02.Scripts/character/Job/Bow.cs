@@ -59,26 +59,5 @@ public class Bow : PlayerAttack
         yield return null;
     }
 
-    protected override IEnumerator Skill()
-    {
-        animator.SetTrigger("IsSkill");
-        for (int i = 0; i <6; i++)
-        {
-            for (int j = 0; j < 6; j++)
-            {
-                var arrowObj = objpool.MakeObj(arrowobj);
-                if (arrowObj != null)
-                {
-                    arrowObj.SetActive(true);
-                    arrowObj.transform.position = new Vector3
-                     (attackTarget.transform.position.x - 3 + i, attackTarget.transform.position.y + 10, attackTarget.transform.position.z - 3 + j);
-                    arrowObj.transform.Rotate(0, 0, -90);
-                }
 
-            }
-        }
-        attackDelay = 0;
-        isAttack = false;
-        return base.Skill();
-    }
 }

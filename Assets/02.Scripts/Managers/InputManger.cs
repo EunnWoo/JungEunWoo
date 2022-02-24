@@ -1,12 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
+
 public class InputManager 
 {
-
-    public Action KeyAction = null;
-
     public string hAxisName = "Horizontal";
     public string vAxisName = "Vertical";
     public string rollName = "Roll";
@@ -23,14 +20,9 @@ public class InputManager
     public bool jump { get; private set; }
     public bool talking { get; private set; }
    
-    public bool keyInput { get; private set; }
     
     public void OnUpdate()
     {
-        //if (Input.anyKey && KeyAction != null)
-        //    KeyAction.Invoke();
-        //if (Input.anyKey)
-        //Debug.Log(Input.inputString);
         hAxis = Input.GetAxisRaw(hAxisName);
         vAxis = Input.GetAxisRaw(vAxisName);
         roll = Input.GetButton(rollName);
@@ -39,7 +31,5 @@ public class InputManager
         talking = Input.GetButtonDown(talkName);
 
         run = Input.GetButton(runName);
-
-       
     }
 }

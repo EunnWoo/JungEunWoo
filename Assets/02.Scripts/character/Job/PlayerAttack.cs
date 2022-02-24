@@ -22,8 +22,6 @@ public class PlayerAttack : MonoBehaviour
         attackDelay += Time.deltaTime;
         isAttackReady = attackRate < attackDelay;
         canMove = animator.GetBool("canMove");
-
-        
        
     }
 
@@ -42,18 +40,8 @@ public class PlayerAttack : MonoBehaviour
         if (isAttackReady && playerController.isGround &&!playerController.isRoll && canMove )
         {
             isAttack = true;
-
-            if (playerController.attackType == AttackType.NormalAttack)
-            {
-                StopCoroutine(Use());
-                StartCoroutine(Use());
-            }
-            else if(playerController.attackType ==AttackType.SkillAttack)
-            {
-                
-                StopCoroutine(Skill());
-                StartCoroutine(Skill());
-            }
+            StopCoroutine(Use());
+            StartCoroutine(Use());
         }
     }
     protected virtual IEnumerator Use()
@@ -61,16 +49,11 @@ public class PlayerAttack : MonoBehaviour
 
         yield return null;
     }
-    protected virtual IEnumerator Skill()
-    {
-
-        yield return null;
-    }
 
     public void AttackTacrgetSet(GameObject go)
     {
-        attackTarget = go;
 
+        attackTarget = go;
     }
 
     
