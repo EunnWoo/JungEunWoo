@@ -12,7 +12,7 @@ public class ObjPoolManager : MonoBehaviour
 
     private void Start()
     {
-        arrow = new GameObject[20];
+        arrow = new GameObject[45];
         fireBall = new GameObject[10];
         
         Generate();
