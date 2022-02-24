@@ -31,7 +31,7 @@ public class PlayerStatus : MonoBehaviour
 
     private void Start()
     {
-        SetHPMP(baseHP, baseMP); //시작시hp ,mp를 0으로
+        SetHPMP(baseHP, baseMP); //시작시hp ,mp를 처음 baseHP,baseMP 선언한 값으로 시작
     }
 
     public void SetHPMP(float _hp, float _mp)
@@ -49,7 +49,7 @@ public class PlayerStatus : MonoBehaviour
     public void TakeDamage(float _damage) //실험용
     {
         hp -= _damage;
-        if(hp <= 0)
+        if(hp <= 0) //hp가 0이되면
         {
             Debug.Log("사망");
         }
@@ -58,7 +58,7 @@ public class PlayerStatus : MonoBehaviour
 
     public bool Skill(float _useMP) //실험용
     {
-        if (mp - _useMP < 0)
+        if (mp - _useMP < 0) 
         {
             Debug.Log("엠피 부족");
             return false;

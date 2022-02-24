@@ -36,6 +36,7 @@ public class UI_Inventory : MonoBehaviour
 
     public GameObject ItemInfo; //인벤토리에서 마우스 올려놓으면 아이템 정보 뜨게하는 오브젝트
     public RectTransform CanvaRect;
+    public Vector2 v;
     IEnumerator PointerCoroutine;
 
 
@@ -193,7 +194,9 @@ public class UI_Inventory : MonoBehaviour
     {
         PointerCoroutine = PointerEnterDelay(slotNum);
         StartCoroutine(PointerCoroutine);
-        //ItemInfo.GetComponentInChildren<Text>().text = goEquipSlot[slotNum].Name;
+
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(CanvaRect, Input.mousePosition, Camera.main, out Vector2 anchoredPos);
+        ItemInfo.GetComponent<RectTransform>().anchoredPosition = anchoredPos;
         
     }
 
@@ -201,6 +204,7 @@ public class UI_Inventory : MonoBehaviour
     {
         yield return new WaitForSeconds(0.3f);
         ItemInfo.SetActive(true);
+        //ItemInfo.GetComponentInChildren<Text>().text = 
     }
 
     public void PointerExit(int slotNum)//마우스가 인벤토리 슬롯 위에 빠져나갈때
@@ -230,7 +234,7 @@ public class UI_Inventory : MonoBehaviour
         //스크린린포인트 0,0부터 1920,1080 를 새로운 사각형 위치로 변환
         RectTransformUtility.ScreenPointToLocalPointInRectangle(CanvaRect, Input.mousePosition, Camera.main, out Vector2 anchoredPos);
 
-        //유아이창이 뜰위치
+        //마우스를 아이템위로 올릴시 설명 유아이창이 뜰위치
         ItemInfo.GetComponent<RectTransform>().anchoredPosition = anchoredPos + new Vector2(700,570);
     }
 
