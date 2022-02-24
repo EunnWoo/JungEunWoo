@@ -8,6 +8,11 @@ public class GameManager : MonoBehaviour
     public static bool isOpenInventory = false; //인벤토리 활성화여부
     public static bool isOpenSystemMenu = false; //시스템 메뉴 활성화 여부
     public static bool isOpenEquipment = false; //장비창 활성화 여부
+
+    GameObject _player;
+
+    public GameObject GetPlayer() { return _player; }
+
     void Update()
     {
 
@@ -52,8 +57,16 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
       
     }
-
+    public GameObject Spawn(string path, Transform parent = null)
+    {
+        GameObject go = Managers.Resource.Instantiate(path, parent);
   
+       _player = go;
+            
+   
+        return go;
+    }
+
     //private void Start()
     //{
 
