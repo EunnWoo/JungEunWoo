@@ -8,6 +8,7 @@ public enum MouseEvent
 {
     Press,
     PointerDown,
+    PointerRightDown,
     PointerUp,
     Click,
 }
@@ -32,8 +33,22 @@ public class MouseInputManager
                 {
                     MouseAction.Invoke(MouseEvent.PointerDown); //델리게이트로 이벤트호출
                     _pressedTime = Time.time; // 누른시간 경과 체크
+                    
                 }
+                
                 MouseAction.Invoke(MouseEvent.Press); 
+                _pressed = true;
+            }
+            else if(Input.GetMouseButton(1))
+            {
+                if (!_pressed) // 한번도 눌렀던적이 없었는데 눌렀을때 들어온거라면
+                {
+                  
+                    MouseAction.Invoke(MouseEvent.PointerRightDown); //델리게이트로 이벤트호출
+                    _pressedTime = Time.time; // 누른시간 경과 체크
+                }
+                
+                MouseAction.Invoke(MouseEvent.Press);
                 _pressed = true;
             }
             else
