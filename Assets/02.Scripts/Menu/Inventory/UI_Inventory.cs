@@ -231,6 +231,7 @@ public class UI_Inventory : MonoBehaviour
         {
             OpenInventory();
         }
+
         //스크린린포인트 0,0부터 1920,1080 를 새로운 사각형 위치로 변환
         RectTransformUtility.ScreenPointToLocalPointInRectangle(CanvaRect, Input.mousePosition, Camera.main, out Vector2 anchoredPos);
 

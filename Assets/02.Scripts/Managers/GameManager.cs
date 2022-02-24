@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static bool isOpenInventory = false; //인벤토리 활성화여부
     public static bool isOpenSystemMenu = false; //시스템 메뉴 활성화 여부
+    public static bool isOpenEquipment = false; //장비창 활성화 여부
     void Update()
     {
 
@@ -51,6 +52,8 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
       
     }
+
+  
     //private void Start()
     //{
 

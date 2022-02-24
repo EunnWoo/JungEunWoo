@@ -13,8 +13,8 @@ public class PlayerStatus : MonoBehaviour
     //hp = baseHP + 장비 + 레벨
     public float hp;
     private float baseHP = 300; //기본최대체력
-    private float wearHP = 0; //장비를 껴서 얻는 체력
-    private float LevelHP = 0; //레벨업시 얻는체력
+    private float wearHP = 0; //장비를 껴서 얻는 최대체력
+    private float LevelHP = 0; //레벨업시 얻는 최대체력
     public float MAX_HP {
         get { return baseHP + wearHP + LevelHP; } 
     }
@@ -46,7 +46,7 @@ public class PlayerStatus : MonoBehaviour
         UI_PlayerData.ins.DisplayMP(mp, MAX_MP);
     }
 
-    public void TakeDamage(float _damage) //실험용
+    public void TakeDamage(float _damage) //PlayerStatusTest 스크립트 실험용(체력)
     {
         hp -= _damage;
         if(hp <= 0) //hp가 0이되면
@@ -56,7 +56,7 @@ public class PlayerStatus : MonoBehaviour
         UI_PlayerData.ins.DisplayHP(hp, MAX_HP);
     }
 
-    public bool Skill(float _useMP) //실험용
+    public bool Skill(float _useMP) //PlayerStatusTest 스크립트 실험용(엠피)
     {
         if (mp - _useMP < 0) 
         {
