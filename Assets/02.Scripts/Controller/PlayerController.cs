@@ -115,10 +115,10 @@ public class PlayerController : MonoBehaviour
 
                 if (DistanceAttackPos(dir)) //거리 비교 bool
                 {
-                    playerAttack.OnAttack();
-
                     playerAttack.AttackTacrgetSet(_locktarget);
                     _locktarget = null;
+                    playerAttack.OnAttack();
+
                     return;
                 }
                 else
@@ -239,8 +239,9 @@ public class PlayerController : MonoBehaviour
                     {
                         _locktarget = null;
                     }
-                    _locktarget = hit.collider.gameObject;
 
+                    _locktarget = hit.collider.gameObject;
+      
                     break;
 
                 case MouseEvent.PointerRightDown:
@@ -252,6 +253,7 @@ public class PlayerController : MonoBehaviour
                         _locktarget = null;
                     }
                     _locktarget = hit.collider.gameObject;
+   
 
 
 
