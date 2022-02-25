@@ -19,7 +19,7 @@ public class LoginScene : BaseScene
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            Debug.Log("QÀÔ·Â");
+
             Managers.Scene.LoadScene(SceneState.Select);
         }
     }

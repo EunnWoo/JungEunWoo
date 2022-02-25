@@ -48,8 +48,7 @@ public class Arrow : MonoBehaviour
             rigid.useGravity = false;
             transform.position = other.ClosestPointOnBounds(transform.position)+new Vector3(0,0.5f,0);
             
-            Debug.Log(other.ClosestPointOnBounds(transform.position));
-            //Invoke("DisableArrow", 3f);
+            Invoke("DisableArrow", 3f);
         }
         
     }

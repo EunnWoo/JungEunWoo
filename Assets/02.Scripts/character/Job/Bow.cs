@@ -7,8 +7,7 @@ public class Bow : PlayerAttack
 {
    
     private Transform firepos;
-    private ObjPoolManager objpool;
-    
+
     private string arrowobj;
     private Arrow arrow;
  
@@ -16,8 +15,7 @@ public class Bow : PlayerAttack
     private void Awake()
     {
         firepos = GameObject.Find("Firepos").transform;
-        objpool = GameObject.Find("GameManager").GetComponent<ObjPoolManager>();
-        
+
         arrowobj = "Arrow";  
         range = 10.0f;
         attackRate = 0.5f;
@@ -32,7 +30,7 @@ public class Bow : PlayerAttack
     protected override IEnumerator Use()
     {
         animator.SetBool("Fire",false);
-        var arrowObj = objpool.MakeObj(arrowobj);
+        var arrowObj = Managers.Pool.MakeObj(arrowobj);
         if (arrowObj != null)
         {
             arrow = arrowObj.GetComponent<Arrow>();
@@ -71,7 +69,7 @@ public class Bow : PlayerAttack
         {
             for (int j = 0; j < 6; j++)
             {
-                var arrowObj = objpool.MakeObj(arrowobj);
+                var arrowObj = Managers.Pool.MakeObj(arrowobj);
          
                 if (arrowObj != null)
                 {        

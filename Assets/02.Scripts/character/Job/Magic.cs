@@ -6,7 +6,7 @@ public class Magic : PlayerAttack
 {
     [SerializeField]
     private GameObject[] fireBallPos;
-    private ObjPoolManager objpool;
+   
 
     private int hasFireBall;
     private string fireballobj;
@@ -14,7 +14,7 @@ public class Magic : PlayerAttack
 
     private void Awake()
     {
-        objpool = GameObject.Find("GameManager").GetComponent<ObjPoolManager>();
+
 
         fireBallPos = GameObject.FindGameObjectsWithTag("FirePos");
         fireballobj = "FireBall";
@@ -40,7 +40,7 @@ public class Magic : PlayerAttack
             
             if (hasFireBall < 5? charge >= hasFireBall : false) // 차징만큼 담기
             { 
-                var fireBallObj = objpool.MakeObj(fireballobj);
+                var fireBallObj = Managers.Pool.MakeObj(fireballobj);
                 if (fireBallObj != null)
                 {
                     fireBallObj.transform.position = fireBallPos[hasFireBall].transform.position;

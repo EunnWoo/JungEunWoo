@@ -10,27 +10,45 @@ public class FireBall : MonoBehaviour
     PlayerAttack playerAttack;
     Animator animator;
 
-    private ParticleSystem ps;
+
     private float red = 0f;
     private float green = 0f;
     private float blue = 0f;
 
-    public GameObject child;
-    private void OnEnable()
+    [SerializeField]
+    ParticleSystem ps;
+    [SerializeField]
+    ParticleSystem childps;
+    private void Start()
     {
-        tr = GetComponent<Transform>();
-        rigid = GetComponent<Rigidbody>();
-        playerAttack = GameObject.FindWithTag("Player").GetComponent<PlayerAttack>();
-        animator = GameObject.FindWithTag("Player").GetComponentInChildren<Animator>();
         ps = GetComponent<ParticleSystem>();
+        childps = this.transform.Find("Fire").GetComponent<ParticleSystem>();
         red = Random.Range(0, 255);
         green = Random.Range(0, 255);
         blue = Random.Range(0, 255);
-
         var main = ps.main;
-        main.startColor = new Color(red, green,blue);
-        main = child.GetComponent<ParticleSystem>().main;
-        main.startColor = new Color(red, green, blue);
+        main.startColor = new Color(red, green, blue, 255);
+
+        main = childps.main;
+        main.startColor = new Color(red, green, blue, 255);
+    }
+    private void OnEnable()
+    {
+
+        tr = GetComponent<Transform>();
+        rigid = GetComponent<Rigidbody>();
+
+        if (Managers.Game.GetPlayer() != null)
+        {
+            playerAttack = Managers.Game.GetPlayer().GetComponent<PlayerAttack>();
+            animator = Managers.Game.GetPlayer().GetComponentInChildren<Animator>();
+        }
+        
+        
+
+
+
+
     }
     void Update()
     {

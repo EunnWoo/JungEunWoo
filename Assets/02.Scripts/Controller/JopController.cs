@@ -17,14 +17,18 @@ public class JopController : MonoBehaviour
     public JobInfo jobstate { get; set; }//= JobState.COMMON; // 현재 전직 가능한 직업
     public string jobstring { get; private set; }
 
-    void Awake()
+
+    void Start()
     {
         animator = GetComponentInChildren<Animator>();
-
+        dialogManager = GameObject.Find("@Scene").GetComponent<DialogManager>();
+        DontDestroyOnLoad(this);
         jobstring = null;
+
+
     }
 
-    void JobChoice()  // 직업 활성화
+    public void JobChoice()  // 직업 활성화
     { 
         if (jobstate == JobInfo.BOW) // 궁수 전직
         {
@@ -70,29 +74,6 @@ public class JopController : MonoBehaviour
            
             jobstate = JobInfo.COMMON;
         }
-    }
-
-
-    public void JobExitClickButton()
-    {
-        dialogManager.dialogPanel.SetActive(false);
-        dialogManager.isAction = false;
-    }
-    public void JobChoiceButton()
-    {
-        if (jobstring != null)
-        {
-
-            Debug.Log("직업이 이미 있습니다");
-
-        }
-        else 
-        {
-            JobChoice();
-        }
-        dialogManager.dialogPanel.SetActive(false);
-        dialogManager.isAction = false;
-        
     }
 
 
