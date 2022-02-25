@@ -194,8 +194,8 @@ public class UI_Inventory : MonoBehaviour
         PointerCoroutine = PointerEnterDelay(slotNum);
         StartCoroutine(PointerCoroutine);
 
-        //ItemInfo.GetComponentInChildren<Text>().text =;
-       // ItemInfo.transform.GetChild(2).GetComponent<Text>().text = CurItemList[slotNum].Explain;
+        //ItemInfo.GetComponentInChildren<Text>().text = itemCount.text = "x" + item.itemCount;
+        //ItemInfo.transform.GetChild(2).GetComponent<Text>().text = CurItemList[slotNum].Explain;
 
 
     }
@@ -204,7 +204,6 @@ public class UI_Inventory : MonoBehaviour
     {
         yield return new WaitForSeconds(0.3f);
         ItemInfo.SetActive(true);
-        //ItemInfo.GetComponentInChildren<Text>().text = 
     }
 
     public void PointerExit(int slotNum)//마우스가 인벤토리 슬롯 위에 빠져나갈때

@@ -65,6 +65,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
         {
             case eItemType.Equip:   //장비창에서 더블클릭시
                 Debug.Log("더블클릭 >>장비교체");
+
                 break;
             case eItemType.Use:   //소비창에서 더블클릭시
 
@@ -90,7 +91,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
                 Debug.Log("더블클릭 >>작동안함");
                 break;
         }
-        Debug.Log("Double Clicked");
+        Debug.Log("더블클릭");
     }
 }
 

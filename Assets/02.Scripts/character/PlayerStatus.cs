@@ -9,7 +9,7 @@ public class PlayerStatus : MonoBehaviour
     {
         ins = this;
     }
-
+   
     //hp = baseHP + 장비 + 레벨
     public float hp;
     private float baseHP = 300; //기본최대체력
@@ -33,7 +33,7 @@ public class PlayerStatus : MonoBehaviour
     {
         SetHPMP(baseHP, baseMP); //시작시hp ,mp를 처음 baseHP,baseMP 선언한 값으로 시작
     }
-
+   
     public void SetHPMP(float _hp, float _mp)
     {
         //HP MP를 Plus
