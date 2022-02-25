@@ -12,7 +12,7 @@ public class ObjPoolManager : MonoBehaviour
 
     private void Start()
     {
-        arrow = new GameObject[100];
+        arrow = new GameObject[45];
         fireBall = new GameObject[10];
         
         Generate();
@@ -22,8 +22,6 @@ public class ObjPoolManager : MonoBehaviour
     {
         GameObject ObjPoolManager = new GameObject("ObjPoolManager"); // 오브젝트 풀 담을 오브젝트 생성
         
-
-
 
         for (int i =0; i< arrow.Length;i++)
         {

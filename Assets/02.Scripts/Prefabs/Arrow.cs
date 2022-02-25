@@ -37,39 +37,26 @@ public class Arrow : MonoBehaviour
     public void DisableArrow() 
     { 
             gameObject.SetActive(false);
-            
     }
     private void OnTriggerEnter(Collider other)
     {
-
-        if (other.tag == "Monster" || other.tag == "Ground") 
-        {
-            rigid.Sleep();
-            rigid.useGravity = false;
-            transform.position = other.ClosestPointOnBounds(transform.position)+new Vector3(0,0.5f,0);
-            
-            Debug.Log(other.ClosestPointOnBounds(transform.position));
-            //Invoke("DisableArrow", 3f);
-        }
-        
+        tr.position = other.bounds.center;
+        Debug.Log("TriggerEnter 발생");
     }
+  
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    Vector3 hitpos = collision.contacts[0].point;
+    //    tr.position = hitpos;
 
-    private void OnCollisionEnter(Collision collision)
-    {
-
-        Vector3 hitpos = collision.contacts[0].point;
-
-        tr.position = hitpos;
-
-        Invoke("DisableArrow", 3f);
-    }
+    //    Invoke("DisableArrow", 3f);
+    //}
 
     private void OnDisable()//오브젝트 비활성화
     {
         //값 초기화
         tr.position = Vector3.zero;
         tr.rotation = Quaternion.identity;
-        
         rigid.Sleep();
     }
 }

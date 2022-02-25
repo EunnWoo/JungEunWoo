@@ -36,12 +36,9 @@ public class Bow : PlayerAttack
         if (arrowObj != null)
         {
             arrow = arrowObj.GetComponent<Arrow>();
-            arrowObj.transform.position = firepos.transform.position;
-            arrowObj.transform.rotation = firepos.transform.rotation;
             arrowObj.SetActive(true);
         }
         animator.SetTrigger("Attack");
-
         yield return new WaitForSeconds(0.2f);
         while (true)
         {
@@ -49,7 +46,6 @@ public class Bow : PlayerAttack
             arrowObj.transform.rotation = firepos.transform.rotation;
             if (!Managers.Input.fire)
             {
-            
                 arrow.FireArrow(firepos);
                 animator.SetBool("Fire", true);
                 attackDelay = 0;
@@ -65,32 +61,24 @@ public class Bow : PlayerAttack
 
     protected override IEnumerator Skill()
     {
-
         animator.SetTrigger("IsSkill");
         for (int i = 0; i <6; i++)
         {
             for (int j = 0; j < 6; j++)
             {
                 var arrowObj = objpool.MakeObj(arrowobj);
-         
                 if (arrowObj != null)
-                {        
+                {
+                    arrowObj.SetActive(true);
                     arrowObj.transform.position = new Vector3
                      (attackTarget.transform.position.x - 3 + i, attackTarget.transform.position.y + 10, attackTarget.transform.position.z - 3 + j);
-                    arrowObj.transform.Rotate(0, 0, Random.Range(-65f,-115f));
-                    arrowObj.SetActive(true);
-                    arrowObj.GetComponent<Rigidbody>().useGravity = true;
-   
+                    arrowObj.transform.Rotate(0, 0, -90);
                 }
 
             }
         }
-       
-
-
         attackDelay = 0;
         isAttack = false;
-
-        yield return null;
+        return base.Skill();
     }
 }
