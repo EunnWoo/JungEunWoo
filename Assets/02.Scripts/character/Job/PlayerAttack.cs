@@ -30,7 +30,7 @@ public class PlayerAttack : MonoBehaviour
     private void OnEnable()
     {
         animator = GetComponentInChildren<Animator>();
-        playerController = GetComponent<PlayerController>();
+        playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         playerController.playerAttack = GetComponent<PlayerAttack>(); // 어택을 상속받아 수정되는 값 다시 받아오기
         isAttackReady = true;
         canMove = true;
@@ -69,7 +69,9 @@ public class PlayerAttack : MonoBehaviour
 
     public void AttackTacrgetSet(GameObject go)
     {
+        Debug.Log("go"+go);
         attackTarget = go;
+        Debug.Log("attacktarget" +attackTarget);
 
     }
 
