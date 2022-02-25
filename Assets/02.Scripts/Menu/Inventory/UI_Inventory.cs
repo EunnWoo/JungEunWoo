@@ -36,7 +36,6 @@ public class UI_Inventory : MonoBehaviour
 
     public GameObject ItemInfo; //인벤토리에서 마우스 올려놓으면 아이템 정보 뜨게하는 오브젝트
     public RectTransform CanvaRect;
-    public Vector2 v;
     IEnumerator PointerCoroutine;
 
 
@@ -195,9 +194,10 @@ public class UI_Inventory : MonoBehaviour
         PointerCoroutine = PointerEnterDelay(slotNum);
         StartCoroutine(PointerCoroutine);
 
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(CanvaRect, Input.mousePosition, Camera.main, out Vector2 anchoredPos);
-        ItemInfo.GetComponent<RectTransform>().anchoredPosition = anchoredPos;
-        
+        //ItemInfo.GetComponentInChildren<Text>().text =;
+       // ItemInfo.transform.GetChild(2).GetComponent<Text>().text = CurItemList[slotNum].Explain;
+
+
     }
 
     IEnumerator PointerEnterDelay(int slotNum) //마우스가 인벤토리 슬롯 위에 올려져있을때 0.5초뒤에 실행
