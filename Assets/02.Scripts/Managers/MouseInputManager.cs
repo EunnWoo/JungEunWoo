@@ -22,7 +22,7 @@ public class MouseInputManager
 
     public void OnUpdate()
     {
-        if (EventSystem.current.IsPointerOverGameObject())
+        if (EventSystem.current.IsPointerOverGameObject()) // 유아이를 가르킨다면 리턴 -> 게임오브젝트가 아니라면 리턴
             return;
 
         if (MouseAction != null)

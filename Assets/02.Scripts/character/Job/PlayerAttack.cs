@@ -23,7 +23,6 @@ public class PlayerAttack : MonoBehaviour
         isAttackReady = attackRate < attackDelay;
         canMove = animator.GetBool("canMove");
 
-        
        
     }
 

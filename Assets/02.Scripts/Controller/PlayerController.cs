@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
                     MouseMove(); // 마우스로 이동할때의 함수
                 }
             }
-            else if (_locktarget.layer == (int)Layer.Monster || _locktarget.layer ==(int)Layer.Ground)
+            else if (_locktarget.layer == (int)Layer.Monster /*|| _locktarget.layer ==(int)Layer.Ground*/)
             {
                 if (playerAttack == null) return;
 
@@ -127,11 +127,11 @@ public class PlayerController : MonoBehaviour
                     MouseMove();
                 }
             }
-            //else if(_locktarget.layer == (int)Layer.Ground)
-            //{
-            //    playerAttack.OnAttack();
-            //    _locktarget = null;
-            //}
+            else if (_locktarget.layer == (int)Layer.Ground)
+            {
+                playerAttack.OnAttack();
+                _locktarget = null;
+            }
         }
     }
     public void MoveStop()
