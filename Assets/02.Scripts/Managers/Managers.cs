@@ -16,6 +16,7 @@ public class Managers : MonoBehaviour
     ObjPoolManager _pool = new ObjPoolManager();
     MouseInputManager _mouse = new MouseInputManager();
     InputManager _input = new InputManager();
+    UIManager _ui = new UIManager();
     TalkManager _talk = new TalkManager();
 
     public static GameManager Game { get { return instance._game; } }
@@ -25,6 +26,7 @@ public class Managers : MonoBehaviour
     public static ObjPoolManager Pool {  get { return instance._pool; } }
     public static MouseInputManager Mouse { get { return instance._mouse; } }
     public static InputManager Input { get { return instance._input; } }
+    public static UIManager UI { get { return instance._ui;  } }
     public static TalkManager talk { get { return instance._talk; } }
     #endregion
 

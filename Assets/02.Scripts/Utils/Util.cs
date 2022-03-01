@@ -5,6 +5,14 @@ using UnityEngine;
 
 public class Util 
 {
+    public static T GetOrAddComponent<T>(GameObject go) where T : UnityEngine.Component
+    {
+        T component = go.GetComponent<T>();
+        if (component == null)
+            component = go.AddComponent<T>();
+        return component;
+    }
+
     //최상위 부모 , 이름 ->비우면 타입만 , recursive -> 자식의 자식도 찾을것인가
     public static T FindChild<T>(GameObject go, string name = null, bool recursive = false) where T : UnityEngine.Object
     {

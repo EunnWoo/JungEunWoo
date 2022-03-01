@@ -5,17 +5,19 @@ using UnityEngine.UI;
 using System;
 using UnityEngine.EventSystems;
 
-public class UI_Button : UI_Base
+public class UI_Button : UI_Popup
 {
     
 
     enum Buttons //버튼이랑 text 이름 동일하게해야함
     {
+        TestButton,
         JobButton
     }
 
     enum Texts
     {
+        ScoreText,
         JobChoiceText
     }
     enum GameObjects
@@ -33,10 +35,15 @@ public class UI_Button : UI_Base
         Bind<Text>(typeof(Texts));
         Bind<Image>(typeof(Images));
 
-        GameObject go = GetImage((int)Images.ItemIcon).gameObject; // 오브젝트로 뽑은이유 -> ui이벤트 핸들러 추가나 사용하려고
-        UI_EventHandler evt =  go.GetComponent<UI_EventHandler>();
-        evt.OnDragHandler += ((PointerEventData data) => { evt.gameObject.transform.position = data.position; }); // 람다식으로 이벤트 추가
-        
-    }
+        GetButton((int)Buttons.TestButton).gameObject.AddUIEvent(OnButtonClicked);
 
+        GameObject go = GetImage((int)Images.ItemIcon).gameObject; // 오브젝트로 뽑은이유 -> ui이벤트 핸들러 추가나 사용하려고
+        AddUIEvent(go, (PointerEventData data) => { go.transform.position = data.position; }, Define.UIEvent.Drag);
+    }
+    int _score = 0;
+    public void OnButtonClicked(PointerEventData data)
+    {
+        _score++;
+        GetText((int)Texts.ScoreText).text = $"점수 : {_score}";
+    }
 }

@@ -16,7 +16,7 @@ public class SelectScene : BaseScene
         SceneType = SceneState.Select;
 
         player = Managers.Game.Spawn("Player");
-        Camera.main.gameObject.GetOrAddComponent<CameraFollow>().SetPlayer(player);
+  //      Camera.main.gameObject.GetOrAddComponent<CameraFollow>().SetPlayer(player);
 
         dialogManager = GetComponent<DialogManager>();
         
@@ -59,17 +59,5 @@ public class SelectScene : BaseScene
 
     }
 
-
-}
-public static class Extension
-{
-
-    public static T GetOrAddComponent<T>(this GameObject go) where T : UnityEngine.Component
-    {
-        T component = go.GetComponent<T>();
-        if (component == null)
-            component = go.AddComponent<T>();
-        return component;
-    }
 
 }
