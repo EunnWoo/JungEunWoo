@@ -11,27 +11,31 @@ public class UI_Button : UI_Popup
 
     enum Buttons //버튼이랑 text 이름 동일하게해야함
     {
-        TestButton,
-        JobButton
+        TestButton
     }
 
     enum Texts
     {
-        ScoreText,
-        JobChoiceText
+        ScoreText
     }
-    enum GameObjects
-    {
-        Object
-    }
+    //enum GameObjects
+    //{
+    //    Object
+    //}
     enum Images
     {
        ItemIcon
     }
+
     private void Start()
     {
+        Init();
+    }
+    public override void Init()
+    {
+        base.Init();
         Bind<Button>(typeof(Buttons));
-        Bind<GameObject>(typeof(GameObjects));
+      //  Bind<GameObject>(typeof(GameObjects));
         Bind<Text>(typeof(Texts));
         Bind<Image>(typeof(Images));
 

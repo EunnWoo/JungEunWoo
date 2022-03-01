@@ -43,6 +43,8 @@ public class PlayerController : MonoBehaviour
         Managers.Mouse.MouseAction -= OnMouseEvent;
         Managers.Mouse.MouseAction += OnMouseEvent;
 
+        Managers.UI.ShowPopupUI<UI_Button>("UITest");
+
     }
 
     void FixedUpdate()
