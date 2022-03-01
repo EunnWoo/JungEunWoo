@@ -10,5 +10,18 @@ public class Define
         Click,
         Drag
     }
+    public enum AttackType
+    {
+        NormalAttack,
+        SkillAttack
+    }
+    public enum MouseEvent
+    {
+        Press,
+        PointerDown,
+        PointerRightDown,
+        PointerUp,
+        Click,
+    }
 }
 

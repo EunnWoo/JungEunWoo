@@ -11,9 +11,12 @@ public static class Extension //extension 문법 확장메서드
     {
         UI_Base.AddUIEvent(go, action, type);
     }
-    //public static T GetOrAddComponent<T>(this GameObject go) where T : UnityEngine.Component
+    public static T GetOrAddComponent<T>(this GameObject go) where T : UnityEngine.Component
+    {
+        return Util.GetOrAddComponent<T>(go);
+    }
+    //public static void BindEvent(this GameObject go, Action<PointerEventData> action, Define.UIEvent type = Define.UIEvent.Click)
     //{
-    //    return Util.GetOrAddComponent<T>(go);
+    //    UI_Base.BindEvent(go, action, type);
     //}
-
 }

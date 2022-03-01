@@ -45,7 +45,7 @@ public class Util
 
     }
 
-    public static GameObject FindChild(GameObject go, string name = null, bool recursive = false)
+    public static GameObject FindChild(GameObject go, string name = null, bool recursive = false)  // 그냥오브젝트 찾을때
     {
         Transform transform = FindChild<Transform>(go, name, recursive);
         if (transform == null) return null;

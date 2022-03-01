@@ -42,12 +42,12 @@ public class PlayerAttack : MonoBehaviour
         {
             isAttack = true;
 
-            if (playerController.attackType == AttackType.NormalAttack)
+            if (playerController.attackType == Define.AttackType.NormalAttack)
             {
                 StopCoroutine(Use());
                 StartCoroutine(Use());
             }
-            else if(playerController.attackType ==AttackType.SkillAttack)
+            else if(playerController.attackType == Define.AttackType.SkillAttack)
             {
                 
                 StopCoroutine(Skill());

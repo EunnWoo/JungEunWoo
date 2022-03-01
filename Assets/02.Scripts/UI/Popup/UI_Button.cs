@@ -5,9 +5,8 @@ using UnityEngine.UI;
 using System;
 using UnityEngine.EventSystems;
 
-public class UI_Button : UI_Popup
+public class UI_Button : UI_Popup  // 프리팹이름이 UI_Button이고 쓸 컴퍼넌트들을 enum으로 넣기
 {
-    
 
     enum Buttons //버튼이랑 text 이름 동일하게해야함
     {
@@ -18,24 +17,21 @@ public class UI_Button : UI_Popup
     {
         ScoreText
     }
-    //enum GameObjects
-    //{
-    //    Object
-    //}
+    enum GameObjects
+    {
+        Object
+    }
     enum Images
     {
        ItemIcon
     }
 
-    private void Start()
-    {
-        Init();
-    }
+
     public override void Init()
     {
         base.Init();
         Bind<Button>(typeof(Buttons));
-      //  Bind<GameObject>(typeof(GameObjects));
+        Bind<GameObject>(typeof(GameObjects));
         Bind<Text>(typeof(Texts));
         Bind<Image>(typeof(Images));
 

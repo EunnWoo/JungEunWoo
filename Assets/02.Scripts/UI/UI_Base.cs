@@ -5,13 +5,18 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UI_Base : MonoBehaviour
+public abstract class UI_Base : MonoBehaviour
 {
 
     Dictionary<Type, UnityEngine.Object[]> _objects = new Dictionary<Type, UnityEngine.Object[]>(); // 키값/ 밸류
 
 
+    public abstract void Init(); // 상속받은 애들이 쓸거라
 
+    private void Start()
+    {
+        Init();
+    }
     protected void Bind<T>(Type type) where T : UnityEngine.Object // 값저장 함수
     {
         string[] names = Enum.GetNames(type);            // 타입의 name들을 리턴해서 저장 

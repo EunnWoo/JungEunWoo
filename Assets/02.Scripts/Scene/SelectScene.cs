@@ -16,7 +16,7 @@ public class SelectScene : BaseScene
         SceneType = SceneState.Select;
 
         player = Managers.Game.Spawn("Player");
-  //      Camera.main.gameObject.GetOrAddComponent<CameraFollow>().SetPlayer(player);
+        Camera.main.gameObject.GetOrAddComponent<CameraFollow>().SetPlayer(player);
 
         dialogManager = GetComponent<DialogManager>();
         

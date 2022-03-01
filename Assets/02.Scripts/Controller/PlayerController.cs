@@ -1,15 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum AttackType
-{
-    NormalAttack,
-    SkillAttack
-}
+
 public class PlayerController : MonoBehaviour
 {
     
-    public AttackType attackType { get; private set; }
+    public Define.AttackType attackType { get; private set; }
     private DialogManager dialogManager;
 
     private Rigidbody rigid;
@@ -43,7 +39,7 @@ public class PlayerController : MonoBehaviour
         Managers.Mouse.MouseAction -= OnMouseEvent;
         Managers.Mouse.MouseAction += OnMouseEvent;
 
-        Managers.UI.ShowPopupUI<UI_Button>("UITest");
+        //Managers.UI.ShowPopupUI<UI_Button>("UITest");
 
     }
 
@@ -220,7 +216,7 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
-    void OnMouseEvent(MouseEvent evt)
+    void OnMouseEvent(Define.MouseEvent evt)
     {
 
         RaycastHit hit;
@@ -233,9 +229,9 @@ public class PlayerController : MonoBehaviour
             switch (evt)
             {
 
-                case MouseEvent.PointerDown: 
+                case Define.MouseEvent.PointerDown: 
 
-                    attackType = AttackType.NormalAttack;  // 일반공격
+                    attackType = Define.AttackType.NormalAttack;  // 일반공격
                     LookHitPoint(hit);
                     if (_locktarget != null) // 이벤트 발생시 비어있지않다면 비어주고 다시 부여
                     {
@@ -246,9 +242,9 @@ public class PlayerController : MonoBehaviour
       
                     break;
 
-                case MouseEvent.PointerRightDown:
+                case Define.MouseEvent.PointerRightDown:
 
-                    attackType = AttackType.SkillAttack;
+                    attackType = Define.AttackType.SkillAttack;
                     LookHitPoint(hit);
                     if (_locktarget != null) // 이벤트 발생시 비어있지않다면 비어주고 다시 부여
                     {

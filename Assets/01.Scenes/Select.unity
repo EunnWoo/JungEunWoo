@@ -27471,6 +27471,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: UITest
       objectReference: {fileID: 0}
+    - target: {fileID: 5447506201919704859, guid: 735a22f128ca52942858a6192b9812b7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447506201927859766, guid: 735a22f128ca52942858a6192b9812b7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 24.3417
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447506201927859766, guid: 735a22f128ca52942858a6192b9812b7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 20.078
+      objectReference: {fileID: 0}
     - target: {fileID: 5447506201927859766, guid: 735a22f128ca52942858a6192b9812b7, type: 3}
       propertyPath: m_LocalScale.x
       value: 6.679242
@@ -27478,6 +27490,14 @@ PrefabInstance:
     - target: {fileID: 5447506201927859766, guid: 735a22f128ca52942858a6192b9812b7, type: 3}
       propertyPath: m_LocalScale.y
       value: 4.5809374
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447506201927859766, guid: 735a22f128ca52942858a6192b9812b7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447506201927859766, guid: 735a22f128ca52942858a6192b9812b7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 4.961
       objectReference: {fileID: 0}
     - target: {fileID: 5447506201927859767, guid: 735a22f128ca52942858a6192b9812b7, type: 3}
       propertyPath: m_Color.b
