@@ -17,9 +17,11 @@ public class SelectScene : BaseScene
 
         player = Managers.Game.Spawn("Player");
         Camera.main.gameObject.GetOrAddComponent<CameraFollow>().SetPlayer(player);
-    //    dialogManager =gameObject.GetOrAddComponent<DialogManager>();
-        
-        
+        Managers.UI.ShowSceneUI<UI_PlayerData>();
+        Managers.UI.ShowSceneUI<UI_Money>();
+
+
+
     }
 
 
@@ -32,25 +34,7 @@ public class SelectScene : BaseScene
             Managers.Scene.LoadScene(SceneState.Town);
         }
     }
-    //public void JobExitButton()
-    //{
-    //    dialogManager.dialogPanel.SetActive(false);
-    //    dialogManager.isAction = false;
-    //}
-    //public void JobChoiceButton()
-    //{
-    //    if (player.GetComponent<JopController>().jobstring != null)
-    //    {
-    //        Debug.Log("직업이 이미 있습니다");
-    //    }
-    //    else
-    //    {
-    //        player.GetComponent<JopController>().JobChoice();
-    //    }
-    //    dialogManager.dialogPanel.SetActive(false);
-    //    dialogManager.isAction = false;
-
-    //}
+   
     public override void Clear()
     {
 

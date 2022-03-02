@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventorySlot : MonoBehaviour, IPointerClickHandler
+public class UI_InventorySlot : UI_Base, IPointerClickHandler
 {
 
     private void Start()
@@ -12,7 +12,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
         Init();
     }
 
-    void Init()
+    public override void  Init()
     {
         if (item == null || (item != null && item.itemCount <= 1))
         {

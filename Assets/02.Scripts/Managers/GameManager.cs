@@ -34,6 +34,16 @@ public class GameManager
         return go;
     }
 
-  
+    public void OnUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.U)) //u를 누를시
+        {
+            Managers.UI.ShowPopupUI<UI_Equipment>();
+        }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            Managers.UI.ShowPopupUI<UI_Inventory>();
+        }
+    }
 
 }

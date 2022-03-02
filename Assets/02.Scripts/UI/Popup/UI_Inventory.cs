@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class UI_Inventory : MonoBehaviour
+public class UI_Inventory : UI_Popup
 {
     #region sigletone
     public static UI_Inventory ins;
@@ -13,9 +13,9 @@ public class UI_Inventory : MonoBehaviour
         ins = this;
     }
     #endregion
-    public List<InventorySlot> slotsEquip = new List<InventorySlot>();  //인벤토리 슬롯들
-    public List<InventorySlot> slotsUse = new List<InventorySlot>();
-    public List<InventorySlot> slotsETC = new List<InventorySlot>();
+    public List<UI_InventorySlot> slotsEquip = new List<UI_InventorySlot>();  //인벤토리 슬롯들
+    public List<UI_InventorySlot> slotsUse = new List<UI_InventorySlot>();
+    public List<UI_InventorySlot> slotsETC = new List<UI_InventorySlot>();
 
     public Text Description_Text; //아이템에 대한 부연설명
     public string[] tabDescription; //탭 부연설명
@@ -39,15 +39,61 @@ public class UI_Inventory : MonoBehaviour
     public Vector2 v;
     IEnumerator PointerCoroutine;
 
-
-    // private InventorySlot inven;
-    void Start()
+    enum GameObjects
     {
-        slotsEquip.AddRange(goEquipSlot.transform.GetChild(0).GetComponentsInChildren<InventorySlot>());
-        slotsUse.AddRange(goUseSlot.transform.GetChild(0).GetComponentsInChildren<InventorySlot>());
-        slotsETC.AddRange(goETCSlot.transform.GetChild(0).GetComponentsInChildren<InventorySlot>());
+        EquipBody,
+        UseBody,
+        ETCBody
     }
 
+    // private UI_InventorySlot inven;
+    //void Start()
+    //{
+
+    //    slotsEquip.AddRange(goEquipSlot.transform.GetChild(0).GetComponentsInChildren<UI_InventorySlot>()); // 슬롯 칸 배열저장
+    //    slotsUse.AddRange(goUseSlot.transform.GetChild(0).GetComponentsInChildren<UI_InventorySlot>());
+    //    slotsETC.AddRange(goETCSlot.transform.GetChild(0).GetComponentsInChildren<UI_InventorySlot>());
+    //}
+
+    public override void Init()
+    {
+        base.Init();
+        Bind<GameObject>(typeof(GameObjects));
+
+        GameObject equipbody = Get<GameObject>((int)GameObjects.EquipBody);
+        Debug.Log(equipbody);
+        GameObject usebody = Get<GameObject>((int)GameObjects.UseBody);
+        GameObject etcbody = Get<GameObject>((int)GameObjects.ETCBody);
+        for (int i = 0; i < 20; i++)
+        {
+            GameObject item = Managers.Resource.Instantiate("UI/Popup/UI_InventorySlot");
+            slotsEquip.Add(item.GetComponent<UI_InventorySlot>());
+            item.transform.SetParent(equipbody.transform);
+        }
+        for (int i = 0; i < 20; i++)
+        {
+            GameObject item = Managers.Resource.Instantiate("UI/Popup/UI_InventorySlot");
+            slotsUse.Add(item.GetComponent<UI_InventorySlot>());
+            item.transform.SetParent(usebody.transform);
+        }
+        for (int i = 0; i < 20; i++)
+        {
+            GameObject item = Managers.Resource.Instantiate("UI/Popup/UI_InventorySlot");
+            slotsETC.Add(item.GetComponent<UI_InventorySlot>());
+            item.transform.SetParent(etcbody.transform);
+        }
+
+
+    }
+    //void ListSlotAdd(GameObject body) // 몸통에 슬롯 20개씩 생성
+    //{
+    //    for (int i = 0; i < 20; i++)
+    //    {
+    //        GameObject item = Managers.Resource.Instantiate("UI/Popup/UI_InventorySlot");
+    //        slotsEquip.Add(item.GetComponent<UI_InventorySlot>());
+    //        item.transform.SetParent(body.transform);
+    //    }
+    //}
 
     public void Invoke_SelectTab(int _kind)
     {

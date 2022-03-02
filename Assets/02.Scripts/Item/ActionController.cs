@@ -29,14 +29,14 @@ public class ActionController : MonoBehaviour
     private Text actionText;
     float dirDistance;
 
+    Text setText;
+
     private void Start()
     {
         camera = Camera.main;
-        //Cursor.visible = true;
-
         Vector3 _dir = parentTrans.position - transform.position;
         dirDistance = _dir.magnitude;
-        actionText = GameObject.Find("Canvas").transform.Find("ShowText").GetComponent<Text>();
+       // actionText = GameObject.Find("Canvas").transform.Find("ShowText").GetComponent<Text>();
         
     }
     void Update()
@@ -44,14 +44,13 @@ public class ActionController : MonoBehaviour
         CheckItem();
         TryAction();
     }
-
-
     private void CheckItem()
     {
         Ray _ray = camera.ViewportPointToRay(screenCenter);
         if (Physics.SphereCast(_ray, checkRadius, out hitInfo, (checkRange + dirDistance), layerMask))
         {
             ItemInfoAppear();
+           
         }
 
         else
@@ -60,13 +59,13 @@ public class ActionController : MonoBehaviour
         }
     }
 
-    private void ItemInfoAppear()
+    private void ItemInfoAppear() // 레이어 마스크에 닿았을때 텍스트 호출
     {
         pickupActivated = true;
         actionText.gameObject.SetActive(true);
         actionText.text = hitInfo.transform.GetComponent<ItemPickUp>().itemData.itemName + " 획득 " + "<color=yellow>" + "(F)" + "</color>";
     }
-    void IteminfoDisappear()
+    void IteminfoDisappear() // 아이템 안 맞으면 false
     {
         pickupActivated = false;
         actionText.gameObject.SetActive(false);
