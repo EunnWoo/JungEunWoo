@@ -17,8 +17,7 @@ public class SelectScene : BaseScene
 
         player = Managers.Game.Spawn("Player");
         Camera.main.gameObject.GetOrAddComponent<CameraFollow>().SetPlayer(player);
-
-        dialogManager = GetComponent<DialogManager>();
+        dialogManager =gameObject.GetOrAddComponent<DialogManager>();
         
         
     }
@@ -42,9 +41,7 @@ public class SelectScene : BaseScene
     {
         if (player.GetComponent<JopController>().jobstring != null)
         {
-
             Debug.Log("직업이 이미 있습니다");
-
         }
         else
         {
