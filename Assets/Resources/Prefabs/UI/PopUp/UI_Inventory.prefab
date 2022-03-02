@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2018719959418218971}
-  - component: {fileID: 2018719959418218970}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -37,40 +36,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2018719959418218970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018719959418218968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0369074e7b752cb4aaeece782d2de214, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slotsEquip: []
-  slotsUse: []
-  slotsETC: []
-  Description_Text: {fileID: 2018719960169846541}
-  tabDescription:
-  - "\uC7A5 \uBE44 : \uC7A5\uBE44 \uC544\uC774\uD15C \uB9AC\uC2A4\uD2B8"
-  - "\uC18C\uBAA8\uD488 : \uC18C\uBAA8\uD488 \uC544\uC774\uD15C \uB9AC\uC2A4\uD2B8"
-  - "\uAE30 \uD0C0 : \uD0C0 \uC544\uC774\uD15C \uB9AC\uC2A4\uD2B8"
-  goEquipTab: {fileID: 2018719959595487666}
-  goEquipSlot: {fileID: 2018719960740201878}
-  goUseTab: {fileID: 2018719959685872286}
-  goUseSlot: {fileID: 2018719960489414480}
-  goETCTab: {fileID: 2018719960839636921}
-  goETCSlot: {fileID: 2018719960077006976}
-  body: {fileID: 2018719960264041372}
-  MAX_EQUIP: 20
-  listEquip: []
-  listUse: []
-  listETC: []
-  ItemInfo: {fileID: 2018719961290638378}
-  CanvaRect: {fileID: 2018719960083688251}
-  v: {x: 0, y: 0}
 --- !u!1 &2018719959513865708
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,7 +483,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2018719959418218970}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: Invoke_SelectTab
         m_Mode: 3
@@ -713,7 +678,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2018719959418218970}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: Invoke_SelectTab
         m_Mode: 3
@@ -742,7 +707,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2018719960077006979
 RectTransform:
   m_ObjectHideFlags: 0
@@ -813,6 +778,7 @@ GameObject:
   - component: {fileID: 2018719960083688248}
   - component: {fileID: 2018719960083688249}
   - component: {fileID: 2018719960083688254}
+  - component: {fileID: 1342048589186350225}
   m_Layer: 5
   m_Name: UI_Inventory
   m_TagString: Untagged
@@ -902,6 +868,40 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1342048589186350225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018719960083688255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0369074e7b752cb4aaeece782d2de214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotsEquip: []
+  slotsUse: []
+  slotsETC: []
+  Description_Text: {fileID: 2018719960169846541}
+  tabDescription:
+  - "\uC7A5 \uBE44 : \uC7A5\uBE44 \uC544\uC774\uD15C \uB9AC\uC2A4\uD2B8"
+  - "\uC18C\uBAA8\uD488 : \uC18C\uBAA8\uD488 \uC544\uC774\uD15C \uB9AC\uC2A4\uD2B8"
+  - "\uAE30 \uD0C0 : \uD0C0 \uC544\uC774\uD15C \uB9AC\uC2A4\uD2B8"
+  goEquipTab: {fileID: 2018719959595487666}
+  goEquipSlot: {fileID: 2018719960740201878}
+  goUseTab: {fileID: 2018719959685872286}
+  goUseSlot: {fileID: 2018719960489414480}
+  goETCTab: {fileID: 2018719960839636921}
+  goETCSlot: {fileID: 2018719960077006976}
+  body: {fileID: 2018719960264041372}
+  MAX_EQUIP: 20
+  listEquip: []
+  listUse: []
+  listETC: []
+  ItemInfo: {fileID: 2018719961290638378}
+  CanvaRect: {fileID: 2018719960083688251}
+  v: {x: 0, y: 0}
 --- !u!1 &2018719960169846643
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,7 +1156,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2018719960489414509
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1584,7 +1584,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2018719959418218970}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: Invoke_Close
         m_Mode: 1
@@ -1951,7 +1951,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2018719959418218970}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: Invoke_SelectTab
         m_Mode: 3

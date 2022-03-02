@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
@@ -43,59 +44,64 @@ public class UI_Inventory : UI_Popup
     {
         EquipBody,
         UseBody,
-        ETCBody
+        ETCBody,
+        Equip_GridSlot,
+        Use_GridSlot,
+        ETC_GridSlot,
+        EquipPanel,
+        UsePanel,
+        ETCPanel
     }
-
-    // private UI_InventorySlot inven;
-    //void Start()
-    //{
-
-    //    slotsEquip.AddRange(goEquipSlot.transform.GetChild(0).GetComponentsInChildren<UI_InventorySlot>()); // 슬롯 칸 배열저장
-    //    slotsUse.AddRange(goUseSlot.transform.GetChild(0).GetComponentsInChildren<UI_InventorySlot>());
-    //    slotsETC.AddRange(goETCSlot.transform.GetChild(0).GetComponentsInChildren<UI_InventorySlot>());
-    //}
+    enum Buttons
+    {
+        Equip_Selected_Tab,
+        Use_Selected_Tab,
+        ETC_Selected_Tab
+    }
 
     public override void Init()
     {
         base.Init();
         Bind<GameObject>(typeof(GameObjects));
+        Bind<Button>(typeof(Buttons));
 
+        goEquipTab = Get<GameObject>((int)GameObjects.EquipPanel);
+        goUseTab = Get<GameObject>((int)GameObjects.UsePanel);
+        goETCTab = Get<GameObject>((int)GameObjects.ETCPanel);
+        goEquipSlot = Get<GameObject>((int)GameObjects.Equip_GridSlot); 
+        goUseSlot = Get<GameObject>((int)GameObjects.Use_GridSlot);
+        goETCSlot = Get<GameObject>((int)GameObjects.ETC_GridSlot);
+
+
+        #region invenslotSet
         GameObject equipbody = Get<GameObject>((int)GameObjects.EquipBody);
-        Debug.Log(equipbody);
         GameObject usebody = Get<GameObject>((int)GameObjects.UseBody);
         GameObject etcbody = Get<GameObject>((int)GameObjects.ETCBody);
-        for (int i = 0; i < 20; i++)
-        {
-            GameObject item = Managers.Resource.Instantiate("UI/Popup/UI_InventorySlot");
-            slotsEquip.Add(item.GetComponent<UI_InventorySlot>());
-            item.transform.SetParent(equipbody.transform);
-        }
-        for (int i = 0; i < 20; i++)
-        {
-            GameObject item = Managers.Resource.Instantiate("UI/Popup/UI_InventorySlot");
-            slotsUse.Add(item.GetComponent<UI_InventorySlot>());
-            item.transform.SetParent(usebody.transform);
-        }
-        for (int i = 0; i < 20; i++)
-        {
-            GameObject item = Managers.Resource.Instantiate("UI/Popup/UI_InventorySlot");
-            slotsETC.Add(item.GetComponent<UI_InventorySlot>());
-            item.transform.SetParent(etcbody.transform);
-        }
 
+        SetSlot(equipbody, slotsEquip);
+        SetSlot(usebody, slotsUse);
+        SetSlot(etcbody, slotsETC);
+
+        usebody.SetActive(false); //켜고 소비랑 기타 꺼주기
+        etcbody.SetActive(false);
+        #endregion
+
+
+        GetButton((int)Buttons.Equip_Selected_Tab).gameObject.AddUIEvent(Invoke_EquipTab);
+        GetButton((int)Buttons.Use_Selected_Tab).gameObject.AddUIEvent(Invoke_UseTab);
+        GetButton((int)Buttons.ETC_Selected_Tab).gameObject.AddUIEvent(Invoke_ETCTab);
 
     }
-    //void ListSlotAdd(GameObject body) // 몸통에 슬롯 20개씩 생성
-    //{
-    //    for (int i = 0; i < 20; i++)
-    //    {
-    //        GameObject item = Managers.Resource.Instantiate("UI/Popup/UI_InventorySlot");
-    //        slotsEquip.Add(item.GetComponent<UI_InventorySlot>());
-    //        item.transform.SetParent(body.transform);
-    //    }
-    //}
-
-    public void Invoke_SelectTab(int _kind)
+    void SetSlot(GameObject go, List<UI_InventorySlot> slot)
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            GameObject item = Managers.Resource.Instantiate("UI/Popup/UI_InventorySlot");
+            slot.Add(item.GetComponent<UI_InventorySlot>());
+            item.transform.SetParent(go.transform);
+        }
+    }
+    public void Invoke_SetTab()
     {
         goEquipTab.SetActive(false);
         goEquipSlot.SetActive(false);
@@ -103,30 +109,28 @@ public class UI_Inventory : UI_Popup
         goUseSlot.SetActive(false);
         goETCTab.SetActive(false);
         goETCSlot.SetActive(false);
-        switch (_kind)
-        {
-            case 0:
-                goEquipTab.gameObject.SetActive(true);
-                goEquipSlot.SetActive(true);
-                Description_Text.text = tabDescription[_kind];
+    }
+    public void Invoke_EquipTab(PointerEventData data)
+    {
+        Invoke_SetTab();
+        goEquipTab.gameObject.SetActive(true);
+        goEquipSlot.SetActive(true);
+        Description_Text.text = tabDescription[0];
+    }
+    public void Invoke_UseTab(PointerEventData data)
+    {
+        Invoke_SetTab();
+        goUseTab.SetActive(true);
+        goUseSlot.SetActive(true);
+        Description_Text.text = tabDescription[1];
 
-
-                break;
-            case 1:
-                goUseTab.SetActive(true);
-                goUseSlot.SetActive(true);
-                Description_Text.text = tabDescription[_kind];
-
-                break;
-            case 2:
-                goETCTab.SetActive(true);
-                goETCSlot.SetActive(true);
-                Description_Text.text = tabDescription[_kind];
-
-                break;
-
-        }
-
+    }
+    public void Invoke_ETCTab(PointerEventData data)
+    {
+        Invoke_SetTab();
+        goETCTab.SetActive(true);
+        goETCSlot.SetActive(true);
+        Description_Text.text = tabDescription[2];
     }
     public void Invoke_Close()
     {
@@ -272,12 +276,6 @@ public class UI_Inventory : UI_Popup
 
     void Update()
     {
-       
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            OpenInventory();
-        }
-
         //스크린린포인트 0,0부터 1920,1080 를 새로운 사각형 위치로 변환
         RectTransformUtility.ScreenPointToLocalPointInRectangle(CanvaRect, Input.mousePosition, Camera.main, out Vector2 anchoredPos);
 

@@ -42,6 +42,7 @@ public class GameManager
         }
         if (Input.GetKeyDown(KeyCode.I))
         {
+            
             Managers.UI.ShowPopupUI<UI_Inventory>();
         }
     }
