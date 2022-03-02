@@ -11,6 +11,7 @@ public class UIManager
     Stack<UI_Popup> _popupStack = new Stack<UI_Popup>(); //gameobject대신 popup을 넣는 이유 -> 오브젝트는 컴퍼넌트 패턴형식이라 아무런 정보를 가지고 있지않기 때문
     UI_Scene _sceneUI = null;
 
+    public bool isAction { get; private set; }
     public GameObject Root
     { get
         {
@@ -96,5 +97,10 @@ public class UIManager
             ClosePopupUI();
     }
 
+    public bool isTalk(bool isaction) => (isAction = isaction);
+    //{
+    //    isAction = isaction;
+    //    return isAction;
+    //}
 
 }

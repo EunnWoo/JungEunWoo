@@ -37,19 +37,25 @@ public class PlayerController : BaseController
         Managers.Mouse.MouseAction += OnMouseEvent;
 
         //Managers.UI.ShowPopupUI<UI_Button>("UITest");
-
+       
     }
     protected override void UpdateMoving()
     {
-        Move();
-        Run();
-        Jump();
-        Roll();
-        
+        if (!Managers.UI.isAction)
+        {
+            Move();
+            Run();
+            Jump();
+            Roll();
+        }
     }
     protected override void UpdateAttack() 
     {
-        OnAttack();
+        if (!Managers.UI.isAction)
+        {
+            OnAttack();
+        }
+        
     }
 
     #region moving
@@ -125,7 +131,7 @@ public class PlayerController : BaseController
     {
 
         if (Managers.Input.jump && isGround == true &&
-            !Managers.Input.roll && !dialogManager.isAction)
+            !Managers.Input.roll)
         {
             rigid.AddForce(Vector3.up * 17, ForceMode.Impulse);
             isGround = false;
