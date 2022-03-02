@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjPoolManager : MonoBehaviour
+public class ObjPoolManager 
 {
     [SerializeField]
     GameObject[] arrow;
@@ -10,28 +10,33 @@ public class ObjPoolManager : MonoBehaviour
     GameObject[] fireBall;
     GameObject[] targetPool;
 
-    private void Start()
-    {
-        arrow = new GameObject[45];
-        fireBall = new GameObject[10];
-        
-        Generate();
-    }
+    Transform objPoolManager;
 
-    void Generate()
+
+
+
+
+    public void Init()
     {
-        GameObject ObjPoolManager = new GameObject("ObjPoolManager"); // 오브젝트 풀 담을 오브젝트 생성
-        
+        Debug.Log("풀 생성");
+
+
+        // 오브젝트 풀 담을 오브젝트 생성
+        objPoolManager = new GameObject { name = "ObjPoolManager" }.transform;
+        Object.DontDestroyOnLoad(objPoolManager);
+        //각 최대개수 설정
+        arrow = new GameObject[100];
+        fireBall = new GameObject[10];
 
         for (int i =0; i< arrow.Length;i++)
         {
-            arrow[i] = Managers.Resource.Instantiate("Arrow", ObjPoolManager.transform);
+            arrow[i] = Managers.Resource.Instantiate("Arrow", objPoolManager);
 
             arrow[i].SetActive(false);
         }
         for (int i = 0; i < fireBall.Length; i++)
         {
-            fireBall[i] = Managers.Resource.Instantiate("Magic fire", ObjPoolManager.transform);
+            fireBall[i] = Managers.Resource.Instantiate("Magic fire", objPoolManager);
             fireBall[i].SetActive(false);
         }
     }

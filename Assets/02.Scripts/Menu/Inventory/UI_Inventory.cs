@@ -92,12 +92,12 @@ public class UI_Inventory : MonoBehaviour
         //GameManager.isOpenInventory = true;
         if (!body.activeSelf)
         {
-            GameManager.isOpenInventory = true;
+            Managers.Game.isOpenInventory = true;
             body.SetActive(true);
         }
         else
         {
-            GameManager.isOpenInventory = false;
+            Managers.Game.isOpenInventory = false;
             body.SetActive(false);
         }
 

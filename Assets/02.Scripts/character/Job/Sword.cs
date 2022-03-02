@@ -25,6 +25,7 @@ public class Sword : PlayerAttack
         animator.SetTrigger("Attack");
 
         isAttack = false;
+        attackDelay = 0;
         yield return null;
     }
 }

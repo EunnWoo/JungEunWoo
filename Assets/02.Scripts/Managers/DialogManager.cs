@@ -4,9 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DialogManager : MonoBehaviour
 {
-    [SerializeField]
-    private TalkManager talkManager;
-   
+
     public GameObject dialogPanel;
     public Image portraitImg;//Npc 얼굴
     public Text talkText;
@@ -16,12 +14,7 @@ public class DialogManager : MonoBehaviour
 
 
     public bool isAction = false;
-   
-    void Start() {
-        talkManager = GameObject.Find("GameManager").GetComponent<TalkManager>();
 
-    
-    }
     public void Action(GameObject npc){
         
         NPC = npc;
@@ -35,7 +28,7 @@ public class DialogManager : MonoBehaviour
        
       //  int questTalkIndex = questManager.GetQuestTalkIndex(id);
         
-        string talkData = talkManager.GetTalk(id, talkIndex);
+        string talkData = Managers.talk.GetTalk(id, talkIndex);
         if(id == 2000){
             dialogPanel.transform.GetChild(0).GetChild(3).gameObject.SetActive(true);
         }
@@ -56,20 +49,4 @@ public class DialogManager : MonoBehaviour
         talkIndex++;
     }
 
-    //직업 관련 버튼 함수
-    //public void JobExitClickButton()
-    //{
-    //    dialogPanel.SetActive(false);
-    //    isAction = false;
-    //}
-    //public void JobChoiceButton()
-    //{
-    //    if (job.jobFix != JobInfo.COMMON)
-    //    {
-    //        //전직이 이미 있을때 실행
-    //    }
-    //    job.JobChoice();
-    //    dialogPanel.SetActive(false);
-    //    isAction = false;
-    //}
 }

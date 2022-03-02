@@ -2,18 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TalkManager : MonoBehaviour
-{
+public class TalkManager
+{ 
     Dictionary<int, string[]> talkData;
     
 
 
-    void Start()
-    {
+   
         
-        GenerateData();
-    }
-    void GenerateData()
+    public void Init()
     {
         talkData = new Dictionary<int, string[]>();
         talkData.Add(1000, new string[]{"...."});

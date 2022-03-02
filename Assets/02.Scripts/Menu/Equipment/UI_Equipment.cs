@@ -37,13 +37,13 @@ public class UI_Equipment : MonoBehaviour
     {
         if (!Eqbody.activeSelf)//장비창이 꺼져있을시
         {
-            GameManager.isOpenEquipment = true;  //장비창을 킨다
+            Managers.Game.isOpenEquipment = true;  //장비창을 킨다
             Eqbody.SetActive(true);
         }
         
         else
         {
-            GameManager.isOpenEquipment = false;
+            Managers.Game.isOpenEquipment = false;
             Eqbody.SetActive(false);
         }
     }

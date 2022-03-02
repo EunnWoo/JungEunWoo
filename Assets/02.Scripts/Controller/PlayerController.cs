@@ -1,15 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum AttackType
-{
-    NormalAttack,
-    SkillAttack
-}
-public class PlayerController : MonoBehaviour
+
+public class PlayerController : BaseController
 {
     
-    public AttackType attackType { get; private set; }
+    public Define.AttackType attackType { get; private set; }
     private DialogManager dialogManager;
 
     private Rigidbody rigid;
@@ -23,18 +19,15 @@ public class PlayerController : MonoBehaviour
     Vector3 dir = Vector3.zero;
     Vector3 rollVec = Vector3.zero;
 
-    public GameObject _locktarget { get; private set; }
-
     float moveAmount = 0f;
     float moveSpeed = 8f;
-
 
     public bool isGround { get; private set; }
     public bool isRoll { get; private set; }
 
     int _mask = (1 << (int)Layer.Npc) | (1 << (int)Layer.Monster) | (1 << (int)Layer.Ground);
 
-    void Awake()
+    public override void Init()
     {
         rigid = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
@@ -43,19 +36,23 @@ public class PlayerController : MonoBehaviour
         Managers.Mouse.MouseAction -= OnMouseEvent;
         Managers.Mouse.MouseAction += OnMouseEvent;
 
+        //Managers.UI.ShowPopupUI<UI_Button>("UITest");
+
     }
-
-    void FixedUpdate()
+    protected override void UpdateMoving()
     {
-
         Move();
         Run();
         Jump();
         Roll();
-        OnMouseUpdate();
+        
+    }
+    protected override void UpdateAttack() 
+    {
+        OnAttack();
     }
 
-    #region move
+    #region moving
     private void Move()
     {
         moveVec = new Vector3(Managers.Input.hAxis, 0, Managers.Input.vAxis).normalized;
@@ -76,32 +73,17 @@ public class PlayerController : MonoBehaviour
 
         transform.position += moveVec * moveSpeed * Time.deltaTime;
         animator.SetFloat("Move", moveAmount, 0.2f, Time.deltaTime);
-    }
-    void Run()
-    {
-        bool runnig = false;
-        runnig = Managers.Input.run && moveVec.magnitude != 0f;
-        moveSpeed = runnig ? 8f * 1.3f : 8f * 0.8f;
-        animator.SetBool("IsRun", runnig);
 
-    }
-    void OnMouseUpdate()
-    {
-        
-        if (Managers.Input.hAxis !=0 || Managers.Input.vAxis !=0 || Managers.Input.roll || Managers.Input.jump) //키보드 조작시 타겟 지우기
+        //마우스로 이동
+        if (_lockTarget != null)
         {
-            _locktarget = null;
-        }
+            dir = DestPos(_lockTarget.transform.position); // 타겟과의 거리 값
 
-        if (_locktarget != null)
-        {
-            dir = DestPos(_locktarget.transform.position); // 타겟과의 거리 값
-
-            if (_locktarget.layer == (int)Layer.Npc)
+            if (_lockTarget.layer == (int)Layer.Npc)
             {
                 if (dir.magnitude < 0.5f)
                 {
-                    _locktarget = null;
+                    _lockTarget = null;
                     return;
                 }
                 else
@@ -109,44 +91,7 @@ public class PlayerController : MonoBehaviour
                     MouseMove(); // 마우스로 이동할때의 함수
                 }
             }
-            else if (_locktarget.layer == (int)Layer.Monster || _locktarget.layer ==(int)Layer.Ground)
-            {
-                if (playerAttack == null) return;
-
-                if (DistanceAttackPos(dir)) //거리 비교 bool
-                {
-                    playerAttack.OnAttack();
-
-                    playerAttack.AttackTacrgetSet(_locktarget);
-                    _locktarget = null;
-                    return;
-                }
-                else
-                {
-
-                    MouseMove();
-                }
-            }
-            //else if(_locktarget.layer == (int)Layer.Ground)
-            //{
-            //    playerAttack.OnAttack();
-            //    _locktarget = null;
-            //}
         }
-    }
-    public void MoveStop()
-    {
-        moveVec = Vector3.zero;
-
-    }
-    //hitpoint와 거리반환 함수
-    Vector3 DestPos(Vector3 hitpoint)
-    {
-        Vector3 dest = hitpoint - transform.position;
-
-        dest.y = 0;
-
-        return dest;
     }
     void MouseMove()
     {
@@ -156,6 +101,23 @@ public class PlayerController : MonoBehaviour
         transform.position += dir.normalized * moveSpeed * moveAmount * Time.deltaTime;
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 20 * Time.deltaTime);
     }
+    void Run()
+    {
+        bool runnig = false;
+        runnig = Managers.Input.run && moveVec.magnitude != 0f;
+        moveSpeed = runnig ? 8f * 1.3f : 8f * 0.8f;
+        animator.SetBool("IsRun", runnig);
+
+    }
+  
+    
+    public void MoveStop()
+    {
+        moveVec = Vector3.zero;
+
+    }
+    //hitpoint와 거리반환 함수
+
 
     #endregion
     #region jump
@@ -207,18 +169,64 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
     #region Attack
+    void OnAttack()
+    {
+        if (Managers.Input.hAxis != 0 || Managers.Input.vAxis != 0 || Managers.Input.roll || Managers.Input.jump) //키보드 조작시 타겟 지우기
+        {
+            _lockTarget = null;
+        }
+        if (_lockTarget != null)
+        {
 
 
+            dir = DestPos(_lockTarget.transform.position);
 
+            if (_lockTarget.layer == (int)Layer.Monster)
+            {
+                if (playerAttack == null) return;
+
+                if (DistanceAttackPos(dir)) //거리 비교 bool
+                {
+                    playerAttack.AttackTacrgetSet(_lockTarget);
+                    _lockTarget = null;
+                    playerAttack.OnAttack();
+
+                    return;
+                }
+                else
+                {
+
+                    MouseMove();
+                }
+            }
+            else if (_lockTarget.layer == (int)Layer.Ground)
+            {
+                playerAttack.OnAttack();
+                _lockTarget = null;
+            }
+        }
+    }
+
+    //사정거리계산 메서드
     bool DistanceAttackPos(Vector3 destpos)
     {
         return Vector3.Distance(transform.position, destpos) <= playerAttack.range;
     }
-
+    //클릭한곳 보는 함수
+    void LookHitPoint(RaycastHit hit)
+    {
+        if (!isRoll && playerAttack != null ? playerAttack.canMove : true)
+        {
+            Vector3 turnVec = hit.point - transform.position;
+            turnVec.y = 0;
+            transform.LookAt(transform.position + turnVec);
+        }
+    }
 
     #endregion
 
-    void OnMouseEvent(MouseEvent evt)
+    //마우스 클릭 이벤트 받는 메서드
+    void OnMouseEvent(Define.MouseEvent evt)
     {
 
         RaycastHit hit;
@@ -231,27 +239,29 @@ public class PlayerController : MonoBehaviour
             switch (evt)
             {
 
-                case MouseEvent.PointerDown: 
+                case Define.MouseEvent.PointerDown: 
 
-                    attackType = AttackType.NormalAttack;  // 일반공격
+                    attackType = Define.AttackType.NormalAttack;  // 일반공격
                     LookHitPoint(hit);
-                    if (_locktarget != null) // 이벤트 발생시 비어있지않다면 비어주고 다시 부여
+                    if (_lockTarget != null) // 이벤트 발생시 비어있지않다면 비어주고 다시 부여
                     {
-                        _locktarget = null;
+                        _lockTarget = null;
                     }
-                    _locktarget = hit.collider.gameObject;
 
+                    _lockTarget = hit.collider.gameObject;
+      
                     break;
 
-                case MouseEvent.PointerRightDown:
+                case Define.MouseEvent.PointerRightDown:
 
-                    attackType = AttackType.SkillAttack;
+                    attackType = Define.AttackType.SkillAttack;
                     LookHitPoint(hit);
-                    if (_locktarget != null) // 이벤트 발생시 비어있지않다면 비어주고 다시 부여
+                    if (_lockTarget != null) // 이벤트 발생시 비어있지않다면 비어주고 다시 부여
                     {
-                        _locktarget = null;
+                        _lockTarget = null;
                     }
-                    _locktarget = hit.collider.gameObject;
+                    _lockTarget = hit.collider.gameObject;
+   
 
 
 
@@ -260,14 +270,6 @@ public class PlayerController : MonoBehaviour
             
         }
     }
-    void LookHitPoint(RaycastHit hit)
-    {
-        if (!isRoll && playerAttack != null ?playerAttack.canMove :true)
-        {
-            Vector3 turnVec = hit.point - transform.position;
-            turnVec.y = 0;
-            transform.LookAt(transform.position + turnVec);
-        }
-    }
+   
 
 }

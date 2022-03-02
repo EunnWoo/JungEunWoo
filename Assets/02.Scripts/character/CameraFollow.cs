@@ -5,23 +5,45 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
    
-    private Transform target;
     public Vector3 offset;
 
+    [SerializeField]
+    GameObject _player = null;
+    public void SetPlayer(GameObject player) { _player = player; }
+    private void Awake()
+    {
+
+        var obj = FindObjectsOfType<Camera>();
+
+        if (obj.Length == 1)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
-        target = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        offset = new Vector3(0, 10, -12);
         DontDestroyOnLoad(this);
 
 
 
     }
-    void Update()
+
+    private void LateUpdate()
     {
-        transform.position = target.position + offset;
-        
-        
-        
+        if(_player != null && _player.activeSelf)
+        transform.position = _player.transform.position + offset;
     }
+    //void Update()
+    //{
+        
+        
+        
+        
+    //}
 
 }

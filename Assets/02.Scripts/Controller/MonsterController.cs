@@ -2,18 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterController : MonoBehaviour
+public class MonsterController : BaseController
 {
-    protected GameObject lockTarget { get; private set; }
+    
     public float attackRange { get; protected set; }
     public float scanRange { get; protected set; }
-
-
-    void Update()
+    public override void Init()
     {
-        PlayerScan();
-        UpdateMoving();
+        //초기화 하는 함수
+
+        
+
     }
+
 
     protected virtual void PlayerScan()// --> 상속받은 monster들 마다 스캔방식 다르게  ex) rayhit(보는 방향)골드메탈 참고 Or 적과 플레이어 distance 값 받아서 범위 스캔
     {
@@ -21,10 +22,14 @@ public class MonsterController : MonoBehaviour
         //ex 
 
     }
-    protected virtual void UpdateMoving()
+
+    protected override void UpdateMoving()
     {
 
     }
+    protected override void UpdateAttack()
+    {
 
+    }
 
 }

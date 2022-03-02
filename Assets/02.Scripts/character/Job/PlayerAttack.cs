@@ -23,14 +23,13 @@ public class PlayerAttack : MonoBehaviour
         isAttackReady = attackRate < attackDelay;
         canMove = animator.GetBool("canMove");
 
-        
        
     }
 
     private void OnEnable()
     {
         animator = GetComponentInChildren<Animator>();
-        playerController = GetComponent<PlayerController>();
+        playerController = Managers.Game.GetPlayer().GetComponent<PlayerController>();
         playerController.playerAttack = GetComponent<PlayerAttack>(); // 어택을 상속받아 수정되는 값 다시 받아오기
         isAttackReady = true;
         canMove = true;
@@ -43,12 +42,12 @@ public class PlayerAttack : MonoBehaviour
         {
             isAttack = true;
 
-            if (playerController.attackType == AttackType.NormalAttack)
+            if (playerController.attackType == Define.AttackType.NormalAttack)
             {
                 StopCoroutine(Use());
                 StartCoroutine(Use());
             }
-            else if(playerController.attackType ==AttackType.SkillAttack)
+            else if(playerController.attackType == Define.AttackType.SkillAttack)
             {
                 
                 StopCoroutine(Skill());
@@ -70,11 +69,6 @@ public class PlayerAttack : MonoBehaviour
     public void AttackTacrgetSet(GameObject go)
     {
         attackTarget = go;
-
     }
-
-    
-
-
 
 }
