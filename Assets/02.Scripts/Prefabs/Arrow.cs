@@ -70,5 +70,9 @@ public class Arrow : MonoBehaviour
         tr.rotation = Quaternion.identity;
         
         rigid.Sleep();
+
+
     }
+
+    
 }

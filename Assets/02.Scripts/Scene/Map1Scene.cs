@@ -9,6 +9,7 @@ public class Map1Scene : BaseScene
     {
         base.Init();
         SceneType = SceneState.Select;
+        Managers.Game.GetPlayer().transform.position = Vector3.zero;
 
     }
 

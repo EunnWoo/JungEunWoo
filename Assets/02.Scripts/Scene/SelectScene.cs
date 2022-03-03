@@ -17,6 +17,7 @@ public class SelectScene : BaseScene
 
         player = Managers.Game.Spawn("Player");
         Camera.main.gameObject.GetOrAddComponent<CameraFollow>().SetPlayer(player);
+        gameObject.GetOrAddComponent<CursorController>();
         Managers.UI.ShowSceneUI<UI_PlayerData>();
         Managers.UI.ShowSceneUI<UI_Money>();
         

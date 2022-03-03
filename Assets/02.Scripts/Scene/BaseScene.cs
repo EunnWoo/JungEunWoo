@@ -9,7 +9,10 @@ public enum SceneState
     Login,
     Lobby,
     Select,
-    Town
+    Town,
+    Map1,
+    Map2,
+    Map3,
 
 }
 public abstract class BaseScene : MonoBehaviour
