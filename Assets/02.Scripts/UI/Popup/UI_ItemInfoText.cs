@@ -16,6 +16,8 @@ public class UI_ItemInfoText : UI_Scene
 
 
     //}
-
-
+    public override void Init()
+    {
+        DontDestroyOnLoad(this);
+    }
 }

@@ -115,7 +115,7 @@ public class PlayerController : BaseController
         animator.SetBool("IsRun", runnig);
 
     }
-  
+
     
     public void MoveStop()
     {
