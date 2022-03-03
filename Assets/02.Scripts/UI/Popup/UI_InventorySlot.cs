@@ -4,24 +4,39 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventorySlot : MonoBehaviour, IPointerClickHandler
+public class UI_InventorySlot : UI_Base, IPointerClickHandler
 {
+    public ItemData item;
+    Image icon;
+    Text itemCount;
 
-    private void Start()
+    enum  Images
     {
-        Init();
+        Item_Icon,
+        Panel
     }
-
-    void Init()
+    enum Texts
     {
+        Item_Count_Text
+    }
+    public override void  Init()
+    {
+        Bind<Image>(typeof(Images));
+        Bind<Text>(typeof(Texts));
+        
+        icon = GetImage((int)Images.Item_Icon);
+        itemCount = GetText((int)Texts.Item_Count_Text);
+        
         if (item == null || (item != null && item.itemCount <= 1))
         {
             itemCount.gameObject.SetActive(false); //아이템 수량 나오는것을 끔
         }
+
+
+        AddUIEvent(icon.gameObject, OnPointerClick); // ebenthandler 접근하려고 
+
     }
-    public ItemData item;
-    public Image icon;
-    public Text itemCount;
+
     public void SetItem(ItemData _item)
     {
         item = _item;

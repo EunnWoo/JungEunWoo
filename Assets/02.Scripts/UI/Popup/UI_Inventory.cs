@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-public class UI_Inventory : MonoBehaviour
+public class UI_Inventory : UI_Scene
 {
     #region sigletone
     public static UI_Inventory ins;
@@ -13,9 +14,9 @@ public class UI_Inventory : MonoBehaviour
         ins = this;
     }
     #endregion
-    public List<InventorySlot> slotsEquip = new List<InventorySlot>();  //인벤토리 슬롯들
-    public List<InventorySlot> slotsUse = new List<InventorySlot>();
-    public List<InventorySlot> slotsETC = new List<InventorySlot>();
+    public List<UI_InventorySlot> slotsEquip = new List<UI_InventorySlot>();  //인벤토리 슬롯들
+    public List<UI_InventorySlot> slotsUse = new List<UI_InventorySlot>();
+    public List<UI_InventorySlot> slotsETC = new List<UI_InventorySlot>();
 
     public Text Description_Text; //아이템에 대한 부연설명
     public string[] tabDescription; //탭 부연설명
@@ -34,21 +35,87 @@ public class UI_Inventory : MonoBehaviour
     public List<ItemData> listETC = new List<ItemData>();
 
 
-    public GameObject ItemInfo; //인벤토리에서 마우스 올려놓으면 아이템 정보 뜨게하는 오브젝트
+    public GameObject itemInfo; //인벤토리에서 마우스 올려놓으면 아이템 정보 뜨게하는 오브젝트
     public RectTransform CanvaRect;
+    public Vector2 v;
     IEnumerator PointerCoroutine;
 
-
-    // private InventorySlot inven;
-    void Start()
+    enum GameObjects
     {
-        slotsEquip.AddRange(goEquipSlot.transform.GetChild(0).GetComponentsInChildren<InventorySlot>());
-        slotsUse.AddRange(goUseSlot.transform.GetChild(0).GetComponentsInChildren<InventorySlot>());
-        slotsETC.AddRange(goETCSlot.transform.GetChild(0).GetComponentsInChildren<InventorySlot>());
+        EquipBody,
+        UseBody,
+        ETCBody,
+        Equip_GridSlot,
+        Use_GridSlot,
+        ETC_GridSlot,
+        EquipPanel,
+        UsePanel,
+        ETCPanel,
+        ItemInfo
+    }
+    enum Buttons
+    {
+        Equip_Selected_Tab,
+        Use_Selected_Tab,
+        ETC_Selected_Tab,
+        CloseButton
     }
 
+    public override void Init()
+    {
+        base.Init();
+        #region setup
+        Bind<GameObject>(typeof(GameObjects));
+        Bind<Button>(typeof(Buttons));
+        goEquipTab = Get<GameObject>((int)GameObjects.EquipPanel);
+        goUseTab = Get<GameObject>((int)GameObjects.UsePanel);
+        goETCTab = Get<GameObject>((int)GameObjects.ETCPanel);
+        goEquipSlot = Get<GameObject>((int)GameObjects.Equip_GridSlot); 
+        goUseSlot = Get<GameObject>((int)GameObjects.Use_GridSlot);
+        goETCSlot = Get<GameObject>((int)GameObjects.ETC_GridSlot);
+        itemInfo = Get<GameObject>((int)GameObjects.ItemInfo);
+        #endregion
+        #region invenslotSet
+        GameObject equipbody = Get<GameObject>((int)GameObjects.EquipBody);
+        GameObject usebody = Get<GameObject>((int)GameObjects.UseBody);
+        GameObject etcbody = Get<GameObject>((int)GameObjects.ETCBody);
 
-    public void Invoke_SelectTab(int _kind)
+        GetButton((int)Buttons.CloseButton).gameObject.AddUIEvent(CloseInventory);
+        
+
+
+        itemInfo.SetActive(false);
+
+        SetSlot(equipbody, slotsEquip);
+        SetSlot(usebody, slotsUse);
+        SetSlot(etcbody, slotsETC);
+
+        goUseSlot.SetActive(false); //켜고 소비랑 기타 꺼주기
+        goETCSlot.SetActive(false);
+        goUseTab.SetActive(false);
+        goETCTab.SetActive(false);
+        #endregion
+
+
+        //탭선택 이벤트 부여
+        GetButton((int)Buttons.Equip_Selected_Tab).gameObject.AddUIEvent(Invoke_EquipTab);
+        GetButton((int)Buttons.Use_Selected_Tab).gameObject.AddUIEvent(Invoke_UseTab);
+        GetButton((int)Buttons.ETC_Selected_Tab).gameObject.AddUIEvent(Invoke_ETCTab);
+
+
+        
+
+    }
+    void SetSlot(GameObject go, List<UI_InventorySlot> slot)
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            GameObject item = Managers.Resource.Instantiate("UI/Popup/UI_InventorySlot");
+            slot.Add(item.GetComponent<UI_InventorySlot>());
+            item.transform.SetParent(go.transform);
+        }
+    }
+    public void Invoke_SetTab()
     {
         goEquipTab.SetActive(false);
         goEquipSlot.SetActive(false);
@@ -56,30 +123,28 @@ public class UI_Inventory : MonoBehaviour
         goUseSlot.SetActive(false);
         goETCTab.SetActive(false);
         goETCSlot.SetActive(false);
-        switch (_kind)
-        {
-            case 0:
-                goEquipTab.gameObject.SetActive(true);
-                goEquipSlot.SetActive(true);
-                Description_Text.text = tabDescription[_kind];
+    }
+    public void Invoke_EquipTab(PointerEventData data)
+    {
+        Invoke_SetTab();
+        goEquipTab.SetActive(true);
+        goEquipSlot.SetActive(true);
+        Description_Text.text = tabDescription[0];
+    }
+    public void Invoke_UseTab(PointerEventData data)
+    {
+        Invoke_SetTab();
+        goUseTab.SetActive(true);
+        goUseSlot.SetActive(true);
+        Description_Text.text = tabDescription[1];
 
-
-                break;
-            case 1:
-                goUseTab.SetActive(true);
-                goUseSlot.SetActive(true);
-                Description_Text.text = tabDescription[_kind];
-
-                break;
-            case 2:
-                goETCTab.SetActive(true);
-                goETCSlot.SetActive(true);
-                Description_Text.text = tabDescription[_kind];
-
-                break;
-
-        }
-
+    }
+    public void Invoke_ETCTab(PointerEventData data)
+    {
+        Invoke_SetTab();
+        goETCTab.SetActive(true);
+        goETCSlot.SetActive(true);
+        Description_Text.text = tabDescription[2];
     }
     public void Invoke_Close()
     {
@@ -103,7 +168,11 @@ public class UI_Inventory : MonoBehaviour
 
 
     }
-
+    public void CloseInventory(PointerEventData data)
+    {
+        Managers.Game.isOpenInventory = false;
+        body.SetActive(false);
+    }
     ItemData CheckItemData(List <ItemData>_list, ItemData _newItemData, out int _index)//동일한 아이템이 있는지 검사
     {
         _index = -1;
@@ -189,27 +258,27 @@ public class UI_Inventory : MonoBehaviour
         return _rtn;
     }
 
-    public void PointerEnter(int slotNum) //마우스가 인벤토리 슬롯 위에 올려져있을때
+    public void PointerEnter(PointerEventData data) //마우스가 인벤토리 슬롯 위에 올려져있을때
     {
-        PointerCoroutine = PointerEnterDelay(slotNum);
+        PointerCoroutine = PointerEnterDelay();
         StartCoroutine(PointerCoroutine);
 
-        //ItemInfo.GetComponentInChildren<Text>().text = itemCount.text = "x" + item.itemCount;
-        //ItemInfo.transform.GetChild(2).GetComponent<Text>().text = CurItemList[slotNum].Explain;
-
-
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(CanvaRect, Input.mousePosition, Camera.main, out Vector2 anchoredPos);
+        itemInfo.GetComponent<RectTransform>().anchoredPosition = anchoredPos;
     }
 
-    IEnumerator PointerEnterDelay(int slotNum) //마우스가 인벤토리 슬롯 위에 올려져있을때 0.5초뒤에 실행
+
+    IEnumerator PointerEnterDelay() //마우스가 인벤토리 슬롯 위에 올려져있을때 0.5초뒤에 실행
     {
         yield return new WaitForSeconds(0.3f);
-        ItemInfo.SetActive(true);
+        itemInfo.SetActive(true);
+        //ItemInfo.GetComponentInChildren<Text>().text = 
     }
 
-    public void PointerExit(int slotNum)//마우스가 인벤토리 슬롯 위에 빠져나갈때
+    public void PointerExit()//마우스가 인벤토리 슬롯 위에 빠져나갈때
     {
         StopCoroutine(PointerCoroutine);
-        ItemInfo.SetActive(false);
+        itemInfo.SetActive(false);
     }
 
 
@@ -225,17 +294,11 @@ public class UI_Inventory : MonoBehaviour
 
     void Update()
     {
-       
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            OpenInventory();
-        }
-
         //스크린린포인트 0,0부터 1920,1080 를 새로운 사각형 위치로 변환
         RectTransformUtility.ScreenPointToLocalPointInRectangle(CanvaRect, Input.mousePosition, Camera.main, out Vector2 anchoredPos);
 
         //마우스를 아이템위로 올릴시 설명 유아이창이 뜰위치
-        ItemInfo.GetComponent<RectTransform>().anchoredPosition = anchoredPos + new Vector2(700,570);
+        itemInfo.GetComponent<RectTransform>().anchoredPosition = anchoredPos + new Vector2(700,570);
     }
 
     #endregion
