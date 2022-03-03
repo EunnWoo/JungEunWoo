@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAction : MonoBehaviour
 {
-
+    
     public bool nearNPC = false;
     [SerializeField]
     public GameObject scanNPC { get; private set; }

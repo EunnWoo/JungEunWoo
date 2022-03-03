@@ -899,7 +899,7 @@ MonoBehaviour:
   listEquip: []
   listUse: []
   listETC: []
-  ItemInfo: {fileID: 2018719961290638378}
+  itemInfo: {fileID: 0}
   CanvaRect: {fileID: 2018719960083688251}
   v: {x: 0, y: 0}
 --- !u!1 &2018719960169846643
@@ -1768,7 +1768,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2018719961290638373
 RectTransform:
   m_ObjectHideFlags: 0

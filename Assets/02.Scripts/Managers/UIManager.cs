@@ -80,6 +80,7 @@ public class UIManager
         }
         ClosePopupUI();
     }
+
     public void ClosePopupUI()
     {
         //스택 추출해서 닫기

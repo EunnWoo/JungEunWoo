@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-public class UI_Inventory : UI_Popup
+public class UI_Inventory : UI_Scene
 {
     #region sigletone
     public static UI_Inventory ins;
@@ -35,7 +35,7 @@ public class UI_Inventory : UI_Popup
     public List<ItemData> listETC = new List<ItemData>();
 
 
-    public GameObject ItemInfo; //인벤토리에서 마우스 올려놓으면 아이템 정보 뜨게하는 오브젝트
+    public GameObject itemInfo; //인벤토리에서 마우스 올려놓으면 아이템 정보 뜨게하는 오브젝트
     public RectTransform CanvaRect;
     public Vector2 v;
     IEnumerator PointerCoroutine;
@@ -50,46 +50,60 @@ public class UI_Inventory : UI_Popup
         ETC_GridSlot,
         EquipPanel,
         UsePanel,
-        ETCPanel
+        ETCPanel,
+        ItemInfo
     }
     enum Buttons
     {
         Equip_Selected_Tab,
         Use_Selected_Tab,
-        ETC_Selected_Tab
+        ETC_Selected_Tab,
+        CloseButton
     }
 
     public override void Init()
     {
         base.Init();
+        #region setup
         Bind<GameObject>(typeof(GameObjects));
         Bind<Button>(typeof(Buttons));
-
         goEquipTab = Get<GameObject>((int)GameObjects.EquipPanel);
         goUseTab = Get<GameObject>((int)GameObjects.UsePanel);
         goETCTab = Get<GameObject>((int)GameObjects.ETCPanel);
         goEquipSlot = Get<GameObject>((int)GameObjects.Equip_GridSlot); 
         goUseSlot = Get<GameObject>((int)GameObjects.Use_GridSlot);
         goETCSlot = Get<GameObject>((int)GameObjects.ETC_GridSlot);
-
-
+        itemInfo = Get<GameObject>((int)GameObjects.ItemInfo);
+        #endregion
         #region invenslotSet
         GameObject equipbody = Get<GameObject>((int)GameObjects.EquipBody);
         GameObject usebody = Get<GameObject>((int)GameObjects.UseBody);
         GameObject etcbody = Get<GameObject>((int)GameObjects.ETCBody);
 
+        GetButton((int)Buttons.CloseButton).gameObject.AddUIEvent(CloseInventory);
+        
+
+
+        itemInfo.SetActive(false);
+
         SetSlot(equipbody, slotsEquip);
         SetSlot(usebody, slotsUse);
         SetSlot(etcbody, slotsETC);
 
-        usebody.SetActive(false); //켜고 소비랑 기타 꺼주기
-        etcbody.SetActive(false);
+        goUseSlot.SetActive(false); //켜고 소비랑 기타 꺼주기
+        goETCSlot.SetActive(false);
+        goUseTab.SetActive(false);
+        goETCTab.SetActive(false);
         #endregion
 
 
+        //탭선택 이벤트 부여
         GetButton((int)Buttons.Equip_Selected_Tab).gameObject.AddUIEvent(Invoke_EquipTab);
         GetButton((int)Buttons.Use_Selected_Tab).gameObject.AddUIEvent(Invoke_UseTab);
         GetButton((int)Buttons.ETC_Selected_Tab).gameObject.AddUIEvent(Invoke_ETCTab);
+
+
+        
 
     }
     void SetSlot(GameObject go, List<UI_InventorySlot> slot)
@@ -113,7 +127,7 @@ public class UI_Inventory : UI_Popup
     public void Invoke_EquipTab(PointerEventData data)
     {
         Invoke_SetTab();
-        goEquipTab.gameObject.SetActive(true);
+        goEquipTab.SetActive(true);
         goEquipSlot.SetActive(true);
         Description_Text.text = tabDescription[0];
     }
@@ -154,7 +168,11 @@ public class UI_Inventory : UI_Popup
 
 
     }
-
+    public void CloseInventory(PointerEventData data)
+    {
+        Managers.Game.isOpenInventory = false;
+        body.SetActive(false);
+    }
     ItemData CheckItemData(List <ItemData>_list, ItemData _newItemData, out int _index)//동일한 아이템이 있는지 검사
     {
         _index = -1;
@@ -240,27 +258,27 @@ public class UI_Inventory : UI_Popup
         return _rtn;
     }
 
-    public void PointerEnter(int slotNum) //마우스가 인벤토리 슬롯 위에 올려져있을때
+    public void PointerEnter(PointerEventData data) //마우스가 인벤토리 슬롯 위에 올려져있을때
     {
-        PointerCoroutine = PointerEnterDelay(slotNum);
+        PointerCoroutine = PointerEnterDelay();
         StartCoroutine(PointerCoroutine);
 
         RectTransformUtility.ScreenPointToLocalPointInRectangle(CanvaRect, Input.mousePosition, Camera.main, out Vector2 anchoredPos);
-        ItemInfo.GetComponent<RectTransform>().anchoredPosition = anchoredPos;
-        
+        itemInfo.GetComponent<RectTransform>().anchoredPosition = anchoredPos;
     }
 
-    IEnumerator PointerEnterDelay(int slotNum) //마우스가 인벤토리 슬롯 위에 올려져있을때 0.5초뒤에 실행
+
+    IEnumerator PointerEnterDelay() //마우스가 인벤토리 슬롯 위에 올려져있을때 0.5초뒤에 실행
     {
         yield return new WaitForSeconds(0.3f);
-        ItemInfo.SetActive(true);
+        itemInfo.SetActive(true);
         //ItemInfo.GetComponentInChildren<Text>().text = 
     }
 
-    public void PointerExit(int slotNum)//마우스가 인벤토리 슬롯 위에 빠져나갈때
+    public void PointerExit()//마우스가 인벤토리 슬롯 위에 빠져나갈때
     {
         StopCoroutine(PointerCoroutine);
-        ItemInfo.SetActive(false);
+        itemInfo.SetActive(false);
     }
 
 
@@ -280,7 +298,7 @@ public class UI_Inventory : UI_Popup
         RectTransformUtility.ScreenPointToLocalPointInRectangle(CanvaRect, Input.mousePosition, Camera.main, out Vector2 anchoredPos);
 
         //마우스를 아이템위로 올릴시 설명 유아이창이 뜰위치
-        ItemInfo.GetComponent<RectTransform>().anchoredPosition = anchoredPos + new Vector2(700,570);
+        itemInfo.GetComponent<RectTransform>().anchoredPosition = anchoredPos + new Vector2(700,570);
     }
 
     #endregion

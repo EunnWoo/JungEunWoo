@@ -19,6 +19,7 @@ public class SelectScene : BaseScene
         Camera.main.gameObject.GetOrAddComponent<CameraFollow>().SetPlayer(player);
         Managers.UI.ShowSceneUI<UI_PlayerData>();
         Managers.UI.ShowSceneUI<UI_Money>();
+        
 
 
 
@@ -27,10 +28,8 @@ public class SelectScene : BaseScene
 
     private void Update()
     {
-
         if (Portal.instance.portalOn && Input.GetKeyDown(KeyCode.K))
         {
-            Debug.Log("µé¾î¿È");
             Managers.Scene.LoadScene(SceneState.Town);
         }
     }
