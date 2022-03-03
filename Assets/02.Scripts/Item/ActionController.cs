@@ -24,7 +24,8 @@ public class ActionController : MonoBehaviour
     private Text actionText;
     Text setText;
 
-    int _mask = (int)Layer.Item;
+   // int _mask = (int)Layer.Item;
+   public LayerMask _mask = 1<< (int)Layer.Item;
 
 
     private void Start()

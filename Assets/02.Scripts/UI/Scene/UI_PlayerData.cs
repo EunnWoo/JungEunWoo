@@ -37,6 +37,9 @@ public class UI_PlayerData : UI_Scene
         base.Init();
         DontDestroyOnLoad(this);
 
+        
+        Bind<Text>(typeof(Texts));
+        Bind<Image>(typeof(Images));
         hpText = GetText((int)Texts.HPText);
         mpText = GetText((int)Texts.MPText);
         expText = GetText((int)Texts.EXPText);
@@ -50,6 +53,7 @@ public class UI_PlayerData : UI_Scene
 
     public void DisplayHP(float _hp, float _max)
     {
+        Debug.Log(this + ":" + hpbar);
         float _v = _hp / _max;
         hpbar.fillAmount = _v;
         hpText.text = string.Format("{0:0.0}", (_v * 100f)) + "%"; //소수점 한자리까지만 출력하는 함수
