@@ -25,10 +25,14 @@ public class PlayerController : BaseController
     public bool isGround { get; private set; }
     public bool isRoll { get; private set; }
 
-    int _mask = (1 << (int)Layer.Npc) | (1 << (int)Layer.Monster) | (1 << (int)Layer.Ground);
+    int _mask = (1 << (int)Layer.Item) 
+        | (1 << (int)Layer.Npc)
+        | (1 << (int)Layer.Monster) 
+        | (1 << (int)Layer.Ground);
 
     public override void Init()
     {
+        if(playerAttack == null) playerAttack = GetComponent<PlayerAttack>();
         rigid = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
         dialogManager = GameObject.Find("@Scene").GetComponent<DialogManager>();
@@ -37,19 +41,25 @@ public class PlayerController : BaseController
         Managers.Mouse.MouseAction += OnMouseEvent;
 
         //Managers.UI.ShowPopupUI<UI_Button>("UITest");
-
+       
     }
     protected override void UpdateMoving()
     {
-        Move();
-        Run();
-        Jump();
-        Roll();
-        
+        if (!Managers.UI.isAction)
+        {
+            Move();
+            Run();
+            Jump();
+            Roll();
+        }
     }
     protected override void UpdateAttack() 
     {
-        OnAttack();
+        if (!Managers.UI.isAction)
+        {
+            OnAttack();
+        }
+        
     }
 
     #region moving
@@ -61,7 +71,6 @@ public class PlayerController : BaseController
         if (playerAttack != null)  // 공격중 이동 막기
         {
             if (!playerAttack.canMove ) MoveStop();
-
         }
 
         float m = Mathf.Abs(Managers.Input.hAxis) + Mathf.Abs(Managers.Input.vAxis);
@@ -79,7 +88,7 @@ public class PlayerController : BaseController
         {
             dir = DestPos(_lockTarget.transform.position); // 타겟과의 거리 값
 
-            if (_lockTarget.layer == (int)Layer.Npc)
+            if (_lockTarget.layer == (int)Layer.Npc || _lockTarget.layer == (int)Layer.Item)
             {
                 if (dir.magnitude < 0.5f)
                 {
@@ -107,14 +116,12 @@ public class PlayerController : BaseController
         runnig = Managers.Input.run && moveVec.magnitude != 0f;
         moveSpeed = runnig ? 8f * 1.3f : 8f * 0.8f;
         animator.SetBool("IsRun", runnig);
-
     }
-  
+
     
     public void MoveStop()
     {
         moveVec = Vector3.zero;
-
     }
     //hitpoint와 거리반환 함수
 
@@ -125,7 +132,7 @@ public class PlayerController : BaseController
     {
 
         if (Managers.Input.jump && isGround == true &&
-            !Managers.Input.roll && !dialogManager.isAction)
+            !Managers.Input.roll)
         {
             rigid.AddForce(Vector3.up * 17, ForceMode.Impulse);
             isGround = false;
@@ -195,14 +202,16 @@ public class PlayerController : BaseController
                 }
                 else
                 {
-
                     MouseMove();
                 }
             }
             else if (_lockTarget.layer == (int)Layer.Ground)
             {
-                playerAttack.OnAttack();
+                if (playerAttack == null) return;
+                playerAttack.AttackTacrgetSet(_lockTarget);
                 _lockTarget = null;
+                playerAttack.OnAttack();
+              
             }
         }
     }
@@ -228,17 +237,14 @@ public class PlayerController : BaseController
     //마우스 클릭 이벤트 받는 메서드
     void OnMouseEvent(Define.MouseEvent evt)
     {
-
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         bool raycastHit = Physics.Raycast(ray, out hit, 100.0f, _mask);
 
         if (raycastHit)
         {
-
             switch (evt)
             {
-
                 case Define.MouseEvent.PointerDown: 
 
                     attackType = Define.AttackType.NormalAttack;  // 일반공격
@@ -261,15 +267,10 @@ public class PlayerController : BaseController
                         _lockTarget = null;
                     }
                     _lockTarget = hit.collider.gameObject;
-   
-
-
 
                     break;
             }
             
         }
     }
-   
-
 }

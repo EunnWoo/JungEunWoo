@@ -6,12 +6,12 @@ public class Magic : PlayerAttack
 {
     [SerializeField]
     private GameObject[] fireBallPos;
-   
+
 
     private int hasFireBall;
     private string fireballobj;
     private float charge;
-
+    private FireBall fireball;
     private void Awake()
     {
 
@@ -37,23 +37,26 @@ public class Magic : PlayerAttack
         {
 
             charge += Time.deltaTime;
-            
-            if (hasFireBall < 5? charge >= hasFireBall : false) // 차징만큼 담기
-            { 
+
+            if (hasFireBall < 5 ? charge >= hasFireBall : false) // 차징만큼 담기
+            {
                 var fireBallObj = Managers.Pool.MakeObj(fireballobj);
                 if (fireBallObj != null)
                 {
+                    fireball = fireBallObj.GetComponent<FireBall>();
                     fireBallObj.transform.position = fireBallPos[hasFireBall].transform.position;
-               
+                    fireBallObj.transform.rotation = fireBallPos[hasFireBall].transform.rotation;
+                    fireball.FireFireBall(fireBallObj.transform);
                     fireBallObj.SetActive(true);
                     hasFireBall++;
                 }
-               
+
             }
 
             if (!Managers.Input.fire) // 발사
             {
-                animator.SetBool("Fire",true);
+
+                animator.SetBool("Fire", true);
                 isAttack = false;
                 attackDelay = 0;
                 hasFireBall = 0;
@@ -64,6 +67,24 @@ public class Magic : PlayerAttack
 
             yield return null;
         }
+        yield return null;
+    }
+
+    protected override IEnumerator Skill()
+    {
+
+        animator.SetTrigger("IsSkill");
+
+        Managers.Resource.Instantiate("RotatorFireBall");
+
+
+
+
+
+
+        attackDelay = 0;
+        isAttack = false;
+
         yield return null;
     }
 }

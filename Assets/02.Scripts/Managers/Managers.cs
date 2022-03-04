@@ -41,6 +41,7 @@ public class Managers : MonoBehaviour
     {
         _mouse.OnUpdate();
         _input.OnUpdate();
+        _game.OnUpdate();
     }
 
     static void Init()
