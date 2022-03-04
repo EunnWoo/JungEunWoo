@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1082,6 +1082,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6950626133782144710, guid: 08b0b71e5f6f8cb499bab9cb69b15a2e, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6950626133782144710, guid: 08b0b71e5f6f8cb499bab9cb69b15a2e, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6950626133782144710, guid: 08b0b71e5f6f8cb499bab9cb69b15a2e, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 6950626133782144710, guid: 08b0b71e5f6f8cb499bab9cb69b15a2e, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08b0b71e5f6f8cb499bab9cb69b15a2e, type: 3}
 --- !u!1001 &125220038
@@ -1489,10 +1505,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraReg
       objectReference: {fileID: 0}
-    - target: {fileID: 9072183954164532507, guid: 30187c8f7e11ff0409181d72cfc033f8, type: 3}
-      propertyPath: actionText
-      value: 
-      objectReference: {fileID: 1673648186}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30187c8f7e11ff0409181d72cfc033f8, type: 3}
 --- !u!1001 &356135274
@@ -6627,17 +6639,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 482800, guid: 679444084a776cb41a6a642071dd3daa, type: 3}
   m_PrefabInstance: {fileID: 1625256980}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1673648186 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3962780801339308141, guid: 08b0b71e5f6f8cb499bab9cb69b15a2e, type: 3}
-  m_PrefabInstance: {fileID: 83264272}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1690368476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7828,6 +7829,115 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 482800, guid: 679444084a776cb41a6a642071dd3daa, type: 3}
   m_PrefabInstance: {fileID: 2031706495}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2038623043
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 125176, guid: 9bfa651af0d3e52469944fdb4764eb39, type: 3}
+      propertyPath: m_Name
+      value: RedPotion
+      objectReference: {fileID: 0}
+    - target: {fileID: 125176, guid: 9bfa651af0d3e52469944fdb4764eb39, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 452362, guid: 9bfa651af0d3e52469944fdb4764eb39, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 452362, guid: 9bfa651af0d3e52469944fdb4764eb39, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 452362, guid: 9bfa651af0d3e52469944fdb4764eb39, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 452362, guid: 9bfa651af0d3e52469944fdb4764eb39, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 452362, guid: 9bfa651af0d3e52469944fdb4764eb39, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 452362, guid: 9bfa651af0d3e52469944fdb4764eb39, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 452362, guid: 9bfa651af0d3e52469944fdb4764eb39, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 452362, guid: 9bfa651af0d3e52469944fdb4764eb39, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 452362, guid: 9bfa651af0d3e52469944fdb4764eb39, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 452362, guid: 9bfa651af0d3e52469944fdb4764eb39, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 452362, guid: 9bfa651af0d3e52469944fdb4764eb39, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 103459308, guid: 9bfa651af0d3e52469944fdb4764eb39, type: 3}
+      propertyPath: itemcode
+      value: 20001
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 103459308, guid: 9bfa651af0d3e52469944fdb4764eb39, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 9bfa651af0d3e52469944fdb4764eb39, type: 3}
+--- !u!1 &2038623044 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 125176, guid: 9bfa651af0d3e52469944fdb4764eb39, type: 3}
+  m_PrefabInstance: {fileID: 2038623043}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2038623045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038623044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2e67a62a8c08ee42873fe5ea69b7b97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemcode: 10001
+  count: 1
+  itemData:
+    itemcode: 0
+    iteminfoBase:
+      itemcode: 0
+      subcategory: 0
+      equpslot: 0
+      itemname: 
+      activate: 0
+      toplist: 0
+      grade: 0
+      discount: 0
+      icon: 
+      playerlv: 0
+      multistate: 0
+      gamecost: 0
+      cashcost: 0
+      buyamount: 0
+      sellcost: 0
+      description: 
+      itemType: 0
+    itemCount: 0
+    upgradeCount: 0
+  TurnSpeed: 90
+  axis: {x: 0, y: 1, z: 0}
 --- !u!1001 &2142245015
 PrefabInstance:
   m_ObjectHideFlags: 0

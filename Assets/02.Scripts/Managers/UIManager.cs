@@ -37,7 +37,6 @@ public class UIManager
         {
             canvas.sortingOrder = 0;
         }
-        
     }
     public T ShowSceneUI<T>(string name = null) where T : UI_Scene// 이름과 T를 따로 받는 이유 ->name -> prefabs 연동을 위해  // T는  타입
     {

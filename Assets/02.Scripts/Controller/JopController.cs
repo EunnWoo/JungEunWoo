@@ -23,9 +23,6 @@ public class JopController : MonoBehaviour
 
         DontDestroyOnLoad(this);
         jobstring = null;
-
-       
-
     }
 
     public void JobChoice()  // 직업 활성화
@@ -36,8 +33,6 @@ public class JopController : MonoBehaviour
        
             Weapons[0].SetActive(true);
             Weapons[1].SetActive(true);
-
-
         }
         else if (JobInfo.SWORD == jobstate) // 전사
         {
@@ -64,7 +59,10 @@ public class JopController : MonoBehaviour
             objdata =other.gameObject.GetComponent<ObjData>();
             
             jobstate = (JobInfo)objdata.id;
-           
+        }
+        else if(other.gameObject.tag == "Item")
+        {
+            Debug.Log("@@@@ Eat Item");
         }
     }
     private void OnTriggerExit(Collider other)
@@ -75,6 +73,4 @@ public class JopController : MonoBehaviour
             jobstate = JobInfo.COMMON;
         }
     }
-
-
 }
