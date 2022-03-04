@@ -7,8 +7,8 @@ public class Arrow : MonoBehaviour
     public float speed = 500f;
     private Rigidbody rigid;
     private Transform tr;
-    
-    public Vector3 offset { get; private set; }
+
+    Vector3 offset;
 
     private void Awake()
     {
@@ -70,5 +70,9 @@ public class Arrow : MonoBehaviour
         tr.rotation = Quaternion.identity;
         
         rigid.Sleep();
+
+
     }
+
+    
 }

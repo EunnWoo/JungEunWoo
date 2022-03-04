@@ -208,8 +208,10 @@ public class PlayerController : BaseController
             else if (_lockTarget.layer == (int)Layer.Ground)
             {
                 if (playerAttack == null) return;
-                playerAttack.OnAttack();
+                playerAttack.AttackTacrgetSet(_lockTarget);
                 _lockTarget = null;
+                playerAttack.OnAttack();
+              
             }
         }
     }
