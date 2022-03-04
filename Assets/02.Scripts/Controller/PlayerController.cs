@@ -219,7 +219,8 @@ public class PlayerController : BaseController
     //사정거리계산 메서드
     bool DistanceAttackPos(Vector3 destpos)
     {
-        return Vector3.Distance(transform.position, destpos) <= playerAttack.range;
+        Debug.Log(destpos.magnitude <= playerAttack.range);
+        return destpos.magnitude <= playerAttack.range;
     }
     //클릭한곳 보는 함수
     void LookHitPoint(RaycastHit hit)

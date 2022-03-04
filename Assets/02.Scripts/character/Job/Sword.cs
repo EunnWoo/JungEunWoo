@@ -9,21 +9,16 @@ public class Sword : PlayerAttack
 
     private void Awake()
     {
-        attackRate = 0.2f;
-        range = 2f;
+        attackRate = 0.4f;
+        range = 2.5f;
 
-    }
-    public override void OnAttack()
-    {
-
-        base.OnAttack();
     }
 
     protected override IEnumerator Use()
     {
 
         animator.SetTrigger("Attack");
-
+        Debug.Log("swordattack");
         isAttack = false;
         attackDelay = 0;
         yield return null;
