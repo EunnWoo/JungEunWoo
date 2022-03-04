@@ -15,9 +15,9 @@ public class TownScene : BaseScene
         Managers.Game.GetPlayer().transform.position =  Vector3.zero;
     }
 
-
-    private void Update()
+    protected override void SceneMove()
     {
+        base.SceneMove();
         if (portals[0].portalOn && Input.GetKeyDown(KeyCode.K))
         {
             Managers.Scene.LoadScene(SceneState.Map2);
@@ -31,7 +31,6 @@ public class TownScene : BaseScene
             Managers.Scene.LoadScene(SceneState.Map3);
         }
     }
-
     public override void Clear()
     {
 

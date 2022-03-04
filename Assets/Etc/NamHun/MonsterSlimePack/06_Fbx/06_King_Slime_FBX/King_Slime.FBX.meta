@@ -92,7 +92,8 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'LeftUpperLeg' not found\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -325,8 +326,75 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-    human: []
-    skeleton: []
+    human:
+    - boneName: King_SlimeDM
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone002
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone001
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Crown
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: King_Slime(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: King_SlimeDM
+      parentName: King_Slime(Clone)
+      position: {x: -0, y: 2.6906958, z: 0.00000003559831}
+      rotation: {x: -0.000000053385083, y: 0.7071068, z: 0.7071068, w: 0.000000053385083}
+      scale: {x: 1.435375, y: 1.435375, z: 1.435375}
+    - name: Com
+      parentName: King_SlimeDM
+      position: {x: -0.0025828802, y: -0.34075153, z: -1.0207199}
+      rotation: {x: 0, y: 0, z: 7.105428e-15, w: 1}
+      scale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+    - name: Bone001
+      parentName: Com
+      position: {x: 0.0025828588, y: -0.0032102328, z: -0.0040183594}
+      rotation: {x: -0.52551997, y: -0.47310552, z: 0.52552, w: 0.47310543}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Crown
+      parentName: Bone001
+      position: {x: 0.33785787, y: -1.088748, z: -0.011567317}
+      rotation: {x: 0.52313316, y: 0.47574332, z: -0.52313316, w: 0.47574332}
+      scale: {x: 0.7703143, y: 0.7703144, z: 0.7703144}
+    - name: Bone002
+      parentName: Com
+      position: {x: 0.0025828653, y: -0.0022767142, z: -0.004730089}
+      rotation: {x: 0.43688834, y: -0.55599344, z: -0.4368882, w: 0.5559933}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Slime
+      parentName: King_Slime(Clone)
+      position: {x: -4.249433, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1.2463812, y: 1.2463812, z: 1.4674168}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5

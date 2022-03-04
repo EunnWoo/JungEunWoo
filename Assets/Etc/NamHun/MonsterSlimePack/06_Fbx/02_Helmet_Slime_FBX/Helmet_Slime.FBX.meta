@@ -290,8 +290,8 @@ ModelImporter:
       name: Helmet_Slime_Attack02
       takeName: Take 001
       internalID: 0
-      firstFrame: 110
-      lastFrame: 140
+      firstFrame: 108
+      lastFrame: 124
       wrapMode: 2
       orientationOffsetY: 0
       level: 0

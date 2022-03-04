@@ -15,6 +15,9 @@ public enum SceneState
     Map3,
 
 }
+
+
+
 public abstract class BaseScene : MonoBehaviour
 {
     public SceneState SceneType { get; protected set; } = SceneState.Unknown;
@@ -23,14 +26,20 @@ public abstract class BaseScene : MonoBehaviour
     {
         
         Init();
+        
     }
-
+    private void Update()
+    {
+        SceneMove();
+    }
     protected virtual void Init()
     {
         Object obj = GameObject.FindObjectOfType(typeof(EventSystem));
         if (obj == null)
             Managers.Resource.Instantiate("UI/EventSystem").name = "@EventSystem";
     }
+
+    protected virtual void SceneMove() { }
 
     public abstract void Clear(); // 추상함수로 Clear내용을 자식씬에게 맡김
 }
