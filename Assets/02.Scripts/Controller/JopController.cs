@@ -62,6 +62,7 @@ public class JopController : MonoBehaviour
         }
         else if(other.gameObject.tag == "Item")
         {
+            //아직 미완성 입니다 추후 수정예정
             Debug.Log("@@@@ Eat Item");
         }
     }
