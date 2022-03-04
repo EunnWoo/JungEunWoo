@@ -37,6 +37,6 @@ public class ResourceManager
     {
         if (go == null)
             return;
-        Object.Destroy(go,3f);
+        Object.Destroy(go);
     }
 }

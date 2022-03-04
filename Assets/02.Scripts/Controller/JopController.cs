@@ -11,7 +11,6 @@ public class JopController : MonoBehaviour
 
     Animator animator;
 
-    public DialogManager dialogManager;
     public GameObject[] Weapons;  // 0 ,1  궁수 2,3 전사 법사 4
 
     public JobInfo jobstate { get; set; }//= JobState.COMMON; // 현재 전직 가능한 직업
@@ -21,11 +20,9 @@ public class JopController : MonoBehaviour
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
-        dialogManager = GameObject.Find("@Scene").GetComponent<DialogManager>();
+
         DontDestroyOnLoad(this);
         jobstring = null;
-
-
     }
 
     public void JobChoice()  // 직업 활성화
@@ -36,8 +33,6 @@ public class JopController : MonoBehaviour
        
             Weapons[0].SetActive(true);
             Weapons[1].SetActive(true);
-
-
         }
         else if (JobInfo.SWORD == jobstate) // 전사
         {
@@ -64,7 +59,11 @@ public class JopController : MonoBehaviour
             objdata =other.gameObject.GetComponent<ObjData>();
             
             jobstate = (JobInfo)objdata.id;
-           
+        }
+        else if(other.gameObject.tag == "Item")
+        {
+            //아직 미완성 입니다 추후 수정예정
+            Debug.Log("@@@@ Eat Item");
         }
     }
     private void OnTriggerExit(Collider other)
@@ -75,6 +74,4 @@ public class JopController : MonoBehaviour
             jobstate = JobInfo.COMMON;
         }
     }
-
-
 }

@@ -108,6 +108,7 @@ public class MonsterController : BaseController
         objTransform.rotation = Quaternion.Lerp(objTransform.rotation, Quaternion.LookRotation(dir), speed * Time.fixedDeltaTime);
     }
 
+<<<<<<< HEAD
     public void RigidMovePos(Transform objTransform, Vector3 dir, float speed) {
         objTransform.gameObject.GetComponent<Rigidbody>().MovePosition(objTransform.position + new Vector3(dir.x, 0, dir.z).normalized * speed * Time.fixedDeltaTime);
     }
@@ -116,4 +117,9 @@ public class MonsterController : BaseController
         objTransform.position = new Vector3(Mathf.Clamp(objTransform.position.x, minRange.x, maxRange.x), objTransform.position.y, 
                                 Mathf.Clamp(objTransform.position.z, minRange.z, maxRange.z));
     }
+=======
+
+
+
+>>>>>>> c9181689c33abb436bdaf28481c096ef92932876
 }

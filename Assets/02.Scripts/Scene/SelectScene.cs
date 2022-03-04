@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class SelectScene : BaseScene
 {
-    DialogManager dialogManager;
+ //   DialogManager dialogManager;
     GameObject player;
-    
+    [SerializeField]
+    Portal[] portals;
+
 
     protected override void Init()
     {
@@ -17,38 +19,25 @@ public class SelectScene : BaseScene
 
         player = Managers.Game.Spawn("Player");
         Camera.main.gameObject.GetOrAddComponent<CameraFollow>().SetPlayer(player);
-        dialogManager =gameObject.GetOrAddComponent<DialogManager>();
+        gameObject.GetOrAddComponent<CursorController>();
+        portals = GameObject.FindObjectsOfType<Portal>();
+
+
+        Managers.UI.ShowSceneUI<UI_PlayerData>();
+        Managers.UI.ShowSceneUI<UI_Money>();
         
-        
+
+
+
     }
 
-
-    private void Update()
+    protected override void SceneMove()
     {
-
-        if (Portal.instance.portalOn && Input.GetKeyDown(KeyCode.K))
+        base.SceneMove();
+        if (portals[0].portalOn && Input.GetKeyDown(KeyCode.K))
         {
-            Debug.Log("들어옴");
             Managers.Scene.LoadScene(SceneState.Town);
         }
-    }
-    public void JobExitButton()
-    {
-        dialogManager.dialogPanel.SetActive(false);
-        dialogManager.isAction = false;
-    }
-    public void JobChoiceButton()
-    {
-        if (player.GetComponent<JopController>().jobstring != null)
-        {
-            Debug.Log("직업이 이미 있습니다");
-        }
-        else
-        {
-            player.GetComponent<JopController>().JobChoice();
-        }
-        dialogManager.dialogPanel.SetActive(false);
-        dialogManager.isAction = false;
 
     }
     public override void Clear()

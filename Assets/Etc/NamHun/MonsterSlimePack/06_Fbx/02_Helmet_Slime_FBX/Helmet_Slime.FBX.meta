@@ -5,60 +5,119 @@ labels:
 - Monster
 - Creature
 - fantasy
-timeCreated: 1445067777
-licenseType: Store
 ModelImporter:
-  serializedVersion: 18
-  fileIDToRecycleName:
-    100000: Bone001
-    100002: Bone002
-    100004: Com
-    100006: Helmet
-    100008: //RootNode
-    100010: Helmet_SlimeDM
-    100012: Slime
-    400000: Bone001
-    400002: Bone002
-    400004: Com
-    400006: Helmet
-    400008: //RootNode
-    400010: Helmet_SlimeDM
-    400012: Slime
-    2300000: Helmet
-    3300000: Helmet
-    4300000: Slime
-    4300002: Helmet
-    7400000: Helmet_Slime_Idle
-    7400002: Helmet_Slime_Walk
-    7400004: Helmet_Slime_Damage
-    7400006: Helmet_Slime_Attack01
-    7400008: Helmet_Slime_Attack02
-    9500000: //RootNode
-    11100000: //RootNode
-    13700000: Slime
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Bone001
+  - first:
+      1: 100002
+    second: Bone002
+  - first:
+      1: 100004
+    second: Com
+  - first:
+      1: 100006
+    second: Helmet
+  - first:
+      1: 100008
+    second: //RootNode
+  - first:
+      1: 100010
+    second: Helmet_SlimeDM
+  - first:
+      1: 100012
+    second: Slime
+  - first:
+      4: 400000
+    second: Bone001
+  - first:
+      4: 400002
+    second: Bone002
+  - first:
+      4: 400004
+    second: Com
+  - first:
+      4: 400006
+    second: Helmet
+  - first:
+      4: 400008
+    second: //RootNode
+  - first:
+      4: 400010
+    second: Helmet_SlimeDM
+  - first:
+      4: 400012
+    second: Slime
+  - first:
+      23: 2300000
+    second: Helmet
+  - first:
+      33: 3300000
+    second: Helmet
+  - first:
+      43: 4300000
+    second: Slime
+  - first:
+      43: 4300002
+    second: Helmet
+  - first:
+      74: 7400000
+    second: Helmet_Slime_Idle
+  - first:
+      74: 7400002
+    second: Helmet_Slime_Walk
+  - first:
+      74: 7400004
+    second: Helmet_Slime_Damage
+  - first:
+      74: 7400006
+    second: Helmet_Slime_Attack01
+  - first:
+      74: 7400008
+    second: Helmet_Slime_Attack02
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      111: 11100000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: Slime
+  externalObjects: {}
   materials:
-    importMaterials: 0
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 1
-    animationRotationError: .5
-    animationPositionError: .5
-    animationScaleError: .5
+    importAnimatedCustomProperties: 0
+    importConstraints: 1
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
       name: Helmet_Slime_Idle
       takeName: Take 001
+      internalID: 0
       firstFrame: 0
       lastFrame: 30
       wrapMode: 2
@@ -66,6 +125,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -96,9 +156,11 @@ ModelImporter:
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Helmet_Slime_Walk
       takeName: Take 001
+      internalID: 0
       firstFrame: 30
       lastFrame: 60
       wrapMode: 2
@@ -106,6 +168,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -136,9 +199,11 @@ ModelImporter:
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Helmet_Slime_Damage
       takeName: Take 001
+      internalID: 0
       firstFrame: 65
       lastFrame: 85
       wrapMode: 2
@@ -146,6 +211,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -176,9 +242,11 @@ ModelImporter:
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Helmet_Slime_Attack01
       takeName: Take 001
+      internalID: 0
       firstFrame: 85
       lastFrame: 110
       wrapMode: 2
@@ -186,6 +254,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -216,16 +285,19 @@ ModelImporter:
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Helmet_Slime_Attack02
       takeName: Take 001
-      firstFrame: 110
-      lastFrame: 140
+      internalID: 0
+      firstFrame: 108
+      lastFrame: 124
       wrapMode: 2
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -256,44 +328,72 @@ ModelImporter:
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    splitTangentsAcrossUV: 1
     normalImportMode: 0
-    tangentImportMode: 1
+    tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
+    serializedVersion: 3
     human: []
     skeleton: []
-    armTwist: .5
-    foreArmTwist: .5
-    upperLegTwist: .5
-    legTwist: .5
-    armStretch: .0500000007
-    legStretch: .0500000007
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 1
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

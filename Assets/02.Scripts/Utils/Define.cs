@@ -8,7 +8,9 @@ public class Define
     public enum UIEvent
     {
         Click,
-        Drag
+        Drag,
+        OnPointer,
+        OnPointerExit
     }
     public enum AttackType
     {
@@ -22,6 +24,14 @@ public class Define
         PointerRightDown,
         PointerUp,
         Click,
+    }
+
+    public enum Potal
+    {
+        goTownPotal,
+        goMap1Potal,
+        goMap2Potal,
+        goMap3Potal,
     }
 }
 
