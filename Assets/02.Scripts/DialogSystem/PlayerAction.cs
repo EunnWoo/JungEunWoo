@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerAction : MonoBehaviour
 {
-    
+    [SerializeField]
+    DialogManager manager;
     public bool nearNPC = false;
     [SerializeField]
-    public GameObject scanNPC { get; private set; }
-
+    GameObject scanNPC;
+    void Start()
+    {
+        manager = GameObject.Find("@Scene").GetComponent<DialogManager>();
+    }
     public void OnTriggerStay(Collider other) {
         if (other.gameObject.tag == "Npc")
         {
@@ -24,10 +29,9 @@ public class PlayerAction : MonoBehaviour
     }
     void Update()
     {
-        if(Managers.Input.talking && scanNPC != null && !Managers.UI.isAction)
-        {
-
-            Managers.talk.Action(scanNPC);
+        if(Input.GetKeyDown(KeyCode.F) && scanNPC != null){
+            
+            manager.Action(scanNPC);
         }
     }
     

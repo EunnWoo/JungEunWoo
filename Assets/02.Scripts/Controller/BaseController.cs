@@ -20,16 +20,8 @@ public abstract class BaseController : MonoBehaviour
 
     private void Update()
     {
-<<<<<<< HEAD
 		UpdateMoving();
 		UpdateAttack();
-=======
-		
-			UpdateMoving();
-			UpdateAttack();
-		
-
->>>>>>> c9181689c33abb436bdaf28481c096ef92932876
 	}
 
 

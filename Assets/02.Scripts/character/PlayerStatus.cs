@@ -29,10 +29,9 @@ public class PlayerStatus : MonoBehaviour
     }
     public float exp { get; set; }
 
-    IEnumerator Start()
+    private void Start()
     {
-        yield return null;
-       SetHPMP(baseHP, baseMP); //시작시hp ,mp를 처음 baseHP,baseMP 선언한 값으로 시작
+        SetHPMP(baseHP, baseMP); //시작시hp ,mp를 처음 baseHP,baseMP 선언한 값으로 시작
     }
    
     public void SetHPMP(float _hp, float _mp)

@@ -14,7 +14,8 @@ public class Bow : PlayerAttack
     
     private void Awake()
     {
-        firepos = Util.FindChild(gameObject, "Firepos", true).transform;
+        firepos = GameObject.Find("Firepos").transform;
+
         arrowobj = "Arrow";  
         range = 10.0f;
         attackRate = 0.5f;
@@ -64,7 +65,6 @@ public class Bow : PlayerAttack
     {
 
         animator.SetTrigger("IsSkill");
-
         for (int i = 0; i <6; i++)
         {
             for (int j = 0; j < 6; j++)
