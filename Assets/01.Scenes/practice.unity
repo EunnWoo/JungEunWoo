@@ -660,9 +660,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f465b9b89651c804a975be0412a9ec63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questId: 10
-  questActionIndex: 0
-  questObject: []
 --- !u!4 &33285416
 Transform:
   m_ObjectHideFlags: 0
@@ -960,6 +957,67 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7300112281970868074, guid: 13abab9026a96f042bcf7fb8bce80131, type: 3}
   m_PrefabInstance: {fileID: 485725158}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &60202216
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1293059056, guid: 30187c8f7e11ff0409181d72cfc033f8, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 2061732034}
+    - target: {fileID: 3703478273467530501, guid: 30187c8f7e11ff0409181d72cfc033f8, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703478273467530501, guid: 30187c8f7e11ff0409181d72cfc033f8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703478273467530501, guid: 30187c8f7e11ff0409181d72cfc033f8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703478273467530501, guid: 30187c8f7e11ff0409181d72cfc033f8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703478273467530501, guid: 30187c8f7e11ff0409181d72cfc033f8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703478273467530501, guid: 30187c8f7e11ff0409181d72cfc033f8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703478273467530501, guid: 30187c8f7e11ff0409181d72cfc033f8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703478273467530501, guid: 30187c8f7e11ff0409181d72cfc033f8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703478273467530501, guid: 30187c8f7e11ff0409181d72cfc033f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703478273467530501, guid: 30187c8f7e11ff0409181d72cfc033f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703478273467530501, guid: 30187c8f7e11ff0409181d72cfc033f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703478273467530502, guid: 30187c8f7e11ff0409181d72cfc033f8, type: 3}
+      propertyPath: m_Name
+      value: CameraReg
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 30187c8f7e11ff0409181d72cfc033f8, type: 3}
 --- !u!1 &71769292
 GameObject:
   m_ObjectHideFlags: 0
@@ -3338,7 +3396,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4fa58ca89d99694dbc758f6b4fbab67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progress: {fileID: 0}
 --- !u!4 &324160719
 Transform:
   m_ObjectHideFlags: 0
@@ -6446,12 +6503,9 @@ PrefabInstance:
       value: "\nBinding warning: Some generic clip(s) animate transforms that are
         already bound by a Humanoid avatar. These transforms can only be changed
         by Humanoid clips.\n\tTransform 'goggle'\n\tTransform 'goggle'\n\tFrom animation
-        clip 'Run_MagicWand'\n\tFrom animation clip 'WalkBack_MagicWand'\n\tFrom
-        animation clip 'Idle_MagicWand'\n\tFrom animation clip 'Walk_MagicWand'\n\tFrom
-        animation clip 'WalkLeft_MagicWand'\n\tFrom animation clip 'WalkRight_MagicWand'\n\tFrom
-        animation clip 'JumpStart_MagicWand'\n\tFrom animation clip 'JumpEnd_MagicWand'\n\tFrom
-        animation clip 'JumpAir_MagicWand'\n\tFrom animation clip 'Attack01_Bow'\n\tand
-        more ..."
+        clip 'NormalSprint_noWeapon'\n\tFrom animation clip 'Idle_noWeapon'\n\tFrom
+        animation clip 'NormalWalk_noWeapon'\n\tFrom animation clip 'JumpEnd_noWeapon'\n\tFrom
+        animation clip 'JumpAir_noWeapon'\n\tFrom animation clip 'Roll_noWeapon'"
       objectReference: {fileID: 0}
     - target: {fileID: 4431993698520378277, guid: 9463bbab58cb27243b3d7aa88236670a, type: 3}
       propertyPath: m_IsActive
@@ -6538,7 +6592,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &653799712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6937,38 +6991,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 686083524}
   m_CullTransparentMesh: 0
---- !u!1 &701743776 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 199188, guid: 5522faa891328ba46b76c84f187ddaa0, type: 3}
-  m_PrefabInstance: {fileID: 973898845}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &701743777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 701743776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c7889f02eb80634fb5f407765e18163, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 5000
-  isNpc: 0
---- !u!135 &701743780
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 701743776}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2.4062233
-  m_Center: {x: 0, y: 1.2579758, z: 0.6482477}
 --- !u!1 &719206627
 GameObject:
   m_ObjectHideFlags: 0
@@ -8544,25 +8566,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie_Slime_A_Axe
       objectReference: {fileID: 0}
-    - target: {fileID: 199188, guid: 5522faa891328ba46b76c84f187ddaa0, type: 3}
-      propertyPath: m_TagString
-      value: Monster
-      objectReference: {fileID: 0}
     - target: {fileID: 455530, guid: 5522faa891328ba46b76c84f187ddaa0, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 455530, guid: 5522faa891328ba46b76c84f187ddaa0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.2138004
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 455530, guid: 5522faa891328ba46b76c84f187ddaa0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.93913126
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 455530, guid: 5522faa891328ba46b76c84f187ddaa0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.1797574
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 455530, guid: 5522faa891328ba46b76c84f187ddaa0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10215,6 +10233,8 @@ MonoBehaviour:
   listEquip: []
   listUse: []
   listETC: []
+  ItemInfo: {fileID: 0}
+  CanvaRect: {fileID: 0}
 --- !u!1 &1171839555
 GameObject:
   m_ObjectHideFlags: 0
@@ -10856,8 +10876,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c071b0b2dd1ec349b9feb5f04929c6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  talkManager: {fileID: 0}
-  questManager: {fileID: 33285415}
   dialogPanel: {fileID: 653799711}
   portraitImg: {fileID: 0}
   talkText: {fileID: 1309568530}
@@ -16623,18 +16641,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097345c3202144d4cb287e37e6162a4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quest:
-    isActive: 0
-    questGoal:
-      goalType: 0
-      requreAmount: 10
-      currentAmount: 0
-  player: {fileID: 2061732045}
-  questWindow: {fileID: 1236184455}
-  titleText: {fileID: 47983509}
-  descriptionText: {fileID: 1353064210}
-  expText: {fileID: 1683257230}
-  goldText: {fileID: 2110550593}
 --- !u!4 &1903012750
 Transform:
   m_ObjectHideFlags: 0
@@ -18037,17 +18043,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 851214d1186ce954c8dce9d00ea331e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questProgress: 1
-  quest:
-    isActive: 0
-    questGoal:
-      goalType: 0
-      requreAmount: 0
-      currentAmount: 0
-  goal:
-    goalType: 0
-    requreAmount: 0
-    currentAmount: 0
 --- !u!1 &2064229808
 GameObject:
   m_ObjectHideFlags: 0

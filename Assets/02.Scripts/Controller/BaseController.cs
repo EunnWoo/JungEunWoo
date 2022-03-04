@@ -4,9 +4,12 @@ using UnityEngine;
 
 public abstract class BaseController : MonoBehaviour
 {
-
+	public Animator Anim{get;set;}
+	
 	[SerializeField]
 	protected GameObject _lockTarget;
+	public bool IsDie { get => CurrentHealth <= 0; }
+	public float CurrentHealth;
 
 
 	private void Start()
@@ -19,7 +22,6 @@ public abstract class BaseController : MonoBehaviour
     {
 		UpdateMoving();
 		UpdateAttack();
-
 	}
 
 

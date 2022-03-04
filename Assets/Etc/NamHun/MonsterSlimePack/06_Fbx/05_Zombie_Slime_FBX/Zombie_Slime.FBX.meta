@@ -5,59 +5,116 @@ labels:
 - Creature
 - Monster
 - Slime
-timeCreated: 1445068617
-licenseType: Store
 ModelImporter:
-  serializedVersion: 18
-  fileIDToRecycleName:
-    100000: Axe
-    100002: Bone001
-    100004: Bone002
-    100006: Com
-    100008: Zombie
-    100010: //RootNode
-    100012: Zombie_SlimeDM
-    400000: Axe
-    400002: Bone001
-    400004: Bone002
-    400006: Com
-    400008: Zombie
-    400010: //RootNode
-    400012: Zombie_SlimeDM
-    4300000: Axe
-    4300002: Zombie
-    7400000: Zombie_Slime_Idle
-    7400002: Zombie_Slime_Walk
-    7400004: Zombie_Slime_Damage
-    7400006: Zombie_Slime_Attack01
-    7400008: Zombie_Slime_Attack02
-    9500000: //RootNode
-    11100000: //RootNode
-    13700000: Axe
-    13700002: Zombie
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Axe
+  - first:
+      1: 100002
+    second: Bone001
+  - first:
+      1: 100004
+    second: Bone002
+  - first:
+      1: 100006
+    second: Com
+  - first:
+      1: 100008
+    second: Zombie
+  - first:
+      1: 100010
+    second: //RootNode
+  - first:
+      1: 100012
+    second: Zombie_SlimeDM
+  - first:
+      4: 400000
+    second: Axe
+  - first:
+      4: 400002
+    second: Bone001
+  - first:
+      4: 400004
+    second: Bone002
+  - first:
+      4: 400006
+    second: Com
+  - first:
+      4: 400008
+    second: Zombie
+  - first:
+      4: 400010
+    second: //RootNode
+  - first:
+      4: 400012
+    second: Zombie_SlimeDM
+  - first:
+      43: 4300000
+    second: Axe
+  - first:
+      43: 4300002
+    second: Zombie
+  - first:
+      74: 7400000
+    second: Zombie_Slime_Idle
+  - first:
+      74: 7400002
+    second: Zombie_Slime_Walk
+  - first:
+      74: 7400004
+    second: Zombie_Slime_Damage
+  - first:
+      74: 7400006
+    second: Zombie_Slime_Attack01
+  - first:
+      74: 7400008
+    second: Zombie_Slime_Attack02
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      111: 11100000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: Axe
+  - first:
+      137: 13700002
+    second: Zombie
+  externalObjects: {}
   materials:
-    importMaterials: 0
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 1
-    animationRotationError: .5
-    animationPositionError: .5
-    animationScaleError: .5
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
       name: Zombie_Slime_Idle
       takeName: Take 001
+      internalID: 0
       firstFrame: 0
       lastFrame: 30
       wrapMode: 2
@@ -65,7 +122,8 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -95,9 +153,11 @@ ModelImporter:
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Zombie_Slime_Walk
       takeName: Take 001
+      internalID: 0
       firstFrame: 30
       lastFrame: 60
       wrapMode: 2
@@ -105,7 +165,8 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -135,9 +196,11 @@ ModelImporter:
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Zombie_Slime_Damage
       takeName: Take 001
+      internalID: 0
       firstFrame: 65
       lastFrame: 85
       wrapMode: 2
@@ -145,6 +208,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
@@ -175,9 +239,11 @@ ModelImporter:
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Zombie_Slime_Attack01
       takeName: Take 001
+      internalID: 0
       firstFrame: 85
       lastFrame: 110
       wrapMode: 2
@@ -185,7 +251,8 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -215,9 +282,11 @@ ModelImporter:
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Zombie_Slime_Attack02
       takeName: Take 001
+      internalID: 0
       firstFrame: 110
       lastFrame: 140
       wrapMode: 2
@@ -225,7 +294,8 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -255,44 +325,107 @@ ModelImporter:
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    splitTangentsAcrossUV: 1
     normalImportMode: 0
-    tangentImportMode: 1
+    tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
+    serializedVersion: 3
     human: []
-    skeleton: []
-    armTwist: .5
-    foreArmTwist: .5
-    upperLegTwist: .5
-    legTwist: .5
-    armStretch: .0500000007
-    legStretch: .0500000007
+    skeleton:
+    - name: Zombie_Slime(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Zombie_SlimeDM
+      parentName: Zombie_Slime(Clone)
+      position: {x: -0, y: 0.62543374, z: 0}
+      rotation: {x: 1.060302e-24, y: 0.7071068, z: 0.7071068, w: 8.659561e-17}
+      scale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+    - name: Com
+      parentName: Zombie_SlimeDM
+      position: {x: -0.00086096005, y: -0.11358383, z: -0.34023997}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone002
+      parentName: Com
+      position: {x: 0.00086095504, y: -0.00075890473, z: -0.0015766964}
+      rotation: {x: 0.43688834, y: -0.55599344, z: -0.4368882, w: 0.5559933}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone001
+      parentName: Com
+      position: {x: 0.0008609529, y: -0.0010700776, z: -0.0013394532}
+      rotation: {x: -0.52551997, y: -0.47310552, z: 0.52552, w: 0.47310543}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Axe
+      parentName: Bone001
+      position: {x: -0.12966539, y: -0.544379, z: 0.15485425}
+      rotation: {x: -0.5176742, y: 0.19385254, z: 0.83147305, w: -0.055562545}
+      scale: {x: 0.34876326, y: 0.34876326, z: 0.3487632}
+    - name: Zombie
+      parentName: Zombie_Slime(Clone)
+      position: {x: -0, y: 0, z: 0.0025254271}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1.2463812, y: 1.2463812, z: 1.4674166}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 1
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
