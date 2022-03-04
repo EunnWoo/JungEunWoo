@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sword : PlayerAttack
 {
-    
+
 
 
     private void Awake()
@@ -21,6 +21,19 @@ public class Sword : PlayerAttack
         Debug.Log("swordattack");
         isAttack = false;
         attackDelay = 0;
+        yield return null;
+    }
+
+    protected override IEnumerator Skill()
+    {
+        animator.SetTrigger("IsSkill");
+
+        if(Input.GetMouseButtonUp(1))
+        {
+            animator.SetTrigger("Fire");
+        }
+
+
         yield return null;
     }
 }

@@ -30,6 +30,7 @@ public class MonsterController : BaseController
     public float scanRange { get; protected set; }
     public override void Init()
     {
+        
         player = Managers.Game.GetPlayer();
         InvokeRepeating("RandomPos", 2f, 3f);
         monsterState = MonsterState.Idle;

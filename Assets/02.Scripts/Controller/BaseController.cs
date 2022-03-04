@@ -26,7 +26,7 @@ public abstract class BaseController : MonoBehaviour
 
 
 
-    public abstract void Init();
+	public abstract void Init();
 
 	protected virtual void UpdateMoving() { }
 

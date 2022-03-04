@@ -23,6 +23,7 @@ public class PlayerController : BaseController
     float moveSpeed = 8f;
 
     public bool isGround { get; private set; }
+    public bool isJump { get; private set; }
     public bool isRoll { get; private set; }
 
     int _mask = (1 << (int)Layer.Item) 
@@ -130,28 +131,44 @@ public class PlayerController : BaseController
     #region jump
     private void Jump()
     {
-
-        if (Managers.Input.jump && isGround == true &&
+        Jumptf();
+        Debug.Log(rigid.velocity.y);
+        if (Managers.Input.jump && isGround == true &&  !isJump &&
             !Managers.Input.roll)
         {
             rigid.AddForce(Vector3.up * 17, ForceMode.Impulse);
-            isGround = false;
-            animator.SetBool("IsJump", true);
 
         }
     }
-
-    private void OnTriggerEnter(Collider other)
+    private void Jumptf()
     {
-        if (other.gameObject.tag == "Ground")
+        //private void OnTriggerEnter(Collider other)
+        //{
+        //if (other.gameObject.tag == "Ground")
+        //{
+        if (rigid.velocity.y <0.5f && rigid.velocity.y > -0.5f)
         {
-
-            isGround = true;
             animator.SetBool("IsJump", false);
-
+            isJump = false;
+            isGround = true;
         }
-    }
+        else if( rigid.velocity.y > 0.5f)
+        {
+            animator.SetBool("IsJump", true);
+            isGround = false;
+            isJump = true;
+        }
+        else if(rigid.velocity.y < -0.5f)
+        {
+            animator.SetBool("IsJump", true);
+            isGround = false;
+            isJump = true;
+        }
+        
 
+        //   }
+        //  }
+    }
     #endregion
     #region roll
     private void Roll()
