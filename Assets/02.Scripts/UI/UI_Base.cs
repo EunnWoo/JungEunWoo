@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
-public abstract class UI_Base : MonoBehaviour
+using Photon.Pun;
+public abstract class UI_Base : MonoBehaviourPunCallbacks
 {
 
     Dictionary<Type, UnityEngine.Object[]> _objects = new Dictionary<Type, UnityEngine.Object[]>(); // Å°°ª/ ¹ë·ù
