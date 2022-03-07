@@ -21,7 +21,6 @@ public abstract class BaseController : MonoBehaviour
     private void Update()
     {
 		UpdateMoving();
-		UpdateAttack();
 	}
 
 

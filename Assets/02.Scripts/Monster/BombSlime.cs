@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class BombSlime : MonsterController
 {
-    private float moveSpeed = 8f, rotateSpeed = 3f;
+    float explosionTime;
+    
     private void Awake() {   
+
     }
     protected override void PlayerScan()
     {
@@ -13,13 +15,16 @@ public class BombSlime : MonsterController
     }
     protected override void UpdateMoving()
     {
-        PlayerScan();
-        LookTarget(transform, Managers.Game.GetPlayer().transform, rotateSpeed);
-        RigidMovePos(transform, Managers.Game.GetPlayer().transform.position - transform.position, moveSpeed);
+        base.UpdateMoving();
     }
     protected override void UpdateAttack()
     {
-        SkinnedMeshRenderer bombColor = new SkinnedMeshRenderer();
-        bombColor.material.color = new Color(255,0,0,255);
+        explosionTime += Time.deltaTime;
+        SkinnedMeshRenderer bombColor = this.gameObject.GetComponentInChildren<SkinnedMeshRenderer>();
+        bombColor.material.color -= new Color(0f,0.001f,0.001f,0f);
+        if(explosionTime >= 5f){
+            Managers.Resource.Instantiate("Explosion").transform.position = transform.position;
+            gameObject.SetActive(false);
+        }
     }
 }
