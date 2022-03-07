@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-
+    
     public float range { get; protected set; }
     public bool isAttackReady { get; protected set; } // 공격 가능
     public float attackDelay { get; protected set; } //  딜레이 계산
@@ -38,7 +38,7 @@ public class PlayerAttack : MonoBehaviour
 
     public virtual void OnAttack()
     {
-        if (isAttackReady && playerController.isGround &&!playerController.isRoll)
+        if (isAttackReady && !playerController.isJump&&!playerController.isRoll)
         {
             isAttack = true;
 

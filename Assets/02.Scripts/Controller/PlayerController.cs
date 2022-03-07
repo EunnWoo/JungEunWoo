@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class PlayerController : BaseController
 {
-    
+
     public Define.AttackType attackType { get; private set; }
-    private DialogManager dialogManager;
 
-    private Rigidbody rigid;
-    private Animator animator;
-
+    Rigidbody rigid;
+    Animator animator;
     [HideInInspector]
     public PlayerAttack playerAttack;
-
 
     Vector3 moveVec = Vector3.zero;
     Vector3 dir = Vector3.zero;
@@ -21,28 +18,23 @@ public class PlayerController : BaseController
 
     float moveAmount = 0f;
     float moveSpeed = 8f;
-
-    public bool isGround { get; private set; }
     public bool isJump { get; private set; }
     public bool isRoll { get; private set; }
 
-    int _mask = (1 << (int)Layer.Item) 
+    int _mask = (1 << (int)Layer.Item)
         | (1 << (int)Layer.Npc)
-        | (1 << (int)Layer.Monster) 
+        | (1 << (int)Layer.Monster)
         | (1 << (int)Layer.Ground);
 
     public override void Init()
     {
-        if(playerAttack == null) playerAttack = GetComponent<PlayerAttack>();
+        if (playerAttack == null) playerAttack = GetComponent<PlayerAttack>();
         rigid = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
-        dialogManager = GameObject.Find("@Scene").GetComponent<DialogManager>();
 
         Managers.Mouse.MouseAction -= OnMouseEvent;
         Managers.Mouse.MouseAction += OnMouseEvent;
 
-        //Managers.UI.ShowPopupUI<UI_Button>("UITest");
-       
     }
     protected override void UpdateMoving()
     {
@@ -54,13 +46,13 @@ public class PlayerController : BaseController
             Roll();
         }
     }
-    protected override void UpdateAttack() 
+    protected override void UpdateAttack()
     {
         if (!Managers.UI.isAction)
         {
             OnAttack();
         }
-        
+
     }
 
     #region moving
@@ -71,7 +63,7 @@ public class PlayerController : BaseController
 
         if (playerAttack != null)  // 공격중 이동 막기
         {
-            if (!playerAttack.canMove ) MoveStop();
+            if (!playerAttack.canMove) MoveStop();
         }
 
         float m = Mathf.Abs(Managers.Input.hAxis) + Mathf.Abs(Managers.Input.vAxis);
@@ -119,7 +111,7 @@ public class PlayerController : BaseController
         animator.SetBool("IsRun", runnig);
     }
 
-    
+
     public void MoveStop()
     {
         moveVec = Vector3.zero;
@@ -132,48 +124,38 @@ public class PlayerController : BaseController
     private void Jump()
     {
         Jumptf();
-        Debug.Log(rigid.velocity.y);
-        if (Managers.Input.jump && isGround == true &&  !isJump &&
-            !Managers.Input.roll)
+        if (Managers.Input.jump && !isJump && !Managers.Input.roll && rigid.velocity.y==0)
         {
+            isJump = true;
+            animator.SetBool("IsJump", true);
+            animator.SetTrigger("DoJump");
             rigid.AddForce(Vector3.up * 17, ForceMode.Impulse);
 
         }
     }
     private void Jumptf()
     {
-        //private void OnTriggerEnter(Collider other)
-        //{
-        //if (other.gameObject.tag == "Ground")
-        //{
-        if (rigid.velocity.y <0.5f && rigid.velocity.y > -0.5f)
-        {
-            animator.SetBool("IsJump", false);
-            isJump = false;
-            isGround = true;
-        }
-        else if( rigid.velocity.y > 0.5f)
+        if (rigid.velocity.y < -0.5)
         {
             animator.SetBool("IsJump", true);
-            isGround = false;
             isJump = true;
         }
-        else if(rigid.velocity.y < -0.5f)
-        {
-            animator.SetBool("IsJump", true);
-            isGround = false;
-            isJump = true;
-        }
-        
 
-        //   }
-        //  }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            isJump = false;
+            animator.SetBool("IsJump", false);
+        }
+
     }
     #endregion
     #region roll
     private void Roll()
     {
-        if (isGround && moveAmount != 0 && Managers.Input.roll)
+        if (!isJump && moveAmount != 0 && Managers.Input.roll)
         {
 
             rollVec = moveVec;
@@ -228,7 +210,7 @@ public class PlayerController : BaseController
                 playerAttack.AttackTacrgetSet(_lockTarget);
                 _lockTarget = null;
                 playerAttack.OnAttack();
-              
+
             }
         }
     }
@@ -263,7 +245,7 @@ public class PlayerController : BaseController
         {
             switch (evt)
             {
-                case Define.MouseEvent.PointerDown: 
+                case Define.MouseEvent.PointerDown:
 
                     attackType = Define.AttackType.NormalAttack;  // 일반공격
                     LookHitPoint(hit);
@@ -273,7 +255,7 @@ public class PlayerController : BaseController
                     }
 
                     _lockTarget = hit.collider.gameObject;
-      
+
                     break;
 
                 case Define.MouseEvent.PointerRightDown:
@@ -288,7 +270,7 @@ public class PlayerController : BaseController
 
                     break;
             }
-            
+
         }
     }
 }
