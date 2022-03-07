@@ -39,6 +39,7 @@ public class ObjPoolManager
             fireBall[i] = Managers.Resource.Instantiate("Magic fire", objPoolManager);
             fireBall[i].SetActive(false);
         }
+
     }
 
     public GameObject MakeObj(string type)
