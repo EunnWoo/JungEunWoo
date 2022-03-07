@@ -20,11 +20,7 @@ public class Bow : PlayerAttack
         attackRate = 0.5f;
         
     }
-    //public override void OnAttack()
-    //{
 
-    //    base.OnAttack();
-    //}
 
     protected override IEnumerator Use()
     {
