@@ -72,7 +72,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8386886850102196197}
   - component: {fileID: 8386886850092636165}
-  - component: {fileID: 8386886851145346721}
   m_Layer: 0
   m_Name: Slime_Rig
   m_TagString: Untagged
@@ -106,7 +105,7 @@ Animator:
   m_GameObject: {fileID: 8386886850102160325}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: c25a5116da3755648afc1c163f7058d8, type: 3}
-  m_Controller: {fileID: 9100000, guid: cc9db220f0418cb42a8d8e2df334a400, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3b4f0303e889bde40836ab4b19669fd2, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -115,18 +114,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8386886851145346721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8386886850102160325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33e5c77e7725d2f4fbbc5a7a6396b6a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8386886850102160327
 GameObject:
   m_ObjectHideFlags: 0

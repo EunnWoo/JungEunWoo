@@ -10,7 +10,7 @@ public enum MonsterState {
     Die = 4
 }
 
-public class MonsterController : BaseController
+public abstract class MonsterController : BaseController
 {
     private float moveSpeed = 8f, rotateSpeed = 3f;
     public Vector3 limitRange_Min, limitRange_Max;
