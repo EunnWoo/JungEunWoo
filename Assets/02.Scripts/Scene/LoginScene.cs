@@ -12,6 +12,7 @@ public class LoginScene : BaseScene
         SceneType = SceneState.Login; // ??LoginScene의 씬 종류는 LoginScene
         Debug.Log("LoginScene 입장");
 
+        Managers.UI.ShowSceneUI<UI_LoginCanvas>();
 
     }
 

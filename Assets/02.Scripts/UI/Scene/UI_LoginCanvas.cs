@@ -4,31 +4,38 @@ using UnityEngine;
 using Photon.Pun; // 유니티용 포톤 컴포넌트들
 using Photon.Realtime; // 포톤 서비스 관련 라이브러리
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class UI_LoginCanvas : UI_Scene 
 {
     enum Buttons
     {
         LoginButton,
-        FindRoomButton,
-        CreateRoomButton,
-        ExitButton
+        FindRoomMenuButton,
+        CreateRoomMenuButton,
+        ExitButton,
+
     }
     enum Texts
     {
-        IDText,
         connectionInfoText
     }
     enum GameObjects
     {
-        RoomNameInputField,
-        CreateFindRoomMenu
+        IDInputField,
+        BackGround
     }
     private string gameVersion = "1"; // 게임 버전
 
     Text connectionInfoText; // 네트워크 정보를 표시할 텍스트
+
     Button loginButton; // 룸 접속 버튼
-    InputField roomName;
+    Button createRoomMenuButton;
+    Button exitButton;
+    Button findRoomMenuButton;
+
+    InputField idInput;
+    GameObject backGround;
     // 게임 실행과 동시에 마스터 서버 접속 시도
     public override void Init()
     {
@@ -36,10 +43,17 @@ public class UI_LoginCanvas : UI_Scene
         Bind<Button>(typeof(Buttons));
         Bind<Text>(typeof(Texts));
         Bind<GameObject>(typeof(GameObjects));
+
         connectionInfoText = GetText((int)Texts.connectionInfoText);
+
         loginButton = GetButton((int)Buttons.LoginButton);
-        roomName = Get<GameObject>((int)GameObjects.RoomNameInputField).GetComponent<InputField>();
-        
+        createRoomMenuButton = GetButton((int)Buttons.CreateRoomMenuButton);
+        findRoomMenuButton = GetButton((int)Buttons.FindRoomMenuButton);
+        exitButton = GetButton((int)Buttons.ExitButton);
+
+        idInput = Get<GameObject>((int)GameObjects.IDInputField).GetComponent<InputField>();
+        backGround = Get<GameObject>((int)GameObjects.BackGround);
+
 
         //접속에 필요한 정보 설정
         PhotonNetwork.GameVersion = gameVersion;
@@ -47,8 +61,22 @@ public class UI_LoginCanvas : UI_Scene
         PhotonNetwork.ConnectUsingSettings();
 
         connectionInfoText.text = "마스터 서버에 접속중..";
-        //룸 접속 버튼 비활성화
+
+        //버튼 비활성화
+        createRoomMenuButton.interactable = false;
+        findRoomMenuButton.interactable = false;
         loginButton.interactable = false;
+
+
+        #region buttonevent
+        loginButton.gameObject.AddUIEvent(ClickLogin); // 로그인 클릭시
+        createRoomMenuButton.gameObject.AddUIEvent(CreateRoomMenu); //방생성메뉴버튼 클릭시
+        findRoomMenuButton.gameObject.AddUIEvent(FindRoomMenu);
+        exitButton.gameObject.AddUIEvent(Exit);
+
+
+
+        #endregion
 
     }
 
@@ -59,7 +87,8 @@ public class UI_LoginCanvas : UI_Scene
         loginButton.interactable = true;
         //접속 정보 표시
         connectionInfoText.text = "온라인 : 마스터 서버와 연결됨";
-        
+        PhotonNetwork.JoinLobby();
+
 
     }
 
@@ -76,66 +105,72 @@ public class UI_LoginCanvas : UI_Scene
 
     }
 
-    //빈 무작위 룸 접속 시도
-    public void Connect()
+    public override void OnJoinedLobby()//로비에 연결시 작동
     {
-        //중복 접속 방지를 위한 버튼 비활
-        loginButton.interactable = false;
-
-        //마스터 서버에 접속 중이라면
-        if (PhotonNetwork.IsConnected)
-        {
-            //룸 접속 실행
-            connectionInfoText.text = "룸에 접속...";
-            PhotonNetwork.JoinRandomRoom();
-        }
-        else
-        {
-            //마스터 서버에 접속중이 아니라면 마스터 서버에 접속 시도
-            connectionInfoText.text = "오프라인 : 마스터 서버와 연결되지 않음\n 접속 재시도 중...";
-            //재접속시도
-            PhotonNetwork.ConnectUsingSettings();
-        }
+        Debug.Log("Joined Lobby");
+        PhotonNetwork.NickName = idInput.text;
+        //들어온사람 이름 랜덤으로 숫자붙여서 정해주기
     }
 
-    // (빈 방이 없어)랜덤 룸 참가에 실패한 경우 자동 실행
-    public override void OnJoinRandomFailed(short returnCode, string message)
+    public override void OnJoinedRoom()
     {
-        //접속 상태 표시
-        connectionInfoText.text = "빈 방이 없음, 새로운 방 생성....";
-        //최대 4명을 수용 가능한 빈 방 생성
-        PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = 4 });
+        Debug.Log("JoinedRoom");
+        // 룸 참가자가 Select 씬을 로드하게함
+        
+        Managers.UI.ShowPopupUI<UI_RoomIn>();
     }
 
     // 룸에 참가 완료된 경우 자동 실행
-    public override void OnJoinedRoom()
+    public void ClickLogin(PointerEventData data)
     {
-        //접속 상태 표시
-        connectionInfoText.text = "방 참가 성공";
-        // 모든 룸 참가자가 Main 씬을 로드하게함
-        PhotonNetwork.LoadLevel("Main");
+        if (string.IsNullOrEmpty(idInput.text))
+        {
+            //아이디가 비어있을때 
+            Debug.Log("이름을 입력해주세요");
+            return;
+        }
+
+        loginButton.interactable = false; //로그인버튼 비활성화
+
+        createRoomMenuButton.interactable = true;
+        findRoomMenuButton.interactable = true;
+        PhotonNetwork.JoinLobby(); // 로비 참여
 
     }
-    public void ClickLogin()
+    public void CreateRoomMenu(PointerEventData data)
     {
-        Get<GameObject>((int)GameObjects.CreateFindRoomMenu).SetActive(true);
+        BackGroundSetActive();
+        Managers.UI.ShowPopupUI<UI_CreateRoomMenu>();
 
     }
-    public void CreateRoom()
+    
+    public void FindRoomMenu(PointerEventData data)
     {
-        if (string.IsNullOrEmpty(roomName.text)) return;
-
-        PhotonNetwork.CreateRoom(roomName.text);
-
-            
+        BackGroundSetActive();
+        Managers.UI.ShowPopupUI<UI_FindRoomMenu>();
     }
 
-    public void Open()
-    {
 
-    }
-    public void Close()
-    {
 
+
+    public void BackGroundSetActive()
+    {     
+        if(!backGround.activeSelf)
+        {
+            backGround.SetActive(true); // 메인이 꺼져있을때 호출되면 true해주기
+        }
+        else
+        {
+            backGround.SetActive(false); // 메인이 켜져있을때 호출되면 false해주기
+        }
     }
+   
+
+    public void Exit(PointerEventData data)
+    {
+        //게임종료
+        Application.Quit();
+    }
+
+
 }
