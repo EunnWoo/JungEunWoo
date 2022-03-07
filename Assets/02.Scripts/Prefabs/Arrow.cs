@@ -9,12 +9,16 @@ public class Arrow : MonoBehaviour
     private Transform tr;
 
     Vector3 offset;
+    Vector3 hitpos;
 
     private void Awake()
     {
         tr = GetComponent<Transform>();
         rigid = GetComponent<Rigidbody>();
-        
+
+
+
+
     }
 
     private void Update()
@@ -23,7 +27,6 @@ public class Arrow : MonoBehaviour
         {
             DisableArrow();
         }
-
 
     }
 
@@ -55,12 +58,18 @@ public class Arrow : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        GameObject otherObject = collision.gameObject;
+            // scale 변경 방지용 쿠션 parent
+        GameObject sharedParent = new GameObject("Father");
+        sharedParent.transform.position = otherObject.transform.position;
+        sharedParent.transform.rotation = otherObject.transform.rotation;
+        sharedParent.transform.SetParent(otherObject.gameObject.transform);
 
-        Vector3 hitpos = collision.contacts[0].point;
-
-        tr.position = hitpos;
-
-        Invoke("DisableArrow", 3f);
+        // 고정될 화살 생성
+        GameObject newArrow = Managers.Resource.Instantiate("Arrow");
+        newArrow.transform.SetParent(sharedParent.transform, true);
+        //2초 후 소멸
+        Destroy(newArrow, 2);
     }
 
     private void OnDisable()//오브젝트 비활성화
@@ -68,7 +77,6 @@ public class Arrow : MonoBehaviour
         //값 초기화
         tr.position = Vector3.zero;
         tr.rotation = Quaternion.identity;
-        
         rigid.Sleep();
 
 

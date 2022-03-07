@@ -38,7 +38,7 @@ public class PlayerAttack : MonoBehaviour
 
     public virtual void OnAttack()
     {
-        if (isAttackReady && !playerController.isJump&&!playerController.isRoll)
+        if (isAttackReady && !playerController.isJump&&!playerController.isRoll && !isAttack)
         {
             isAttack = true;
 

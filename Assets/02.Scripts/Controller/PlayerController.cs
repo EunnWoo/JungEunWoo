@@ -135,8 +135,9 @@ public class PlayerController : BaseController
     }
     private void Jumptf()
     {
-        if (rigid.velocity.y < -0.5)
+        if (rigid.velocity.y < -1f)
         {
+            animator.SetBool("IsFall", true);
             animator.SetBool("IsJump", true);
             isJump = true;
         }
@@ -148,6 +149,7 @@ public class PlayerController : BaseController
         {
             isJump = false;
             animator.SetBool("IsJump", false);
+            animator.SetBool("IsFall", false);
         }
 
     }
@@ -218,7 +220,7 @@ public class PlayerController : BaseController
     //사정거리계산 메서드
     bool DistanceAttackPos(Vector3 destpos)
     {
-        Debug.Log(destpos.magnitude <= playerAttack.range);
+        
         return destpos.magnitude <= playerAttack.range;
     }
     //클릭한곳 보는 함수
