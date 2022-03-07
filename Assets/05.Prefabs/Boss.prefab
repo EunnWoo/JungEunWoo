@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 8386886850102196197}
   - component: {fileID: 8386886850092636165}
   m_Layer: 0
-  m_Name: Slime_Rig
+  m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,7 +105,7 @@ Animator:
   m_GameObject: {fileID: 8386886850102160325}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: c25a5116da3755648afc1c163f7058d8, type: 3}
-  m_Controller: {fileID: 9100000, guid: 3b4f0303e889bde40836ab4b19669fd2, type: 2}
+  m_Controller: {fileID: 9100000, guid: e0872964c3e28bc4a9126fb5c4f09f98, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -227,7 +227,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 157bb3b85d2820543a3677b742376297, type: 2}
+  - {fileID: 2100000, guid: 2f5957548a59aef4c80e6f859d87e3da, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

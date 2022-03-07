@@ -10,10 +10,11 @@ public enum MonsterState {
     Die = 4
 }
 
-public abstract class MonsterController : BaseController
+public class MonsterController : BaseController
 {
     private float moveSpeed = 8f, rotateSpeed = 3f;
     public Vector3 limitRange_Min, limitRange_Max;
+    
     private MonsterState monsterState;
     [SerializeField]
     private GameObject player;
@@ -22,7 +23,7 @@ public abstract class MonsterController : BaseController
     float _scanRange = 10;
 
     [SerializeField]
-    float _attackRange = 4;
+    private float _attackRange = 4f;
 
     private float distance = 0f;
 
@@ -30,7 +31,6 @@ public abstract class MonsterController : BaseController
     public float scanRange { get; protected set; }
     public override void Init()
     {
-        
         player = Managers.Game.GetPlayer();
         InvokeRepeating("RandomPos", 2f, 3f);
         monsterState = MonsterState.Idle;
@@ -39,6 +39,7 @@ public abstract class MonsterController : BaseController
     }
     protected virtual void PlayerScan()// --> 상속받은 monster들 마다 스캔방식 다르게  ex) rayhit(보는 방향)골드메탈 참고 Or 적과 플레이어 distance 값 받아서 범위 스캔
     {
+        Debug.Log(player);
         //ex RaycastHit[] rayHits = Physics.SphereCastAll(transform.position,반지름 , tarnsform.forward, scanRange, LayMask.GetMask("Player"));
         //ex 
         if (player == null)
@@ -62,8 +63,6 @@ public abstract class MonsterController : BaseController
     protected override void UpdateMoving()
     {
         PlayerScan();
-        Debug.Log(monsterState);
-        Debug.Log(_attackRange);
         switch(monsterState){
             case MonsterState.Idle:
             if(Random.Range(1, 20) == 2)

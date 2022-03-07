@@ -9,6 +9,7 @@ public class ObjPoolManager
     [SerializeField]
     GameObject[] fireBall;
     GameObject[] targetPool;
+    GameObject[] bombSlimePool;
 
     Transform objPoolManager;
 
@@ -27,6 +28,7 @@ public class ObjPoolManager
         //각 최대개수 설정
         arrow = new GameObject[100];
         fireBall = new GameObject[10];
+        bombSlimePool = new GameObject[4];
 
         for (int i =0; i< arrow.Length;i++)
         {
@@ -39,6 +41,11 @@ public class ObjPoolManager
             fireBall[i] = Managers.Resource.Instantiate("Magic fire", objPoolManager);
             fireBall[i].SetActive(false);
         }
+        for (int i = 0; i < bombSlimePool.Length; i++)
+        {
+            bombSlimePool[i] = Managers.Resource.Instantiate("Boom_Slime_A", objPoolManager);
+            bombSlimePool[i].SetActive(false);
+        }
     }
 
     public GameObject MakeObj(string type)
@@ -50,6 +57,9 @@ public class ObjPoolManager
                 break;
             case "FireBall":
                 targetPool = fireBall;
+                break;
+            case "Boom_Slime_A":
+                targetPool = bombSlimePool;
                 break;
         }
         for(int i =0; i< targetPool.Length;i++)
