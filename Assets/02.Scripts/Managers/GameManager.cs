@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using Photon.Pun;
 
 
 
@@ -26,8 +26,9 @@ public class GameManager
     }
     public GameObject Spawn(string path, Transform parent = null)
     {
-       
-        GameObject go = Managers.Resource.Instantiate(path, parent);
+
+        GameObject go = PhotonNetwork.Instantiate(path, Vector3.zero, Quaternion.identity);   //네트워크로 공유하는 프리팹은 PhotonNetwork.Instantiate 로 생성
+            //Managers.Resource.Instantiate(path, parent);
        
        _player = go;
 

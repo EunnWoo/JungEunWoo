@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Managers : MonoBehaviour
+using Photon.Pun;
+public class Managers : MonoBehaviourPun
 {
     public static Managers s_instance;
     public static Managers instance { get { Init(); return s_instance; } }
@@ -39,9 +39,11 @@ public class Managers : MonoBehaviour
     }
     private void Update()
     {
-        _mouse.OnUpdate();
-        _input.OnUpdate();
-        _game.OnUpdate();
+
+            _mouse.OnUpdate();
+            _input.OnUpdate();
+            _game.OnUpdate();
+
     }
 
     static void Init()
@@ -54,12 +56,13 @@ public class Managers : MonoBehaviour
             {
                 managers = new GameObject { name = "@Managers" };
                 managers.AddComponent<Managers>();
-
+                managers.GetOrAddComponent<PhotonView>();
 
             }
 
             DontDestroyOnLoad(managers);
             s_instance = managers.GetComponent<Managers>();
+
 
             s_instance._pool.Init();
             s_instance._talk.Init();

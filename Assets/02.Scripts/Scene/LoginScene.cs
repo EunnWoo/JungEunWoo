@@ -18,11 +18,7 @@ public class LoginScene : BaseScene
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-
-            Managers.Scene.LoadScene(SceneState.Select);
-        }
+        
     }
 
     public override void Clear()

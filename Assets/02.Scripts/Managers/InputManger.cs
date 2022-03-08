@@ -27,10 +27,7 @@ public class InputManager
     
     public void OnUpdate()
     {
-        //if (Input.anyKey && KeyAction != null)
-        //    KeyAction.Invoke();
-        //if (Input.anyKey)
-        //Debug.Log(Input.inputString);
+        
         hAxis = Input.GetAxisRaw(hAxisName);
         vAxis = Input.GetAxisRaw(vAxisName);
         roll = Input.GetButton(rollName);

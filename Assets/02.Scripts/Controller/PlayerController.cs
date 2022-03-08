@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Photon.Pun;
 public class PlayerController : BaseController
 {
 
@@ -38,6 +38,7 @@ public class PlayerController : BaseController
     }
     protected override void UpdateMoving()
     {
+        if (photonView.IsMine == false && PhotonNetwork.IsConnected == true) { return; }
         if (!Managers.UI.isAction)
         {
             Move();
@@ -45,9 +46,12 @@ public class PlayerController : BaseController
             Jump();
             Roll();
         }
+
     }
     protected override void UpdateAttack()
     {
+        if(photonView.IsMine == false && PhotonNetwork.IsConnected == true) { return; }
+      
         if (!Managers.UI.isAction)
         {
             OnAttack();

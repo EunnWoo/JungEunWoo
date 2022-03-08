@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Photon.Pun;
 public class ObjPoolManager 
 {
     [SerializeField]
@@ -24,6 +24,9 @@ public class ObjPoolManager
 
         // 오브젝트 풀 담을 오브젝트 생성
         objPoolManager = new GameObject { name = "ObjPoolManager" }.transform;
+        objPoolManager.gameObject.GetOrAddComponent<PhotonView>();
+        
+            
         Object.DontDestroyOnLoad(objPoolManager);
         //각 최대개수 설정
         arrow = new GameObject[100];
@@ -33,7 +36,7 @@ public class ObjPoolManager
         for (int i =0; i< arrow.Length;i++)
         {
             arrow[i] = Managers.Resource.Instantiate("Arrow", objPoolManager);
-
+            Debug.Log(arrow[i]);
             arrow[i].SetActive(false);
         }
         for (int i = 0; i < fireBall.Length; i++)

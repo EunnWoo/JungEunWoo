@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
+using Photon.Pun;
 public enum SceneState
 {
     Unknown,
@@ -18,7 +18,7 @@ public enum SceneState
 
 
 
-public abstract class BaseScene : MonoBehaviour
+public abstract class BaseScene : MonoBehaviourPun
 {
     public SceneState SceneType { get; protected set; } = SceneState.Unknown;
 

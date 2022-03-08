@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public abstract class BaseController : MonoBehaviour
+using Photon.Pun;
+public abstract class BaseController : MonoBehaviourPun
 {
 	public Animator Anim{get;set;}
 	
@@ -21,6 +21,7 @@ public abstract class BaseController : MonoBehaviour
     private void Update()
     {
 		UpdateMoving();
+		UpdateAttack();
 	}
 
 

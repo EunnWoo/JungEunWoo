@@ -13,16 +13,16 @@ public class CameraFollow : MonoBehaviour
     private void Awake()
     {
 
-        var obj = FindObjectsOfType<Camera>();
+        //var obj = FindObjectsOfType<Camera>();
 
-        if (obj.Length == 1)
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        //if (obj.Length == 1)
+        //{
+        //    DontDestroyOnLoad(gameObject);
+        //}
+        //else
+        //{
+        //    Destroy(gameObject);
+        //}
     }
     void Start()
     {
