@@ -24,7 +24,7 @@ public class UI_JobPanel : UI_Popup
         JobBackGroundImage
     }
 
-
+ 
     public override void Init()
     {
         base.Init();
@@ -79,8 +79,9 @@ public class UI_JobPanel : UI_Popup
         {
             talkIndex = 0;
             Managers.UI.isTalk(false);
-          //photonView.RPC("JobChoice", Photon.Pun.RpcTarget.MasterClient);
+            jopController.JobClick();
             //jopController.JobChoice();
+
             Managers.UI.ClosePopupUI();
         }
 

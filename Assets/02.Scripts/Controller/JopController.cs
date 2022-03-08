@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using System;
 
 public enum JobInfo { COMMON, BOW, SWORD, MAGIC }
 
-public class JopController : MonoBehaviour
+public class JopController : MonoBehaviourPun
 {
     ObjData objdata;
 
@@ -16,16 +17,13 @@ public class JopController : MonoBehaviour
     public JobInfo jobstate { get; set; }//= JobState.COMMON; // 현재 전직 가능한 직업
     public string jobstring { get; private set; }
 
+    public Action<string> jobevent = null;
 
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
 
         DontDestroyOnLoad(this);
-        jobstring = null;
-    }
-    private void Update()
-    {
         
     }
 
@@ -56,7 +54,10 @@ public class JopController : MonoBehaviour
     }
   
 
-
+    public void JobClick()
+    {
+        photonView.RPC("JobChoice", Photon.Pun.RpcTarget.MasterClient);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Npc")
