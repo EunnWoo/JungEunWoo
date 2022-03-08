@@ -122,8 +122,8 @@ namespace Photon.Pun
         private void Awake()
         {
             this.m_Animator = GetComponent<Animator>();
-            if (this.m_Animator ==null)
-            this.m_Animator = gameObject.GetComponentInChildren<Animator>(); 
+         
+            Debug.Log(this.m_Animator);
         }
 
         private void Update()

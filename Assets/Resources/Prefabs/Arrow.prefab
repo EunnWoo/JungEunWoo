@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3138283489458366175}
   - component: {fileID: 2278641935129545809}
   - component: {fileID: 1277818893232756362}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Arrow
   m_TagString: Arrow
   m_Icon: {fileID: 0}
@@ -145,8 +145,9 @@ MonoBehaviour:
   prefixField: -1
   Synchronization: 3
   OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents: []
+  observableSearch: 0
+  ObservedComponents:
+  - {fileID: 2278641935129545809}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0

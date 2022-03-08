@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class Arrow : MonoBehaviour
+public class Arrow : MonoBehaviour, IPunObservable
 {
     public float speed = 500f;
     private Rigidbody rigid;
@@ -82,5 +84,8 @@ public class Arrow : MonoBehaviour
 
     }
 
-    
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        throw new System.NotImplementedException();
+    }
 }

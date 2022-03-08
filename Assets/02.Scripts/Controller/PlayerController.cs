@@ -155,7 +155,10 @@ public class PlayerController : BaseController
             animator.SetBool("IsJump", false);
             animator.SetBool("IsFall", false);
         }
-
+        else
+        {
+            return;
+        }
     }
     #endregion
     #region roll

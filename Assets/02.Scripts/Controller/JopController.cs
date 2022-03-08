@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Photon.Pun;
 
 public enum JobInfo { COMMON, BOW, SWORD, MAGIC }
 
@@ -24,7 +24,13 @@ public class JopController : MonoBehaviour
         DontDestroyOnLoad(this);
         jobstring = null;
     }
+    private void Update()
+    {
+        
+    }
 
+
+    [PunRPC]
     public void JobChoice()  // 직업 활성화
     { 
         if (jobstate == JobInfo.BOW) // 궁수 전직

@@ -79,7 +79,8 @@ public class UI_JobPanel : UI_Popup
         {
             talkIndex = 0;
             Managers.UI.isTalk(false);
-            jopController.JobChoice();
+          //photonView.RPC("JobChoice", Photon.Pun.RpcTarget.MasterClient);
+            //jopController.JobChoice();
             Managers.UI.ClosePopupUI();
         }
 

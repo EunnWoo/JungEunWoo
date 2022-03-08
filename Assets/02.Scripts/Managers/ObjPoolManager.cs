@@ -36,7 +36,7 @@ public class ObjPoolManager
         for (int i =0; i< arrow.Length;i++)
         {
             arrow[i] = Managers.Resource.Instantiate("Arrow", objPoolManager);
-            Debug.Log(arrow[i]);
+
             arrow[i].SetActive(false);
         }
         for (int i = 0; i < fireBall.Length; i++)

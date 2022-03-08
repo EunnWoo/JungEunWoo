@@ -53,7 +53,7 @@ public class UI_FindRoomMenu : UI_Popup
 
     public void JoinRoom(RoomInfo info) // 방에 접속했을때만 팝업 부수기
     {
-        Managers.UI.ClosePopupUI(gameObject.GetComponent<UI_FindRoomMenu>());
+        gameObject.SetActive(false);
         PhotonNetwork.JoinRoom(info.Name);//포톤 네트워크의 JoinRoom기능 해당이름을 가진 방으로 접속한다. 
     }
 
