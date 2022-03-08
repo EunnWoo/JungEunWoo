@@ -13,7 +13,7 @@ public class UI_Money : UI_Scene
     public override void Init()
     {
         base.Init();
-        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(gameObject);
 
     }
 

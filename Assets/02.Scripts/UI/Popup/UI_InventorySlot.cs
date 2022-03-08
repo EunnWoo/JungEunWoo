@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class UI_InventorySlot : UI_Base, IPointerClickHandler
 {
+    bool bInit;
     public ItemData item;
     Image icon;
     Text itemCount;
@@ -21,10 +22,13 @@ public class UI_InventorySlot : UI_Base, IPointerClickHandler
     }
     public override void  Init()
     {
+        if (bInit) return;
+        bInit = true;
+
         Bind<Image>(typeof(Images));
         Bind<Text>(typeof(Texts));
         
-        icon = GetImage((int)Images.Item_Icon);
+        icon = GetImage((int)Images.Item_Icon); 
         itemCount = GetText((int)Texts.Item_Count_Text);
         
         if (item == null || (item != null && item.itemCount <= 1))

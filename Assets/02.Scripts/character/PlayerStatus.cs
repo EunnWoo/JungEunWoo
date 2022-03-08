@@ -2,15 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ePlayerJob { None, Archer,Warrior,Magician};
 public class PlayerStatus : MonoBehaviour
 {
+    #region sigleton
     public static PlayerStatus ins;
     private void Awake()
     {
         ins = this;
     }
-   
-    //hp = baseHP + 장비 + 레벨
+    #endregion
+
+
+    #region hp = baseHP + 장비 + 레벨
     public float hp;
     private float baseHP = 300; //기본최대체력
     private float wearHP = 0; //장비를 껴서 얻는 최대체력
@@ -18,8 +22,10 @@ public class PlayerStatus : MonoBehaviour
     public float MAX_HP {
         get { return baseHP + wearHP + LevelHP; } 
     }
+    #endregion
 
-    //mp = baseHP + 장비 + 레벨
+
+    #region mp = baseHP + 장비 + 레벨
     public float mp;
     private float baseMP = 300;
     private float wearMP = 0;
@@ -27,6 +33,10 @@ public class PlayerStatus : MonoBehaviour
     public float MAX_MP {
         get { return baseMP + wearMP + LevelMP; }
     }
+    #endregion
+
+    
+
     public float exp { get; set; }
 
     IEnumerator Start()

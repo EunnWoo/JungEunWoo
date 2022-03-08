@@ -83,8 +83,13 @@ public class PlayerController : BaseController
 
             if (_lockTarget.layer == (int)Layer.Npc || _lockTarget.layer == (int)Layer.Item)
             {
-                if (dir.magnitude < 0.5f)
+                if (dir.magnitude < 0.5f) //케릭터가 타겟이랑 0.5미터 이내로 들어오면
                 {
+                    if (_lockTarget.layer == (int)Layer.Item) //타겟의 레이어가 아이템이면
+                    {
+                        Debug.Log("@@@ Eat item");
+                        TakeItem(_lockTarget);
+                    }
                     _lockTarget = null;
                     return;
                 }
@@ -95,6 +100,32 @@ public class PlayerController : BaseController
             }
         }
     }
+
+    private void TakeItem(GameObject _itemGO)
+    {
+        if (_itemGO != null) //      아이템이 있으면
+        {
+            //고유정보 : Itemcode, Itemname등등
+            ItemPickUp _pick = _itemGO.GetComponent<ItemPickUp>(); //아이템 오브젝트안에 ItemPickUp 스크립트를찾아서
+            if (_pick)
+            {
+                Debug.Log(_pick.itemData.itemName + " 획득했습니다");
+
+                //인벤토리에 넣어주기
+                bool _bGet =  UI_Inventory.ins.AddItemData(_pick.itemData);
+                if (_bGet)
+                {
+                    _pick.ClearDestroy();//오브젝트 주우면 필드에 주운아이템은 사라지게하기
+                }
+                else
+                {
+                    Debug.Log("아이템창이 가득찼습니다");
+                }
+            }
+        }
+    }
+
+
     void MouseMove()
     {
         moveAmount = Mathf.Clamp01(dir.magnitude);

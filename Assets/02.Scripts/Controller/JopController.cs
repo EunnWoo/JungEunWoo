@@ -60,11 +60,7 @@ public class JopController : MonoBehaviour
             
             jobstate = (JobInfo)objdata.id;
         }
-        else if(other.gameObject.tag == "Item")
-        {
-            //아직 미완성 입니다 추후 수정예정
-            Debug.Log("@@@@ Eat Item");
-        }
+        
     }
     private void OnTriggerExit(Collider other)
     {

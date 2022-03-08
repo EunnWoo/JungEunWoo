@@ -8,12 +8,16 @@ using UnityEngine.UI;
 public class UI_Inventory : UI_Scene
 {
     #region sigletone
+    bool bInit;
     public static UI_Inventory ins;
     private void Awake()
     {
         ins = this;
+        Init();
     }
     #endregion
+
+    
     public List<UI_InventorySlot> slotsEquip = new List<UI_InventorySlot>();  //인벤토리 슬롯들
     public List<UI_InventorySlot> slotsUse = new List<UI_InventorySlot>();
     public List<UI_InventorySlot> slotsETC = new List<UI_InventorySlot>();
@@ -63,6 +67,9 @@ public class UI_Inventory : UI_Scene
 
     public override void Init()
     {
+        if (bInit) return;
+        bInit = true;
+
         base.Init();
         #region setup
         Bind<GameObject>(typeof(GameObjects));
@@ -106,13 +113,18 @@ public class UI_Inventory : UI_Scene
         
 
     }
-    void SetSlot(GameObject go, List<UI_InventorySlot> slot)
+    void SetSlot(GameObject _go, List<UI_InventorySlot> _slotList)
     {
+        GameObject _itemGO;
+        UI_InventorySlot _inventorySlot;
+        
         for (int i = 0; i < 20; i++)
         {
-            GameObject item = Managers.Resource.Instantiate("UI/Popup/UI_InventorySlot");
-            slot.Add(item.GetComponent<UI_InventorySlot>());
-            item.transform.SetParent(go.transform);
+            _itemGO = Managers.Resource.Instantiate("UI/Popup/UI_InventorySlot");
+            _inventorySlot = _itemGO.GetComponent<UI_InventorySlot>();
+            _slotList.Add(_inventorySlot);
+            _inventorySlot.Init();
+            _itemGO.transform.SetParent(_go.transform);
         }
     }
     public void Invoke_SetTab()
