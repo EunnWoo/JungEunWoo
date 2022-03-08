@@ -3179,6 +3179,7 @@ namespace Photon.Realtime
             {
                 case EventCode.GameList:
                 case EventCode.GameListUpdate:
+               // case EventCode.Refresh:
                     List<RoomInfo> _RoomInfoList = new List<RoomInfo>();
 
                     Hashtable games = (Hashtable)photonEvent[ParameterCode.GameList];

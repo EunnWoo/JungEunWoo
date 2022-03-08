@@ -10,7 +10,7 @@ public class SelectScene : BaseScene
     GameObject player;
     [SerializeField]
     Portal[] portals;
-    Camera camera;
+    //CameraFollow cameraFollow;
 
     protected override void Init()
     {
@@ -19,8 +19,8 @@ public class SelectScene : BaseScene
 
         player = Managers.Game.Spawn("Player");
 
-        camera = Managers.Resource.Instantiate("CameraReg").GetOrAddComponent<Camera>();
-        camera.gameObject.GetOrAddComponent<CameraFollow>().SetPlayer(player);
+        Managers.Resource.Instantiate("CameraReg").GetOrAddComponent<CameraFollow>().SetPlayer(player);
+        //cameraFollow.gameObject.GetOrAddComponent<CameraFollow>().SetPlayer(player);
       
         gameObject.GetOrAddComponent<CursorController>();
         portals = GameObject.FindObjectsOfType<Portal>();

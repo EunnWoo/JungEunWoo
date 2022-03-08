@@ -112,6 +112,7 @@ public class UI_LoginCanvas : UI_Scene
         //들어온사람 이름 랜덤으로 숫자붙여서 정해주기
     }
 
+    // 룸에 참가 완료된 경우 자동 실행
     public override void OnJoinedRoom()
     {
         Debug.Log("JoinedRoom");
@@ -120,7 +121,7 @@ public class UI_LoginCanvas : UI_Scene
         Managers.UI.ShowPopupUI<UI_RoomIn>();
     }
 
-    // 룸에 참가 완료된 경우 자동 실행
+
     public void ClickLogin(PointerEventData data)
     {
         if (string.IsNullOrEmpty(idInput.text))

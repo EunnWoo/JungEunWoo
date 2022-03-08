@@ -10,7 +10,8 @@ public class UI_FindRoomMenu : UI_Popup
 {
     enum Buttons
     {
-        ExitButton
+        ExitButton,
+        RefreshButton
 
     }
     enum GameObjects
@@ -20,34 +21,32 @@ public class UI_FindRoomMenu : UI_Popup
     }
     
     Button exitButton;
-
+    Button refreshButton;
     Image roomListImage;
 
     UI_LoginCanvas loginCanvas;
-    Transform roomListContent;
+ //   public Transform roomListContent { get; private set; }
 
     public override void Init()
     {
         base.Init();
-        
 
         loginCanvas = FindObjectOfType<UI_LoginCanvas>();
         Bind<Button>(typeof(Buttons));
         Bind<GameObject>(typeof(GameObjects));
 
         exitButton = GetButton((int)Buttons.ExitButton);
-
+        refreshButton = GetButton((int)Buttons.RefreshButton);
         //if (ui_RoomButton == null) return;
 
         roomListImage = Get<GameObject>((int)GameObjects.RoomListImage).GetComponent<Image>();
-        roomListContent = roomListImage.transform;
+      //  roomListContent = roomListImage.transform;
 
  
-
         #region buttonevent
 
         exitButton.gameObject.AddUIEvent(ExitFindRoomMenu);
-
+      //  refreshButton.gameObject.AddUIEvent(Refresh);
         #endregion
 
     }
@@ -60,19 +59,32 @@ public class UI_FindRoomMenu : UI_Popup
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)//포톤의 룸 리스트 기능
     {
-        foreach (Transform trans in roomListContent)//존재하는 모든 roomListContent
+
+        foreach (Transform trans in roomListImage.transform)//존재하는 모든 roomListContent
         {
             Destroy(trans.gameObject);//룸리스트 업데이트가 될때마다 싹지우기
         }
         for (int i = 0; i < roomList.Count; i++)//방 개수만큼 반복
         {
 
-            Managers.Resource.Instantiate("UI_RoomButton", roomListContent).GetComponent<UI_RoomButton>().SetUp(roomList[i]);
+            Managers.Resource.Instantiate("UI_RoomButton", roomListImage.transform).GetComponent<UI_RoomButton>().SetUp(roomList[i]);
             //instantiate로 prefab을 roomListContent위치에 만들어주고 그 프리펩은 i번째 룸리스트가 된다. 
         }
     }
+    //public void Refresh(PointerEventData data)
+    //{
+    //    Debug.Log("버튼누름");
+    //    foreach (Transform trans in roomListContent)//존재하는 모든 roomListContent
+    //    {
+    //        Destroy(trans.gameObject);//룸리스트 업데이트가 될때마다 싹지우기
+    //    }
+    //    for (int i = 0; i < roomInfo.Count; i++)//방 개수만큼 반복
+    //    {
 
-    
+    //        Managers.Resource.Instantiate("UI_RoomButton", roomListContent).GetComponent<UI_RoomButton>().SetUp(roomInfo[i]);
+    //        //instantiate로 prefab을 roomListContent위치에 만들어주고 그 프리펩은 i번째 룸리스트가 된다. 
+    //    }
+    //}
 
     public void ExitFindRoomMenu(PointerEventData data)
     {
