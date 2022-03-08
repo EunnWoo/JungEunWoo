@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 public enum Layer
 {
 	Item = 6,
@@ -10,7 +11,7 @@ public enum Layer
 
 
 }
-public class CursorController : MonoBehaviour
+public class CursorController : MonoBehaviourPun
 {
 	
 	int _mask = (1 << (int)Layer.Npc) | (1 << (int)Layer.Monster) | (1 << (int)Layer.Ground);

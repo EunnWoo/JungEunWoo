@@ -243,6 +243,7 @@ public class PlayerController : BaseController
     //마우스 클릭 이벤트 받는 메서드
     void OnMouseEvent(Define.MouseEvent evt)
     {
+        if (photonView.IsMine == false && PhotonNetwork.IsConnected == true) { return; }
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         bool raycastHit = Physics.Raycast(ray, out hit, 100.0f, _mask);

@@ -36,6 +36,9 @@ public class UI_LoginCanvas : UI_Scene
 
     InputField idInput;
     GameObject backGround;
+    [SerializeField]
+    GameObject findMenu;
+
     // 게임 실행과 동시에 마스터 서버 접속 시도
     public override void Init()
     {
@@ -68,6 +71,8 @@ public class UI_LoginCanvas : UI_Scene
         loginButton.interactable = false;
 
 
+
+
         #region buttonevent
         loginButton.gameObject.AddUIEvent(ClickLogin); // 로그인 클릭시
         createRoomMenuButton.gameObject.AddUIEvent(CreateRoomMenu); //방생성메뉴버튼 클릭시
@@ -78,6 +83,9 @@ public class UI_LoginCanvas : UI_Scene
 
         #endregion
 
+
+        findMenu = Managers.UI.ShowPopupUI<UI_FindRoomMenu>().gameObject; // 방리스트 업데이트를 위해 팝업 생성후 액티브 false
+        
     }
 
     // 마스터 서버 접속 성공시 자동 실행
@@ -88,7 +96,6 @@ public class UI_LoginCanvas : UI_Scene
         //접속 정보 표시
         connectionInfoText.text = "온라인 : 마스터 서버와 연결됨";
         PhotonNetwork.JoinLobby();
-
 
     }
 
@@ -102,7 +109,6 @@ public class UI_LoginCanvas : UI_Scene
 
         //서버로 재접속 시도
         PhotonNetwork.ConnectUsingSettings();
-
     }
 
     public override void OnJoinedLobby()//로비에 연결시 작동
@@ -148,10 +154,23 @@ public class UI_LoginCanvas : UI_Scene
     public void FindRoomMenu(PointerEventData data)
     {
         BackGroundSetActive();
-        Managers.UI.ShowPopupUI<UI_FindRoomMenu>();
+        findMenu.SetActive(true);
     }
 
+    public override void OnRoomListUpdate(List<RoomInfo> roomList)//포톤의 룸 리스트 기능
+    {
+        Debug.Log(findMenu.GetComponent<UI_FindRoomMenu>().roomListContent);
+        foreach (Transform trans in findMenu.GetComponent<UI_FindRoomMenu>().roomListContent)//존재하는 모든 roomListContent
+        {
+            Destroy(trans.gameObject);//룸리스트 업데이트가 될때마다 싹지우기
+        }
+        for (int i = 0; i < roomList.Count; i++)//방 개수만큼 반복
+        {
 
+            Managers.Resource.Instantiate("UI_RoomButton", findMenu.GetComponent<UI_FindRoomMenu>().roomListContent).GetComponent<UI_RoomButton>().SetUp(roomList[i]);
+            //instantiate로 prefab을 roomListContent위치에 만들어주고 그 프리펩은 i번째 룸리스트가 된다. 
+        }
+    }
 
 
     public void BackGroundSetActive()

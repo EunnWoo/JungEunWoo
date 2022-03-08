@@ -25,70 +25,41 @@ public class UI_FindRoomMenu : UI_Popup
     Image roomListImage;
 
     UI_LoginCanvas loginCanvas;
- //   public Transform roomListContent { get; private set; }
+    public Transform roomListContent { get; private set; }
 
     public override void Init()
     {
         base.Init();
-
+        Debug.Log("FindRoomMenu실행");
         loginCanvas = FindObjectOfType<UI_LoginCanvas>();
         Bind<Button>(typeof(Buttons));
         Bind<GameObject>(typeof(GameObjects));
 
         exitButton = GetButton((int)Buttons.ExitButton);
         refreshButton = GetButton((int)Buttons.RefreshButton);
-        //if (ui_RoomButton == null) return;
+
 
         roomListImage = Get<GameObject>((int)GameObjects.RoomListImage).GetComponent<Image>();
-      //  roomListContent = roomListImage.transform;
+        roomListContent = roomListImage.transform;
 
  
         #region buttonevent
 
         exitButton.gameObject.AddUIEvent(ExitFindRoomMenu);
-      //  refreshButton.gameObject.AddUIEvent(Refresh);
         #endregion
 
+        gameObject.SetActive(false);
     }
 
-    public void JoinRoom(RoomInfo info)
+    public void JoinRoom(RoomInfo info) // 방에 접속했을때만 팝업 부수기
     {
         Managers.UI.ClosePopupUI(gameObject.GetComponent<UI_FindRoomMenu>());
         PhotonNetwork.JoinRoom(info.Name);//포톤 네트워크의 JoinRoom기능 해당이름을 가진 방으로 접속한다. 
     }
 
-    public override void OnRoomListUpdate(List<RoomInfo> roomList)//포톤의 룸 리스트 기능
-    {
-
-        foreach (Transform trans in roomListImage.transform)//존재하는 모든 roomListContent
-        {
-            Destroy(trans.gameObject);//룸리스트 업데이트가 될때마다 싹지우기
-        }
-        for (int i = 0; i < roomList.Count; i++)//방 개수만큼 반복
-        {
-
-            Managers.Resource.Instantiate("UI_RoomButton", roomListImage.transform).GetComponent<UI_RoomButton>().SetUp(roomList[i]);
-            //instantiate로 prefab을 roomListContent위치에 만들어주고 그 프리펩은 i번째 룸리스트가 된다. 
-        }
-    }
-    //public void Refresh(PointerEventData data)
-    //{
-    //    Debug.Log("버튼누름");
-    //    foreach (Transform trans in roomListContent)//존재하는 모든 roomListContent
-    //    {
-    //        Destroy(trans.gameObject);//룸리스트 업데이트가 될때마다 싹지우기
-    //    }
-    //    for (int i = 0; i < roomInfo.Count; i++)//방 개수만큼 반복
-    //    {
-
-    //        Managers.Resource.Instantiate("UI_RoomButton", roomListContent).GetComponent<UI_RoomButton>().SetUp(roomInfo[i]);
-    //        //instantiate로 prefab을 roomListContent위치에 만들어주고 그 프리펩은 i번째 룸리스트가 된다. 
-    //    }
-    //}
-
     public void ExitFindRoomMenu(PointerEventData data)
     {
         loginCanvas.BackGroundSetActive();
-        Managers.UI.ClosePopupUI(gameObject.GetComponent<UI_FindRoomMenu>());
+        gameObject.SetActive(false);
     }
 }

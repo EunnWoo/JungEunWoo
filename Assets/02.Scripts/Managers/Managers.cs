@@ -39,7 +39,7 @@ public class Managers : MonoBehaviourPun
     }
     private void Update()
     {
-
+        //if (photonView.IsMine == false && PhotonNetwork.IsConnected == true) { return; }
             _mouse.OnUpdate();
             _input.OnUpdate();
             _game.OnUpdate();
