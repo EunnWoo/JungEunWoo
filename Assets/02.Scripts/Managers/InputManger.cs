@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-public class InputManager 
+using Photon.Pun;
+public class InputManager
 {
 
     public Action KeyAction = null;

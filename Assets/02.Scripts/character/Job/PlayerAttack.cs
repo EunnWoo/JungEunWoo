@@ -15,7 +15,7 @@ public class PlayerAttack : MonoBehaviourPun
     protected Animator animator;
 
     public GameObject attackTarget { get;  private set; }  //À¯µµÅºÀ» À§ÇÑ Å¸°Ù
-    PlayerController playerController;
+    protected PlayerController playerController;
 
 
     private void Update()

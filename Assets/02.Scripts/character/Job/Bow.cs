@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using Photon.Pun;
 
-public class Bow : PlayerAttack, IPunObservable
+public class Bow : PlayerAttack//, IPunObservable
 { 
    
     private Transform firepos;
@@ -25,19 +25,14 @@ public class Bow : PlayerAttack, IPunObservable
 
     protected override IEnumerator Use()
     {
-        Debug.Log("Use 입장");
         animator.SetBool("Fire",false);
         arrowObj = Managers.Pool.MakeObj(arrowobj);
-        Debug.Log("풀생성");
         if (arrowObj != null)
         {
             arrow = arrowObj.GetComponent<Arrow>();
-            Debug.Log("스크립트 대입");
             arrowObj.transform.position = firepos.transform.position;
             arrowObj.transform.rotation = firepos.transform.rotation;
-            Debug.Log("포지션 로테이션 대입");
             arrowObj.SetActive(true);
-            Debug.Log("액티브 트루");
         }
         animator.SetTrigger("Attack");
 
@@ -46,15 +41,14 @@ public class Bow : PlayerAttack, IPunObservable
         {
             arrowObj.transform.position = firepos.transform.position;
             arrowObj.transform.rotation = firepos.transform.rotation;
-            if (!Managers.Input.fire)
+            if (playerController.isFire)
             {
 
-                arrow.GetComponent<PhotonView>().RPC("FireArrow", RpcTarget.AllBuffered,firepos);
-                //arrow.FireArrow(firepos);
+                arrow.FireArrow(firepos);
                 animator.SetBool("Fire", true);
                 attackDelay = 0;
                 isAttack = false;
-             
+                
                 break;
             }
 
@@ -94,19 +88,5 @@ public class Bow : PlayerAttack, IPunObservable
 
         yield return null;
     }
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.IsWriting)
-        {
-            stream.SendNext(arrowObj.transform.position);
-            stream.SendNext(arrowObj.transform.rotation);
-            stream.SendNext(arrowObj.activeSelf);
-        }
-        else
-        {
-            arrowObj.transform.position = (Vector3)stream.ReceiveNext();
-            arrowObj.transform.rotation = (Quaternion)stream.ReceiveNext();
-            arrowObj.SetActive((GameObject)stream.ReceiveNext());
-        }
-    }
+
 }

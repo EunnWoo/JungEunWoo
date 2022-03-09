@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class Arrow : MonoBehaviourPunCallbacks//, IPunObservable
+public class Arrow : MonoBehaviourPunCallbacks, IPunObservable
 {
     public float speed = 500f;
     private Rigidbody rigid;
@@ -32,13 +32,12 @@ public class Arrow : MonoBehaviourPunCallbacks//, IPunObservable
 
     }
 
-    [PunRPC]
     public void FireArrow(Transform firepos)
-    {
+    { 
         offset = firepos.position;
         rigid.AddForce(transform.right * speed);
-
     }
+
     [PunRPC]
     public void DisableArrow() 
     { 
@@ -85,19 +84,19 @@ public class Arrow : MonoBehaviourPunCallbacks//, IPunObservable
 
     }
 
-    //public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    //{
-    //    if (stream.IsWriting)
-    //    {
-    //        stream.SendNext(transform.position);
-    //        stream.SendNext(transform.rotation);
-    //        stream.SendNext(gameObject.activeSelf);
-    //    }
-    //    else
-    //    {
-    //        transform.position = (Vector3)stream.ReceiveNext();
-    //        transform.rotation = (Quaternion)stream.ReceiveNext();
-    //        gameObject.SetActive((GameObject)stream.ReceiveNext());
-    //    }
-    //}
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(transform.position);
+            stream.SendNext(transform.rotation);
+            stream.SendNext(gameObject.activeSelf);
+        }
+        else
+        {
+            transform.position = (Vector3)stream.ReceiveNext();
+            transform.rotation = (Quaternion)stream.ReceiveNext();
+            gameObject.SetActive((GameObject)stream.ReceiveNext());
+        }
+    }
 }

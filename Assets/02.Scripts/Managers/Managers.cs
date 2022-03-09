@@ -39,10 +39,10 @@ public class Managers : MonoBehaviourPun
     }
     private void Update()
     {
-        //if (photonView.IsMine == false && PhotonNetwork.IsConnected == true) { return; }
-            _mouse.OnUpdate();
-            _input.OnUpdate();
-            _game.OnUpdate();
+      
+        _mouse.OnUpdate();
+        _input.OnUpdate();
+        _game.OnUpdate();
 
     }
 
@@ -55,8 +55,12 @@ public class Managers : MonoBehaviourPun
             if (managers == null)
             {
                 managers = new GameObject { name = "@Managers" };
+                //PhotonNetwork.Instantiate("@Managers", Vector3.zero, Quaternion.identity);
                 managers.AddComponent<Managers>();
                 managers.GetOrAddComponent<PhotonView>();
+                managers.GetComponent<PhotonView>().observableSearch = PhotonView.ObservableSearch.AutoFindAll;
+
+
 
             }
 

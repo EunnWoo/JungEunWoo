@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-public class PlayerController : BaseController
+public class PlayerController : BaseController, IPunObservable
 {
 
     public Define.AttackType attackType { get; private set; }
@@ -20,14 +20,28 @@ public class PlayerController : BaseController
     float moveSpeed = 8f;
     public bool isJump { get; private set; }
     public bool isRoll { get; private set; }
-
+    public bool isFire { get; private set; }
     int _mask = (1 << (int)Layer.Item)
         | (1 << (int)Layer.Npc)
         | (1 << (int)Layer.Monster)
         | (1 << (int)Layer.Ground);
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(isFire);
+        }
+        else
+        {
+            isFire = (bool)stream.ReceiveNext();
+            
+
+        }
+    }
 
     public override void Init()
     {
+      //  if (photonView.IsMine == false && PhotonNetwork.IsConnected == true) { return; }
         if (playerAttack == null) playerAttack = GetComponent<PlayerAttack>();
         rigid = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
@@ -38,7 +52,9 @@ public class PlayerController : BaseController
     }
     protected override void UpdateMoving()
     {
+        
         if (photonView.IsMine == false && PhotonNetwork.IsConnected == true) { return; }
+//        Managers.Input.OnUpdate();
         if (!Managers.UI.isAction)
         {
             Move();
@@ -51,7 +67,7 @@ public class PlayerController : BaseController
     protected override void UpdateAttack()
     {
         if(photonView.IsMine == false && PhotonNetwork.IsConnected == true) { return; }
-      
+
         if (!Managers.UI.isAction)
         {
             OnAttack();
@@ -258,6 +274,7 @@ public class PlayerController : BaseController
                 case Define.MouseEvent.PointerDown:
 
                     attackType = Define.AttackType.NormalAttack;  // 일반공격
+                    isFire = false;
                     LookHitPoint(hit);
                     if (_lockTarget != null) // 이벤트 발생시 비어있지않다면 비어주고 다시 부여
                     {
@@ -278,6 +295,9 @@ public class PlayerController : BaseController
                     }
                     _lockTarget = hit.collider.gameObject;
 
+                    break;
+                case Define.MouseEvent.PointerUp:
+                    isFire = true;
                     break;
             }
 

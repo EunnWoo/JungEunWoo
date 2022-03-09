@@ -20,6 +20,7 @@ public abstract class BaseController : MonoBehaviourPun
 
     private void Update()
     {
+		
 		UpdateMoving();
 		UpdateAttack();
 	}
