@@ -7,6 +7,7 @@ public class StoreItem : MonoBehaviour, IPointerClickHandler
 {
     public Image itemImage;
     public Text itemName;
+    public Text itemDescrip;
     public ItemData itemData;
     public System.Action<ItemData> on;
 
@@ -17,6 +18,9 @@ public class StoreItem : MonoBehaviour, IPointerClickHandler
         //itemcode -> 아이템을 세팅.
         itemData = new ItemData(_itemcode, _itemCount);
         itemImage.sprite = ItemInfo.ins.GetItemInfoSpriteIcon(itemData.itemcode);
+        itemName.text = itemData.itemName;
+        itemDescrip.text = itemData.iteminfoBase.description;
+
 
         on = _on;
         

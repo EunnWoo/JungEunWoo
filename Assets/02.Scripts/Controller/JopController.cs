@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum JobInfo { COMMON, BOW, SWORD, MAGIC }
+public enum JobInfo { COMMON, BOW, SWORD, MAGIC , STORE}
 
 public class JopController : MonoBehaviour
 {
@@ -45,8 +45,17 @@ public class JopController : MonoBehaviour
             jobstring = "Magic";
             Weapons[4].SetActive(true);
         }
-        animator.runtimeAnimatorController = Managers.Resource.Instantiate_Ani(jobstring); // 직업에 맞는 애니메이터로 변경
-        gameObject.AddComponent(System.Type.GetType(jobstring)); // 직업에 맞는 스크립트 부여
+        else if (JobInfo.STORE == jobstate) // 상점오픈
+        {
+            Debug.Log("상점오픈");
+            UI_Store.ins.Show_Store();
+        }
+
+        if (jobstate != JobInfo.STORE)
+        {
+            animator.runtimeAnimatorController = Managers.Resource.Instantiate_Ani(jobstring); // 직업에 맞는 애니메이터로 변경
+            gameObject.AddComponent(System.Type.GetType(jobstring)); // 직업에 맞는 스크립트 부여
+        }
     }
   
 

@@ -23,6 +23,7 @@ public class TalkManager
         talkData.Add(1, new string[] {"궁수의 길을 걷겠는가?" , "쉽지 않은 길일거야.."} );
         talkData.Add(2, new string[] { "전사의 길을 걷겠는가?", "쉽지 않은 길일거야.." });
         talkData.Add(3, new string[] { "마법사의 길을 걷겠는가?", "쉽지 않은 길일거야.." });
+        talkData.Add(4, new string[] { "상점을 이용하시겠습니까?" });
         errorString = new string[] { "자네는 이미 직업이 있군"/*, "다시 한번 생각하고 오게나.."*/ };
 
     }

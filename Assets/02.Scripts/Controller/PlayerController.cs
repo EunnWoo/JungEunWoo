@@ -87,9 +87,18 @@ public class PlayerController : BaseController
                 {
                     if (_lockTarget.layer == (int)Layer.Item) //타겟의 레이어가 아이템이면
                     {
-                        Debug.Log("@@@ Eat item");
+                        //Debug.Log("@@@ Eat item");
                         TakeItem(_lockTarget);
                     }
+                    //else if(_lockTarget.layer == (int)Layer.Npc)
+                    //{
+                    //   ObjData _objData =  _lockTarget.GetComponent<ObjData>();
+                    //    if(_objData.id ==4)
+                    //    {
+                    //        Debug.Log("상점오픈");
+                    //    }
+                    //}
+
                     _lockTarget = null;
                     return;
                 }
@@ -101,7 +110,7 @@ public class PlayerController : BaseController
         }
     }
 
-    private void TakeItem(GameObject _itemGO)
+    private void TakeItem(GameObject _itemGO) //아이템 습득하는 스크립트
     {
         if (_itemGO != null) //      아이템이 있으면
         {
