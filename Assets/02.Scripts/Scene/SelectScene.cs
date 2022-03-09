@@ -21,7 +21,7 @@ public class SelectScene : BaseScene
 
         Managers.Resource.Instantiate("CameraReg").GetOrAddComponent<CameraFollow>().SetPlayer(player);
         //cameraFollow.gameObject.GetOrAddComponent<CameraFollow>().SetPlayer(player);
-      
+        Managers.Pool.Init();
         gameObject.GetOrAddComponent<CursorController>();
         portals = GameObject.FindObjectsOfType<Portal>();
 

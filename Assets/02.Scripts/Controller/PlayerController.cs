@@ -204,7 +204,7 @@ public class PlayerController : BaseController
                 {
                     playerAttack.AttackTacrgetSet(_lockTarget);
                     _lockTarget = null;
-                    playerAttack.OnAttack();
+                    playerAttack.photonView.RPC("OnAttack", Photon.Pun.RpcTarget.AllBuffered);
 
                     return;
                 }
@@ -218,7 +218,7 @@ public class PlayerController : BaseController
                 if (playerAttack == null) return;
                 playerAttack.AttackTacrgetSet(_lockTarget);
                 _lockTarget = null;
-                playerAttack.OnAttack();
+                playerAttack.photonView.RPC("OnAttack", Photon.Pun.RpcTarget.AllBuffered);
 
             }
         }

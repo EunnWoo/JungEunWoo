@@ -64,7 +64,7 @@ public class Managers : MonoBehaviourPun
             s_instance = managers.GetComponent<Managers>();
 
 
-            s_instance._pool.Init();
+//            s_instance._pool.Init();
             s_instance._talk.Init();
             s_instance._game.Init();
 

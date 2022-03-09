@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class Arrow : MonoBehaviour, IPunObservable
+public class Arrow : MonoBehaviourPunCallbacks//, IPunObservable
 {
     public float speed = 500f;
     private Rigidbody rigid;
@@ -27,18 +27,19 @@ public class Arrow : MonoBehaviour, IPunObservable
     {
         if ((Vector3.Distance(transform.position, offset) >= 20f))//사정거리 벗어나면
         {
-            DisableArrow();
+            photonView.RPC("DisableArrow", RpcTarget.AllBuffered);
         }
 
     }
 
+    [PunRPC]
     public void FireArrow(Transform firepos)
     {
         offset = firepos.position;
         rigid.AddForce(transform.right * speed);
 
     }
-  
+    [PunRPC]
     public void DisableArrow() 
     { 
             gameObject.SetActive(false);
@@ -84,8 +85,19 @@ public class Arrow : MonoBehaviour, IPunObservable
 
     }
 
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        throw new System.NotImplementedException();
-    }
+    //public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    //{
+    //    if (stream.IsWriting)
+    //    {
+    //        stream.SendNext(transform.position);
+    //        stream.SendNext(transform.rotation);
+    //        stream.SendNext(gameObject.activeSelf);
+    //    }
+    //    else
+    //    {
+    //        transform.position = (Vector3)stream.ReceiveNext();
+    //        transform.rotation = (Quaternion)stream.ReceiveNext();
+    //        gameObject.SetActive((GameObject)stream.ReceiveNext());
+    //    }
+    //}
 }

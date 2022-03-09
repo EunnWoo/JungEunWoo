@@ -56,7 +56,7 @@ public class JopController : MonoBehaviourPun
 
     public void JobClick()
     {
-        photonView.RPC("JobChoice", Photon.Pun.RpcTarget.MasterClient);
+        photonView.RPC("JobChoice", Photon.Pun.RpcTarget.AllBuffered);
     }
     private void OnTriggerEnter(Collider other)
     {

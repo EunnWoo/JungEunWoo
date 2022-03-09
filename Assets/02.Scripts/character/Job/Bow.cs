@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Photon.Pun;
 
-public class Bow : PlayerAttack
-{
+public class Bow : PlayerAttack, IPunObservable
+{ 
    
     private Transform firepos;
 
     private string arrowobj;
     private Arrow arrow;
- 
+    GameObject arrowObj;
     
     private void Awake()
     {
@@ -24,14 +25,19 @@ public class Bow : PlayerAttack
 
     protected override IEnumerator Use()
     {
+        Debug.Log("Use 입장");
         animator.SetBool("Fire",false);
-        var arrowObj = Managers.Pool.MakeObj(arrowobj);
+        arrowObj = Managers.Pool.MakeObj(arrowobj);
+        Debug.Log("풀생성");
         if (arrowObj != null)
         {
             arrow = arrowObj.GetComponent<Arrow>();
+            Debug.Log("스크립트 대입");
             arrowObj.transform.position = firepos.transform.position;
             arrowObj.transform.rotation = firepos.transform.rotation;
+            Debug.Log("포지션 로테이션 대입");
             arrowObj.SetActive(true);
+            Debug.Log("액티브 트루");
         }
         animator.SetTrigger("Attack");
 
@@ -42,8 +48,9 @@ public class Bow : PlayerAttack
             arrowObj.transform.rotation = firepos.transform.rotation;
             if (!Managers.Input.fire)
             {
-            
-                arrow.FireArrow(firepos);
+
+                arrow.GetComponent<PhotonView>().RPC("FireArrow", RpcTarget.AllBuffered,firepos);
+                //arrow.FireArrow(firepos);
                 animator.SetBool("Fire", true);
                 attackDelay = 0;
                 isAttack = false;
@@ -86,5 +93,20 @@ public class Bow : PlayerAttack
         isAttack = false;
 
         yield return null;
+    }
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(arrowObj.transform.position);
+            stream.SendNext(arrowObj.transform.rotation);
+            stream.SendNext(arrowObj.activeSelf);
+        }
+        else
+        {
+            arrowObj.transform.position = (Vector3)stream.ReceiveNext();
+            arrowObj.transform.rotation = (Quaternion)stream.ReceiveNext();
+            arrowObj.SetActive((GameObject)stream.ReceiveNext());
+        }
     }
 }

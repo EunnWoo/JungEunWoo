@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class PlayerAttack : MonoBehaviour
+using Photon.Pun;
+using Photon.Realtime;
+public class PlayerAttack : MonoBehaviourPun
 {
     
     public float range { get; protected set; }
@@ -35,7 +36,8 @@ public class PlayerAttack : MonoBehaviour
         canMove = true;
         animator.SetBool("canMove",canMove);
     }
-
+   
+    [PunRPC]
     public virtual void OnAttack()
     {
         if (isAttackReady && !playerController.isJump&&!playerController.isRoll && !isAttack)
