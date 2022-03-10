@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class FireBall : MonoBehaviour
+using Photon.Pun;
+public class FireBall : MonoBehaviourPun
 {
     Transform tr;
     Rigidbody rigid;

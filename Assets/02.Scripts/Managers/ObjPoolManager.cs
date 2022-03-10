@@ -34,9 +34,9 @@ public class ObjPoolManager
 
         for (int i =0; i< arrow.Length;i++)
         {
-       //     arrow[i] = Managers.Resource.Instantiate("Arrow", objPoolManager);
-            arrow[i] = PhotonNetwork.Instantiate("Arrow", objPoolManager.position, Quaternion.identity);
-            arrow[i].transform.SetParent(objPoolManager.transform);
+            arrow[i] = Managers.Resource.Instantiate("Arrow", objPoolManager);
+            //arrow[i] = PhotonNetwork.Instantiate("Arrow", objPoolManager.position, Quaternion.identity);
+           // arrow[i].transform.SetParent(objPoolManager.transform);
 
             arrow[i].SetActive(false);
         }

@@ -45,7 +45,7 @@ GameObject:
   m_Component:
   - component: {fileID: 472107036}
   m_Layer: 0
-  m_Name: firepos
+  m_Name: firepos5
   m_TagString: FirePos
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ GameObject:
   m_Component:
   - component: {fileID: 824766383}
   m_Layer: 0
-  m_Name: firepos
+  m_Name: firepos2
   m_TagString: FirePos
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -105,7 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 912682066}
   m_Layer: 0
-  m_Name: firepos
+  m_Name: firepos4
   m_TagString: FirePos
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -135,7 +135,7 @@ GameObject:
   m_Component:
   - component: {fileID: 942016111}
   m_Layer: 0
-  m_Name: firepos
+  m_Name: firepos1
   m_TagString: FirePos
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -165,7 +165,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2092714372}
   m_Layer: 0
-  m_Name: firepos
+  m_Name: firepos3
   m_TagString: FirePos
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -412,6 +412,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
+  - {fileID: 250242226}
   - {fileID: 2064552910534118024}
   - {fileID: 8825963836780625503}
   sceneViewId: 0

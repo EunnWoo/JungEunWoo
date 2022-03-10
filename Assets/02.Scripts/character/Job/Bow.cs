@@ -26,7 +26,7 @@ public class Bow : PlayerAttack//, IPunObservable
     protected override IEnumerator Use()
     {
         animator.SetBool("Fire",false);
-        //arrowObj = Managers.Pool.MakeObj(arrowobj);
+        arrowObj = Managers.Pool.MakeObj(arrowobj);
 
         for(int i =0; i<Managers.Pool.arrow.Length;i++)
         {
@@ -53,10 +53,7 @@ public class Bow : PlayerAttack//, IPunObservable
 
             if (playerController.isFire)
             {
-                // arrow.photonView.RPC("FireArrow", RpcTarget.AllBuffered, firepos);
                 arrow.FireArrow(firepos);
-              //  arrowObj.GetComponent<Rigidbody>().AddForce(transform.forward * 1000);
-               // arrowObj.GetComponent<PhotonView>().RPC("ShotArrow", RpcTarget.AllBuffered);
                 animator.SetBool("Fire", true);
                 attackDelay = 0;
                 isAttack = false;

@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Photon.Pun;
 public class Magic : PlayerAttack
 {
     [SerializeField]
-    private GameObject[] fireBallPos;
-
+    public Transform[] fireBallPos;
+    [SerializeField]
+    GameObject go;
 
     private int hasFireBall;
     private string fireballobj;
@@ -14,9 +15,10 @@ public class Magic : PlayerAttack
     private FireBall fireball;
     private void Awake()
     {
-
-
-        fireBallPos = GameObject.FindGameObjectsWithTag("FirePos");
+       // go = Util.FindChild(gameObject, "FireBallGroup",true);
+        //fireBallPos = go.GetComponentsInChildren<GameObject>();
+        fireBallPos = Util.FindChild(gameObject, "FireBallGroup", true).GetComponentsInChildren<Transform>();
+        //fireBallPos = GameObject.FindGameObjectsWithTag("FirePos");
         fireballobj = "FireBall";
         hasFireBall = 0;
 
@@ -44,16 +46,18 @@ public class Magic : PlayerAttack
                 if (fireBallObj != null)
                 {
                     fireball = fireBallObj.GetComponent<FireBall>();
-                    fireBallObj.transform.position = fireBallPos[hasFireBall].transform.position;
-                    fireBallObj.transform.rotation = fireBallPos[hasFireBall].transform.rotation;
-                    fireball.FireFireBall(fireBallObj.transform);
+                    fireBallObj.transform.position = fireBallPos[hasFireBall].position;
+                    fireBallObj.transform.rotation = fireBallPos[hasFireBall].rotation;
+
+                  //  fireball.photonView.RPC("FireFireBall", RpcTarget.AllBuffered, fireBallObj.transform);
+                  //  fireball.FireFireBall(fireBallObj.transform);
                     fireBallObj.SetActive(true);
                     hasFireBall++;
                 }
 
             }
 
-            if (!Managers.Input.fire) // 발사
+            if (playerController.isFire) // 발사
             {
 
                 animator.SetBool("Fire", true);
