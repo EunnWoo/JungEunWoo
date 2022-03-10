@@ -51,16 +51,17 @@ public class GameManager
         if (Input.GetKeyDown(KeyCode.I))
         {
             UI_Inventory ui_inventory = GameObject.FindObjectOfType<UI_Inventory>();
-            if (ui_inventory == null)
-            {
-                Managers.UI.ShowSceneUI<UI_Inventory>();
-            }
-            else
-            {
+            //if (ui_inventory == null)
+            //{
+            //    Managers.UI.ShowSceneUI<UI_Inventory>();
+            //}
+            //else
+            //{
                 ui_inventory.OpenInventory();
-            }
-
+            //
         }
+
+        
     }
 
 }
