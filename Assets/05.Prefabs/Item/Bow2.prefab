@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7551559358133591340
+--- !u!1 &169924782841766159
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7551559358133551372}
-  - component: {fileID: 7551559358134845740}
-  - component: {fileID: 7551559358135845868}
-  - component: {fileID: 4704428597030141153}
+  - component: {fileID: 169924782841766164}
+  - component: {fileID: 169924782841766163}
+  - component: {fileID: 169924782841766162}
+  - component: {fileID: 169924782841766161}
+  - component: {fileID: 169924782841766160}
   m_Layer: 6
-  m_Name: Sword
+  m_Name: Bow2
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7551559358133551372
+--- !u!4 &169924782841766164
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7551559358133591340}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_GameObject: {fileID: 169924782841766159}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.93, y: 1.85, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7551559358134845740
+--- !u!33 &169924782841766163
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7551559358133591340}
-  m_Mesh: {fileID: 4300000, guid: 87f30c7fed0ef9b4ca64d17a56203a1e, type: 3}
---- !u!23 &7551559358135845868
+  m_GameObject: {fileID: 169924782841766159}
+  m_Mesh: {fileID: 4300000, guid: 9c128a2d01aea0540a943561bd28e74c, type: 3}
+--- !u!23 &169924782841766162
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7551559358133591340}
+  m_GameObject: {fileID: 169924782841766159}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -72,7 +73,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
+  m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -82,16 +83,54 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4704428597030141153
+--- !u!65 &169924782841766161
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169924782841766159}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.15413086, y: 1.8125256, z: 0.60674924}
+  m_Center: {x: 0, y: 0, z: -0.07796257}
+--- !u!114 &169924782841766160
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7551559358133591340}
+  m_GameObject: {fileID: 169924782841766159}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5b65e69e19b0d8448414780e17f55ef, type: 3}
+  m_Script: {fileID: 11500000, guid: e2e67a62a8c08ee42873fe5ea69b7b97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: cdcdeebe690825c4c87945ea74d15361, type: 2}
+  itemcode: 20005
+  count: 1
+  itemData:
+    itemcode: 20005
+    iteminfoBase:
+      itemcode: 0
+      subcategory: 0
+      equpslot: 0
+      itemname: 
+      activate: 0
+      toplist: 0
+      grade: 0
+      discount: 0
+      icon: 
+      playerlv: 0
+      multistate: 0
+      gamecost: 0
+      cashcost: 0
+      buyamount: 0
+      sellcost: 0
+      description: 
+      itemType: 0
+    itemCount: 0
+    upgradeCount: 0
+  TurnSpeed: 90
+  axis: {x: 0, y: 1, z: 0}

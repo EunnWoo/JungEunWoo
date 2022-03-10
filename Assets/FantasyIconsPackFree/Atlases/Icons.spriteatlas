@@ -51,6 +51,7 @@ SpriteAtlas:
   m_PackedSprites:
   - {fileID: 21300000, guid: ba277220d79b8d34a99a39932ea08859, type: 3}
   - {fileID: 21300000, guid: 4eaffc20e3e780a4aaab6483f5d6190d, type: 3}
+  - {fileID: 21300000, guid: 9585bd400941b6741ad0a32d5854ced8, type: 3}
   - {fileID: 21300000, guid: 6d1598d0e92b2e24c83ccb8f9ed26329, type: 3}
   - {fileID: 21300000, guid: f84b6dd0347a94f4a9a69ac911fc1f9d, type: 3}
   - {fileID: 21300000, guid: d8895a01c025a76418de5bf40b0cd906, type: 3}
@@ -60,7 +61,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 139539719e94c5f43aa744cfda6d56b6, type: 3}
   - {fileID: 21300000, guid: 0e1e758107246b04ba166904df626584, type: 3}
   - {fileID: 21300000, guid: 41f927d1a0d01d74b8f392dc9d00a066, type: 3}
-  - {fileID: 21300000, guid: 108c63f11f514ee4baf0ae61ed6ee363, type: 3}
   - {fileID: 21300000, guid: 058bff32ace94c34cae0a8f6914f87a5, type: 3}
   - {fileID: 21300000, guid: 7250044204fe1ee459fac663e7cdb93a, type: 3}
   - {fileID: 21300000, guid: 268837527922b5146be51e6393fef2e5, type: 3}
@@ -70,6 +70,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 16c1bab30244e46438e1968dda34bd70, type: 3}
   - {fileID: 21300000, guid: 9b818d245957cad458722c2d2aff7ed7, type: 3}
   - {fileID: 21300000, guid: 83ab2434deb511a4b8aabd90f5d9de60, type: 3}
+  - {fileID: 21300000, guid: b687fc34a67e4154597da6cddd1ca168, type: 3}
   - {fileID: 21300000, guid: e76b30749d6bac4489c3ccf1ccb2c8fc, type: 3}
   - {fileID: 21300000, guid: b80babc45dc354c4684066b6c19565ad, type: 3}
   - {fileID: 21300000, guid: 668df6f48e59c80439fa587624e5a84d, type: 3}
@@ -85,12 +86,12 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 136c9f47fc323df4ba024baf251f04b6, type: 3}
   - {fileID: 21300000, guid: b0ab5287685813a41bacfc4ec20baac6, type: 3}
   - {fileID: 21300000, guid: 8661c2c7e325a33438f06b02458fd199, type: 3}
+  - {fileID: 21300000, guid: f74b56e726a1e6244b14bcb8910855f0, type: 3}
   - {fileID: 21300000, guid: 86add05857f650b42a52e52de2d6dc3b, type: 3}
   - {fileID: 21300000, guid: ed5c3e58951bf304c943dcb7430c42c7, type: 3}
   - {fileID: 21300000, guid: f47fa1a8e8c158a42b11fd455234581d, type: 3}
   - {fileID: 21300000, guid: 2d260bd85e5c45747aa86cf3c0975908, type: 3}
   - {fileID: 21300000, guid: 8b92f169cf922fd4485c0cd34fe1a2d3, type: 3}
-  - {fileID: 21300000, guid: 11fcd679d2a042349b976f4aadbf9edb, type: 3}
   - {fileID: 21300000, guid: 7eaf3bc9665b03740be9349771cf2c9a, type: 3}
   - {fileID: 21300000, guid: 8bcb07d9c2c4c484caf61c33f48e3dd8, type: 3}
   - {fileID: 21300000, guid: be57094a84846274f8365205b4fdec95, type: 3}
@@ -125,7 +126,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 53e5b1aea071ba648b23bb563877f54d, type: 3}
   - {fileID: 21300000, guid: ef419fce13384654bab5cbf27232d640, type: 3}
   - {fileID: 21300000, guid: 7c0a062fdc5ea0149a863d771811d51e, type: 3}
-  - {fileID: 21300000, guid: 5bfb766ff8d9482479248b2c48378889, type: 3}
   - {fileID: 21300000, guid: 6b5d537fb6d2b8b4abee9de72ec7c504, type: 3}
   - {fileID: 21300000, guid: a2bcc88f94981eb4d8eceb8d65771717, type: 3}
   - {fileID: 21300000, guid: fa697c9f9ee44564fa6d5414bd536b3e, type: 3}
@@ -133,6 +133,8 @@ SpriteAtlas:
   m_PackedSpriteNamesToIndex:
   - Apple (Type=Supplies, Collection=Pro)
   - SteelAxe (Type=Weapon, Collection=Basic, Tags=Axe&2H)
+  - AriostinGreatsword (Type=Weapon, Collection=AbandonedWorkshop, Tags=Sword&2H)
+    1
   - VikingAxe3 (Type=Weapon, Collection=Vikings, Tags=Axe&1H)
   - SilverRing
   - GateCrusher (Type=Weapon, Collection=Pro, Tags=Hammer&2H)
@@ -142,7 +144,6 @@ SpriteAtlas:
   - DestroyerAxe (Type=Weapon, Collection=SpellMasters, Tags=Axe&2H)
   - ManticoreArmor (Type=Gloves, Collection=Pro)
   - ManticoreArmor (Type=Armor, Collection=Pro)
-  - RedwoodBow (Type=Weapon, Collection=AbandonedWorkshop, Tags=Bow&2H)
   - GreyKnight (Type=Gloves, Collection=SpellMasters)
   - SwampWarriorSpear (Type=Weapon, Collection=SwampLords, Tags=Spear&1H)
   - WyvernHornBow (Type=Weapon, Collection=AbandonedWorkshop, Tags=Bow&2H)
@@ -152,6 +153,7 @@ SpriteAtlas:
   - GreyKnight (Type=Boots, Collection=SpellMasters)
   - WoodenShield2 (Type=Shield, Collection=Vikings)
   - HawkHelm (Type=Helmet, Collection=Basic)
+  - RedwoodBow (Type=Weapon, Collection=AbandonedWorkshop, Tags=Bow&2H) 1
   - BronzeRing
   - BattleguardHelm (Type=Helmet, Collection=AbandonedWorkshop)
   - BattleBow (Type=Weapon, Collection=Basic, Tags=Bow&2H)
@@ -167,12 +169,12 @@ SpriteAtlas:
   - HardwoodWand (Type=Weapon, Collection=Basic, Tags=Wand&1H)
   - TwoHandedWoodenMace (Type=Weapon, Collection=Basic, Tags=Hammer&2H)
   - GoldenRing
+  - SandHealerStaff1 (Type=Weapon, Collection=SandLords, Tags=Staff&1H) 1
   - HunterKnife [Paint] (Type=Weapon, Collection=Basic, Tags=Dagger&1H)
   - HunterBow (Type=Weapon, Collection=Basic, Tags=Bow&2H)
   - WoodenClub (Type=Weapon, Collection=Pro, Tags=Hammer&1H)
   - DarkSword (Type=Weapon, Collection=Samurai, Tags=Sword&2H)
   - WyvernHornBow (Type=Arrow, Collection=AbandonedWorkshop)
-  - SandHealerStaff1 (Type=Weapon, Collection=SandLords, Tags=Staff&1H)
   - WoodcutterAxe (Type=Weapon, Collection=Basic, Tags=Axe&1H)
   - MagicSilverRing
   - BanditLightArmor [Paint] (Type=Boots, Collection=Basic)
@@ -207,7 +209,6 @@ SpriteAtlas:
   - MarauderBow (Type=Weapon, Collection=SpellMasters, Tags=Bow&2H)
   - BanditLightArmor [Paint] (Type=Armor, Collection=Basic)
   - Scout [Paint] (Type=Boots, Collection=Basic)
-  - AriostinGreatsword (Type=Weapon, Collection=AbandonedWorkshop, Tags=Sword&2H)
   - DarkMountain (Type=Gloves, Collection=Thrones)
   - ButcherKnife (Type=Weapon, Collection=AbandonedWorkshop, Tags=Sword&2H)
   - MountainSword [Paint] (Type=Weapon, Collection=Thrones, Tags=Sword&2H)
