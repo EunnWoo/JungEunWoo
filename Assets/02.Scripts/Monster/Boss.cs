@@ -32,8 +32,8 @@ public class Boss : MonsterController
         isAttackReady = attackRate < attackDelay;
         
         if(isAttackReady){
-            switch(Random.Range(0,2)){
-                case 0:
+            switch(Random.Range(5,7)){
+                case 5:
                 for(int i=1; i<bombSpawn.Length; i++){
                     BombSlime = Managers.Pool.MakeObj(bombSlime);
                     BombSlime.transform.position = bombSpawn[i].transform.position;
@@ -43,9 +43,10 @@ public class Boss : MonsterController
                     attackDelay = 0;
                 }
                 break;
-                case 1:
+                case 6:
+                Anim.SetInteger("state",6);
                 break;
-                case 2:
+                case 7:
                 break;
             }
         }
