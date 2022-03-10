@@ -40,7 +40,6 @@ public class MonsterController : BaseController
     }
     protected virtual void PlayerScan()// --> 상속받은 monster들 마다 스캔방식 다르게  ex) rayhit(보는 방향)골드메탈 참고 Or 적과 플레이어 distance 값 받아서 범위 스캔
     {
-        Debug.Log(player);
         //ex RaycastHit[] rayHits = Physics.SphereCastAll(transform.position,반지름 , tarnsform.forward, scanRange, LayMask.GetMask("Player"));
         //ex 
         if (player == null)

@@ -99,8 +99,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lockTarget: {fileID: 0}
   CurrentHealth: 0
-  limitRange_Min: {x: 0, y: 0, z: 0}
-  limitRange_Max: {x: 0, y: 0, z: 0}
+  limitRange_Min: {x: -20, y: 0, z: -20}
+  limitRange_Max: {x: 20, y: 0, z: 20}
+  monsterState: 0
   player: {fileID: 0}
   _scanRange: 10
   _attackRange: 4
