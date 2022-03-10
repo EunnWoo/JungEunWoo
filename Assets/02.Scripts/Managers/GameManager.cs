@@ -14,7 +14,7 @@ public class GameManager
     public bool isOpenEquipment = false; //장비창 활성화 여부
 
     GameObject _player;
-
+    public string _name { get; private set; }
     public GameObject GetPlayer() { return _player; }
 
 
@@ -24,12 +24,16 @@ public class GameManager
         
 
     }
+    public void SetName(string name) {  _name = name;  }
+    
     public GameObject Spawn(string path, Transform parent = null)
     {
        
         GameObject go = Managers.Resource.Instantiate(path, parent);
-       
-       _player = go;
+        
+        _player = go;
+        
+        
 
         return go;
     }

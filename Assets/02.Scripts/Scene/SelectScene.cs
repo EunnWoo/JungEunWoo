@@ -18,6 +18,7 @@ public class SelectScene : BaseScene
         SceneType = SceneState.Select;
 
         player = Managers.Game.Spawn("Player");
+        player.name = Managers.Game._name;
         Camera.main.gameObject.GetOrAddComponent<CameraFollow>().SetPlayer(player);
         gameObject.GetOrAddComponent<CursorController>();
         portals = GameObject.FindObjectsOfType<Portal>();
