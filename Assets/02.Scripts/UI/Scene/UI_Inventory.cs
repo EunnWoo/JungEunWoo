@@ -284,6 +284,7 @@ public class UI_Inventory : UI_Scene
     {
         yield return new WaitForSeconds(0.3f);
         itemInfo.SetActive(true);
+        StoreItem.ins.itemDescrip.text = StoreItem.ins.itemData.iteminfoBase.description;
         //ItemInfo.GetComponentInChildren<Text>().text = 
     }
 

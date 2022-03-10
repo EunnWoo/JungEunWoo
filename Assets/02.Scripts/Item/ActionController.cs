@@ -33,8 +33,6 @@ public class ActionController : MonoBehaviour
         // actionText = GameObject.Find("Canvas").transform.Find("ShowText").GetComponent<Text>();
         Managers.Mouse.MouseAction -= OnMouseEvent;
         Managers.Mouse.MouseAction += OnMouseEvent;
-
-
     }
     void Update()
     {
@@ -42,14 +40,12 @@ public class ActionController : MonoBehaviour
     }
     void OnMouseEvent(Define.MouseEvent evt)
     {
-
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         bool raycastHit = Physics.Raycast(ray, out hit, 100.0f, _mask);
 
         if (raycastHit)
         {
-
             switch (evt)
             {
 

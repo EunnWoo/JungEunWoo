@@ -5,6 +5,13 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 public class StoreItem : MonoBehaviour, IPointerClickHandler
 {
+    #region sigletone
+    public static StoreItem ins;
+    private void Awake()
+    {
+        ins = this;
+    }
+    #endregion
     public Image itemImage;
     public Text itemName;
     public Text itemDescrip;

@@ -13,18 +13,21 @@ public enum Layer
 public class CursorController : MonoBehaviour
 {
 	
-	int _mask = (1 << (int)Layer.Npc) | (1 << (int)Layer.Monster) | (1 << (int)Layer.Ground);
+	int _mask = (1 << (int)Layer.Npc) | (1 << (int)Layer.Monster) | (1 << (int)Layer.Ground) | (1 << (int)Layer.Item);
 
 	Texture2D _attackIcon;
 	Texture2D _handIcon;
 	Texture2D _talkIcon;
-	enum CursorType
+    Texture2D _takeItem;
+
+    enum CursorType
 	{
 		None,
 		Attack,
 		Hand,
-		Talk
-	}
+		Talk,
+        TakeItem
+    }
 
 	CursorType _cursorType = CursorType.None;
 
@@ -33,7 +36,8 @@ public class CursorController : MonoBehaviour
 		_attackIcon = Managers.Resource.Load<Texture2D>("Cursor/Attack");
 		_handIcon = Managers.Resource.Load<Texture2D>("Cursor/Hand");
 		_talkIcon = Managers.Resource.Load<Texture2D>("Cursor/TalkNPC");
-	}
+        _takeItem = Managers.Resource.Load<Texture2D>("Cursor/TakeItem");
+    }
 
 	void Update()
 	{
@@ -55,6 +59,7 @@ public class CursorController : MonoBehaviour
 					_cursorType = CursorType.Attack;
 				}
 			}
+
 			else if(hit.collider.gameObject.layer ==(int)Layer.Npc)
 			{
 				if (_cursorType != CursorType.Talk)
@@ -64,7 +69,18 @@ public class CursorController : MonoBehaviour
 					_cursorType = CursorType.Talk;
 				}
 			}
-			else
+
+            else if (hit.collider.gameObject.layer == (int)Layer.Item)
+            {
+                if (_cursorType != CursorType.TakeItem)
+                {
+
+                    Cursor.SetCursor(_takeItem, new Vector2(_takeItem.width / 3, 0), CursorMode.Auto);
+                    _cursorType = CursorType.TakeItem;
+                }
+            }
+
+            else
             {
 				if (_cursorType != CursorType.Hand)
 				{
