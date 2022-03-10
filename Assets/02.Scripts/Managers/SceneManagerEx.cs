@@ -1,8 +1,8 @@
 //using System.Collections;
 //using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.SceneManagement;
-using Photon.Pun;
+using UnityEngine.SceneManagement;
+
 public class SceneManagerEx
 {
     public BaseScene CurrentScene { get { return GameObject.FindObjectOfType<BaseScene>(); } }
@@ -16,8 +16,8 @@ public class SceneManagerEx
     public void LoadScene(SceneState type)
     {
         Managers.Scene.Clear();
-        PhotonNetwork.LoadLevel(GetSceneName(type));
-   //     SceneManager.LoadScene(GetSceneName(type)); // SceneManager는 UnityEngine의 SceneManager
+   
+        SceneManager.LoadScene(GetSceneName(type)); // SceneManager는 UnityEngine의 SceneManager
     }
 
     public void Clear()

@@ -6,10 +6,12 @@ public class Sword : PlayerAttack
 {
 
 
+    private float charge;
 
     private void Awake()
     {
-        attackRate = 0.4f;
+        attackRate = 0.3f;
+        skillRate = 10f;
         range = 2.5f;
 
     }
@@ -18,7 +20,6 @@ public class Sword : PlayerAttack
     {
 
         animator.SetTrigger("Attack");
-        Debug.Log("swordattack");
         isAttack = false;
         attackDelay = 0;
         yield return null;
@@ -27,13 +28,24 @@ public class Sword : PlayerAttack
     protected override IEnumerator Skill()
     {
         animator.SetTrigger("IsSkill");
-
-        if(Input.GetMouseButtonUp(1))
+        while (true)
         {
-            animator.SetTrigger("Fire");
+            charge += Time.deltaTime;
+
+            if (Input.GetMouseButtonUp(1) || charge >=5f)
+            {
+                animator.SetTrigger("Fire");
+
+                skillDelay = 0;
+                charge = 0;
+                isAttack = false;
+
+                break;
+
+            }
+            yield return null;
         }
-
-
-        yield return null;
+        
     }
+
 }

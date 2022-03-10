@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using Photon.Pun;
-public abstract class UI_Base : MonoBehaviourPunCallbacks
+public abstract class UI_Base : MonoBehaviour
 {
 
     Dictionary<Type, UnityEngine.Object[]> _objects = new Dictionary<Type, UnityEngine.Object[]>(); // Å°°ª/ ¹ë·ù
@@ -63,6 +62,7 @@ public abstract class UI_Base : MonoBehaviourPunCallbacks
                 evt.OnDragHandler -= action;
                 evt.OnDragHandler += action;
                 break;
+
             case Define.UIEvent.OnPointer:
                 evt.OnPointerHandler -= action;
                 evt.OnPointerHandler += action;

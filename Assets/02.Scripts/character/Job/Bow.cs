@@ -17,6 +17,7 @@ public class Bow : PlayerAttack
         firepos = Util.FindChild(gameObject, "Firepos", true).transform;
         arrowobj = "Arrow";  
         range = 10.0f;
+        skillRate = 10f;
         attackRate = 0.65f;
         
     }

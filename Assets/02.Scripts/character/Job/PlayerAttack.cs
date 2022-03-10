@@ -9,6 +9,9 @@ public class PlayerAttack : MonoBehaviour
     public bool isAttackReady { get; protected set; } // 공격 가능
     public float attackDelay { get; protected set; } //  딜레이 계산
     public float attackRate { get; protected set; }  // 쿨타임 & 공속
+    public bool isSkillReady { get; protected set; } // 공격 가능
+    public float skillDelay { get; protected set; } //  딜레이 계산
+    public float skillRate { get; protected set; }  // 쿨타임 & 공속
     public bool canMove { get; protected set; }
     public bool isAttack { get; protected set; }
     protected Animator animator;
@@ -21,6 +24,10 @@ public class PlayerAttack : MonoBehaviour
     {
         attackDelay += Time.deltaTime;
         isAttackReady = attackRate < attackDelay;
+
+        skillDelay += Time.deltaTime;
+        isSkillReady = skillRate < skillDelay;
+
         canMove = animator.GetBool("canMove");
 
        
@@ -38,16 +45,16 @@ public class PlayerAttack : MonoBehaviour
 
     public virtual void OnAttack()
     {
-        if (isAttackReady && !playerController.isJump&&!playerController.isRoll && !isAttack)
+        if ( !playerController.isJump&&!playerController.isRoll && !isAttack)
         {
             isAttack = true;
 
-            if (playerController.attackType == Define.AttackType.NormalAttack)
+            if (isAttackReady && playerController.attackType == Define.AttackType.NormalAttack)
             {
                 StopCoroutine(Use());
                 StartCoroutine(Use());
             }
-            else if(playerController.attackType == Define.AttackType.SkillAttack)
+            else if(isSkillReady &&playerController.attackType == Define.AttackType.SkillAttack)
             {
                 
                 StopCoroutine(Skill());

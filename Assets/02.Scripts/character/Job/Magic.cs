@@ -22,6 +22,7 @@ public class Magic : PlayerAttack
 
         range = 10.0f;
         attackRate = 0.8f;
+        skillRate = 10f;
 
     }
 
@@ -77,12 +78,7 @@ public class Magic : PlayerAttack
 
         Managers.Resource.Instantiate("RotatorFireBall");
 
-
-
-
-
-
-        attackDelay = 0;
+        skillDelay = 0;
         isAttack = false;
 
         yield return null;

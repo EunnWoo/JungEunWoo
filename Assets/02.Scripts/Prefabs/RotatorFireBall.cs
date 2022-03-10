@@ -13,7 +13,7 @@ public class RotatorFireBall : MonoBehaviour
     {
         playerAttack = Managers.Game.GetPlayer().GetComponent<PlayerAttack>();
         particleObject = GetComponent<ParticleSystem>();
-        transform.position = playerAttack.attackTarget.transform.position;
+//        transform.position = playerAttack.attackTarget.transform.position;
 
     //  particleObject.emission.SetBursts(new ParticleSystem.Burst[] { new ParticleSystem.Burst(6.3f,200) });
         
@@ -21,6 +21,7 @@ public class RotatorFireBall : MonoBehaviour
     private void Update()
     {
         //Debug.Log(particleObject.time); 6.3초되면 데미지 들어가게 하는 함수 실행
+        transform.position = playerAttack.attackTarget.transform.position;
     }
 
 }
