@@ -35,6 +35,12 @@ public class Arrow : MonoBehaviourPunCallbacks, IPunObservable
     public void FireArrow(Transform firepos)
     { 
         offset = firepos.position;
+        photonView.RPC("ShotArrow", RpcTarget.AllBuffered);
+
+    }
+    [PunRPC]
+    public void ShotArrow()
+    {
         rigid.AddForce(transform.right * speed);
     }
 
@@ -58,21 +64,21 @@ public class Arrow : MonoBehaviourPunCallbacks, IPunObservable
         
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        GameObject otherObject = collision.gameObject;
-            // scale 변경 방지용 쿠션 parent
-        GameObject sharedParent = new GameObject("Father");
-        sharedParent.transform.position = otherObject.transform.position;
-        sharedParent.transform.rotation = otherObject.transform.rotation;
-        sharedParent.transform.SetParent(otherObject.gameObject.transform);
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    GameObject otherObject = collision.gameObject;
+    //        // scale 변경 방지용 쿠션 parent
+    //    GameObject sharedParent = new GameObject("Father");
+    //    sharedParent.transform.position = otherObject.transform.position;
+    //    sharedParent.transform.rotation = otherObject.transform.rotation;
+    //    sharedParent.transform.SetParent(otherObject.gameObject.transform);
 
-        // 고정될 화살 생성
-        GameObject newArrow = Managers.Resource.Instantiate("Arrow");
-        newArrow.transform.SetParent(sharedParent.transform, true);
-        //2초 후 소멸
-        Destroy(newArrow, 2);
-    }
+    //    // 고정될 화살 생성
+    //    GameObject newArrow = Managers.Resource.Instantiate("Arrow");
+    //    newArrow.transform.SetParent(sharedParent.transform, true);
+    //    //2초 후 소멸
+    //    Destroy(newArrow, 2);
+    //}
 
     private void OnDisable()//오브젝트 비활성화
     {
@@ -91,12 +97,14 @@ public class Arrow : MonoBehaviourPunCallbacks, IPunObservable
             stream.SendNext(transform.position);
             stream.SendNext(transform.rotation);
             stream.SendNext(gameObject.activeSelf);
+            stream.SendNext(rigid);
         }
         else
         {
             transform.position = (Vector3)stream.ReceiveNext();
             transform.rotation = (Quaternion)stream.ReceiveNext();
             gameObject.SetActive((GameObject)stream.ReceiveNext());
+            rigid = (Rigidbody)stream.ReceiveNext();
         }
     }
 }

@@ -9,7 +9,7 @@ public class PlayerController : BaseController, IPunObservable
 
     Rigidbody rigid;
     Animator animator;
-    [HideInInspector]
+    [SerializeField]
     public PlayerAttack playerAttack;
 
     Vector3 moveVec = Vector3.zero;
@@ -25,17 +25,21 @@ public class PlayerController : BaseController, IPunObservable
         | (1 << (int)Layer.Npc)
         | (1 << (int)Layer.Monster)
         | (1 << (int)Layer.Ground);
+
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
         {
             stream.SendNext(isFire);
+            stream.SendNext(attackType);
+      //      stream.SendNext(_lockTarget);
+
         }
         else
         {
             isFire = (bool)stream.ReceiveNext();
-            
-
+            attackType = (Define.AttackType)stream.ReceiveNext();
+         //   _lockTarget = (GameObject)stream.ReceiveNext();
         }
     }
 
@@ -57,6 +61,7 @@ public class PlayerController : BaseController, IPunObservable
 //        Managers.Input.OnUpdate();
         if (!Managers.UI.isAction)
         {
+            Debug.Log(isFire);
             Move();
             Run();
             Jump();
@@ -67,7 +72,6 @@ public class PlayerController : BaseController, IPunObservable
     protected override void UpdateAttack()
     {
         if(photonView.IsMine == false && PhotonNetwork.IsConnected == true) { return; }
-
         if (!Managers.UI.isAction)
         {
             OnAttack();
@@ -165,6 +169,7 @@ public class PlayerController : BaseController, IPunObservable
     }
     private void OnCollisionEnter(Collision collision)
     {
+        if (!photonView.IsMine) return;
         if (collision.gameObject.tag == "Ground")
         {
             isJump = false;
@@ -218,10 +223,10 @@ public class PlayerController : BaseController, IPunObservable
 
                 if (DistanceAttackPos(dir)) //거리 비교 bool
                 {
-                    playerAttack.AttackTacrgetSet(_lockTarget);
+                     playerAttack.AttackTacrgetSet(_lockTarget);
                     _lockTarget = null;
                     playerAttack.photonView.RPC("OnAttack", Photon.Pun.RpcTarget.AllBuffered);
-
+                   // playerAttack.OnAttack();
                     return;
                 }
                 else
@@ -234,7 +239,8 @@ public class PlayerController : BaseController, IPunObservable
                 if (playerAttack == null) return;
                 playerAttack.AttackTacrgetSet(_lockTarget);
                 _lockTarget = null;
-                playerAttack.photonView.RPC("OnAttack", Photon.Pun.RpcTarget.AllBuffered);
+                 playerAttack.photonView.RPC("OnAttack", Photon.Pun.RpcTarget.AllBuffered);
+                //playerAttack.OnAttack();
 
             }
         }
@@ -263,6 +269,7 @@ public class PlayerController : BaseController, IPunObservable
     void OnMouseEvent(Define.MouseEvent evt)
     {
         if (photonView.IsMine == false && PhotonNetwork.IsConnected == true) { return; }
+
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         bool raycastHit = Physics.Raycast(ray, out hit, 100.0f, _mask);

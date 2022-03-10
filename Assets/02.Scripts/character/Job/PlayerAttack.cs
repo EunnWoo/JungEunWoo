@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
-public class PlayerAttack : MonoBehaviourPun
+public class PlayerAttack : MonoBehaviourPun, IPunObservable
 {
     
     public float range { get; protected set; }
@@ -15,6 +15,9 @@ public class PlayerAttack : MonoBehaviourPun
     protected Animator animator;
 
     public GameObject attackTarget { get;  private set; }  //유도탄을 위한 타겟
+
+
+    [SerializeField]
     protected PlayerController playerController;
 
 
@@ -26,11 +29,25 @@ public class PlayerAttack : MonoBehaviourPun
 
        
     }
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        //if (stream.IsWriting)
+        //{
+        //    stream.SendNext(isAttackReady);
+        //    stream.SendNext(isAttack);
 
+
+        //}
+        //else
+        //{
+        //    isAttackReady = (bool)stream.ReceiveNext();
+        //    isAttack = (bool)stream.ReceiveNext();
+        //}
+    }
     private void OnEnable()
     {
         animator = GetComponentInChildren<Animator>();
-        playerController = Managers.Game.GetPlayer().GetComponent<PlayerController>();
+        playerController = GetComponent<PlayerController>();
         playerController.playerAttack = GetComponent<PlayerAttack>(); // 어택을 상속받아 수정되는 값 다시 받아오기
         isAttackReady = true;
         canMove = true;
@@ -46,14 +63,16 @@ public class PlayerAttack : MonoBehaviourPun
 
             if (playerController.attackType == Define.AttackType.NormalAttack)
             {
-                StopCoroutine(Use());
-                StartCoroutine(Use());
+                //  StopCoroutine(Use());
+               
+               StartCoroutine(Use());
             }
             else if(playerController.attackType == Define.AttackType.SkillAttack)
             {
-                
-                StopCoroutine(Skill());
+
+                // StopCoroutine(Skill());
                 StartCoroutine(Skill());
+               
             }
         }
     }
@@ -73,4 +92,5 @@ public class PlayerAttack : MonoBehaviourPun
         attackTarget = go;
     }
 
+   
 }

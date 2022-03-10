@@ -25,7 +25,6 @@ public class UI_LoginCanvas : UI_Scene
         IDInputField,
         BackGround
     }
-    private string gameVersion = "1"; // 게임 버전
 
     Text connectionInfoText; // 네트워크 정보를 표시할 텍스트
 
@@ -58,10 +57,6 @@ public class UI_LoginCanvas : UI_Scene
         backGround = Get<GameObject>((int)GameObjects.BackGround);
 
 
-        //접속에 필요한 정보 설정
-        PhotonNetwork.GameVersion = gameVersion;
-        //설정한 정보로 마스터 서버 접속 시도
-        PhotonNetwork.ConnectUsingSettings();
 
         connectionInfoText.text = "마스터 서버에 접속중..";
 

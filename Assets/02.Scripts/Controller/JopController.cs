@@ -30,7 +30,8 @@ public class JopController : MonoBehaviourPun
 
     [PunRPC]
     public void JobChoice()  // 직업 활성화
-    { 
+    {
+ 
         if (jobstate == JobInfo.BOW) // 궁수 전직
         {
             jobstring = "Bow";

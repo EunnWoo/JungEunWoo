@@ -4,8 +4,8 @@ using UnityEngine;
 using Photon.Pun;
 public class ObjPoolManager 
 {
-    [SerializeField]
-    GameObject[] arrow;
+    //[SerializeField]
+    public GameObject[] arrow { get; private set; }
     [SerializeField]
     GameObject[] fireBall;
     GameObject[] targetPool;
@@ -24,7 +24,6 @@ public class ObjPoolManager
 
         // 오브젝트 풀 담을 오브젝트 생성
         objPoolManager = new GameObject { name = "ObjPoolManager" }.transform;
-        objPoolManager.gameObject.GetOrAddComponent<PhotonView>();
         
             
         Object.DontDestroyOnLoad(objPoolManager);
@@ -35,7 +34,7 @@ public class ObjPoolManager
 
         for (int i =0; i< arrow.Length;i++)
         {
-            arrow[i] = Managers.Resource.Instantiate("Arrow", objPoolManager);
+       //     arrow[i] = Managers.Resource.Instantiate("Arrow", objPoolManager);
             arrow[i] = PhotonNetwork.Instantiate("Arrow", objPoolManager.position, Quaternion.identity);
             arrow[i].transform.SetParent(objPoolManager.transform);
 
@@ -53,6 +52,7 @@ public class ObjPoolManager
         }
     }
 
+    [PunRPC]
     public GameObject MakeObj(string type)
     {
         switch (type)

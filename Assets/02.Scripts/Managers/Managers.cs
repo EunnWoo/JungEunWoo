@@ -55,7 +55,7 @@ public class Managers : MonoBehaviourPun
             if (managers == null)
             {
                 managers = new GameObject { name = "@Managers" };
-                //PhotonNetwork.Instantiate("@Managers", Vector3.zero, Quaternion.identity);
+              //  PhotonNetwork.Instantiate("@Managers", Vector3.zero, Quaternion.identity);
                 managers.AddComponent<Managers>();
                 managers.GetOrAddComponent<PhotonView>();
                 managers.GetComponent<PhotonView>().observableSearch = PhotonView.ObservableSearch.AutoFindAll;
