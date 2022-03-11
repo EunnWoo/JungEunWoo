@@ -38,7 +38,8 @@ public class PlayerAttack : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         playerController = Managers.Game.GetPlayer().GetComponent<PlayerController>();
         playerController.playerAttack = GetComponent<PlayerAttack>(); // 어택을 상속받아 수정되는 값 다시 받아오기
-        isAttackReady = true;
+        attackDelay = 40;
+        skillDelay = 40;
         canMove = true;
         animator.SetBool("canMove",canMove);
     }
@@ -47,16 +48,17 @@ public class PlayerAttack : MonoBehaviour
     {
         if ( !playerController.isJump&&!playerController.isRoll && !isAttack)
         {
-            isAttack = true;
+            
 
             if (isAttackReady && playerController.attackType == Define.AttackType.NormalAttack)
             {
+                isAttack = true;
                 StopCoroutine(Use());
                 StartCoroutine(Use());
             }
             else if(isSkillReady &&playerController.attackType == Define.AttackType.SkillAttack)
             {
-                
+                isAttack = true;
                 StopCoroutine(Skill());
                 StartCoroutine(Skill());
             }
