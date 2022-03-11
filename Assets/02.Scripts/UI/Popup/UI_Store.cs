@@ -57,7 +57,7 @@ public class UI_Store : UI_Popup
         {
             _storeItem[i] = Managers.Resource.Instantiate("StoreItem", content.transform).GetComponent<StoreItem>();
             _storeItem[i].Init();
-            _storeItem[i].SetItem(listInfo[i].itemcode, listInfo[i].itemCount, OnClickStoreItem);
+            _storeItem[i].SetItem(listInfo[i].itemcode, listInfo[i].itemCount, OnClickStoreItem); // itemdata 전달
             AddUIEvent(_storeItem[i].gameObject, _storeItem[i].ItemClick);
             list.Add(_storeItem[i]);
         }
@@ -76,17 +76,18 @@ public class UI_Store : UI_Popup
     } // 상점에 아이템 추가
 
 
-
     
-    void OnClickStoreItem(ItemData _itemData)
+    
+    public void OnClickStoreItem(ItemData _itemData)
     {
         Debug.Log("@@@보유머니 확인후 아이템구매");
         //Debug.Log("@@@ 아이템 구매버튼"+_itemData.itemcode);
         //100개
-
-        bool _bGet = UI_Inventory.ins.AddItemData(_itemData);//인벤토리에 넣어주기
         
         UI_Message ui_Message =  Managers.UI.ShowPopupUI<UI_Message>();
+
+
+        bool _bGet = UI_Inventory.ins.AddItemData(_itemData);//인벤토리에 넣어주기
         ui_Message.Init();
         if ( _bGet)//아이템창이 꽉차서 구매를 못할경우
         {
