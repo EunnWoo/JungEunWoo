@@ -67,8 +67,6 @@ public class UI_JobPanel : UI_Popup
             }
             GetText((int)Texts.TalkText).text = Managers.talk.GetTalk(talkIndex);
             talkIndex++;
-
-
         }
         else // 아니면 본 대화 진행
         {

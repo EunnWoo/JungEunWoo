@@ -21,7 +21,7 @@ public class UI_EventHandler : MonoBehaviour, /*IBeginDragHandler,*/ IDragHandle
 
     public void OnDrag(PointerEventData eventData) // 드래그 중
     {
-           transform.position = eventData.position; //드래그해서 움직이기 가능
+    //       transform.position = eventData.position; //드래그해서 움직이기 가능
         if (OnDragHandler != null)
             OnDragHandler.Invoke(eventData); //  OnDragHandler 들어왔을때 eventData 실행
     }

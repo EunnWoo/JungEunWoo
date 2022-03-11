@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.EventSystems;
 [System.Serializable]
 public class StoreItemInfo
 {
@@ -10,8 +10,19 @@ public class StoreItemInfo
     public int itemCount = 1;
 }
 
-public class UI_Store : MonoBehaviour
+public class UI_Store : UI_Popup
 {
+
+    enum Buttons
+    {
+        StoreItem,
+        CloseButton
+    }
+    enum GameObjects
+    {
+        ContentGroup,
+    }
+
     #region sigletone
     public static UI_Store ins;
     private void Awake()
@@ -20,54 +31,97 @@ public class UI_Store : MonoBehaviour
     }
     #endregion
 
-    public GameObject Body;
-    public GameObject content;
-    public StoreItem prefabStoreItem;
-    public List<StoreItemInfo> listInfo = new List<StoreItemInfo>();
-    public List<StoreItem> list = new List<StoreItem>();
-    void Start()
-    {
-        Body.SetActive(false);
+    GameObject content;
+    StoreItem storeItem; // == StoreItem
+    Button closeButton;
 
-        StoreItem _storeItem;
-        StoreItemInfo _info;
-        for (int i = 0; i < listInfo.Count; i++)
+
+    List<StoreItemInfo> listInfo = new List<StoreItemInfo>();
+    List<StoreItem> list = new List<StoreItem>();
+
+
+    public override void Init()
+    {
+        base.Init();
+        Bind<Button>(typeof(Buttons));
+        Bind<GameObject>(typeof(GameObjects));
+
+        storeItem = GetButton((int)Buttons.StoreItem).GetComponent<StoreItem>();
+        content = Get<GameObject>((int)GameObjects.ContentGroup);
+        closeButton = GetButton((int)Buttons.CloseButton);
+
+        ListInit();
+        StoreItem[] _storeItem = new StoreItem[listInfo.Count];
+        // StoreItemInfo _info;
+        for (int i = 0; i < _storeItem.Length; i++)
         {
-            _info = listInfo[i];
-            _storeItem = Instantiate(prefabStoreItem, content.transform) as StoreItem;
-            _storeItem.SetItem(_info.itemcode, _info.itemCount, OnClickStoreItem);
-            
-
-            list.Add(_storeItem);
+            _storeItem[i] = Managers.Resource.Instantiate(/*storeItem.GetType().ToString()*/"StoreItem", content.transform).GetComponent<StoreItem>();
+           
+            _storeItem[i].Init();
         }
-        Destroy(prefabStoreItem.gameObject);
-    }
 
-    public void Invoke_HiddenStore() //상점끄기
+        for (int i = 0; i < _storeItem.Length; i++)
+        {
+            _storeItem[i].SetItem(listInfo[i].itemcode, listInfo[i].itemCount, OnClickStoreItem);
+            AddUIEvent(_storeItem[i].gameObject, _storeItem[i].ItemClick);
+            list.Add(_storeItem[i]);
+        }
+
+            //for (int i = 0; i < listInfo.Count; i++)
+            //{
+            //_info = listInfo[i];
+            //StoreItem _storeItem = Managers.Resource.Instantiate(/*storeItem.GetType().ToString()*/"StoreItem", content.transform).GetComponent<StoreItem>();
+            
+            //// _storeItem = Instantiate(storeItem, content.transform) as StoreItem;
+            //_storeItem.SetItem(_info.itemcode, _info.itemCount, OnClickStoreItem);
+
+            //AddUIEvent(_storeItem.gameObject, _storeItem.ItemClick/*, Define.UIEvent.Click*/);
+            //list.Add(_storeItem);
+            // }
+        Destroy(storeItem.gameObject);
+
+
+        closeButton.gameObject.AddUIEvent(OnClose);
+        
+    }
+    public void ListInit()
     {
-        Body.SetActive(false);
-    }
+        listInfo.Add(new StoreItemInfo() { itemcode = 10001, itemCount = 10 });
+        listInfo.Add(new StoreItemInfo() { itemcode = 10002, itemCount = 10 });
+        listInfo.Add(new StoreItemInfo() { itemcode = 20004, itemCount = 1});
+        listInfo.Add(new StoreItemInfo() { itemcode = 20005, itemCount = 1 });
+        listInfo.Add(new StoreItemInfo() { itemcode = 20006, itemCount = 1 });
+    } // 상점에 아이템 추가
 
-    public void Show_Store() //상점키기
-    {
-        Body.SetActive(true);
-    }
 
+
+    
     void OnClickStoreItem(ItemData _itemData)
     {
         Debug.Log("@@@보유머니 확인후 아이템구매");
         //Debug.Log("@@@ 아이템 구매버튼"+_itemData.itemcode);
         bool _bGet = UI_Inventory.ins.AddItemData(_itemData);//인벤토리에 넣어주기
-        if( _bGet)//아이템창이 꽉차서 구매를 못할경우
+
+        UI_Message ui_Message =  Managers.UI.ShowPopupUI<UI_Message>();
+        ui_Message.Init();
+        if ( _bGet)//아이템창이 꽉차서 구매를 못할경우
         {
             Debug.Log("@@@ 보유머니 = 보유머니 - 아이템가격");
-            UI_Message.ins.ShowMessage("아이템 구매",_itemData.itemName + "을" + _itemData.itemCount + "구매했습니다");
+            ui_Message.ShowMessage("아이템 구매",_itemData.itemName + "을" + _itemData.itemCount + "구매했습니다");
 
         }
         else
         {
             //Debug.Log("@@아이템 인벤토리가 가득찼습니다");
-            UI_Message.ins.ShowMessage("아이템 구매실패", "인벤토리가 가득찾습니다"); ;
+            ui_Message.ShowMessage("아이템 구매실패", "인벤토리가 가득찾습니다"); ;
         }
+    }
+
+
+
+    void OnClose(PointerEventData data)
+    {
+        Managers.UI.ClosePopupUI(this);
+        Managers.UI.isTalk(false);
     }
 }

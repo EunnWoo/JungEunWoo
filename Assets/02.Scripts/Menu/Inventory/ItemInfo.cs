@@ -113,7 +113,7 @@ public class ItemInfo : MonoBehaviour
             _itemcode = parser.getInt("itemcode");
 
             //아이템 코드로 검색해서 있으면 이미 파싱했기때문에 2번째는 등록안함
-            //아이템 고드로 검색해서 없으면 파싱된 데이터를 클래스에 넣어서 dictorary로 등록해준다.
+            //아이템 코드로 검색해서 없으면 파싱된 데이터를 클래스에 넣어서 dictorary로 등록해준다.
             if (!dic_Base.ContainsKey(_itemcode))
             {
                 //XML에 해당이름으로 검색을 해서 해당클래스 변수에 세팅해서 넣어준다
