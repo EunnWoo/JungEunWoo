@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8883715076864492496}
   - component: {fileID: 899821180933275798}
   - component: {fileID: 4030008087575034836}
-  - component: {fileID: 837739178}
   m_Layer: 6
   m_Name: Bow1
   m_TagString: Item
@@ -132,19 +131,7 @@ MonoBehaviour:
       description: 
       itemType: 0
     itemCount: 0
+    price: 0
     upgradeCount: 0
   TurnSpeed: 90
   axis: {x: 0, y: 1, z: 0}
---- !u!65 &837739178
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1640964725373108205}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.4469722, y: 1.7097476, z: 0.10573685}
-  m_Center: {x: -0.000000014901161, y: -0.00000008940697, z: 0.00000004284084}
