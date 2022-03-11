@@ -63,7 +63,7 @@ public class StoreItem : UI_Base
         itemDescrip.text = itemData.iteminfoBase.description;
 
 
-        on = _on;
+        on = _on; //함수 담기
         
         //ItemData _item;
         //item = _Item;
@@ -89,7 +89,8 @@ public class StoreItem : UI_Base
         {
            if(on != null)
             {
-                on(itemData);
+                //여기서 sendmessage 호출해줘야함
+                on(itemData); // OnClickStoreItem 호출
             }
         }
     }

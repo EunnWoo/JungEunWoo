@@ -54,7 +54,12 @@ public class UI_Message : UI_Popup
         on = _on;
     }
 
+    public void BuyOk(PointerEventData data)
+    {
 
+        Managers.UI.isTalk(false);
+        Managers.UI.ClosePopupUI(this);
+    }
 
     public void Cancel(PointerEventData data)
     {
