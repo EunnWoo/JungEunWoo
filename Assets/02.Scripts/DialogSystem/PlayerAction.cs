@@ -9,7 +9,8 @@ public class PlayerAction : MonoBehaviour
     [SerializeField]
     public GameObject scanNPC { get; private set; }
 
-    public void OnTriggerStay(Collider other) {
+    public void OnTriggerStay(Collider other)
+    {
         if (other.gameObject.tag == "Npc")
         {
             nearNPC = true;
@@ -17,7 +18,8 @@ public class PlayerAction : MonoBehaviour
         }
         else return;
     }
-    public void OnTriggerExit(Collider other) {
+    public void OnTriggerExit(Collider other)
+    {
          
         nearNPC = false;
         scanNPC = null;
@@ -28,6 +30,7 @@ public class PlayerAction : MonoBehaviour
         {
 
             Managers.talk.Action(scanNPC);
+          //  Managers.UI.ShowPopupUI<UI_Message>();
         }
     }
     

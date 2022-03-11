@@ -15,6 +15,8 @@ public class UI_Message : UI_Popup
     }
     #endregion
     Text title, content;
+
+    public Button okButton;
     
     System.Action on;
 
@@ -25,7 +27,8 @@ public class UI_Message : UI_Popup
     }
     enum Buttons
     {
-        OKButton
+        OKButton,
+        CancelButton
     }
 
     public override void Init()
@@ -37,20 +40,31 @@ public class UI_Message : UI_Popup
         Bind<Text>(typeof(Texts));
         Bind<Button>(typeof(Buttons));
 
+        okButton = GetButton((int)Buttons.OKButton);
+        title = GetText((int)Texts.TitleText);
+        content = GetText((int)Texts.ContentText);
 
-        GetButton((int)Buttons.OKButton).gameObject.AddUIEvent(Invoke_OK);
+        GetButton((int)Buttons.CancelButton).gameObject.AddUIEvent(Cancel);
     }
     public void ShowMessage(string _title, string _content, System.Action _on = null)
     {
-        GetText((int)Texts.TitleText).text = _title; //타이틀은 타이틀에넣어준다
-        GetText((int)Texts.ContentText).text = _content;
+        title.text = _title; //타이틀은 타이틀에넣어준다
+        content.text = _content;
 
         on = _on;
     }
 
 
-    public void Invoke_OK(PointerEventData data)
+
+    public void Cancel(PointerEventData data)
     {
+        Managers.UI.ClosePopupUI(this);
+    }
+
+    public void SceneMoveOk(PointerEventData data)
+    {
+        Managers.UI.isTalk(false);
+        Managers.Scene.LoadScene(SceneState.Town);
         Managers.UI.ClosePopupUI(this);
     }
 

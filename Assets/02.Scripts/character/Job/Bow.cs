@@ -62,6 +62,11 @@ public class Bow : PlayerAttack
 
         animator.SetTrigger("IsSkill");
 
+        while(!animator.GetBool("Fire"))
+        {
+            yield return null;
+        }
+
         for (int i = 0; i <6; i++)
         {
             for (int j = 0; j < 6; j++)
@@ -80,12 +85,12 @@ public class Bow : PlayerAttack
 
             }
         }
-       
 
 
-        attackDelay = 0;
+        animator.SetBool("Fire", false);
+        skillDelay = 0;
         isAttack = false;
-
+        
         yield return null;
     }
 }

@@ -185,7 +185,7 @@ public class PlayerController : BaseController
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground" )
         {
             isJump = false;
             animator.SetBool("IsJump", false);

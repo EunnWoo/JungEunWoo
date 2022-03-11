@@ -55,32 +55,14 @@ public class UI_Store : UI_Popup
         // StoreItemInfo _info;
         for (int i = 0; i < _storeItem.Length; i++)
         {
-            _storeItem[i] = Managers.Resource.Instantiate(/*storeItem.GetType().ToString()*/"StoreItem", content.transform).GetComponent<StoreItem>();
-           
+            _storeItem[i] = Managers.Resource.Instantiate("StoreItem", content.transform).GetComponent<StoreItem>();
             _storeItem[i].Init();
-        }
-
-        for (int i = 0; i < _storeItem.Length; i++)
-        {
             _storeItem[i].SetItem(listInfo[i].itemcode, listInfo[i].itemCount, OnClickStoreItem);
             AddUIEvent(_storeItem[i].gameObject, _storeItem[i].ItemClick);
             list.Add(_storeItem[i]);
         }
-
-            //for (int i = 0; i < listInfo.Count; i++)
-            //{
-            //_info = listInfo[i];
-            //StoreItem _storeItem = Managers.Resource.Instantiate(/*storeItem.GetType().ToString()*/"StoreItem", content.transform).GetComponent<StoreItem>();
-            
-            //// _storeItem = Instantiate(storeItem, content.transform) as StoreItem;
-            //_storeItem.SetItem(_info.itemcode, _info.itemCount, OnClickStoreItem);
-
-            //AddUIEvent(_storeItem.gameObject, _storeItem.ItemClick/*, Define.UIEvent.Click*/);
-            //list.Add(_storeItem);
-            // }
+  
         Destroy(storeItem.gameObject);
-
-
         closeButton.gameObject.AddUIEvent(OnClose);
         
     }
@@ -100,14 +82,16 @@ public class UI_Store : UI_Popup
     {
         Debug.Log("@@@보유머니 확인후 아이템구매");
         //Debug.Log("@@@ 아이템 구매버튼"+_itemData.itemcode);
-        bool _bGet = UI_Inventory.ins.AddItemData(_itemData);//인벤토리에 넣어주기
+        //100개
 
+        bool _bGet = UI_Inventory.ins.AddItemData(_itemData);//인벤토리에 넣어주기
+        
         UI_Message ui_Message =  Managers.UI.ShowPopupUI<UI_Message>();
         ui_Message.Init();
         if ( _bGet)//아이템창이 꽉차서 구매를 못할경우
         {
             Debug.Log("@@@ 보유머니 = 보유머니 - 아이템가격");
-            ui_Message.ShowMessage("아이템 구매",_itemData.itemName + "을" + _itemData.itemCount + "구매했습니다");
+            ui_Message.ShowMessage("아이템 구매",_itemData.itemName + "을" + _itemData.itemCount + "개 구매했습니다");
 
         }
         else

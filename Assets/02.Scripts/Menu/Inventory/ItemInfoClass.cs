@@ -13,12 +13,14 @@ public class ItemData
 	public int itemcode;
 	public ItemInfoBase iteminfoBase;
 	public int itemCount = 1;
+	public float price;
 	public int upgradeCount = 0;	
 	
 	public ItemData(int _itemcode, int _count = 1)
     {
 		itemcode = _itemcode;
 		itemCount = _count;
+		price = itemcode * itemCount;
 		upgradeCount = 0;
 
 		iteminfoBase = ItemInfo.ins.GetItemInfoBase(_itemcode);
