@@ -16,19 +16,27 @@ public class UI_Message : UI_Popup
     #endregion
     Text title, content;
 
+
     public Button okButton;
-    
+    [HideInInspector]
+    public Slider countSlider;
+
     System.Action on;
 
     enum Texts
     {
         TitleText,
-        ContentText
+        ContentText,
+    
     }
     enum Buttons
     {
         OKButton,
         CancelButton
+    }
+    enum GameObjects
+    {
+        CountSlider
     }
 
     public override void Init()
@@ -39,12 +47,17 @@ public class UI_Message : UI_Popup
 
         Bind<Text>(typeof(Texts));
         Bind<Button>(typeof(Buttons));
+        Bind<GameObject>(typeof(GameObjects));
 
         okButton = GetButton((int)Buttons.OKButton);
         title = GetText((int)Texts.TitleText);
         content = GetText((int)Texts.ContentText);
+        countSlider = Get<GameObject>((int)GameObjects.CountSlider).GetComponent<Slider>();
 
         GetButton((int)Buttons.CancelButton).gameObject.AddUIEvent(Cancel);
+
+        countSlider.onValueChanged.AddListener(Function_Slider);
+        countSlider.gameObject.SetActive(false);
     }
     public void ShowMessage(string _title, string _content, System.Action _on = null)
     {
@@ -54,12 +67,12 @@ public class UI_Message : UI_Popup
         on = _on;
     }
 
-    public void BuyOk(PointerEventData data)
-    {
+    //public void BuyOk(PointerEventData data)
+    //{
 
-        Managers.UI.isTalk(false);
-        Managers.UI.ClosePopupUI(this);
-    }
+    //    Managers.UI.isTalk(false);
+    //    Managers.UI.ClosePopupUI(this);
+    //}
 
     public void Cancel(PointerEventData data)
     {
@@ -73,4 +86,9 @@ public class UI_Message : UI_Popup
         Managers.UI.ClosePopupUI(this);
     }
 
+
+    private void Function_Slider(float _value)
+    {
+        content.text = (int)_value + "°³ ±¸¸Å";
+    }
 }

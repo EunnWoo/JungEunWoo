@@ -57,7 +57,7 @@ public class UI_Store : UI_Popup
         {
             _storeItem[i] = Managers.Resource.Instantiate("StoreItem", content.transform).GetComponent<StoreItem>();
             _storeItem[i].Init();
-            _storeItem[i].SetItem(listInfo[i].itemcode, listInfo[i].itemCount, OnClickStoreItem); // itemdata 전달
+            _storeItem[i].SetItem(listInfo[i].itemcode, listInfo[i].itemCount, _storeItem[i].OnClickStoreItem); // itemdata 전달
             AddUIEvent(_storeItem[i].gameObject, _storeItem[i].ItemClick);
             list.Add(_storeItem[i]);
         }
@@ -68,8 +68,8 @@ public class UI_Store : UI_Popup
     }
     public void ListInit()
     {
-        listInfo.Add(new StoreItemInfo() { itemcode = 10001, itemCount = 10 });
-        listInfo.Add(new StoreItemInfo() { itemcode = 10002, itemCount = 10 });
+        listInfo.Add(new StoreItemInfo() { itemcode = 10001, itemCount = 1 });
+        listInfo.Add(new StoreItemInfo() { itemcode = 10002, itemCount = 1 });
         listInfo.Add(new StoreItemInfo() { itemcode = 20004, itemCount = 1});
         listInfo.Add(new StoreItemInfo() { itemcode = 20005, itemCount = 1 });
         listInfo.Add(new StoreItemInfo() { itemcode = 20006, itemCount = 1 });
@@ -78,29 +78,6 @@ public class UI_Store : UI_Popup
 
     
     
-    public void OnClickStoreItem(ItemData _itemData)
-    {
-        Debug.Log("@@@보유머니 확인후 아이템구매");
-        //Debug.Log("@@@ 아이템 구매버튼"+_itemData.itemcode);
-        //100개
-        
-        UI_Message ui_Message =  Managers.UI.ShowPopupUI<UI_Message>();
-
-
-        bool _bGet = UI_Inventory.ins.AddItemData(_itemData);//인벤토리에 넣어주기
-        ui_Message.Init();
-        if ( _bGet)//아이템창이 꽉차서 구매를 못할경우
-        {
-            Debug.Log("@@@ 보유머니 = 보유머니 - 아이템가격");
-            ui_Message.ShowMessage("아이템 구매",_itemData.itemName + "을" + _itemData.itemCount + "개 구매했습니다");
-
-        }
-        else
-        {
-            //Debug.Log("@@아이템 인벤토리가 가득찼습니다");
-            ui_Message.ShowMessage("아이템 구매실패", "인벤토리가 가득찾습니다"); ;
-        }
-    }
 
 
 

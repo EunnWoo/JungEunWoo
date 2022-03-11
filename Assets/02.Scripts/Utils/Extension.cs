@@ -9,6 +9,7 @@ public static class Extension //extension 문법 확장메서드
     
     public static void AddUIEvent(this GameObject go, Action<PointerEventData> action,Define.UIEvent type = Define.UIEvent.Click)
     {
+
         UI_Base.AddUIEvent(go, action, type);
        
     }

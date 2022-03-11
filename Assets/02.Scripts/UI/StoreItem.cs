@@ -33,6 +33,7 @@ public class StoreItem : UI_Base
     [HideInInspector]
     public ItemData itemData;
 
+    UI_Message ui_Message;
     public System.Action<ItemData> on;
 
     public override void Init()
@@ -64,35 +65,56 @@ public class StoreItem : UI_Base
 
 
         on = _on; //함수 담기
-        
-        //ItemData _item;
-        //item = _Item;
-        //icon.sprite = ItemInfo.ins.GetItemInfoSpriteIcon
-        
-        
-        
-        //Button _button =  GetComponent<Button>();
-        //_button.onClick.AddListener(() =>
-        //{
-        //    if (_on != null)
-        //    {
-        //        _on(itemData);
-        //    }
-        //});
+      
+    }
+    public void OnClickStoreItem(ItemData _itemData)
+    {
+        Debug.Log("@@@보유머니 확인후 아이템구매");
+        //Debug.Log("@@@ 아이템 구매버튼"+_itemData.itemcode);
+        bool _bGet = UI_Inventory.ins.AddItemData(_itemData);//인벤토리에 넣어주기
+        if (_bGet)//아이템창이 꽉차서 구매를 못할경우
+        {
+            Debug.Log("@@@ 보유머니 = 보유머니 - 아이템가격");
+            ui_Message.ShowMessage("아이템 구매", _itemData.itemName + "을" + _itemData.itemCount + "개 구매했습니다");
+
+        }
+        else
+        {
+            //Debug.Log("@@아이템 인벤토리가 가득찼습니다");
+            ui_Message.ShowMessage("아이템 구매실패", "인벤토리가 가득찾습니다"); ;
+        }
+
+      
     }
 
     public void ItemClick(PointerEventData eventData)
     {
         int clickCount = eventData.clickCount;
-        Debug.Log(clickCount);
         if (clickCount == 2)//두번 클릭시
         {
            if(on != null)
             {
-                //여기서 sendmessage 호출해줘야함
-                on(itemData); // OnClickStoreItem 호출
+                //여기서 showmessage 호출해줘야함
+                ui_Message = Managers.UI.ShowPopupUI<UI_Message>();
+                ui_Message.Init();
+                ui_Message.okButton.gameObject.AddUIEvent(BuyOk);
+                
+                ui_Message.countSlider.gameObject.SetActive(true);
+
             }
         }
     }
 
+    public void BuyOk(PointerEventData data)
+    {
+        if (on != null)
+        {
+            Debug.Log("함수호출");
+            ui_Message.okButton.gameObject.AddUIEvent(ui_Message.Cancel);
+            itemData.itemCount = (int)ui_Message.countSlider.value;
+            on(itemData); // OnClickStoreItem 호출
+            
+        }
+
+    }
 }
