@@ -74,6 +74,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: e76b30749d6bac4489c3ccf1ccb2c8fc, type: 3}
   - {fileID: 21300000, guid: b80babc45dc354c4684066b6c19565ad, type: 3}
   - {fileID: 21300000, guid: 668df6f48e59c80439fa587624e5a84d, type: 3}
+  - {fileID: 21300000, guid: 88fe8e1594415fb4bacf7593f4a475f6, type: 3}
   - {fileID: 21300000, guid: d6a5be75ee20dd94682b602816b88b5d, type: 3}
   - {fileID: 21300000, guid: 69b6fac54bf33d94f8b56a037beeb7bf, type: 3}
   - {fileID: 21300000, guid: 3f20d3460997cd04981c72822436e8a6, type: 3}
@@ -83,7 +84,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 490de5b67a54a914088038c8d2c8282f, type: 3}
   - {fileID: 21300000, guid: 4ec5e8e694bc3334db32778bebfd01e7, type: 3}
   - {fileID: 21300000, guid: 59404f171a3d5694fa1650a8c37fc39f, type: 3}
-  - {fileID: 21300000, guid: 136c9f47fc323df4ba024baf251f04b6, type: 3}
   - {fileID: 21300000, guid: b0ab5287685813a41bacfc4ec20baac6, type: 3}
   - {fileID: 21300000, guid: 8661c2c7e325a33438f06b02458fd199, type: 3}
   - {fileID: 21300000, guid: f74b56e726a1e6244b14bcb8910855f0, type: 3}
@@ -157,6 +157,7 @@ SpriteAtlas:
   - BronzeRing
   - BattleguardHelm (Type=Helmet, Collection=AbandonedWorkshop)
   - BattleBow (Type=Weapon, Collection=Basic, Tags=Bow&2H)
+  - HardwoodWand (Type=Weapon, Collection=Basic, Tags=Wand&1H) 1
   - BanditLightArmor [Paint] (Type=Gloves, Collection=Basic)
   - DarkMountain [Paint] (Type=Helmet, Collection=Thrones)
   - BalancedSword [Paint] (Type=Weapon, Collection=Knights, Tags=Sword&1H) 1
@@ -166,7 +167,6 @@ SpriteAtlas:
   - SharpenedInfantrySword (Type=Weapon, Collection=AbandonedWorkshop, Tags=Sword&1H)
   - BattleguardArmor (Type=Armor, Collection=AbandonedWorkshop)
   - DarkMountain (Type=Boots, Collection=Thrones)
-  - HardwoodWand (Type=Weapon, Collection=Basic, Tags=Wand&1H)
   - TwoHandedWoodenMace (Type=Weapon, Collection=Basic, Tags=Hammer&2H)
   - GoldenRing
   - SandHealerStaff1 (Type=Weapon, Collection=SandLords, Tags=Staff&1H) 1
