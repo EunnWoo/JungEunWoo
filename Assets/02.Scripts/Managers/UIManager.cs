@@ -66,7 +66,15 @@ public class UIManager
         //showpopupui에서 오더 관리 안 해주는 이유 -> 원래 생성되어있던 ui를 컨트롤할때 카운터가 안 된다.
         return popup;
     }
-
+    public bool StatePopupUI() // 현재 켜진 팝업이 있다면
+    {
+        if (_popupStack.Count != 0)
+        {
+            return true;
+        }
+        else
+            return false;
+    }
     public void ClosePopupUI(UI_Popup popup) // 좀 더 안전하다
     {
         if (_popupStack.Count == 0) //스택 건드릴때 카운트 체크하기
@@ -79,7 +87,7 @@ public class UIManager
         }
         ClosePopupUI();
     }
-
+    
     public void ClosePopupUI()
     {
         //스택 추출해서 닫기

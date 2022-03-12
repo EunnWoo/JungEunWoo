@@ -74,20 +74,20 @@ public class StoreItem : UI_Base
         bool _bGet = UI_Inventory.ins.AddItemData(_itemData);//인벤토리에 넣어주기
         if (_bGet)//아이템창이 꽉차서 구매를 못할경우
         {
-            Debug.Log("@@@ 보유머니 = 보유머니 - 아이템가격");
-            ui_Message.ShowMessage("아이템 구매", _itemData.itemName + "을" + _itemData.itemCount + "개 구매했습니다");
+         //   Debug.Log("@@@ 보유머니 = 보유머니 - 아이템가격");
+         //   ui_Message.ShowMessage("아이템 구매", _itemData.itemName + "을" + _itemData.itemCount + "개 구매했습니다");
 
         }
         else
         {
             //Debug.Log("@@아이템 인벤토리가 가득찼습니다");
-            ui_Message.ShowMessage("아이템 구매실패", "인벤토리가 가득찾습니다"); ;
+          //  ui_Message.ShowMessage("아이템 구매실패", "인벤토리가 가득찾습니다"); ;
         }
-
+        Managers.UI.ClosePopupUI(ui_Message);
       
     }
 
-    public void ItemClick(PointerEventData eventData)
+    public void ItemClick(PointerEventData eventData) // 아이템 더블클릭 했을때 소비템이면 개수 / 장비라면 그냥 구매하겠느냐 출력
     {
         int clickCount = eventData.clickCount;
         if (clickCount == 2)//두번 클릭시
@@ -98,9 +98,15 @@ public class StoreItem : UI_Base
                 ui_Message = Managers.UI.ShowPopupUI<UI_Message>();
                 ui_Message.Init();
                 ui_Message.okButton.gameObject.AddUIEvent(BuyOk);
-                
-                ui_Message.countSlider.gameObject.SetActive(true);
 
+                if (itemData.itemcode / 10000 == 1)
+                {
+                    ui_Message.countSlider.gameObject.SetActive(true);
+                }
+                else if (itemData.itemcode / 10000 == 2)
+                {
+                    ui_Message.ShowMessage("구매", itemData.itemName + "를 구매하겠습니까?");
+                }
             }
         }
     }
@@ -109,12 +115,8 @@ public class StoreItem : UI_Base
     {
         if (on != null)
         {
-            Debug.Log("함수호출");
-            ui_Message.okButton.gameObject.AddUIEvent(ui_Message.Cancel);
-            itemData.itemCount = (int)ui_Message.countSlider.value;
+            itemData.itemCount = (int)ui_Message.countSlider.value; // 슬라이더 값이 변경될때 showmessage 호출해서 컨텐츠 텍스트 변경됨
             on(itemData); // OnClickStoreItem 호출
-            
         }
-
     }
 }

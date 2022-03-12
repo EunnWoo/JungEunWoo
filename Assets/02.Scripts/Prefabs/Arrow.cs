@@ -50,27 +50,27 @@ public class Arrow : MonoBehaviour
             rigid.Sleep();
             rigid.useGravity = false;
             transform.position = other.ClosestPointOnBounds(transform.position)+new Vector3(0,0.5f,0);
-            
+           
             Invoke("DisableArrow", 3f);
         }
         
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        GameObject otherObject = collision.gameObject;
-            // scale 변경 방지용 쿠션 parent
-        GameObject sharedParent = new GameObject("Father");
-        sharedParent.transform.position = otherObject.transform.position;
-        sharedParent.transform.rotation = otherObject.transform.rotation;
-        sharedParent.transform.SetParent(otherObject.gameObject.transform);
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    GameObject otherObject = collision.gameObject;
+    //        // scale 변경 방지용 쿠션 parent
+    //    GameObject sharedParent = new GameObject("Father");
+    //    sharedParent.transform.position = otherObject.transform.position;
+    //    sharedParent.transform.rotation = otherObject.transform.rotation;
+    //    sharedParent.transform.SetParent(otherObject.gameObject.transform);
 
-        // 고정될 화살 생성
-        GameObject newArrow = Managers.Resource.Instantiate("Arrow");
-        newArrow.transform.SetParent(sharedParent.transform, true);
-        //2초 후 소멸
-        Destroy(newArrow, 2);
-    }
+    //    // 고정될 화살 생성
+    //    GameObject newArrow = Managers.Resource.Instantiate("Arrow");
+    //    newArrow.transform.SetParent(sharedParent.transform, true);
+    //    //2초 후 소멸
+    //    Destroy(newArrow, 2);
+    //}
 
     private void OnDisable()//오브젝트 비활성화
     {

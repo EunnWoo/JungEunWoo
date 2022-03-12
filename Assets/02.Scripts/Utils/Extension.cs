@@ -18,8 +18,6 @@ public static class Extension //extension 문법 확장메서드
     {
         return Util.GetOrAddComponent<T>(go);
     }
-    //public static void BindEvent(this GameObject go, Action<PointerEventData> action, Define.UIEvent type = Define.UIEvent.Click)
-    //{
-    //    UI_Base.BindEvent(go, action, type);
-    //}
+   
+
 }
