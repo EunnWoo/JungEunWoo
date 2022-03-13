@@ -29,11 +29,9 @@ public class GameManager
     public GameObject Spawn(string path, Transform parent = null)
     {
        
-        GameObject go = Managers.Resource.Instantiate(path, parent);
+        GameObject go = Managers.Resource.Instantiate(path);
         
         _player = go;
-        
-        
 
         return go;
     }

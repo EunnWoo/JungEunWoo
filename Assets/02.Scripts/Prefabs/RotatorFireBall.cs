@@ -21,6 +21,7 @@ public class RotatorFireBall : MonoBehaviour
     private void Update()
     {
         //Debug.Log(particleObject.time); 6.3초되면 데미지 들어가게 하는 함수 실행
+        if (playerAttack.attackTarget.layer != (int)Layer.Monster) return;
         transform.position = playerAttack.attackTarget.transform.position;
     }
 

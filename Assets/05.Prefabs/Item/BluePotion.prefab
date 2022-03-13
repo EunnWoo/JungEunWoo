@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 423410}
   - component: {fileID: 6938128320850238074}
-  - component: {fileID: 4041374419142970762}
   m_Layer: 6
   m_Name: BluePotion
   m_TagString: Item
@@ -46,21 +45,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &4041374419142970762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 116598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5b65e69e19b0d8448414780e17f55ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 4b4ef569141ac38409538458a34d6c68, type: 2}
-  TurnSpeed: 90
-  axis: {x: 0, y: 1, z: 0}
 --- !u!1 &158730
 GameObject:
   m_ObjectHideFlags: 0

@@ -35,7 +35,7 @@ public class Managers : MonoBehaviour
     private void Start()
     {
         Init();
-       
+        DontDestroyOnLoad(Managers.UI.Root);
     }
     private void Update()
     {

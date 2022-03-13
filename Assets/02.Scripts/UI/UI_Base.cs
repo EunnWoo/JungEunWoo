@@ -15,6 +15,7 @@ public abstract class UI_Base : MonoBehaviour
     private void Start()
     {
         Init();
+        
     }
     protected void Bind<T>(Type type) where T : UnityEngine.Object // 값저장 함수
     {
