@@ -110,7 +110,7 @@ public class UI_Inventory : UI_Scene
         GetButton((int)Buttons.ETC_Selected_Tab).gameObject.AddUIEvent(Invoke_ETCTab);
 
 
-        
+        body.SetActive(false); //생성되면 꺼주기
 
     }
     void SetSlot(GameObject _go, List<UI_InventorySlot> _slotList)

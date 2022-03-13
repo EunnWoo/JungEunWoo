@@ -35,10 +35,7 @@ public class SelectScene : BaseScene
     protected override void SceneMove()
     {
         base.SceneMove();
-        //if (portals[0].portalOn && Input.GetKeyDown(KeyCode.K))
-        //{
-        //    Managers.Scene.LoadScene(SceneState.Town);
-        //}
+
 
     }
     public override void Clear()

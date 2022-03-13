@@ -15,7 +15,7 @@ public class CameraFollow : MonoBehaviour
 
         var obj = FindObjectsOfType<Camera>();
 
-        if (obj.Length == 1)
+        if (obj.Length <= 1)
         {
             DontDestroyOnLoad(gameObject);
         }
@@ -27,9 +27,6 @@ public class CameraFollow : MonoBehaviour
     void Start()
     {
         offset = new Vector3(0, 10, -12);
-        DontDestroyOnLoad(this);
-
-
 
     }
 

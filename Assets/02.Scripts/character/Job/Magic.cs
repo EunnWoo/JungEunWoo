@@ -78,6 +78,12 @@ public class Magic : PlayerAttack
 
     protected override IEnumerator Skill()
     {
+        if (attackTarget.layer != (int)Layer.Monster)// 몬스터 타겟이 아니면 취소 
+        {
+            skillDelay = 0;
+            isAttack = false;
+            yield  break;
+        }
 
         animator.SetTrigger("IsSkill");
 

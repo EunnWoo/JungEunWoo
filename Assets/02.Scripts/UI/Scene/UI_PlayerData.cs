@@ -35,7 +35,7 @@ public class UI_PlayerData : UI_Scene
     public override void Init()
     {
         base.Init();
-        DontDestroyOnLoad(this);
+        
 
         
         Bind<Text>(typeof(Texts));

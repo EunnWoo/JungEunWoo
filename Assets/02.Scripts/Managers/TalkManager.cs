@@ -39,7 +39,7 @@ public class TalkManager
         {
             Managers.UI.ShowPopupUI<UI_Store>();
         }
-        else if(npc.GetComponent<ObjData>().id ==5000)
+        else if(npc.GetComponent<ObjData>().id ==6000)
         {
             UI_Message ui_Message = Managers.UI.ShowPopupUI<UI_Message>();
             ui_Message.Init();

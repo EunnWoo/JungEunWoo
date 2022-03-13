@@ -29,7 +29,8 @@ public class PlayerAttack : MonoBehaviour
         isSkillReady = skillRate < skillDelay;
 
         canMove = animator.GetBool("canMove");
-
+        if(attackTarget != null)
+        Debug.Log(attackTarget.layer);
        
     }
 

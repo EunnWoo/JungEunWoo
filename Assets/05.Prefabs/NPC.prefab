@@ -1334,7 +1334,6 @@ GameObject:
   - component: {fileID: 7184805044447416130}
   - component: {fileID: 7184805044447416131}
   - component: {fileID: 585730309}
-  - component: {fileID: 585730308}
   m_Layer: 7
   m_Name: NPC
   m_TagString: Npc
@@ -1453,18 +1452,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &585730308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7184805044447416128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d663e02f84900a449fea9d01fddf0cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7184805044449754932
 GameObject:
   m_ObjectHideFlags: 0
