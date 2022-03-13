@@ -33,7 +33,8 @@ public class Magic : PlayerAttack
         animator.SetTrigger("Attack");
         yield return new WaitForSeconds(0.2f);
 
-
+        UI_SkillTime ui_SkillTime = Managers.UI.ShowPopupUI<UI_SkillTime>();
+        ui_SkillTime.Init();
         while (true)
         {
 
@@ -50,6 +51,8 @@ public class Magic : PlayerAttack
                     fireball.FireFireBall(fireBallObj.transform);
                     fireBallObj.SetActive(true);
                     hasFireBall++;
+                    ui_SkillTime.SetImage(hasFireBall);
+
                 }
 
             }
@@ -58,6 +61,8 @@ public class Magic : PlayerAttack
             {
 
                 animator.SetBool("Fire", true);
+                Managers.UI.ClosePopupUI(ui_SkillTime);
+
                 isAttack = false;
                 attackDelay = 0;
                 hasFireBall = 0;

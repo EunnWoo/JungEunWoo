@@ -72,7 +72,7 @@ public abstract class UI_Base : MonoBehaviour
                 evt.OnPointerHandler += action;
                 break;
         }
-
     }
 
+    
 }
