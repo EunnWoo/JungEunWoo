@@ -46,8 +46,8 @@ public class UI_PlayerData : UI_Scene
         LevelText = GetText((int)Texts.LevelText);
 
         hpbar = GetImage((int)Images.HPBar);
-        mpbar = GetImage((int)Images.HPBar);
-        expbar = GetImage((int)Images.HPBar);
+        mpbar = GetImage((int)Images.MPBar);
+        expbar = GetImage((int)Images.EXPBar);
 
     }
 
