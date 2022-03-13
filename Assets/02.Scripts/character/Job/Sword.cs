@@ -28,12 +28,15 @@ public class Sword : PlayerAttack
     protected override IEnumerator Skill()
     {
         animator.SetTrigger("IsSkill");
+        UI_SkillTime ui_SkillTime = Managers.UI.ShowPopupUI<UI_SkillTime>();
+        ui_SkillTime.Init();
         while (true)
         {
             charge += Time.deltaTime;
-
+            ui_SkillTime.SetImage(charge);
             if (Input.GetMouseButtonUp(1) || charge >=5f)
             {
+                Managers.UI.ClosePopupUI(ui_SkillTime);
                 animator.SetTrigger("Fire");
 
                 skillDelay = 0;
