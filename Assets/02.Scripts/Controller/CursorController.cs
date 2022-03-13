@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+
 public enum Layer
 {
 	Item = 6,
@@ -48,15 +50,25 @@ public class CursorController : MonoBehaviour
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
 		RaycastHit hit;
+
+	
+
 		if (Physics.Raycast(ray, out hit, 100.0f, _mask))
 		{
+			if (IsPointerOverUIObject())
+			{
+				if (_cursorType != CursorType.Hand)
+				{
+					ChangeCursor(_handIcon, CursorType.Hand);
+				}
+				return;
+			}
 			if (hit.collider.gameObject.layer == (int)Layer.Monster)
 			{
 				if (_cursorType != CursorType.Attack)
 				{
+					ChangeCursor(_attackIcon, CursorType.Attack);
 
-					Cursor.SetCursor(_attackIcon, new Vector2(_attackIcon.width / 5, 0), CursorMode.Auto);
-					_cursorType = CursorType.Attack;
 				}
 			}
 
@@ -64,19 +76,15 @@ public class CursorController : MonoBehaviour
 			{
 				if (_cursorType != CursorType.Talk)
 				{
-					
-					Cursor.SetCursor(_talkIcon, new Vector2(_talkIcon.width / 3, 0), CursorMode.Auto);
-					_cursorType = CursorType.Talk;
+
+					ChangeCursor(_talkIcon, CursorType.Talk);
 				}
 			}
-
             else if (hit.collider.gameObject.layer == (int)Layer.Item)
             {
                 if (_cursorType != CursorType.TakeItem)
                 {
-
-                    Cursor.SetCursor(_takeItem, new Vector2(_takeItem.width / 3, 0), CursorMode.Auto);
-                    _cursorType = CursorType.TakeItem;
+					ChangeCursor(_takeItem, CursorType.TakeItem);
                 }
             }
 
@@ -84,10 +92,24 @@ public class CursorController : MonoBehaviour
             {
 				if (_cursorType != CursorType.Hand)
 				{
-					Cursor.SetCursor(_handIcon, new Vector2(_handIcon.width / 3, 0), CursorMode.Auto);
-					_cursorType = CursorType.Hand;
+					ChangeCursor(_handIcon, CursorType.Hand);
 				}
 			}
 		}
+	}
+
+	private void ChangeCursor(Texture2D cursor, CursorType cursorType)
+    {
+		Cursor.SetCursor(cursor, new Vector2(cursor.width / 3, 0), CursorMode.Auto);
+		_cursorType = cursorType;
+	}
+
+	private bool IsPointerOverUIObject()
+	{
+		PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+		eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+		List<RaycastResult> results = new List<RaycastResult>();
+		EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+		return results.Count > 0;
 	}
 }

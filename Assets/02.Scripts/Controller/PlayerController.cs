@@ -145,6 +145,11 @@ public class PlayerController : BaseController
     }
     void Run()
     {
+        if (isJump)
+        {
+            moveSpeed = 8f*0.8f;
+            return;
+        }
         bool runnig = false;
         runnig = Managers.Input.run && moveVec.magnitude != 0f;
         moveSpeed = runnig ? 8f * 1.3f : 8f * 0.8f;

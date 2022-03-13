@@ -1260,7 +1260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3495156572993569645
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1733,7 +1733,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3495156573117598916
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2479,7 +2479,7 @@ MonoBehaviour:
   listEquip: []
   listUse: []
   listETC: []
-  ItemInfo: {fileID: 3495156574204734588}
+  itemInfo: {fileID: 0}
   CanvaRect: {fileID: 3495156572993569645}
   v: {x: 0, y: 0}
 --- !u!1 &3495156573357183031
