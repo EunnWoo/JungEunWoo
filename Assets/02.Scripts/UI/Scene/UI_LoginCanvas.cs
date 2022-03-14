@@ -61,6 +61,7 @@ public class UI_LoginCanvas : UI_Scene
     {
         Managers.Game.SetName(idInput.text);
         Managers.Scene.LoadScene(SceneState.Select);
+        Destroy(gameObject);
     }
     public void  Exit(PointerEventData data)
     {

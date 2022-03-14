@@ -54,10 +54,10 @@ public class UI_JobPanel : UI_Popup
     }
     public void OnJobChoiceButton(PointerEventData data)
     {
-        JopController jopController = Managers.Game.GetPlayer().GetOrAddComponent<JopController>();
-
+        JobController jobController = Managers.Game.GetPlayer().GetOrAddComponent<JobController>();
        
-        if (jopController.jobstring != null)  //직업이 이미 있을때
+       
+        if (jobController.jobstring != null)  //직업이 이미 있을때
         {
             if (Managers.talk.GetTalk(talkIndex) == null)
             {
@@ -77,7 +77,7 @@ public class UI_JobPanel : UI_Popup
         {
             talkIndex = 0;
             Managers.UI.isTalk(false);
-            jopController.JobChoice();
+            jobController.JobChoice();
             Managers.UI.ClosePopupUI();
         }
 

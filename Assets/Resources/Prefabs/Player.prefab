@@ -28928,6 +28928,7 @@ GameObject:
   - component: {fileID: 250242226}
   - component: {fileID: 7509308842029391692}
   - component: {fileID: 1368085036}
+  - component: {fileID: 7692386082733598667}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -29054,10 +29055,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   psLevelUp: {fileID: 2516149209060292782}
-  hp: 0
-  mp: 0
   gold: 0
   level: 0
+--- !u!95 &7692386082733598667
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5657571042990092107}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 47388b002c80e8b49827d81977725b78, type: 3}
+  m_Controller: {fileID: 9100000, guid: 709b582e8eee6f34cb3ebe5b458926a2, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'goggle'\n\tTransform 'goggle'\n\tFrom animation
+    clip 'NormalSprint_noWeapon'\n\tFrom animation clip 'Idle_noWeapon'\n\tFrom animation
+    clip 'NormalWalk_noWeapon'\n\tFrom animation clip 'JumpEnd_noWeapon'\n\tFrom
+    animation clip 'JumpAir_noWeapon'\n\tFrom animation clip 'Roll_noWeapon'"
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &328684195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29586,9 +29609,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8287221630030506014, guid: a3a5c54b935136a47a5b6f6de372652a, type: 3}
+      propertyPath: m_TagString
+      value: Sword
+      objectReference: {fileID: 0}
     - target: {fileID: 8287221630099799671, guid: a3a5c54b935136a47a5b6f6de372652a, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287221630142891420, guid: a3a5c54b935136a47a5b6f6de372652a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287221630142891420, guid: a3a5c54b935136a47a5b6f6de372652a, type: 3}
+      propertyPath: m_TagString
+      value: Sword
       objectReference: {fileID: 0}
     - target: {fileID: 8287221630529726045, guid: a3a5c54b935136a47a5b6f6de372652a, type: 3}
       propertyPath: m_IsActive
@@ -29599,13 +29634,9 @@ PrefabInstance:
       value: Bow
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 8287221629655914853, guid: a3a5c54b935136a47a5b6f6de372652a, type: 3}
+    - {fileID: 0}
+    - {fileID: 8287221630021940159, guid: a3a5c54b935136a47a5b6f6de372652a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a3a5c54b935136a47a5b6f6de372652a, type: 3}
---- !u!1 &4431993696948565464 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8287221630030506014, guid: a3a5c54b935136a47a5b6f6de372652a, type: 3}
-  m_PrefabInstance: {fileID: 5657571041455988166}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4431993696511882205 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8287221629593398811, guid: a3a5c54b935136a47a5b6f6de372652a, type: 3}
@@ -29636,3 +29667,45 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8287221630021940158, guid: a3a5c54b935136a47a5b6f6de372652a, type: 3}
   m_PrefabInstance: {fileID: 5657571041455988166}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4431993696948565464 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8287221630030506014, guid: a3a5c54b935136a47a5b6f6de372652a, type: 3}
+  m_PrefabInstance: {fileID: 5657571041455988166}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1841442304165870243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4431993696948565464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c3d5ceb092d8ec43bd433fb8edef3b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &5612624151087381848
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4431993697027790938}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Center: {x: 0, y: -1, z: 0}
+--- !u!114 &1799585964044872007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4431993697027790938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c3d5ceb092d8ec43bd433fb8edef3b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

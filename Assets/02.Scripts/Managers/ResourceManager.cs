@@ -20,18 +20,7 @@ public class ResourceManager
         }
         return Object.Instantiate(prefab, parent);  // 오브젝트 안 붙이면 재귀적인 함수 구현된다.
     }
-    public RuntimeAnimatorController Instantiate_Ani(string path, Transform parent = null)
-    {
-        RuntimeAnimatorController controller = Load<RuntimeAnimatorController>($"Animator/{path}");
 
-
-        if (controller == null)
-        {
-            Debug.Log($"{path}가 없습니다");
-            return null;
-        }
-        return Object.Instantiate(controller, parent);  // 오브젝트 안 붙이면 재귀적인 함수 구현된다.
-    }
     
     public void Destroy(GameObject go)
     {
