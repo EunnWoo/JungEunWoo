@@ -55,13 +55,6 @@ public class Sword : PlayerAttack
     }
     protected override void OnHitEvent()
     {
-        //if (attackTarget.layer == (int)Layer.Monster)
-        //{
-        //    Debug.Log("µé¾î¿È");
-        //}
-        //else
-        //{
-
         Vector3 vec = transform.localPosition + transform.forward;
         Collider[] hit = Physics.OverlapSphere(vec, 1.2f, 1 << (int)Layer.Monster);
         for (int i = 0; i < hit.Length; i++)
@@ -70,10 +63,7 @@ public class Sword : PlayerAttack
             
         }
 
-        //weapons[0].GetComponent<WeaponSword>().HitOverlep();
-        //weapons[1].GetComponent<WeaponSword>().HitOverlep();
 
-        //        }
     }
     public void SkillEvent() // ½ºÅ³
     {

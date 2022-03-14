@@ -94,7 +94,7 @@ public class FireBall : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-        private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if(other.tag =="Monster")
         {

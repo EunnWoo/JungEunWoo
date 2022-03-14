@@ -10,6 +10,7 @@ public class Magic : PlayerAttack
 
     private int hasFireBall;
     private string fireballobj;
+    private string rotatorfall;
     private float charge;
     private FireBall fireball;
     private void Awake()
@@ -18,6 +19,7 @@ public class Magic : PlayerAttack
 
         fireBallPos = GameObject.FindGameObjectsWithTag("FirePos");
         fireballobj = "FireBall";
+        rotatorfall = "RotatorFireBall";
         hasFireBall = 0;
 
         range = 10.0f;
@@ -86,8 +88,8 @@ public class Magic : PlayerAttack
         }
 
         animator.SetTrigger("IsSkill");
-
-        Managers.Resource.Instantiate("RotatorFireBall");
+        var rotator = Managers.Pool.MakeObj(rotatorfall);
+        rotator.SetActive(true);
 
         skillDelay = 0;
         isAttack = false;

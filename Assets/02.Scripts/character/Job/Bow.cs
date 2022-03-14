@@ -7,7 +7,7 @@ public class Bow : PlayerAttack
 {
    
     private Transform firepos;
-
+    private float charge;
     private string arrowobj;
     private Arrow arrow;
  
@@ -25,30 +25,49 @@ public class Bow : PlayerAttack
 
     protected override IEnumerator Use()
     {
+        UI_SkillTime ui_SkillTime = Managers.UI.ShowPopupUI<UI_SkillTime>();
+        ui_SkillTime.Init();
+
         animator.SetBool("Fire",false);
+        animator.SetTrigger("Attack");
+
         var arrowObj = Managers.Pool.MakeObj(arrowobj);
         if (arrowObj != null)
         {
-            arrow = arrowObj.GetComponent<Arrow>();
-            arrowObj.transform.position = firepos.transform.position;
-            arrowObj.transform.rotation = firepos.transform.rotation;
-            arrowObj.SetActive(true);
+            arrow = arrowObj.GetComponent<Arrow>();        
         }
-        animator.SetTrigger("Attack");
 
         yield return new WaitForSeconds(0.2f);
+
+        arrowObj.SetActive(true);
+
         while (true)
         {
+            ui_SkillTime.SetImage(charge);
+
             arrowObj.transform.position = firepos.transform.position;
             arrowObj.transform.rotation = firepos.transform.rotation;
+
+            charge += Time.deltaTime;
+            if(charge>2)
+            {
+                arrow.chargeParticle.SetActive(true);
+            }
+
             if (!Managers.Input.fire)
             {
-            
+                if(charge>=5f)
+                {
+                    arrow.fireParticle.SetActive(true);
+                }
                 arrow.FireArrow(firepos);
+
+
+                Managers.UI.ClosePopupUI(ui_SkillTime);
                 animator.SetBool("Fire", true);
                 attackDelay = 0;
                 isAttack = false;
-             
+                charge = 0;
                 break;
             }
 
@@ -59,10 +78,10 @@ public class Bow : PlayerAttack
 
     protected override IEnumerator Skill()
     {
-
+        animator.SetBool("Fire", false);
         animator.SetTrigger("IsSkill");
 
-        while(!animator.GetBool("Fire"))
+        while(!animator.GetBool("Fire")) // false 라면 계속 들어감 true 되어야 입장
         {
             yield return null;
         }
@@ -85,9 +104,6 @@ public class Bow : PlayerAttack
 
             }
         }
-
-
-        animator.SetBool("Fire", false);
         skillDelay = 0;
         isAttack = false;
         
@@ -95,10 +111,10 @@ public class Bow : PlayerAttack
     }
     protected override void OnHitEvent()
     {
-        if (attackTarget.layer == (int)Layer.Monster)
-        {
-            Debug.Log("들어옴");
-        }
+        //if (attackTarget.layer == (int)Layer.Monster)
+        //{
+        //    Debug.Log("들어옴");
+        //}
         //else
         //{
 
