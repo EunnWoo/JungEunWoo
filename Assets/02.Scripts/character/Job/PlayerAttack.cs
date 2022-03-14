@@ -79,5 +79,7 @@ public class PlayerAttack : MonoBehaviour
     {
         attackTarget = go;
     }
-
+    protected virtual void OnHitEvent()
+    {
+    }
 }

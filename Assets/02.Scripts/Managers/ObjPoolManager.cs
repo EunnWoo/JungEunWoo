@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class ObjPoolManager 
 {
-    [SerializeField]
     GameObject[] arrow;
-    [SerializeField]
     GameObject[] fireBall;
+    GameObject[] rotatorFireBall;
+
     GameObject[] targetPool;
+
     GameObject[] bombSlimePool;
 
-    Transform objPoolManager;
+    public Transform objPoolManager { get; private set; }
 
 
 
@@ -25,6 +26,7 @@ public class ObjPoolManager
         //각 최대개수 설정
         arrow = new GameObject[100];
         fireBall = new GameObject[10];
+        rotatorFireBall = new GameObject[3];
         bombSlimePool = new GameObject[4];
 
         for (int i =0; i< arrow.Length;i++)
@@ -38,11 +40,17 @@ public class ObjPoolManager
             fireBall[i] = Managers.Resource.Instantiate("Magic fire", objPoolManager);
             fireBall[i].SetActive(false);
         }
+        for (int i = 0; i < rotatorFireBall.Length; i++) 
+        {
+            rotatorFireBall[i] =Managers.Resource.Instantiate("RotatorFireBall", objPoolManager);
+            rotatorFireBall[i].SetActive(false);
+        }
         for (int i = 0; i < bombSlimePool.Length; i++)
         {
             bombSlimePool[i] = Managers.Resource.Instantiate("Boom_Slime_A", objPoolManager);
             bombSlimePool[i].SetActive(false);
         }
+        
     }
 
     public GameObject MakeObj(string type)
@@ -57,6 +65,9 @@ public class ObjPoolManager
                 break;
             case "Boom_Slime_A":
                 targetPool = bombSlimePool;
+                break;
+            case "RotatorFireBall":
+                targetPool = rotatorFireBall;
                 break;
         }
         for(int i =0; i< targetPool.Length;i++)

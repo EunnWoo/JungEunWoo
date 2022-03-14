@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum JobInfo { COMMON, BOW, SWORD, MAGIC , STORE}
 
-public class JopController : MonoBehaviour
+public class JobController : MonoBehaviour
 {
     ObjData objdata;
 
@@ -13,7 +13,7 @@ public class JopController : MonoBehaviour
 
     public GameObject[] Weapons;  // 0 ,1  궁수 2,3 전사 법사 4
 
-    public JobInfo jobstate { get; set; }//= JobState.COMMON; // 현재 전직 가능한 직업
+    public JobInfo jobstate { get; private set; }//= JobState.COMMON; // 현재 전직 가능한 직업
     public string jobstring { get; private set; }
 
 
@@ -45,31 +45,26 @@ public class JopController : MonoBehaviour
             jobstring = "Magic";
             Weapons[4].SetActive(true);
         }
-
-        animator.runtimeAnimatorController = Managers.Resource.Instantiate_Ani(jobstring); // 직업에 맞는 애니메이터로 변경
+        
+        animator.runtimeAnimatorController = Managers.Resource.Load<RuntimeAnimatorController>($"Animator/{jobstring}");
+        //Managers.Resource.Instantiate_Ani(jobstring); // 직업에 맞는 애니메이터로 변경
         gameObject.AddComponent(System.Type.GetType(jobstring)); // 직업에 맞는 스크립트 부여
 
     }
   
 
 
-    private void OnTriggerEnter(Collider other)
+    public void changejobstate(GameObject npc)
     {
-        if (other.gameObject.tag == "Npc")
-        {
-
-            objdata =other.gameObject.GetComponent<ObjData>();
-            
-            jobstate = (JobInfo)objdata.id;
-        }
+        jobstate = (JobInfo)npc.GetComponent<ObjData>().id;
         
     }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Npc")
-        {
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.gameObject.tag == "Npc")
+    //    {
            
-            jobstate = JobInfo.COMMON;
-        }
-    }
+    //        jobstate = JobInfo.COMMON;
+    //    }
+    //}
 }

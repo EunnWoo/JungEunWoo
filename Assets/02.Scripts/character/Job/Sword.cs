@@ -7,13 +7,16 @@ public class Sword : PlayerAttack
 
 
     private float charge;
-
+    [SerializeField]
+    GameObject[] weapons; //
+    
     private void Awake()
     {
         attackRate = 0.3f;
         skillRate = 10f;
-        range = 2.5f;
-
+        range = 2f;
+        weapons = GameObject.FindGameObjectsWithTag("Sword");
+        
     }
 
     protected override IEnumerator Use()
@@ -49,6 +52,28 @@ public class Sword : PlayerAttack
             yield return null;
         }
         
+    }
+    protected override void OnHitEvent()
+    {
+        Vector3 vec = transform.localPosition + transform.forward;
+        Collider[] hit = Physics.OverlapSphere(vec, 1.2f, 1 << (int)Layer.Monster);
+        for (int i = 0; i < hit.Length; i++)
+        {
+            Debug.Log("오버랩맞음");
+            
+        }
+
+
+    }
+    public void SkillEvent() // 스킬
+    {
+        Collider[] hit = Physics.OverlapSphere(transform.position, 2.2f, 1 << (int)Layer.Monster);
+
+
+        for (int i = 0; i < hit.Length; i++)
+        {
+            Debug.Log("맞음");
+        }
     }
 
 }

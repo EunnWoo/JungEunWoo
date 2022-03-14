@@ -188,7 +188,7 @@ AnimatorStateMachine:
   m_ChildStateMachines:
   - serializedVersion: 1
     m_StateMachine: {fileID: 8705129813082610488}
-    m_Position: {x: 380, y: 410, z: 0}
+    m_Position: {x: 410, y: 420, z: 0}
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
@@ -1375,8 +1375,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57dd76842c493314c9ab572ca1add12c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boolName: 
-  status: 0
+  boolName: Fire
+  status: 1
 --- !u!1101 &5503563574402062124
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1853,7 +1853,7 @@ AnimatorStateMachine:
     m_Position: {x: 530, y: 470, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8615227045194850958}
-    m_Position: {x: 480, y: 240, z: 0}
+    m_Position: {x: 500, y: 240, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

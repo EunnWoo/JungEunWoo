@@ -8,6 +8,6 @@ public class SkillShot : StateMachineBehaviour
     public bool status;
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.SetBool("Fire", true);
+        animator.SetBool("Fire", status);
     }
 }
