@@ -6,6 +6,7 @@ public enum ePlayerJob { None, Archer,Warrior,Magician};
 public class PlayerStatus : MonoBehaviour
 {
     #region sigleton
+
     public static PlayerStatus ins;
     private void Awake()
     {
@@ -17,10 +18,11 @@ public class PlayerStatus : MonoBehaviour
     public ParticleSystem psLevelUp;
 
     #region hp = baseHP + 장비 + 레벨
-    public float hp;
+    public float hp { get; private set; }
     private float baseHP = 300; //기본최대체력
     private float wearHP = 0; //장비를 껴서 얻는 최대체력
     private float levelHP = 0; //레벨업시 얻는 최대체력
+
     public float MAX_HP {
         get { return baseHP + wearHP + levelHP; } 
     }
@@ -28,7 +30,7 @@ public class PlayerStatus : MonoBehaviour
 
 
     #region mp = baseMP + 장비 + 레벨
-    public float mp;
+    public float mp { get; private set; }
     private float baseMP = 300;
     private float wearMP = 0;
     private float levelMP = 0;
@@ -75,7 +77,7 @@ public class PlayerStatus : MonoBehaviour
 
             if(level != _levelOld) //레벨업 할시
             {
-                if(level >=2) //레벨이1이상 
+                if(level >=2) //레벨이2이상 
                 {
                     StartCoroutine(Co_ShowLevelUp(2f));
                     psLevelUp.gameObject.SetActive(true);//레벨업 파티클 실행
@@ -83,7 +85,7 @@ public class PlayerStatus : MonoBehaviour
                 
                 hp = MAX_HP; //레벨업시 hp를 전부 회복
                 mp = MAX_MP;
-                UI_PlayerData.ins.DisplayMP(hp, MAX_HP);
+                UI_PlayerData.ins.DisplayHP(hp, MAX_HP);
                 UI_PlayerData.ins.DisplayMP(mp, MAX_MP);
             }
             float _needExp = GetNeedExp(level) - GetNeedExp(level - 1); //현재레벨 - 전레벨
@@ -185,12 +187,14 @@ public class PlayerStatus : MonoBehaviour
         {
             Debug.Log("엠피 부족");
             return false; //엠피가 부족하면 false
+
         }
         else
         {
             mp -= _useMP;
             UI_PlayerData.ins.DisplayMP(mp, MAX_MP);
             return true;
+
         }
     }
 

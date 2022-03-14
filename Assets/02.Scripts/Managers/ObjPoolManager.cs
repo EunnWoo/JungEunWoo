@@ -19,9 +19,6 @@ public class ObjPoolManager
 
     public void Init()
     {
-        Debug.Log("풀 생성");
-
-
         // 오브젝트 풀 담을 오브젝트 생성
         objPoolManager = new GameObject { name = "ObjPoolManager" }.transform;
         Object.DontDestroyOnLoad(objPoolManager);
