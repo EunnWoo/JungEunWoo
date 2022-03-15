@@ -139,7 +139,7 @@
 		<plusmp>0</plusmp>
 	</wearpart>
 	<wearpart>
-		<itemcode>30001</itemcode>
+		<itemcode>21001</itemcode>
 		<category>1</category>
 		<subcategory>2</subcategory>
 		<equpslot>1</equpslot>
@@ -148,7 +148,7 @@
 		<toplist>0</toplist>
 		<grade>0</grade>
 		<discount>0</discount>
-		<icon>30001</icon>
+		<icon>21001</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
 		<gamecost>0</gamecost>
@@ -162,7 +162,7 @@
 		<plusmp>0</plusmp>
 	</wearpart>
 	<wearpart>
-		<itemcode>30002</itemcode>
+		<itemcode>21002</itemcode>
 		<category>1</category>
 		<subcategory>2</subcategory>
 		<equpslot>1</equpslot>
@@ -171,7 +171,7 @@
 		<toplist>0</toplist>
 		<grade>0</grade>
 		<discount>0</discount>
-		<icon>30002</icon>
+		<icon>21002</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
 		<gamecost>0</gamecost>
@@ -185,7 +185,7 @@
 		<plusmp>0</plusmp>
 	</wearpart>
 	<wearpart>
-		<itemcode>30003</itemcode>
+		<itemcode>21003</itemcode>
 		<category>1</category>
 		<subcategory>2</subcategory>
 		<equpslot>1</equpslot>
@@ -194,7 +194,7 @@
 		<toplist>0</toplist>
 		<grade>0</grade>
 		<discount>0</discount>
-		<icon>30003</icon>
+		<icon>21003</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
 		<gamecost>0</gamecost>
@@ -208,7 +208,7 @@
 		<plusmp>50</plusmp>
 	</wearpart>
 	<wearpart>
-		<itemcode>30004</itemcode>
+		<itemcode>21004</itemcode>
 		<category>1</category>
 		<subcategory>2</subcategory>
 		<equpslot>1</equpslot>
@@ -217,7 +217,7 @@
 		<toplist>0</toplist>
 		<grade>0</grade>
 		<discount>0</discount>
-		<icon>30004</icon>
+		<icon>21004</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
 		<gamecost>0</gamecost>
@@ -382,7 +382,7 @@
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
 		<gamecost>0</gamecost>
-		<cashcost>300</cashcost>
+		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
 		<description>HP를 100회복</description>
@@ -403,13 +403,32 @@
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
 		<gamecost>0</gamecost>
-		<cashcost>1000</cashcost>
+		<cashcost>1</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
 		<description>MP를 100회복</description>
 		<hp>0</hp>
 		<mp>100</mp>
 	</usepart>
+	<coinpart>
+		<itemcode>30001</itemcode>
+		<category>4</category>
+		<subcategory>30</subcategory>
+		<equpslot>3</equpslot>
+		<itemname>금화</itemname>
+		<activate>1</activate>
+		<toplist>0</toplist>
+		<grade>1</grade>
+		<discount>0</discount>
+		<icon>30001</icon>
+		<playerlv>0</playerlv>
+		<multistate>0</multistate>
+		<gamecost>1</gamecost>
+		<cashcost>0</cashcost>
+		<buyamount>1</buyamount>
+		<sellcost>0</sellcost>
+		<description>금화</description>
+	</coinpart>
 	<etcpart>
 		<itemcode>40001</itemcode>
 		<category>3</category>

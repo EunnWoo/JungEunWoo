@@ -9,6 +9,7 @@ public class PlayerController : BaseController
 
     Rigidbody rigid;
     Animator animator;
+    PlayerStatus playerStatus;
     [HideInInspector]
     public PlayerAttack playerAttack;
 
@@ -31,6 +32,7 @@ public class PlayerController : BaseController
         if (playerAttack == null) playerAttack = GetComponent<PlayerAttack>();
         rigid = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
+        playerStatus = GetComponent<PlayerStatus>();
 
         Managers.Mouse.MouseAction -= OnMouseEvent;
         Managers.Mouse.MouseAction += OnMouseEvent;
@@ -121,14 +123,23 @@ public class PlayerController : BaseController
                 Debug.Log(_pick.itemData.itemName + " 획득했습니다");
 
                 //인벤토리에 넣어주기
-                bool _bGet =  UI_Inventory.ins.AddItemData(_pick.itemData);
-                if (_bGet)
+                if(_pick.itemData.itemType == eItemType.Coin) //아이템타입이 코인이면
                 {
-                    _pick.ClearDestroy();//오브젝트 주우면 필드에 주운아이템은 사라지게하기
+                    //스텟에 직접넣어준다
+                    playerStatus.gold += _pick.count;
+                    _pick.ClearDestroy();
                 }
                 else
                 {
-                    Debug.Log("아이템창이 가득찼습니다");
+                    bool _bGet =  UI_Inventory.ins.AddItemData(_pick.itemData);
+                    if (_bGet)
+                    {
+                        _pick.ClearDestroy();//오브젝트 주우면 필드에 주운아이템은 사라지게하기
+                    }
+                    else
+                    {
+                        Debug.Log("아이템창이 가득찼습니다");
+                    }
                 }
             }
         }

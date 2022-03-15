@@ -26,19 +26,19 @@ values('wearpart', '20006', '1', '1', '1', '마법사 지팡이', '0', '0', '0', '0', 
 GO
 
 insert into dbo.tItemInfo(labelname, itemcode, category, subcategory, equpslot, itemname, activate, toplist, grade, discount, icon, playerlv, multistate, gamecost, cashcost, buyamount, sellcost, description, param1, param2, param3, param4) 
-values('wearpart', '30001', '1', '2', '1', '모험가 상의', '0', '0', '0', '0', '30001', '0', '0', '0', '0', '1', '0', 'DEF + 10', '0', '10', '0', '0')
+values('wearpart', '21001', '1', '2', '1', '모험가 상의', '0', '0', '0', '0', '21001', '0', '0', '0', '0', '1', '0', 'DEF + 10', '0', '10', '0', '0')
 GO
 
 insert into dbo.tItemInfo(labelname, itemcode, category, subcategory, equpslot, itemname, activate, toplist, grade, discount, icon, playerlv, multistate, gamecost, cashcost, buyamount, sellcost, description, param1, param2, param3, param4) 
-values('wearpart', '30002', '1', '2', '1', '모험가 하의', '0', '0', '0', '0', '30002', '0', '0', '0', '0', '1', '0', 'HP + 100', '0', '0', '100', '0')
+values('wearpart', '21002', '1', '2', '1', '모험가 하의', '0', '0', '0', '0', '21002', '0', '0', '0', '0', '1', '0', 'HP + 100', '0', '0', '100', '0')
 GO
 
 insert into dbo.tItemInfo(labelname, itemcode, category, subcategory, equpslot, itemname, activate, toplist, grade, discount, icon, playerlv, multistate, gamecost, cashcost, buyamount, sellcost, description, param1, param2, param3, param4) 
-values('wearpart', '30003', '1', '2', '1', '모험가 헬멧', '0', '0', '0', '0', '30003', '0', '0', '0', '0', '1', '0', 'MP + 50', '0', '0', '0', '50')
+values('wearpart', '21003', '1', '2', '1', '모험가 헬멧', '0', '0', '0', '0', '21003', '0', '0', '0', '0', '1', '0', 'MP + 50', '0', '0', '0', '50')
 GO
 
 insert into dbo.tItemInfo(labelname, itemcode, category, subcategory, equpslot, itemname, activate, toplist, grade, discount, icon, playerlv, multistate, gamecost, cashcost, buyamount, sellcost, description, param1, param2, param3, param4) 
-values('wearpart', '30004', '1', '2', '1', '모험가 신발', '0', '0', '0', '0', '30004', '0', '0', '0', '0', '1', '0', 'Attack + 10', '10', '0', '0', '0')
+values('wearpart', '21004', '1', '2', '1', '모험가 신발', '0', '0', '0', '0', '21004', '0', '0', '0', '0', '1', '0', 'Attack + 10', '10', '0', '0', '0')
 GO
 
 insert into dbo.tItemInfo(labelname, itemcode, category, subcategory, equpslot, itemname, activate, toplist, grade, discount, icon, playerlv, multistate, gamecost, cashcost, buyamount, sellcost, description, param1, param2, param3, param4) 
@@ -66,11 +66,15 @@ values('wearpart', '305', '1', '3', '1', '', '0', '0', '5', '0', '305', '0', '0'
 GO
 
 insert into dbo.tItemInfo(labelname, itemcode, category, subcategory, equpslot, itemname, activate, toplist, grade, discount, icon, playerlv, multistate, gamecost, cashcost, buyamount, sellcost, description, param1, param2) 
-values('usepart', '10001', '2', '40', '3', '빨간 포션', '1', '0', '1', '0', '10001', '0', '0', '0', '300', '1', '0', 'HP를 100회복', '100', '0')
+values('usepart', '10001', '2', '40', '3', '빨간 포션', '1', '0', '1', '0', '10001', '0', '0', '0', '0', '1', '0', 'HP를 100회복', '100', '0')
 GO
 
 insert into dbo.tItemInfo(labelname, itemcode, category, subcategory, equpslot, itemname, activate, toplist, grade, discount, icon, playerlv, multistate, gamecost, cashcost, buyamount, sellcost, description, param1, param2) 
-values('usepart', '10002', '2', '40', '3', '파란 포션', '1', '0', '2', '0', '10002', '0', '0', '0', '1000', '1', '0', 'MP를 100회복', '0', '100')
+values('usepart', '10002', '2', '40', '3', '파란 포션', '1', '0', '2', '0', '10002', '0', '0', '0', '1', '1', '0', 'MP를 100회복', '0', '100')
+GO
+
+insert into dbo.tItemInfo(labelname, itemcode, category, subcategory, equpslot, itemname, activate, toplist, grade, discount, icon, playerlv, multistate, gamecost, cashcost, buyamount, sellcost, description) 
+values('coinpart', '30001', '4', '30', '3', '금화', '1', '0', '1', '0', '30001', '0', '0', '1', '0', '1', '0', '금화')
 GO
 
 insert into dbo.tItemInfo(labelname, itemcode, category, subcategory, equpslot, itemname, activate, toplist, grade, discount, icon, playerlv, multistate, gamecost, cashcost, buyamount, sellcost, description, param1, param2, param3) 

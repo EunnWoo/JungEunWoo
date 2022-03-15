@@ -6,7 +6,8 @@ public enum eItemType
 {
     Use,//소비
     Equip,//장비
-    ETC//기타
+    ETC,//기타
+    Coin //돈
 
 }
 

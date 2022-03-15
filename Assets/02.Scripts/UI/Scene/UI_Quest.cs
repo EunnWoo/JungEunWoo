@@ -10,11 +10,13 @@ public class UI_Quest : UI_Scene
    }
 
 
+    bool bInit;
     public GameObject questView;
     public override void Init()
     {
+        if (bInit) return;
         base.Init();
-
+        bInit = true;
         Bind<GameObject>(typeof(GameObjects));
         questView = Get<GameObject>((int)GameObjects.QuestView);
        
