@@ -91,7 +91,7 @@ public class PlayerStatus : Status
 
     float GetNeedExp(float _level) //경험치 계산하는 함수
     {
-        return _level <= 0 ? 0 : (_level * 10 + 10);
+        return _level <= 0 ? 0 : (_level * 30 + 0); //레벨당 필요경험치
     }
 
 
@@ -122,10 +122,10 @@ public class PlayerStatus : Status
         float _level = level - 1;
         switch (_kind)
         {
-            case eAbiltyKind.LevelHP:  _rtn = _level * 6; break;
-            case eAbiltyKind.LevelMP: _rtn = _level * 3; break;
-            case eAbiltyKind.LevelAttack: _rtn = _level * 1.8f; break;
-            case eAbiltyKind.LevelDefense: _rtn = _level * 0.5f; break;
+            case eAbiltyKind.LevelHP:  _rtn = _level * 20; break;   //레벨업시 증가하는HP
+            case eAbiltyKind.LevelMP: _rtn = _level * 20; break;    //레벨업시 증가하는MP
+            case eAbiltyKind.LevelAttack: _rtn = _level * 5.0f; break;//레벨업시 증가하는 Attack
+            case eAbiltyKind.LevelDefense: _rtn = _level * 0.5f; break;//레벨업시 증가하는DEF
         }
         return _rtn;
     }
@@ -207,7 +207,7 @@ public class PlayerStatus : Status
         {
             //자기 자신에서 작동
             //경험치(10) <- _monster = GetComponent<몬스터>();
-            exp = exp + 3;
+            exp = exp + 5;
 
         }
 
