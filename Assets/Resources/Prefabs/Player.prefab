@@ -29054,6 +29054,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a06c789ebee545347a41d82c06732f54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 0
+  baseHP: 300
+  baseMP: 300
+  baseAttack: 100
   psLevelUp: {fileID: 2516149209060292782}
   gold: 0
   level: 0

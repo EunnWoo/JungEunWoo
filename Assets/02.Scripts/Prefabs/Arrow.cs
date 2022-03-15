@@ -11,15 +11,17 @@ public class Arrow : MonoBehaviour
 
     public GameObject chargeParticle;
     public GameObject fireParticle;
-    
 
 
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
-       // chargeParticle = GameObject.Find("StormCharge");
-      //  fireParticle = GameObject.Find("StormCleave");
+        // chargeParticle = GameObject.Find("StormCharge");
+        //  fireParticle = GameObject.Find("StormCleave");
 
+        
+            
+      
 
 
     }
@@ -58,6 +60,10 @@ public class Arrow : MonoBehaviour
             transform.position = other.ClosestPointOnBounds(transform.position);
             transform.SetParent(other.transform);
             //피격처리
+            Status playerstatus = Managers.Game.GetPlayer().GetComponent<Status>();
+            Status status = other.GetComponent<Status>();
+
+            status.TakeDamage(playerstatus);
 
             Invoke("DisableArrow", 3f);
         }

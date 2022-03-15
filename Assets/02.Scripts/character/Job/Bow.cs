@@ -61,7 +61,7 @@ public class Bow : PlayerAttack
                     arrow.fireParticle.SetActive(true);
                 }
                 arrow.FireArrow(firepos);
-
+                arrow.chargeParticle.SetActive(false); // ³¯¾Æ°¥¶© ²¨ÁÖ±â
 
                 Managers.UI.ClosePopupUI(ui_SkillTime);
                 animator.SetBool("Fire", true);

@@ -117,4 +117,8 @@ public class MonsterController : BaseController
         objTransform.position = new Vector3(Mathf.Clamp(objTransform.position.x, minRange.x, maxRange.x), objTransform.position.y, 
                                 Mathf.Clamp(objTransform.position.z, minRange.z, maxRange.z));
     }
+
+
+
+
 }

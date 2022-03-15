@@ -39,6 +39,23 @@ public class UIManager
             canvas.sortingOrder = 0;
         }
     }
+    public T MakeWorldSpaceUI<T>(Transform parent = null,string name =null) where T : UI_Base// 이름과 T를 따로 받는 이유 ->name -> prefabs 연동을 위해  // T는  타입
+    {
+        if (string.IsNullOrEmpty(name)) //이름이 비어있다면 프리팹타입의 name 받아와서 넣어주기
+            name = typeof(T).Name;
+
+        GameObject go = Managers.Resource.Instantiate($"UI/WorldSpace/{name}"); // 프리팹 소환
+        if (parent != null)
+            go.transform.SetParent(parent);
+
+        Canvas canvas = go.GetComponent<Canvas>();
+        canvas.renderMode= RenderMode.WorldSpace;
+        canvas.worldCamera = Camera.main;
+
+        return Util.GetOrAddComponent<T>(go);
+
+    }
+
     public T ShowSceneUI<T>(string name = null) where T : UI_Scene// 이름과 T를 따로 받는 이유 ->name -> prefabs 연동을 위해  // T는  타입
     {
         if (string.IsNullOrEmpty(name)) //이름이 비어있다면 프리팹타입의 name 받아와서 넣어주기
