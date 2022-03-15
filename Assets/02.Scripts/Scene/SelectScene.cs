@@ -27,7 +27,7 @@ public class SelectScene : BaseScene
         Managers.UI.ShowSceneUI<UI_PlayerData>();
         Managers.UI.ShowSceneUI<UI_Money>();
         Managers.UI.ShowSceneUI<UI_Inventory>().body.SetActive(false);
-
+        Managers.UI.ShowSceneUI<UI_Quest>().questView.SetActive(false);
 
 
     }

@@ -10,14 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 810645212c15a81498f03d280e54bd1b, type: 3}
-  m_Name: Task_CollectFirstKey
+  m_Name: Task_Move
   m_EditorClassIdentifier: 
-  category: {fileID: 11400000, guid: 6d3d3cb6ad3e403419bd44de11f94393, type: 2}
-  codeName: COLLECT_FIRST_KEY
-  description: You have to collect first key
+  category: {fileID: 11400000, guid: 0d70f51dc91012d49bd408a205c89464, type: 2}
+  codeName: 
+  description: 
   action: {fileID: 11400000, guid: f2e8487896b673045b8b058590e7ae6e, type: 2}
   targets:
-  - {fileID: 11400000, guid: 946b95bcc0aae1245a9486aadbbfc0a5, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   initialSuccessValue: {fileID: 0}
   needSuccessToComplete: 1
   canReceiveReportDuringCompletion: 0

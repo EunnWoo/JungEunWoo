@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ed9d0dbd0abded439db2d6ec8975565, type: 3}
-  m_Name: Target_WayOut
+  m_Script: {fileID: 11500000, guid: dcebe7bb56a2e534ebd21927941299db, type: 3}
+  m_Name: Target_dummy
   m_EditorClassIdentifier: 
-  value: WayOut
+  value: {fileID: 4697017240656324050, guid: 0331b169005eb1d469455efaa6b9024a, type: 3}

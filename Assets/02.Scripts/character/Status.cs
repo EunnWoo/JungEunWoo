@@ -48,6 +48,7 @@ public class Status : MonoBehaviour
 
     bool bDeath;
 
+   
 
     public  bool TakeDamage(Status attacker) //PlayerStatusTest 스크립트 실험용(체력)
     {
@@ -70,6 +71,8 @@ public class Status : MonoBehaviour
         if (hp <= 0) //hp가 0이되면
         {
             Debug.Log("@@@사망");
+            QuestReporter questReporter = GetComponent<QuestReporter>();
+            questReporter.Report();
             bDeath = true;
         }
         UI_PlayerData.ins.DisplayHP(hp, MAX_HP);
