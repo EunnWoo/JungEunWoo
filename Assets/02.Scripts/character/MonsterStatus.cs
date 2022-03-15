@@ -2,7 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UI_Damage : UI_Popup
+public class MonsterStatus : Status
 {
+    void Start()
+    {
+        hp = MAX_HP;
+
+    }
+
     
 }

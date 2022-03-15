@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum ePlayerJob { None, Archer,Warrior,Magician};
-public class PlayerStatus : MonoBehaviour
+public class PlayerStatus : Status
 {
     #region sigleton
 
@@ -16,46 +16,6 @@ public class PlayerStatus : MonoBehaviour
 
     enum eAbiltyKind { LevelHP, LevelMP, LevelAttack, LevelDefense };
     public ParticleSystem psLevelUp;
-
-    #region hp = baseHP + 장비 + 레벨
-    public float hp { get; private set; }
-    private float baseHP = 300; //기본최대체력
-    private float wearHP = 0; //장비를 껴서 얻는 최대체력
-    private float levelHP = 0; //레벨업시 얻는 최대체력
-
-    public float MAX_HP {
-        get { return baseHP + wearHP + levelHP; } 
-    }
-    #endregion
-
-
-    #region mp = baseMP + 장비 + 레벨
-    public float mp { get; private set; }
-    private float baseMP = 300;
-    private float wearMP = 0;
-    private float levelMP = 0;
-    public float MAX_MP {
-        get { return baseMP + wearMP + levelMP; }
-    }
-    #endregion
-
-
-    #region attack = baseAttack + 장비 + 레벨
-    public float attack { get { return baseAttack + wearAttack + levelAttack; } }
-    private float baseAttack = 5; 
-    private float wearAttack = 0; 
-    private float levelAttack = 0; 
-    
-    #endregion
-
-
-    #region defense = baseDefense + 장비 + 레벨
-    public float defense { get { return baseDefense + wearDefense + levelDefense; } }
-    private float baseDefense = 3; 
-    private float wearDefense = 0; 
-    private float levelDefense = 0; 
-    #endregion
-
 
     public float gold;
     public float level;
@@ -163,23 +123,6 @@ public class PlayerStatus : MonoBehaviour
     }
 
 
-
-
-    public bool TakeDamage(float _damage) //PlayerStatusTest 스크립트 실험용(체력)
-    {
-        if (bDeath) return false; //만약 사망했다면
-
-        _damage = Mathf.Max(0, (_damage - defense)); //들어온 데미지에 대해서 데미지 - 방어력을 빼서 hp를 차감
-        hp -= _damage;
-        if(hp <= 0) //hp가 0이되면
-        {
-            Debug.Log("@@@사망");
-            bDeath = true;
-        }
-        UI_PlayerData.ins.DisplayHP(hp, MAX_HP);
-        return bDeath;
-    }
-
     public bool Skill(float _useMP) //PlayerStatusTest 스크립트 실험용(엠피)
     {
         //mp : 캐릭터 클래스 + 장비 + 레벨이 모두 적용된 mp
@@ -213,39 +156,39 @@ public class PlayerStatus : MonoBehaviour
 
 
 
-#if UNITY_EDITOR
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            //Monster 클래스의 데미지를 줄때 작동하는 코드
-            //-> trigger 인식(상대방 : 유저를 인식)
-            //->target.collider.GetComponent<PlayerStatus>().TakeDamage(데미지값);
-            Debug.Log(">>Test (이코드는 몬스터에서 작동되어서 유저에게 데미지)데미지 주기");
-             PlayerStatus _user =  GetComponent<PlayerStatus>();
-            if (_user)
-            {
-                _user.TakeDamage(10);
-            }
-        }
+//#if UNITY_EDITOR
+//    private void Update()
+//    {
+//        if (Input.GetKeyDown(KeyCode.Alpha1))
+//        {
+//            //Monster 클래스의 데미지를 줄때 작동하는 코드
+//            //-> trigger 인식(상대방 : 유저를 인식)
+//            //->target.collider.GetComponent<PlayerStatus>().TakeDamage(데미지값);
+//            Debug.Log(">>Test (이코드는 몬스터에서 작동되어서 유저에게 데미지)데미지 주기");
+//             PlayerStatus _user =  GetComponent<PlayerStatus>();
+//            if (_user)
+//            {
+//                _user.TakeDamage(10);
+//            }
+//        }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            //자기 자신에서 작동
-            PlayerStatus _user = GetComponent<PlayerStatus>();
-            if (_user)
-            {
-                _user.Skill(10);
-            }
-        }
+//        if (Input.GetKeyDown(KeyCode.Alpha2))
+//        {
+//            //자기 자신에서 작동
+//            PlayerStatus _user = GetComponent<PlayerStatus>();
+//            if (_user)
+//            {
+//                _user.Skill(10);
+//            }
+//        }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3)) //몬스터를 사냥하면 획득하는 경험치
-        {
-            //자기 자신에서 작동
-            //경험치(10) <- _monster = GetComponent<몬스터>();
-            exp = exp + 3;
+//        if (Input.GetKeyDown(KeyCode.Alpha3)) //몬스터를 사냥하면 획득하는 경험치
+//        {
+//            //자기 자신에서 작동
+//            //경험치(10) <- _monster = GetComponent<몬스터>();
+//            exp = exp + 3;
             
-        }
-    }
-#endif
+//        }
+//    }
+//#endif
 }
