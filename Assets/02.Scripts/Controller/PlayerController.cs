@@ -10,6 +10,7 @@ public class PlayerController : BaseController
     Rigidbody rigid;
     Animator animator;
     PlayerStatus playerStatus;
+ 
     [HideInInspector]
     public PlayerAttack playerAttack;
 
@@ -29,7 +30,6 @@ public class PlayerController : BaseController
 
     public override void Init()
     {
-        if (playerAttack == null) playerAttack = GetComponent<PlayerAttack>();
         rigid = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
         playerStatus = GetComponent<PlayerStatus>();
@@ -40,13 +40,18 @@ public class PlayerController : BaseController
     }
     protected override void UpdateMoving()
     {
+        
+        if (playerAttack == null ? false : !playerAttack.canMove ) return;
+
         if (!Managers.UI.isAction)
         {
+           
             Move();
             Run();
             Jump();
             Roll();
         }
+        
     }
     protected override void UpdateAttack()
     {
@@ -89,17 +94,9 @@ public class PlayerController : BaseController
                 {
                     if (_lockTarget.layer == (int)Layer.Item) //타겟의 레이어가 아이템이면
                     {
-                        //Debug.Log("@@@ Eat item");
+                       
                         TakeItem(_lockTarget);
                     }
-                    //else if(_lockTarget.layer == (int)Layer.Npc)
-                    //{
-                    //   ObjData _objData =  _lockTarget.GetComponent<ObjData>();
-                    //    if(_objData.id ==4)
-                    //    {
-                    //        Debug.Log("상점오픈");
-                    //    }
-                    //}
 
                     _lockTarget = null;
                     return;
@@ -156,14 +153,15 @@ public class PlayerController : BaseController
     }
     void Run()
     {
-        if (isJump)
+        if (playerAttack != null ? playerAttack.isAttack : false) return;
+        if (isJump) 
         {
             moveSpeed = 8f*0.8f;
             return;
         }
         bool runnig = false;
         runnig = Managers.Input.run && moveVec.magnitude != 0f;
-        moveSpeed = runnig ? 8f * 1.3f : 8f * 0.8f;
+        moveSpeed = runnig ? 8f * 1.1f : 8f * 0.8f;
         animator.SetBool("IsRun", runnig);
     }
 
@@ -171,6 +169,7 @@ public class PlayerController : BaseController
     public void MoveStop()
     {
         moveVec = Vector3.zero;
+        _lockTarget = null;
     }
     //hitpoint와 거리반환 함수
 
@@ -179,8 +178,9 @@ public class PlayerController : BaseController
     #region jump
     private void Jump()
     {
+       
         Jumptf();
-        if (Managers.Input.jump && !isJump && !Managers.Input.roll && rigid.velocity.y==0)
+        if (Managers.Input.jump && !isJump && !Managers.Input.roll && rigid.velocity.y == 0 )
         {
             isJump = true;
             animator.SetBool("IsJump", true);
@@ -188,6 +188,7 @@ public class PlayerController : BaseController
             rigid.AddForce(Vector3.up * 17, ForceMode.Impulse);
 
         }
+        
     }
     private void Jumptf()
     {
@@ -292,9 +293,12 @@ public class PlayerController : BaseController
 
     #endregion
 
+  
+
     //마우스 클릭 이벤트 받는 메서드
     void OnMouseEvent(Define.MouseEvent evt)
     {
+        
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         bool raycastHit = Physics.Raycast(ray, out hit, 100.0f, _mask);

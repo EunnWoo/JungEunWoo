@@ -75,7 +75,7 @@ public class Status : MonoBehaviour
             questReporter.Report();
             bDeath = true;
         }
-        UI_PlayerData.ins.DisplayHP(hp, MAX_HP);
+        //UI_PlayerData.ins.DisplayHP(hp, MAX_HP);
         return bDeath;
     }
 

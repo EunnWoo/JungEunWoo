@@ -18,7 +18,7 @@ public class PlayerStatus : Status
     public ParticleSystem psLevelUp;
 
     float gold1, gold2;
-    public float gold
+    public float gold//보완성
     {
         get { return gold1 + gold2; }
         set
@@ -62,7 +62,7 @@ public class PlayerStatus : Status
                 
                 hp = MAX_HP; //레벨업시 hp를 전부 회복
                 mp = MAX_MP;
-                UI_PlayerData.ins.DisplayHP(hp, MAX_HP);
+              //  UI_PlayerData.ins.DisplayHP(hp, MAX_HP);
                 UI_PlayerData.ins.DisplayMP(mp, MAX_MP);
             }
             float _needExp = GetNeedExp(level) - GetNeedExp(level - 1); //현재레벨 - 전레벨
@@ -136,7 +136,7 @@ public class PlayerStatus : Status
         //HP MP를 Plus
         hp += _hp; //물약을 먹을시
         hp = hp > MAX_HP ? MAX_HP : hp; //hp가 MAX양을 초과하면 더이상 회복하지않는다
-        UI_PlayerData.ins.DisplayHP(hp, MAX_HP); //체력 게이지 이미지 움직임
+        //UI_PlayerData.ins.DisplayHP(hp, MAX_HP); //체력 게이지 이미지 움직임
         //HP MP
         mp += _mp; //물약을 먹을시
         mp = mp > MAX_MP ? MAX_MP : mp;//mp가 MAX양을 초과하면 더이상 회복하지않는다
