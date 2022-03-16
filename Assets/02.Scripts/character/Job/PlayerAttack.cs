@@ -18,7 +18,7 @@ public class PlayerAttack : MonoBehaviour
 
     public GameObject attackTarget { get;  private set; }  //À¯µµÅºÀ» À§ÇÑ Å¸°Ù
     PlayerController playerController;
-
+    UI_CoolTime ui_CoolTime;
 
     private void Update()
     {
@@ -30,6 +30,7 @@ public class PlayerAttack : MonoBehaviour
 
         canMove = animator.GetBool("canMove");
 
+        ui_CoolTime.SetCoolTimeImage(attackRate, skillRate, attackDelay, skillDelay);
     }
 
     private void OnEnable()
@@ -41,6 +42,8 @@ public class PlayerAttack : MonoBehaviour
         skillDelay = 40;
         canMove = true;
         animator.SetBool("canMove",canMove);
+
+        ui_CoolTime = Managers.UI.ShowSceneUI<UI_CoolTime>();
     }
 
     public virtual void OnAttack()

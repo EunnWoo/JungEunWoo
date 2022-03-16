@@ -20,9 +20,12 @@ public class FireBall : MonoBehaviour
     [SerializeField]
     ParticleSystem childps;
 
+    private bool isFire;
+    public void SetFire(bool value) { isFire = value; }
 
     Vector3 offset;
     public float speed = 500f;
+
 
     private void Start()
     {
@@ -37,9 +40,11 @@ public class FireBall : MonoBehaviour
         main = childps.main;
         main.startColor = new Color(red, green, blue, 255);
     }
+
     private void OnEnable()
     {
 
+        isFire = false;
         tr = GetComponent<Transform>();
         rigid = GetComponent<Rigidbody>();
 
@@ -48,8 +53,7 @@ public class FireBall : MonoBehaviour
             playerAttack = Managers.Game.GetPlayer().GetComponent<PlayerAttack>();
             animator = Managers.Game.GetPlayer().GetComponentInChildren<Animator>();
         }
-        
-        
+
 
 
 
@@ -65,7 +69,7 @@ public class FireBall : MonoBehaviour
 
         if (playerAttack != null)
         {
-            if (animator.GetBool("Fire"))
+            if (isFire)
             {
                 if (playerAttack.attackTarget.layer == (int)Layer.Monster)
                 {
@@ -87,7 +91,6 @@ public class FireBall : MonoBehaviour
     public void FireFireBall(Transform firepos)
     {
         offset = firepos.position;
-        rigid.AddForce(transform.right * speed);
 
     }
     public void DisableFireBall()
@@ -98,13 +101,19 @@ public class FireBall : MonoBehaviour
     {
         if(other.tag =="Monster")
         {
+            
             gameObject.SetActive(false);
+            Status playerstatus = Managers.Game.GetPlayer().GetComponent<Status>();
+            Status status = other.GetComponent<Status>();
+
+            status.TakeDamage(playerstatus);
         }
     }
 
     private void OnDisable()//오브젝트 비활성화
     {
         //값 초기화
+        
         tr.position = Vector3.zero;
         tr.rotation = Quaternion.identity;
         rigid.Sleep();
