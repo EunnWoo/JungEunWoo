@@ -14,12 +14,13 @@ public class UI_Equipment : UI_Scene
     public GameObject Eqbody;
     public override void Init()
     {
-        
 
+
+        Eqbody.SetActive(false);
     }
 
 
-        public void OpenEquipment()
+     public void OpenEquipment()
     {
         if (!Eqbody.activeSelf)//장비창이 꺼져있을시
         {

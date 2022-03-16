@@ -36,7 +36,7 @@ public class UI_Damage : UI_Base
         alpha = damageText.color;
         damageText.text = damage.ToString();
         
-        Vector3 parent = new Vector3(transform.parent.position.x, transform.parent.GetComponent<Collider>().bounds.max.y, transform.parent.position.z);
+        Vector3 parent = new Vector3(transform.parent.position.x, transform.parent.GetComponent<Collider>().bounds.max.y + Random.Range(-1f,1f), transform.parent.position.z);
         
         transform.position = parent;
         

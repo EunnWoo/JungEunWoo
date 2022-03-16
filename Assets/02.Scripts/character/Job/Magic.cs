@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class Magic : PlayerAttack
 {
-    [SerializeField]
     private GameObject[] fireBallPos;
-
+    private FireBall[] fireBalls;
 
     private int hasFireBall;
     private string fireballobj;
     private string rotatorfall;
     private float charge;
-    private FireBall fireball;
+
     private void Awake()
     {
 
 
         fireBallPos = GameObject.FindGameObjectsWithTag("FirePos");
+        fireBalls = new FireBall[fireBallPos.Length];
         fireballobj = "FireBall";
         rotatorfall = "RotatorFireBall";
         hasFireBall = 0;
@@ -44,27 +44,35 @@ public class Magic : PlayerAttack
 
             if (hasFireBall < 5 ? charge >= hasFireBall : false) // 차징만큼 담기
             {
-                var fireBallObj = Managers.Pool.MakeObj(fireballobj);
-                if (fireBallObj != null)
+                var fireballObj = Managers.Pool.MakeObj(fireballobj);
+               
+                if (fireballObj != null)
                 {
-                    fireball = fireBallObj.GetComponent<FireBall>();
-                    fireBallObj.transform.position = fireBallPos[hasFireBall].transform.position;
-                    fireBallObj.transform.rotation = fireBallPos[hasFireBall].transform.rotation;
-                    fireball.FireFireBall(fireBallObj.transform);
-                    fireBallObj.SetActive(true);
+                    fireBalls[hasFireBall] = fireballObj.GetComponent<FireBall>();
+                  //  fireBalls[hasFireBall].SetFire(false);
+                    fireballObj.transform.position = fireBallPos[hasFireBall].transform.position;
+                    fireballObj.transform.rotation = fireBallPos[hasFireBall].transform.rotation;
+                    fireballObj.gameObject.SetActive(true);
+
+                    fireBalls[hasFireBall].FireFireBall(fireBalls[hasFireBall].transform);
+
                     hasFireBall++;
                     ui_SkillTime.SetImage(hasFireBall);
-
                 }
 
             }
 
             if (!Managers.Input.fire) // 발사
             {
-
                 animator.SetBool("Fire", true);
                 Managers.UI.ClosePopupUI(ui_SkillTime);
+                for (int i = 0; i< hasFireBall; i++)
+                {
+                    fireBalls[i].SetFire(true);
+                    yield return new WaitForSeconds(0.1f);
 
+                }
+                
                 isAttack = false;
                 attackDelay = 0;
                 hasFireBall = 0;

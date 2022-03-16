@@ -55,24 +55,28 @@ public class Sword : PlayerAttack
     }
     protected override void OnHitEvent()
     {
+        Status playerstatus = Managers.Game.GetPlayer().GetComponent<Status>();
         Vector3 vec = transform.localPosition + transform.forward;
         Collider[] hit = Physics.OverlapSphere(vec, 1.2f, 1 << (int)Layer.Monster);
         for (int i = 0; i < hit.Length; i++)
         {
-            Debug.Log("오버랩맞음");
-            
+
+            Status status = hit[i].GetComponent<Status>();
+            status.TakeDamage(playerstatus);
         }
 
 
     }
     public void SkillEvent() // 스킬
     {
+        Status playerstatus = Managers.Game.GetPlayer().GetComponent<Status>();
         Collider[] hit = Physics.OverlapSphere(transform.position, 2.2f, 1 << (int)Layer.Monster);
 
 
         for (int i = 0; i < hit.Length; i++)
         {
-            Debug.Log("맞음");
+            Status status = hit[i].GetComponent<Status>();
+            status.TakeDamage(playerstatus);
         }
     }
 

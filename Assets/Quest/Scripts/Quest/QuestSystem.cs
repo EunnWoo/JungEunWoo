@@ -23,9 +23,11 @@ public class QuestSystem : MonoBehaviour
 
     public static QuestSystem Instance{
         get{
-            if(!isApplicationQuitting && instance == null){
+            if(!isApplicationQuitting && instance == null)
+            {
                 instance = FindObjectOfType<QuestSystem>();
-                if(instance == null){
+                if(instance == null)
+                {
                     instance = new GameObject("Quest System").AddComponent<QuestSystem>();
                     DontDestroyOnLoad(instance.gameObject);
                 }

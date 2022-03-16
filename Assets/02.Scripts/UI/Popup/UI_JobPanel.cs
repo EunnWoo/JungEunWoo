@@ -77,7 +77,7 @@ public class UI_JobPanel : UI_Popup
         {
             talkIndex = 0;
             Managers.UI.isTalk(false);
-            jobController.JobChoice();
+            jobController.JobChoice(); // 직업확정
             Managers.UI.ClosePopupUI();
         }
 

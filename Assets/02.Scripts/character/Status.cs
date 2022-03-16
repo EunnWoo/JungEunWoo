@@ -54,17 +54,22 @@ public class Status : MonoBehaviour
     {
         if (bDeath) return false; //만약 사망했다면
 
-        Debug.Log(attack);
+        Debug.Log("호출");
         int damage = Mathf.Max(0, (int)attacker.attack - (int)defense);
         hp -= damage;
 
         UI_Damage ui_Damage = Managers.UI.MakeWorldSpaceUI<UI_Damage>(transform);
         ui_Damage.target = transform;
         ui_Damage.damage = damage;
-        //Collider collider = GetComponent<Collider>();
-        //UI_Damage ui_Damage = Managers.UI.ShowPopupUI<UI_Damage>();
-        //ui_Damage.transform.position = collider.bounds.max;
-        //ui_Damage.damage = damage;
+
+        if (attacker.tag == "Player")
+        {
+            UI_MonsterHpBar ui_MonsterHpBar = FindObjectOfType<UI_MonsterHpBar>();
+            if (ui_MonsterHpBar != null)
+            {
+                ui_MonsterHpBar.ChangeMonsterHit(this);
+            }
+        }
 
 
 
@@ -74,6 +79,15 @@ public class Status : MonoBehaviour
             QuestReporter questReporter = GetComponent<QuestReporter>();
             questReporter.Report();
             bDeath = true;
+
+            if (attacker.tag == "Player")
+            {
+                UI_MonsterHpBar ui_MonsterHpBar = FindObjectOfType<UI_MonsterHpBar>();
+                if (ui_MonsterHpBar != null)
+                {
+                    ui_MonsterHpBar.OffMonsterHpbar();
+                }
+            }
         }
         //UI_PlayerData.ins.DisplayHP(hp, MAX_HP);
         return bDeath;
