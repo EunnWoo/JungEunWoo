@@ -68,11 +68,11 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 8f2017239720fdc4399735f620d45e1b, type: 3}
   - {fileID: 21300000, guid: b73cf7a3f87502a41b4c9a691498248e, type: 3}
   - {fileID: 21300000, guid: 16c1bab30244e46438e1968dda34bd70, type: 3}
+  - {fileID: 21300000, guid: 9c7b5d043503d1a4c8d130f3b2409524, type: 3}
   - {fileID: 21300000, guid: 9b818d245957cad458722c2d2aff7ed7, type: 3}
   - {fileID: 21300000, guid: 83ab2434deb511a4b8aabd90f5d9de60, type: 3}
   - {fileID: 21300000, guid: b687fc34a67e4154597da6cddd1ca168, type: 3}
   - {fileID: 21300000, guid: e76b30749d6bac4489c3ccf1ccb2c8fc, type: 3}
-  - {fileID: 21300000, guid: b80babc45dc354c4684066b6c19565ad, type: 3}
   - {fileID: 21300000, guid: 668df6f48e59c80439fa587624e5a84d, type: 3}
   - {fileID: 21300000, guid: 88fe8e1594415fb4bacf7593f4a475f6, type: 3}
   - {fileID: 21300000, guid: d6a5be75ee20dd94682b602816b88b5d, type: 3}
@@ -114,7 +114,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: f594bf2df7f5c264f96b77d4c5537436, type: 3}
   - {fileID: 21300000, guid: db49433d40e53614492908d3cb323f14, type: 3}
   - {fileID: 21300000, guid: 683e7d9d6853b8a4b9dbe41a0be44b5c, type: 3}
-  - {fileID: 21300000, guid: a83c32cdf9c1bf14dbfb441debb08e25, type: 3}
   - {fileID: 21300000, guid: 361f2ddd34d85634cba101440334a124, type: 3}
   - {fileID: 21300000, guid: 34624a0e889b4f4418d79e7daefccd72, type: 3}
   - {fileID: 21300000, guid: f2ee8b2ec5ed98544a798f4af5fa790c, type: 3}
@@ -124,7 +123,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: c2d1708e95fe32b46b5aa67592065c9b, type: 3}
   - {fileID: 21300000, guid: b2634b9e26cf5724eb4ed456b37f096a, type: 3}
   - {fileID: 21300000, guid: 53e5b1aea071ba648b23bb563877f54d, type: 3}
-  - {fileID: 21300000, guid: ef419fce13384654bab5cbf27232d640, type: 3}
   - {fileID: 21300000, guid: 7c0a062fdc5ea0149a863d771811d51e, type: 3}
   - {fileID: 21300000, guid: 6b5d537fb6d2b8b4abee9de72ec7c504, type: 3}
   - {fileID: 21300000, guid: a2bcc88f94981eb4d8eceb8d65771717, type: 3}
@@ -151,11 +149,11 @@ SpriteAtlas:
   - SteelTowerShield (Type=Shield, Collection=Basic)
   - KnightHelm [Paint] (Type=Helmet, Collection=Basic)
   - GreyKnight (Type=Boots, Collection=SpellMasters)
+  - BanditLightArmor [Paint] (Type=Armor, Collection=Basic) 1
   - WoodenShield2 (Type=Shield, Collection=Vikings)
   - HawkHelm (Type=Helmet, Collection=Basic)
   - RedwoodBow (Type=Weapon, Collection=AbandonedWorkshop, Tags=Bow&2H) 1
   - BronzeRing
-  - BattleguardHelm (Type=Helmet, Collection=AbandonedWorkshop)
   - BattleBow (Type=Weapon, Collection=Basic, Tags=Bow&2H)
   - HardwoodWand (Type=Weapon, Collection=Basic, Tags=Wand&1H) 1
   - BanditLightArmor [Paint] (Type=Gloves, Collection=Basic)
@@ -197,7 +195,6 @@ SpriteAtlas:
   - Katana1 [Paint] (Type=Weapon, Collection=Samurai, Tags=Sword&1H)
   - AssassinDagger [Paint] (Type=Weapon, Collection=SpellMasters, Tags=Dagger&Sword&1H)
   - GreyKnight (Type=Armor, Collection=SpellMasters)
-  - BattleguardArmor (Type=Boots, Collection=AbandonedWorkshop)
   - MilitiamanShield (Type=Shield, Collection=Basic)
   - Scout [Paint] (Type=Armor, Collection=Basic)
   - Harpoon (Type=Weapon, Collection=Pro, Tags=Spear&2H)
@@ -207,7 +204,6 @@ SpriteAtlas:
   - VikingShortBow (Type=Arrow, Collection=Vikings)
   - RedwoodBow (Type=Arrow, Collection=AbandonedWorkshop)
   - MarauderBow (Type=Weapon, Collection=SpellMasters, Tags=Bow&2H)
-  - BanditLightArmor [Paint] (Type=Armor, Collection=Basic)
   - Scout [Paint] (Type=Boots, Collection=Basic)
   - DarkMountain (Type=Gloves, Collection=Thrones)
   - ButcherKnife (Type=Weapon, Collection=AbandonedWorkshop, Tags=Sword&2H)
