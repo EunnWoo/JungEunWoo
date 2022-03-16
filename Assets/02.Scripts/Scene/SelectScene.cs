@@ -27,7 +27,7 @@ public class SelectScene : BaseScene
         
         ui_Inventory = Managers.UI.ShowSceneUI<UI_Inventory>();
         ui_MonsterHpbar= Managers.UI.ShowSceneUI<UI_MonsterHpBar>();
-        ui_Equipment = Managers.UI.ShowSceneUI<UI_Equipment>();
+        //ui_Equipment = Managers.UI.ShowSceneUI<UI_Equipment>();
 
         //¿¹¿Ü
         Managers.UI.ShowSceneUI<UI_PlayerData>();
@@ -45,7 +45,7 @@ public class SelectScene : BaseScene
     }
     public override void Clear()
     {
-        ui_Equipment.Eqbody.SetActive(false);
+        //ui_Equipment.Eqbody.SetActive(false);
         ui_Inventory.body.SetActive(false);
         ui_MonsterHpbar.OffMonsterHpbar();
     }

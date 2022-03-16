@@ -2,14 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum eItemType
-{
-    Use,//소비
-    Equip,//장비
-    ETC,//기타
-    Coin //돈
-
-}
 
 [System.Serializable]
 [CreateAssetMenu(fileName = "New Item", menuName = "New Item/item")]

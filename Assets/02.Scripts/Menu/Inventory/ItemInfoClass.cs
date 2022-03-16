@@ -2,6 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum eItemType
+{
+	Use,//소비
+	Equip,//장비
+	ETC,//기타
+	Coin //돈
+
+}
+
+
 public class ItemInfoClass 
 {
     
@@ -25,6 +36,35 @@ public class ItemData
 
 		iteminfoBase = ItemInfo.ins.GetItemInfoBase(_itemcode);
 	}
+
+	public eEquipmentSlot equipmentSlot
+    {
+		get
+		{
+			eEquipmentSlot _slot = eEquipmentSlot.NotSlot;
+			switch (iteminfoBase.subcategory) //iteminfoBase에 subcategory넣어주면
+			{
+				case 0:
+					_slot = eEquipmentSlot.Head;
+					break;
+
+				case 1:
+					_slot = eEquipmentSlot.Armor;
+					break;
+
+				case 2:
+					_slot = eEquipmentSlot.Weapon;
+					break;
+
+				case 3:
+					_slot = eEquipmentSlot.Boots;
+					break;
+			}
+			return _slot;
+		}
+	}
+
+	public bool equipmentStatus;
 
 	public string itemName 
 	{
@@ -108,6 +148,7 @@ public class ItemInfoWearPart : ItemInfoBase
 	public int plusatt;
 	public int plusdef;
 	public int plushp;
+	public string skin;
 }
 
 

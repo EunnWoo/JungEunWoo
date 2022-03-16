@@ -3,7 +3,7 @@
 	<wearpart>
 		<itemcode>20001</itemcode>
 		<category>1</category>
-		<subcategory>1</subcategory>
+		<subcategory>2</subcategory>
 		<equpslot>1</equpslot>
 		<itemname>초보자 검</itemname>
 		<activate>0</activate>
@@ -17,20 +17,21 @@
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
-		<description>Attack +10</description>
+		<description>초보자 검 입니다</description>
 		<plusatt>10</plusatt>
 		<plusdef>0</plusdef>
 		<plushp>0</plushp>
 		<plusmp>0</plusmp>
+		<skin>Sword2_R</skin>
 	</wearpart>
 	<wearpart>
 		<itemcode>20002</itemcode>
 		<category>1</category>
-		<subcategory>1</subcategory>
+		<subcategory>2</subcategory>
 		<equpslot>1</equpslot>
-		<itemname>초보자 활</itemname>
+		<itemname>용사의 검</itemname>
 		<activate>0</activate>
-		<toplist>0</toplist>
+		<toplist>1</toplist>
 		<grade>0</grade>
 		<discount>0</discount>
 		<icon>20002</icon>
@@ -40,99 +41,100 @@
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
-		<description>Attack +10</description>
+		<description>용사의 검 입니다</description>
 		<plusatt>10</plusatt>
 		<plusdef>0</plusdef>
 		<plushp>0</plushp>
 		<plusmp>0</plusmp>
+		<skin>Sword3_R</skin>
 	</wearpart>
 	<wearpart>
-		<itemcode>20003</itemcode>
+		<itemcode>20100</itemcode>
 		<category>1</category>
-		<subcategory>1</subcategory>
+		<subcategory>2</subcategory>
 		<equpslot>1</equpslot>
 		<itemname>초보자 지팡이</itemname>
 		<activate>0</activate>
-		<toplist>0</toplist>
+		<toplist>2</toplist>
 		<grade>0</grade>
 		<discount>0</discount>
-		<icon>20003</icon>
+		<icon>20100</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
 		<gamecost>0</gamecost>
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
-		<description>Attack +10</description>
+		<description>초보자 지팡이 입니다</description>
 		<plusatt>10</plusatt>
 		<plusdef>0</plusdef>
 		<plushp>0</plushp>
 		<plusmp>0</plusmp>
 	</wearpart>
 	<wearpart>
-		<itemcode>20004</itemcode>
+		<itemcode>20101</itemcode>
 		<category>1</category>
-		<subcategory>1</subcategory>
-		<equpslot>1</equpslot>
-		<itemname>용사의 검</itemname>
-		<activate>0</activate>
-		<toplist>0</toplist>
-		<grade>0</grade>
-		<discount>0</discount>
-		<icon>20004</icon>
-		<playerlv>0</playerlv>
-		<multistate>0</multistate>
-		<gamecost>0</gamecost>
-		<cashcost>0</cashcost>
-		<buyamount>1</buyamount>
-		<sellcost>0</sellcost>
-		<description>Attack +25</description>
-		<plusatt>25</plusatt>
-		<plusdef>0</plusdef>
-		<plushp>0</plushp>
-		<plusmp>0</plusmp>
-	</wearpart>
-	<wearpart>
-		<itemcode>20005</itemcode>
-		<category>1</category>
-		<subcategory>1</subcategory>
-		<equpslot>1</equpslot>
-		<itemname>명사수 활</itemname>
-		<activate>0</activate>
-		<toplist>0</toplist>
-		<grade>0</grade>
-		<discount>0</discount>
-		<icon>20005</icon>
-		<playerlv>0</playerlv>
-		<multistate>0</multistate>
-		<gamecost>0</gamecost>
-		<cashcost>0</cashcost>
-		<buyamount>1</buyamount>
-		<sellcost>0</sellcost>
-		<description>Attack +25</description>
-		<plusatt>25</plusatt>
-		<plusdef>0</plusdef>
-		<plushp>0</plushp>
-		<plusmp>0</plusmp>
-	</wearpart>
-	<wearpart>
-		<itemcode>20006</itemcode>
-		<category>1</category>
-		<subcategory>1</subcategory>
+		<subcategory>2</subcategory>
 		<equpslot>1</equpslot>
 		<itemname>마법사 지팡이</itemname>
 		<activate>0</activate>
 		<toplist>0</toplist>
 		<grade>0</grade>
 		<discount>0</discount>
-		<icon>20006</icon>
+		<icon>20101</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
 		<gamecost>0</gamecost>
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
-		<description>Attack +25</description>
+		<description>마법사 지팡이 입니다</description>
+		<plusatt>25</plusatt>
+		<plusdef>0</plusdef>
+		<plushp>0</plushp>
+		<plusmp>0</plusmp>
+	</wearpart>
+	<wearpart>
+		<itemcode>20200</itemcode>
+		<category>1</category>
+		<subcategory>2</subcategory>
+		<equpslot>1</equpslot>
+		<itemname>초보자 활</itemname>
+		<activate>0</activate>
+		<toplist>1</toplist>
+		<grade>0</grade>
+		<discount>0</discount>
+		<icon>20200</icon>
+		<playerlv>0</playerlv>
+		<multistate>0</multistate>
+		<gamecost>0</gamecost>
+		<cashcost>0</cashcost>
+		<buyamount>1</buyamount>
+		<sellcost>0</sellcost>
+		<description>초보자 활 입니다</description>
+		<plusatt>25</plusatt>
+		<plusdef>0</plusdef>
+		<plushp>0</plushp>
+		<plusmp>0</plusmp>
+	</wearpart>
+	<wearpart>
+		<itemcode>20201</itemcode>
+		<category>1</category>
+		<subcategory>2</subcategory>
+		<equpslot>1</equpslot>
+		<itemname>명사수 활</itemname>
+		<activate>0</activate>
+		<toplist>2</toplist>
+		<grade>0</grade>
+		<discount>0</discount>
+		<icon>20201</icon>
+		<playerlv>0</playerlv>
+		<multistate>0</multistate>
+		<gamecost>0</gamecost>
+		<cashcost>0</cashcost>
+		<buyamount>1</buyamount>
+		<sellcost>0</sellcost>
+		<description>명사수 활 입니다</description>
 		<plusatt>25</plusatt>
 		<plusdef>0</plusdef>
 		<plushp>0</plushp>
@@ -141,9 +143,9 @@
 	<wearpart>
 		<itemcode>21001</itemcode>
 		<category>1</category>
-		<subcategory>2</subcategory>
+		<subcategory>0</subcategory>
 		<equpslot>1</equpslot>
-		<itemname>모험가 상의</itemname>
+		<itemname>모험가 헬멧</itemname>
 		<activate>0</activate>
 		<toplist>0</toplist>
 		<grade>0</grade>
@@ -155,7 +157,7 @@
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
-		<description>DEF + 10</description>
+		<description>모험가 헬멧 입니다</description>
 		<plusatt>0</plusatt>
 		<plusdef>10</plusdef>
 		<plushp>0</plushp>
@@ -164,9 +166,9 @@
 	<wearpart>
 		<itemcode>21002</itemcode>
 		<category>1</category>
-		<subcategory>2</subcategory>
+		<subcategory>0</subcategory>
 		<equpslot>1</equpslot>
-		<itemname>모험가 하의</itemname>
+		<itemname>고급 헬멧</itemname>
 		<activate>0</activate>
 		<toplist>0</toplist>
 		<grade>0</grade>
@@ -178,53 +180,99 @@
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
-		<description>HP + 100</description>
-		<plusatt>0</plusatt>
-		<plusdef>0</plusdef>
-		<plushp>100</plushp>
-		<plusmp>0</plusmp>
-	</wearpart>
-	<wearpart>
-		<itemcode>21003</itemcode>
-		<category>1</category>
-		<subcategory>2</subcategory>
-		<equpslot>1</equpslot>
-		<itemname>모험가 헬멧</itemname>
-		<activate>0</activate>
-		<toplist>0</toplist>
-		<grade>0</grade>
-		<discount>0</discount>
-		<icon>21003</icon>
-		<playerlv>0</playerlv>
-		<multistate>0</multistate>
-		<gamecost>0</gamecost>
-		<cashcost>0</cashcost>
-		<buyamount>1</buyamount>
-		<sellcost>0</sellcost>
-		<description>MP + 50</description>
+		<description>고급 헬멧 입니다</description>
 		<plusatt>0</plusatt>
 		<plusdef>0</plusdef>
 		<plushp>0</plushp>
 		<plusmp>50</plusmp>
 	</wearpart>
 	<wearpart>
-		<itemcode>21004</itemcode>
+		<itemcode>22001</itemcode>
 		<category>1</category>
-		<subcategory>2</subcategory>
+		<subcategory>1</subcategory>
 		<equpslot>1</equpslot>
-		<itemname>모험가 신발</itemname>
+		<itemname>모험가 상의</itemname>
 		<activate>0</activate>
 		<toplist>0</toplist>
 		<grade>0</grade>
 		<discount>0</discount>
-		<icon>21004</icon>
+		<icon>22001</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
 		<gamecost>0</gamecost>
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
-		<description>Attack + 10</description>
+		<description>모험가 상의 입니다</description>
+		<plusatt>10</plusatt>
+		<plusdef>0</plusdef>
+		<plushp>0</plushp>
+		<plusmp>0</plusmp>
+	</wearpart>
+	<wearpart>
+		<itemcode>22002</itemcode>
+		<category>1</category>
+		<subcategory>1</subcategory>
+		<equpslot>1</equpslot>
+		<itemname>고급 상의</itemname>
+		<activate>0</activate>
+		<toplist>0</toplist>
+		<grade>0</grade>
+		<discount>0</discount>
+		<icon>22002</icon>
+		<playerlv>0</playerlv>
+		<multistate>0</multistate>
+		<gamecost>0</gamecost>
+		<cashcost>0</cashcost>
+		<buyamount>1</buyamount>
+		<sellcost>0</sellcost>
+		<description>고급 상의 입니다</description>
+		<plusatt>0</plusatt>
+		<plusdef>10</plusdef>
+		<plushp>0</plushp>
+		<plusmp>0</plusmp>
+	</wearpart>
+	<wearpart>
+		<itemcode>23001</itemcode>
+		<category>1</category>
+		<subcategory>3</subcategory>
+		<equpslot>1</equpslot>
+		<itemname>모험가 신발</itemname>
+		<activate>0</activate>
+		<toplist>0</toplist>
+		<grade>0</grade>
+		<discount>0</discount>
+		<icon>23001</icon>
+		<playerlv>0</playerlv>
+		<multistate>0</multistate>
+		<gamecost>0</gamecost>
+		<cashcost>0</cashcost>
+		<buyamount>1</buyamount>
+		<sellcost>0</sellcost>
+		<description>모험가 신발 입니다</description>
+		<plusatt>0</plusatt>
+		<plusdef>0</plusdef>
+		<plushp>0</plushp>
+		<plusmp>50</plusmp>
+	</wearpart>
+	<wearpart>
+		<itemcode>23002</itemcode>
+		<category>1</category>
+		<subcategory>3</subcategory>
+		<equpslot>1</equpslot>
+		<itemname>고급 신발</itemname>
+		<activate>0</activate>
+		<toplist>0</toplist>
+		<grade>0</grade>
+		<discount>0</discount>
+		<icon>23002</icon>
+		<playerlv>0</playerlv>
+		<multistate>0</multistate>
+		<gamecost>0</gamecost>
+		<cashcost>0</cashcost>
+		<buyamount>1</buyamount>
+		<sellcost>0</sellcost>
+		<description>고급 신발 입니다</description>
 		<plusatt>10</plusatt>
 		<plusdef>0</plusdef>
 		<plushp>0</plushp>
@@ -235,7 +283,7 @@
 		<category>1</category>
 		<subcategory>3</subcategory>
 		<equpslot>1</equpslot>
-		<itemname></itemname>
+		<itemname>하의1</itemname>
 		<activate>0</activate>
 		<toplist>0</toplist>
 		<grade>0</grade>
@@ -247,7 +295,7 @@
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
-		<description>액세서리</description>
+		<description>하의1 입니다</description>
 		<plusatt>-1</plusatt>
 		<plusdef>0</plusdef>
 		<plushp>0</plushp>
@@ -258,7 +306,7 @@
 		<category>1</category>
 		<subcategory>3</subcategory>
 		<equpslot>1</equpslot>
-		<itemname></itemname>
+		<itemname>하의2</itemname>
 		<activate>0</activate>
 		<toplist>0</toplist>
 		<grade>1</grade>
@@ -270,7 +318,7 @@
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
-		<description>돌 조각으로 조합한 장비</description>
+		<description>하의2 입니다</description>
 		<plusatt>4100</plusatt>
 		<plusdef>1</plusdef>
 		<plushp>0</plushp>
@@ -281,7 +329,7 @@
 		<category>1</category>
 		<subcategory>3</subcategory>
 		<equpslot>1</equpslot>
-		<itemname></itemname>
+		<itemname>하의3</itemname>
 		<activate>0</activate>
 		<toplist>0</toplist>
 		<grade>2</grade>
@@ -293,7 +341,7 @@
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
-		<description>동 조각으로 조합한 장비</description>
+		<description>하의3 입니다</description>
 		<plusatt>4101</plusatt>
 		<plusdef>1</plusdef>
 		<plushp>0</plushp>
@@ -304,7 +352,7 @@
 		<category>1</category>
 		<subcategory>3</subcategory>
 		<equpslot>1</equpslot>
-		<itemname></itemname>
+		<itemname>하의4</itemname>
 		<activate>0</activate>
 		<toplist>0</toplist>
 		<grade>3</grade>
@@ -316,7 +364,7 @@
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
-		<description>은 조각으로 조합한 장비</description>
+		<description>하의4 입니다</description>
 		<plusatt>4102</plusatt>
 		<plusdef>1</plusdef>
 		<plushp>0</plushp>
@@ -327,7 +375,7 @@
 		<category>1</category>
 		<subcategory>3</subcategory>
 		<equpslot>1</equpslot>
-		<itemname></itemname>
+		<itemname>하의5</itemname>
 		<activate>0</activate>
 		<toplist>0</toplist>
 		<grade>4</grade>
@@ -339,7 +387,7 @@
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
-		<description>금 조각으로 조합한 장비</description>
+		<description>하의5 입니다</description>
 		<plusatt>4103</plusatt>
 		<plusdef>1</plusdef>
 		<plushp>0</plushp>
@@ -350,7 +398,7 @@
 		<category>1</category>
 		<subcategory>3</subcategory>
 		<equpslot>1</equpslot>
-		<itemname></itemname>
+		<itemname>하의6</itemname>
 		<activate>0</activate>
 		<toplist>0</toplist>
 		<grade>5</grade>
@@ -362,7 +410,7 @@
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
-		<description>티타늄 조각으로 조합한 장비</description>
+		<description>하의6 입니다</description>
 		<plusatt>4104</plusatt>
 		<plusdef>1</plusdef>
 		<plushp>0</plushp>
