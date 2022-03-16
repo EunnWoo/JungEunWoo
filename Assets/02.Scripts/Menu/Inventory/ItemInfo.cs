@@ -64,10 +64,15 @@ public class ItemInfo : MonoBehaviour
         return _rtn;
     }
 
-    public Sprite GetItemInfoSpriteIcon(int _itemcode)
+    public Sprite GetItemInfoSpriteIcon(int _itemcode) //아이템 코드로 불러오는것
     {
         //itemcode를 가지고 icon이름을 찾은후 그것을 atlas에서 이름(string)으로 검색해서 sprite를 찾아온다
         return attlas.GetSprite(GetItemInfoIcon(_itemcode));
+    }
+
+    public Sprite GetSprite(string _itemName) //아이템 이름으로 불러오는것
+    {
+        return attlas.GetSprite(_itemName);
     }
 
     public ItemInfoBase GetItemInfoBase(int _itemcode)

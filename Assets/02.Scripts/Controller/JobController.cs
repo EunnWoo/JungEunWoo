@@ -7,6 +7,10 @@ public enum JobInfo { COMMON, BOW, SWORD, MAGIC , STORE}
 
 public class JobController : MonoBehaviour
 {
+    private static
+
+
+
     ObjData objdata;
 
     Animator animator;
@@ -57,7 +61,6 @@ public class JobController : MonoBehaviour
     public void changejobstate(GameObject npc)
     {
         jobstate = (JobInfo)npc.GetComponent<ObjData>().id;
-        
     }
     //private void OnTriggerExit(Collider other)
     //{
