@@ -44,12 +44,12 @@ public class UI_Equipment : MonoBehaviour
     }
 
 
-    public void OpenEquipment()
+    public void OpenEquipment() //장비창 키는함수(새로운방식)
     {
         body.SetActive(!body.activeSelf);
     }
 
-    public void Invoke_CloseEquipment()
+    public void Invoke_CloseEquipment() //장비창 끄는함수(기존에 알던 방식)
     {
         body.SetActive(false);
     }
@@ -60,7 +60,7 @@ public class UI_Equipment : MonoBehaviour
         int _index = (int)_slot;
         if (_index < slots.Length)
         {
-            //옛것
+            
             if (slots[_index].itemData != null)
             {
                 slots[_index].itemData.equipmentStatus = false;
@@ -76,7 +76,6 @@ public class UI_Equipment : MonoBehaviour
             slots[_index].itemData.equipmentStatus = true;
             Debug.Log("@@@ UI장착중");
 
-            Debug.Log("@@@ E스킨장착 >> xml 스킨이름 >> 캐릭터에서 스킨이름검색 >> 링크을 연결");
             //slots[_index].skin =
             //slots[_index].skin.gameObject.SetActive(true);
         }
