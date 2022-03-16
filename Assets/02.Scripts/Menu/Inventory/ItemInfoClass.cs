@@ -77,6 +77,10 @@ public class ItemInfoBase
 			{
 				itemType = eItemType.ETC;
 			}
+			else if (value == 4)
+			{
+				itemType = eItemType.Coin;
+			}
 		}
 	}
 	public int subcategory;
@@ -119,4 +123,10 @@ public class ItemInfoETCpart : ItemInfoBase
 {
 	public int hp;
 	public int mp;
+}
+
+[System.Serializable]
+public class ItemInfoCoinpart : ItemInfoBase
+{
+	//
 }

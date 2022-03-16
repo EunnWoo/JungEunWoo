@@ -29,6 +29,9 @@ public class ItemInfo : MonoBehaviour
     //기타템의 공유 정보가 들어있는 부분 + 공통
     public Dictionary<int, ItemInfoETCpart> dic_ETCPart = new Dictionary<int, ItemInfoETCpart>();
 
+    
+    public Dictionary<int, ItemInfoCoinpart> dic_CoinPart = new Dictionary<int, ItemInfoCoinpart>();
+
 
     SSParser parser = new SSParser(); //XML(string)데이터를 분석해주는 클래스
     string strItemInfo;
@@ -43,6 +46,7 @@ public class ItemInfo : MonoBehaviour
         ParseWearPart(strItemInfo, "wearpart");     //ParseWearPart 에서 wearpart 들만 뽑아낸다(장비 아이템)
         ParseUsePart(strItemInfo, "usepart");      //ParseWearPart 에서 usepart 들만 뽑아낸다(소비 아이템)
         ParseETCPart(strItemInfo, "etcpart");      //ParseWearPart 에서 etcpart 들만 뽑아낸다(기타 아이템)
+        ParseCoinPart(strItemInfo, "coinpart");     
     }
 
     #region common data (공통 데이터)
@@ -289,4 +293,48 @@ public class ItemInfo : MonoBehaviour
         }
     }
     #endregion
+
+    #region coinpart
+
+    public ItemInfoCoinpart GetItemInfoCoinPart(int _itemcode)
+    {
+        ItemInfoCoinpart _rtn = null;
+        if (dic_CoinPart.ContainsKey(_itemcode))
+        {
+            _rtn = dic_CoinPart[_itemcode];
+        }
+        return _rtn;
+    }
+
+    void ParseCoinPart(string _src, string _label)
+    {
+        parser.parsing(_src, _label);
+
+        ItemInfoCoinpart _data;
+        int _itemcode;
+        while (parser.next())
+        {
+            _data = new ItemInfoCoinpart();
+
+            _itemcode = parser.getInt("itemcode");
+
+            if (!dic_Base.ContainsKey(_itemcode))
+            {
+                _data.itemcode = _itemcode;                    //itemcode 아이템 코드는 중복되지 않는다, 고유 키 역할을 한다
+                _data.category = parser.getInt("category");    //메인 카테고리로 장비템,소모품,기타템을 분류하는 역할을한다, 인벤토리 위치를 판단한다
+                _data.subcategory = parser.getInt("subcategory"); //장비템 중에서도 무기,방어구 처럼 서브 종류를 말한다, 무기를 장착할때 서브카테고리가 중복되면 해당카테고리는 벗어난다
+                _data.itemname = parser.getString("itemname"); //아이템 이름을 표기
+                _data.gamecost = parser.getInt("gamecost");    //돈, 사냥을하거나 물건을 팔거나 퀘스트를깨면 받는 돈
+                _data.cashcost      = parser.getInt("cashcost");  //캐쉬
+                _data.buyamount = parser.getInt("buyamount");   //아이템 갯수,수량 
+                _data.sellcost = parser.getInt("sellcost");    //아이템 판매할때 금액
+
+                dic_Base.Add(_itemcode, _data);
+                dic_CoinPart.Add(_itemcode, _data);
+            }
+        }
+    }
+    #endregion
+
 }
+

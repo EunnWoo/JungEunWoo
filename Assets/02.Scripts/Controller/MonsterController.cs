@@ -94,6 +94,7 @@ public class MonsterController : BaseController
     
     protected override void UpdateAttack()
     {
+        LookTarget(transform, player.transform, rotateSpeed);
         Anim.SetInteger("state", (int)monsterState);
     }
     private void RandomPos(){

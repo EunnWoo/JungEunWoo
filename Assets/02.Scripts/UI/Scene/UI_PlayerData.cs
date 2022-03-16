@@ -12,7 +12,7 @@ public class UI_PlayerData : UI_Scene
         ins = this;
     }
     #endregion
-    Text LevelText;
+    Text levelText;
     Image hpbar, mpbar, expbar;
     Text hpText, mpText, expText;
 
@@ -43,7 +43,7 @@ public class UI_PlayerData : UI_Scene
         hpText = GetText((int)Texts.HPText);
         mpText = GetText((int)Texts.MPText);
         expText = GetText((int)Texts.EXPText);
-        LevelText = GetText((int)Texts.LevelText);
+        levelText = GetText((int)Texts.LevelText);
 
         hpbar = GetImage((int)Images.HPBar);
         mpbar = GetImage((int)Images.MPBar);
@@ -78,5 +78,11 @@ public class UI_PlayerData : UI_Scene
         float _v = _exp / _max;
         expbar.fillAmount = _v;
         expText.text = string.Format("{0:0.0}", (_v * 100f)) + "%"; //소수점 한자리까지만 출력하는 함수
+    }
+
+    public void DisplayLevelText(float _level)
+    {
+        
+        levelText.text = string.Format("{0:0}",_level); 
     }
 }

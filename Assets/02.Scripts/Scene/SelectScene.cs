@@ -27,9 +27,9 @@ public class SelectScene : BaseScene
         Managers.UI.ShowSceneUI<UI_PlayerData>();
         Managers.UI.ShowSceneUI<UI_Money>();
         Managers.UI.ShowSceneUI<UI_Inventory>().body.SetActive(false);
-
-
-
+        UI_Quest _quest = Managers.UI.ShowSceneUI<UI_Quest>();
+        _quest.Init();
+        _quest.questView.SetActive(false);
     }
 
     protected override void SceneMove()

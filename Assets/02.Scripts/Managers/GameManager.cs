@@ -62,6 +62,13 @@ public class GameManager
                 ui_inventory.OpenInventory();
             //
         }
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            UI_Quest ui_quest = GameObject.FindObjectOfType<UI_Quest>();
+
+            ui_quest.OpenQuest();
+
+        }
 
         
     }
