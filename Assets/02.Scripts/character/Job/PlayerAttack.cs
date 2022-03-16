@@ -29,8 +29,7 @@ public class PlayerAttack : MonoBehaviour
         isSkillReady = skillRate < skillDelay;
 
         canMove = animator.GetBool("canMove");
-     
-       
+
     }
 
     private void OnEnable()

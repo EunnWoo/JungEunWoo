@@ -18,7 +18,7 @@ public class PlayerStatus : Status
     public ParticleSystem psLevelUp;
 
     float gold1, gold2;
-    public float gold
+    public float gold//º¸¿Ï¼º
     {
         get { return gold1 + gold2; }
         set

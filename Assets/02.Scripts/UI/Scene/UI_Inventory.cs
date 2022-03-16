@@ -125,6 +125,7 @@ public class UI_Inventory : UI_Scene
             _slotList.Add(_inventorySlot);
             _inventorySlot.Init();
             _itemGO.transform.SetParent(_go.transform);
+            _itemGO.transform.localScale = Vector3.one;
         }
     }
     public void Invoke_SetTab()
@@ -270,14 +271,14 @@ public class UI_Inventory : UI_Scene
         return _rtn;
     }
 
-    public void PointerEnter(PointerEventData data) //마우스가 인벤토리 슬롯 위에 올려져있을때
-    {
-        PointerCoroutine = PointerEnterDelay();
-        StartCoroutine(PointerCoroutine);
+    //public void PointerEnter(PointerEventData data) //마우스가 인벤토리 슬롯 위에 올려져있을때
+    //{
+    //    PointerCoroutine = PointerEnterDelay();
+    //    StartCoroutine(PointerCoroutine);
 
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(CanvaRect, Input.mousePosition, Camera.main, out Vector2 anchoredPos);
-        itemInfo.GetComponent<RectTransform>().anchoredPosition = anchoredPos;
-    }
+    //    RectTransformUtility.ScreenPointToLocalPointInRectangle(CanvaRect, Input.mousePosition, Camera.main, out Vector2 anchoredPos);
+    //    itemInfo.GetComponent<RectTransform>().anchoredPosition = anchoredPos;
+    //}
 
 
     IEnumerator PointerEnterDelay() //마우스가 인벤토리 슬롯 위에 올려져있을때 0.5초뒤에 실행
