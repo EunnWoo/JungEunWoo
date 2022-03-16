@@ -17,9 +17,11 @@ public class PlayerStatus : Status
     enum eAbiltyKind { LevelHP, LevelMP, LevelAttack, LevelDefense };
     public ParticleSystem psLevelUp;
 
-    float gold1, gold2;
-    public float gold//보완성
+    float gold1, gold2; 
+    public float gold
     {
+        //보안성 때문에 변수2개로 지정
+        //예) 필드에서 1000골드를 습득할시 gold1에 500원 gold2에 500원 받아와서 둘이 합침
         get { return gold1 + gold2; }
         set
         {
@@ -108,7 +110,7 @@ public class PlayerStatus : Status
             }
         }
 
-        //레벨 테이블에서 레벨값을 찾았는데 못찾을경우 최고레벨
+        //레벨 테이블에서 레벨값을 찾았는데 못찾을경우 최고레벨(만렙)
         if(!_bFind)
         {
             _level = expArray.Length;
@@ -162,20 +164,10 @@ public class PlayerStatus : Status
         }
     }
 
-    ////LevelUp 파티클 시스템 보여주기 (일정시간동안)
-    //IEnumerator Co_ShowLevelUp(float _duration)
-    //{
-    //    psLevelUp.gameObject.SetActive(true); //레벨업 파티클켜기
-    //    while(_duration > 0)
-    //    {
-    //        _duration -= Time.deltaTime; //일정시간동안
-    //        yield return null;
-    //    }
-    //    psLevelUp.gameObject.SetActive(false);//레벨업 파티클끄기
-    //}
 
 
 
+    #region 실험용으로 만든 함수들
 
 #if UNITY_EDITOR
     private void Update()
@@ -222,4 +214,5 @@ public class PlayerStatus : Status
         }
     }
 #endif
+    #endregion
 }

@@ -32,7 +32,7 @@ public class Status : MonoBehaviour
 
     #region attack = baseAttack + 장비 + 레벨
     public float attack { get { return baseAttack + wearAttack + levelAttack; } }
-    public float baseAttack = 100;
+    public float baseAttack = 30;
     protected float wearAttack = 0;
     protected float levelAttack = 0;
 

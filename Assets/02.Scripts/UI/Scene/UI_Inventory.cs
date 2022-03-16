@@ -271,6 +271,7 @@ public class UI_Inventory : UI_Scene
         return _rtn;
     }
 
+    #region 추후 시간남을시 작업예정
     //public void PointerEnter(PointerEventData data) //마우스가 인벤토리 슬롯 위에 올려져있을때
     //{
     //    PointerCoroutine = PointerEnterDelay();
@@ -281,19 +282,20 @@ public class UI_Inventory : UI_Scene
     //}
 
 
-    IEnumerator PointerEnterDelay() //마우스가 인벤토리 슬롯 위에 올려져있을때 0.5초뒤에 실행
-    {
-        yield return new WaitForSeconds(0.3f);
-        itemInfo.SetActive(true);
-        StoreItem.ins.itemDescrip.text = StoreItem.ins.itemData.iteminfoBase.description;
-        //ItemInfo.GetComponentInChildren<Text>().text = 
-    }
+    //IEnumerator PointerEnterDelay() //마우스가 인벤토리 슬롯 위에 올려져있을때 0.5초뒤에 실행
+    //{
+    //    yield return new WaitForSeconds(0.3f);
+    //    itemInfo.SetActive(true);
+    //    StoreItem.ins.itemDescrip.text = StoreItem.ins.itemData.iteminfoBase.description;
+    //    //ItemInfo.GetComponentInChildren<Text>().text = 
+    //}
 
-    public void PointerExit()//마우스가 인벤토리 슬롯 위에 빠져나갈때
-    {
-        StopCoroutine(PointerCoroutine);
-        itemInfo.SetActive(false);
-    }
+    //public void PointerExit()//마우스가 인벤토리 슬롯 위에 빠져나갈때
+    //{
+    //    StopCoroutine(PointerCoroutine);
+    //    itemInfo.SetActive(false);
+    //}
+    #endregion
 
 
 #if UNITY_EDITOR
@@ -309,10 +311,10 @@ public class UI_Inventory : UI_Scene
     void Update()
     {
         //스크린린포인트 0,0부터 1920,1080 를 새로운 사각형 위치로 변환
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(CanvaRect, Input.mousePosition, Camera.main, out Vector2 anchoredPos);
+        //RectTransformUtility.ScreenPointToLocalPointInRectangle(CanvaRect, Input.mousePosition, Camera.main, out Vector2 anchoredPos);
 
         //마우스를 아이템위로 올릴시 설명 유아이창이 뜰위치
-        itemInfo.GetComponent<RectTransform>().anchoredPosition = anchoredPos + new Vector2(700,570);
+        //itemInfo.GetComponent<RectTransform>().anchoredPosition = anchoredPos + new Vector2(700,570);
     }
 
     #endregion
