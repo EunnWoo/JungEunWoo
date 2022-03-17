@@ -38,7 +38,7 @@ public class UI_JobPanel : UI_Popup
         GetButton((int)Buttons.JobButton).gameObject.AddUIEvent(OnJobChoiceButton);
         GetButton((int)Buttons.ExitButton).gameObject.AddUIEvent(JobExitButton);
 
-        objData = Managers.talk.NPC.GetOrAddComponent<ObjData>();
+        objData = Managers.talk.NPC.GetComponent<ObjData>();
         GetText((int)Texts.TalkText).text = Managers.talk.GetTalk(objData.id,talkIndex);
         GetText((int)Texts.NPCNameText).text = Managers.talk.NPC.name;
 
@@ -77,7 +77,7 @@ public class UI_JobPanel : UI_Popup
         {
             talkIndex = 0;
             Managers.UI.isTalk(false);
-            jobController.JobChoice(); // 직업확정
+            jobController.JobChoice(objData.id); // 직업확정
             Managers.UI.ClosePopupUI();
         }
 
