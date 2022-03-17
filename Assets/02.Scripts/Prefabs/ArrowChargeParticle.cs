@@ -8,8 +8,8 @@ public class ArrowChargeParticle : MonoBehaviour
     {
         Managers.Sound.Play("EffectSound/ArrowCharge", Define.Sound.LoopEffect);
     }
-    private void OnEnable()
+    private void OnDisable()
     {
-        Managers.Sound.StopSound(Define.Sound.LoopEffect);
+        Managers.Sound.StopSound("EffectSound/ArrowCharge");
     }
 }

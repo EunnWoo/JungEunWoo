@@ -75,9 +75,14 @@ public class SoundManager
         }
 
     }
-    public void StopSound(string path,Define.Sound type = Define.Sound.LoopEffect)
+    public void StopSound(string path)
     {
-        _audioSources[(int)Define.Sound.LoopEffect].Stop();
+        AudioClip audioClip = GetOrAddAudioClip(path, Define.Sound.LoopEffect);
+        AudioSource audioSource = _audioSources[(int)Define.Sound.LoopEffect];
+        audioSource.clip = audioClip;
+
+        audioSource.Stop();
+
     }
 
     AudioClip GetOrAddAudioClip(string path, Define.Sound type = Define.Sound.Effect)
@@ -90,6 +95,7 @@ public class SoundManager
         {
             audioClip = Managers.Resource.Load<AudioClip>(path); // bgm은 자주변하는게 아니라
         }
+
 
         else if(type== Define.Sound.Effect)//effect                메모리 아끼기
         {
