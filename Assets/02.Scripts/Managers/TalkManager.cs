@@ -34,7 +34,7 @@ public class TalkManager
         if(npc.GetComponent<ObjData>().id <=3)
         {
             Managers.UI.ShowPopupUI<UI_JobPanel>();
-            Managers.Game.GetPlayer().GetComponent<JobController>().changejobstate(npc);
+            //Managers.Game.GetPlayer().GetComponent<JobController>().changejobstate(npc);
         }
         else if (npc.GetComponent<ObjData>().id == 4)
         {

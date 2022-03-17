@@ -33,6 +33,7 @@ SpriteAtlas:
     packables:
     - {fileID: 102900000, guid: 449ab7104412f0d4e98df0a3cd9b9c55, type: 3}
     - {fileID: 2800000, guid: 904300c3ee0e1b944b9c7be8d2d70bf7, type: 3}
+    - {fileID: 2800000, guid: ad4b4c9367212504f9f6d184f749861f, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -41,44 +42,44 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 3a81e8a1835710f4e914c0491fa25cf3, type: 3}
   - {fileID: 21300000, guid: 108c63f11f514ee4baf0ae61ed6ee363, type: 3}
   - {fileID: 21300000, guid: c60f7cf1ed80f5840ac51195ae687e71, type: 3}
+  - {fileID: 21300000, guid: 36028e22835c9d3439bb06ea035e4980, type: 3}
   - {fileID: 21300000, guid: fb3a1d13398650540bbd14bf303fc12b, type: 3}
   - {fileID: 21300000, guid: 963a4a43983994b44b9b704505fd1a3f, type: 3}
-  - {fileID: -1908633672454580402, guid: 904300c3ee0e1b944b9c7be8d2d70bf7, type: 3}
-  - {fileID: 457666897295910674, guid: 904300c3ee0e1b944b9c7be8d2d70bf7, type: 3}
-  - {fileID: -7560497817830664090, guid: 904300c3ee0e1b944b9c7be8d2d70bf7, type: 3}
-  - {fileID: 8389612913583208403, guid: 904300c3ee0e1b944b9c7be8d2d70bf7, type: 3}
+  - {fileID: -3772756938629842982, guid: ad4b4c9367212504f9f6d184f749861f, type: 3}
+  - {fileID: -2867391816421271387, guid: ad4b4c9367212504f9f6d184f749861f, type: 3}
+  - {fileID: 7789680453554502035, guid: ad4b4c9367212504f9f6d184f749861f, type: 3}
+  - {fileID: 7846385014881470884, guid: ad4b4c9367212504f9f6d184f749861f, type: 3}
   - {fileID: -171637973622636266, guid: 904300c3ee0e1b944b9c7be8d2d70bf7, type: 3}
   - {fileID: 8932255603167850041, guid: 904300c3ee0e1b944b9c7be8d2d70bf7, type: 3}
-  - {fileID: 21300000, guid: b80babc45dc354c4684066b6c19565ad, type: 3}
   - {fileID: 21300000, guid: 136c9f47fc323df4ba024baf251f04b6, type: 3}
   - {fileID: 21300000, guid: af838e5920baaaa4cbb24dab99c4458d, type: 3}
   - {fileID: 21300000, guid: 11fcd679d2a042349b976f4aadbf9edb, type: 3}
   - {fileID: 21300000, guid: 5709f24a5539a674e91a7b44ed2ffb0b, type: 3}
   - {fileID: 21300000, guid: 76bf8a4a17e1449489753eba8b678dac, type: 3}
+  - {fileID: 21300000, guid: 116b66adc88e62948a72a60215ef67c4, type: 3}
   - {fileID: 21300000, guid: a83c32cdf9c1bf14dbfb441debb08e25, type: 3}
   - {fileID: 21300000, guid: ef419fce13384654bab5cbf27232d640, type: 3}
-  - {fileID: 21300000, guid: 5bfb766ff8d9482479248b2c48378889, type: 3}
   m_PackedSpriteNamesToIndex:
   - 21002
   - 20201
   - 20001
+  - 20200
   - 22002
   - 10002
-  - BOW_01
-  - BOW_02
-  - MAGIC_02
-  - MAGIC_01
-  - SWORD_01
-  - SWORD_02
-  - 21001
+  - Magic_02
+  - Magic_01
+  - Bow_01
+  - Bow_02
+  - Sword_01
+  - Sword_02
   - 20100
-  - 20200
+  - 20002
   - 20101
   - 23002
   - 10001
-  - 23001
   - 22001
-  - 20002
+  - 23001
+  - 21001
   m_RenderDataMap: {}
   m_Tag: UIAttlas
   m_IsVariant: 0

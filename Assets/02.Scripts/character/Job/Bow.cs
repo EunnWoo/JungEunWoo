@@ -109,22 +109,4 @@ public class Bow : PlayerAttack
         
         yield return null;
     }
-    protected override void OnHitEvent()
-    {
-        //if (attackTarget.layer == (int)Layer.Monster)
-        //{
-        //    Debug.Log("µé¾î¿È");
-        //}
-        //else
-        //{
-
-        //    Collider[] colls = gameObject.GetComponentsInChildren<Collider>();
-        //    foreach (Collider coll in colls)
-        //    {
-        //        Debug.Log(coll);
-        //        coll.enabled = true;
-        //    }
-
-        //}
-    }
 }
