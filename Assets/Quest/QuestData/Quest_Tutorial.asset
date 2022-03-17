@@ -15,11 +15,12 @@ MonoBehaviour:
   category: {fileID: 11400000, guid: a8cd8a524cffa6144ad6ddbcc3418f78, type: 2}
   icon: {fileID: 0}
   codeName: TUTORIAL
-  displayName: "\uD29C\uD1A0\uB9AC\uC5BC \uB05D\uB0B4\uAE30"
-  description: "\uD29C\uD1A0\uB9AC\uC5BC\uC744 \uC644\uB8CC\uD574\uC8FC\uC138\uC694."
+  displayName: tutorial
+  description: tutorial
   taskGroups:
   - tasks:
     - {fileID: 11400000, guid: 58bc7ab41c0416e4392b481291ce6434, type: 2}
+  - tasks:
     - {fileID: 11400000, guid: f9393b51d6fa05b42beada9a6b1fe2e2, type: 2}
   rewards: []
   useAutoComplete: 1

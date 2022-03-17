@@ -13,14 +13,11 @@ MonoBehaviour:
   m_Name: Task_Move
   m_EditorClassIdentifier: 
   category: {fileID: 11400000, guid: 0d70f51dc91012d49bd408a205c89464, type: 2}
-  codeName: 
-  description: 
+  codeName: W_MOVE
+  description: You have to move front
   action: {fileID: 11400000, guid: f2e8487896b673045b8b058590e7ae6e, type: 2}
   targets:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: a6b2bd04509f2c2458a6bcbc30073712, type: 2}
   initialSuccessValue: {fileID: 0}
   needSuccessToComplete: 1
   canReceiveReportDuringCompletion: 0
