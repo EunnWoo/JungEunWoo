@@ -31,8 +31,10 @@ public class RotatorFireBall : MonoBehaviour
             explosion = true;
             Status status= playerAttack.attackTarget.GetComponent<Status>(); // ∏ÛΩ∫≈Õ status
             Status playerStatus = playerAttack.GetComponent<Status>();
-            status.TakeDamage(playerStatus);
-           
+            status.TakeDamage(playerStatus, playerAttack.skillRatio);
+            status.TakeDamage(playerStatus, playerAttack.skillRatio);
+            status.TakeDamage(playerStatus, playerAttack.skillRatio);
+
 
         }
     }

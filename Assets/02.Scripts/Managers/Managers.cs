@@ -18,7 +18,7 @@ public class Managers : MonoBehaviour
     InputManager _input = new InputManager();
     UIManager _ui = new UIManager();
     TalkManager _talk = new TalkManager();
-
+    SoundManager _sound = new SoundManager();
     public static GameManager Game { get { return instance._game; } }
 
     public static ResourceManager Resource { get { return instance._resource; } }
@@ -28,6 +28,8 @@ public class Managers : MonoBehaviour
     public static InputManager Input { get { return instance._input; } }
     public static UIManager UI { get { return instance._ui;  } }
     public static TalkManager talk { get { return instance._talk; } }
+    public static SoundManager Sound { get { return instance._sound; } }
+
     #endregion
 
     
@@ -64,6 +66,7 @@ public class Managers : MonoBehaviour
             s_instance._pool.Init();
             s_instance._talk.Init();
             s_instance._game.Init();
+            s_instance._sound.Init();
 
         }
 
@@ -72,5 +75,6 @@ public class Managers : MonoBehaviour
     public static void Clear()
     {
         Mouse.Clear();
+        Sound.Clear();
     }
 }

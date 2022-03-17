@@ -24,7 +24,7 @@ public class ObjPoolManager
         objPoolManager = new GameObject { name = "ObjPoolManager" }.transform;
         Object.DontDestroyOnLoad(objPoolManager);
         //각 최대개수 설정
-        arrow = new GameObject[100];
+        arrow = new GameObject[200];
         fireBall = new GameObject[20];
         rotatorFireBall = new GameObject[3];
         bombSlimePool = new GameObject[4];

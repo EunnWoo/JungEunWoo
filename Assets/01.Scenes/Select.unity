@@ -4570,22 +4570,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8386886850102196197, guid: 19d1d67237dbc5443a241c560367d04f, type: 3}
   m_PrefabInstance: {fileID: 1053470686}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &804747568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 804747561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d884a80f68802849b29901905f4c73d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 0
-  baseHP: 500
-  baseMP: 300
-  baseAttack: 100
 --- !u!1001 &942402980
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5277,7 +5261,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4697017240656324050, guid: 0331b169005eb1d469455efaa6b9024a, type: 3}
       propertyPath: m_Name
-      value: training_dummy
+      value: Dummy
       objectReference: {fileID: 0}
     - target: {fileID: 4697017240656324050, guid: 0331b169005eb1d469455efaa6b9024a, type: 3}
       propertyPath: m_Layer

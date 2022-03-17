@@ -32,7 +32,6 @@ public class UI_CoolTime : UI_Scene
     }
     public void SetSkiilImage(string jobstring)
     {
-        Debug.Log(jobstring + "_01");
         backGroundNormalImage.sprite = ItemInfo.ins.GetSprite(jobstring + "_01");
         normalImage.sprite = ItemInfo.ins.GetSprite(jobstring + "_01");
 

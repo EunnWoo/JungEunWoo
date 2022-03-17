@@ -14,6 +14,8 @@ public class PlayerAttack : MonoBehaviour
     public float skillRate { get; protected set; }  // ÄðÅ¸ÀÓ & °ø¼Ó
     public bool canMove { get; protected set; }
     public bool isAttack { get; protected set; }
+    public float attackRatio { get; protected set; }
+    public float skillRatio { get; protected set; }
     protected Animator animator;
 
     public GameObject attackTarget { get;  private set; }  //À¯µµÅºÀ» À§ÇÑ Å¸°Ù

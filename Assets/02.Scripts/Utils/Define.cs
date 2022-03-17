@@ -33,5 +33,12 @@ public class Define
         goMap2Potal,
         goMap3Potal,
     }
+    public enum Sound
+    {
+        BGM,
+        Effect,
+        LoopEffect,
+        MaxCount
+    }
 }
 

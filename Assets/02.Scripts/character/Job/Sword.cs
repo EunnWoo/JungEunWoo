@@ -16,7 +16,8 @@ public class Sword : PlayerAttack
         skillRate = 10f;
         range = 2f;
         weapons = GameObject.FindGameObjectsWithTag("Sword");
-        
+        attackRatio = 0.8f;
+        skillRatio = 0.5f;
     }
 
     protected override IEnumerator Use()
@@ -62,7 +63,7 @@ public class Sword : PlayerAttack
         {
 
             Status status = hit[i].GetComponent<Status>();
-            status.TakeDamage(playerstatus);
+            status.TakeDamage(playerstatus,attackRatio);
         }
 
 
@@ -76,7 +77,7 @@ public class Sword : PlayerAttack
         for (int i = 0; i < hit.Length; i++)
         {
             Status status = hit[i].GetComponent<Status>();
-            status.TakeDamage(playerstatus);
+            status.TakeDamage(playerstatus,skillRatio);
         }
     }
 

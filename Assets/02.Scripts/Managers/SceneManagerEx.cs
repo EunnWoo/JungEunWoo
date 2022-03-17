@@ -15,8 +15,7 @@ public class SceneManagerEx
 
     public void LoadScene(SceneState type)
     {
-        Managers.Scene.Clear();
-   
+        Clear(); //불필요한 메모리 클리어
         SceneManager.LoadScene(GetSceneName(type)); // SceneManager는 UnityEngine의 SceneManager
     }
 

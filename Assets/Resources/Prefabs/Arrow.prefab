@@ -9640,6 +9640,7 @@ GameObject:
   - component: {fileID: 8480566076141389631}
   - component: {fileID: 5710772023395145646}
   - component: {fileID: 7444278708790568038}
+  - component: {fileID: 4943283856958115306}
   m_Layer: 0
   m_Name: StormCharge
   m_TagString: Untagged
@@ -14438,11 +14439,11 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1374612332114517191}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0d9e183303a855347ba49f44a00b2519, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.05
   m_Pitch: 1
   Loop: 0
@@ -14527,6 +14528,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4943283856958115306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374612332114517191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c0b60df69f59fb498c525670ee62da3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2501008293231272845
 GameObject:
   m_ObjectHideFlags: 0
@@ -28833,11 +28846,11 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4246099338316431874}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8ce64f4b16c4b8e4ba9820960916914a, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
   Loop: 0

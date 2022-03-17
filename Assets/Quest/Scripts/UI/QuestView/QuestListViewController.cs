@@ -13,6 +13,11 @@ public class QuestListViewController : MonoBehaviour
     [SerializeField]
     private QuestListView completedQuestListView;
 
+    private void Awake()
+    {
+        QuestListView.ins.Init();
+    }
+
     public IEnumerable<Toggle> Tabs => tabGroup.ActiveToggles();
     public void AddQuestToActiveListView(Quest quest, UnityAction<bool> onClicked)
         => activeQuestListView.AddElement(quest, onClicked);
@@ -21,4 +26,6 @@ public class QuestListViewController : MonoBehaviour
     
     public void AddQuestToCompletedListView(Quest quest, UnityAction<bool> onClicked)
         => completedQuestListView.AddElement(quest, onClicked);
+
+
 }
