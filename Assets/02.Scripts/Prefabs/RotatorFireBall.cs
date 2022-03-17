@@ -9,7 +9,7 @@ public class RotatorFireBall : MonoBehaviour
 
     ParticleSystem particleObject; //파티클시스템
 
-    public float lifeTime { get; private set; }
+    bool explosion;
     private void OnEnable()
     {
         if (Managers.Game.GetPlayer() != null)
@@ -18,14 +18,27 @@ public class RotatorFireBall : MonoBehaviour
             
         }
         particleObject = GetComponent<ParticleSystem>();
+        explosion = false;
 
     }
     private void Update()
     {
-        //Debug.Log(particleObject.time); 6.3초되면 데미지 들어가게 하는 함수 실행
-        lifeTime = particleObject.time; // 이후 피격
-        if (playerAttack.attackTarget.layer != (int)Layer.Monster) return;
+       
+        if (playerAttack.attackTarget.layer != (int)Layer.Monster || explosion) return;
         transform.position = playerAttack.attackTarget.transform.position;
-    }
+        if(particleObject.time >= 6.3f)
+        {
+            explosion = true;
+            Status status= playerAttack.attackTarget.GetComponent<Status>(); // 몬스터 status
+            Status playerStatus = playerAttack.GetComponent<Status>();
+            status.TakeDamage(playerStatus);
+           
 
+        }
+    }
+    private void OnDisable()
+    {
+        
+
+    }
 }

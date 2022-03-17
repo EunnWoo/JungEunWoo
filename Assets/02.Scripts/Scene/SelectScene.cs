@@ -24,9 +24,14 @@ public class SelectScene : BaseScene
         portals = GameObject.FindObjectsOfType<Portal>();
 
 
+        
+        ui_Inventory = Managers.UI.ShowSceneUI<UI_Inventory>();
+        ui_MonsterHpbar= Managers.UI.ShowSceneUI<UI_MonsterHpBar>();
+        //ui_Equipment = Managers.UI.ShowSceneUI<UI_Equipment>();
+
+        //¿¹¿Ü
         Managers.UI.ShowSceneUI<UI_PlayerData>();
         Managers.UI.ShowSceneUI<UI_Money>();
-        Managers.UI.ShowSceneUI<UI_Inventory>().body.SetActive(false);
         UI_Quest _quest = Managers.UI.ShowSceneUI<UI_Quest>();
         _quest.Init();
         _quest.questView.SetActive(false);
@@ -40,7 +45,9 @@ public class SelectScene : BaseScene
     }
     public override void Clear()
     {
-
+        //ui_Equipment.Eqbody.SetActive(false);
+        ui_Inventory.body.SetActive(false);
+        ui_MonsterHpbar.OffMonsterHpbar();
     }
 
 

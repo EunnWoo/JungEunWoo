@@ -18,7 +18,7 @@ public class PlayerAttack : MonoBehaviour
 
     public GameObject attackTarget { get;  private set; }  //유도탄을 위한 타겟
     PlayerController playerController;
-
+    UI_CoolTime ui_CoolTime;
 
     private void Update()
     {
@@ -30,6 +30,7 @@ public class PlayerAttack : MonoBehaviour
 
         canMove = animator.GetBool("canMove");
 
+        ui_CoolTime.SetCoolTimeImage(attackRate, skillRate, attackDelay, skillDelay);
     }
 
     private void OnEnable()
@@ -41,6 +42,35 @@ public class PlayerAttack : MonoBehaviour
         skillDelay = 40;
         canMove = true;
         animator.SetBool("canMove",canMove);
+
+        ui_CoolTime = Managers.UI.ShowSceneUI<UI_CoolTime>();
+
+        //job이 결정된후에 job에 따른 skill 이미지 교체 작업
+        JobController _jobController = GetComponent<JobController>();
+
+        switch (_jobController.jobstate)// 직업을선택
+        {
+            case JobInfo.BOW: //JobInfo가 BOW이면
+                Debug.Log("궁수");
+                UI_CoolTime.ins.SetJobSkillImage(
+                    ItemInfo.ins.GetSprite("BOW_01"),
+                    ItemInfo.ins.GetSprite("BOW_02"));
+                break;
+
+            case JobInfo.SWORD: //JobInfo가 SWORD이면
+                Debug.Log("전사");
+                UI_CoolTime.ins.SetJobSkillImage(
+                    ItemInfo.ins.GetSprite("SWORD_01"),
+                    ItemInfo.ins.GetSprite("SWORD_02"));
+                break;
+
+            case JobInfo.MAGIC: //JobInfo가 MAGIC이면
+                Debug.Log("마법사");
+                UI_CoolTime.ins.SetJobSkillImage(
+                    ItemInfo.ins.GetSprite("MAGIC_01"),
+                    ItemInfo.ins.GetSprite("MAGIC_02"));
+                break;
+        }
     }
 
     public virtual void OnAttack()
@@ -52,14 +82,14 @@ public class PlayerAttack : MonoBehaviour
             if (isAttackReady && playerController.attackType == Define.AttackType.NormalAttack)
             {
                 isAttack = true;
-                StopCoroutine(Use());
-                StartCoroutine(Use());
+                StopCoroutine("Use");
+                StartCoroutine("Use");
             }
             else if(isSkillReady &&playerController.attackType == Define.AttackType.SkillAttack)
             {
                 isAttack = true;
-                StopCoroutine(Skill());
-                StartCoroutine(Skill());
+                StopCoroutine("Skill");
+                StartCoroutine("Skill");
             }
         }
     }

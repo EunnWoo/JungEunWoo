@@ -26,5 +26,6 @@ MonoBehaviour:
   useAutoComplete: 1
   isCancelable: 0
   isSaveable: 0
-  acceptionConditions: []
+  acceptionConditions:
+  - {fileID: 0}
   cancelConditions: []

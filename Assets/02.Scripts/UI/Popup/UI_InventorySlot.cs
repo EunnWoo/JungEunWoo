@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class UI_InventorySlot : UI_Base, IPointerClickHandler
 {
     bool bInit;
-    public ItemData item;
+    public ItemData itemData;
     Image icon;
     Text itemCount;
 
@@ -31,7 +31,7 @@ public class UI_InventorySlot : UI_Base, IPointerClickHandler
         icon = GetImage((int)Images.Item_Icon); 
         itemCount = GetText((int)Texts.Item_Count_Text);
         
-        if (item == null || (item != null && item.itemCount <= 1))
+        if (itemData == null || (itemData != null && itemData.itemCount <= 1))
         {
             itemCount.gameObject.SetActive(false); //아이템 수량 나오는것을 끔
         }
@@ -41,24 +41,24 @@ public class UI_InventorySlot : UI_Base, IPointerClickHandler
 
     }
 
-    public void SetItem(ItemData _item)
+    public void SetItem(ItemData _itemData)
     {
-        item = _item;
-        icon.sprite = ItemInfo.ins.GetItemInfoSpriteIcon(_item.itemcode);
-        if (item.itemCount <= 1)
+        itemData = _itemData;
+        icon.sprite = ItemInfo.ins.GetItemInfoSpriteIcon(_itemData.itemcode);
+        if (itemData.itemCount <= 1)
         {
             itemCount.gameObject.SetActive(false);
         }
         else
         {
             itemCount.gameObject.SetActive(true);
-            itemCount.text = "x" + item.itemCount;
+            itemCount.text = "x" + itemData.itemCount;
         }
     }
     public void ReDisplayCount()
     {
         itemCount.gameObject.SetActive(true);
-        itemCount.text = "x" + item.itemCount;
+        itemCount.text = "x" + itemData.itemCount;
         
     }
 
@@ -79,30 +79,31 @@ public class UI_InventorySlot : UI_Base, IPointerClickHandler
 
     void OnDoubleClick() //더블클릭시
     {
-        if (item == null || item.itemcode ==0) return;//아이템데이터가 null이면 리턴
-        switch(item.itemType)
+        if (itemData == null || itemData.itemcode ==0) return;//아이템데이터가 null이면 리턴
+        switch(itemData.itemType)
         {
             case eItemType.Equip:   //장비창에서 더블클릭시
                 Debug.Log("더블클릭 >>장비교체");
+                UI_Equipment.ins.Equip(itemData); //장비 장착해주는거
 
                 break;
             case eItemType.Use:   //소비창에서 더블클릭시
 
                 //물약을 먹음
-                ItemInfoUsepart _usePart = ItemInfo.ins.GetItemInfoUsepart(item.itemcode);
+                ItemInfoUsepart _usePart = ItemInfo.ins.GetItemInfoUsepart(itemData.itemcode);
 
                 PlayerStatus.ins.SetHPMP(_usePart.hp, _usePart.mp);
 
-                item.itemCount--; //아이템에서 수량을 한개빼줌
-                if(item.itemCount <= 0)//아이템 수량이 0개가되면
+                itemData.itemCount--; //아이템에서 수량을 한개빼줌
+                if(itemData.itemCount <= 0)//아이템 수량이 0개가되면
                 {
-                    item = null; //아이템을 지움
+                    itemData = null; //아이템을 지움
                     icon.sprite = null; //아이콘을 지움
                     Init();
                 }
                 else
                 {
-                    SetItem(item);
+                    SetItem(itemData);
                 }
                 Debug.Log("더블클릭 >>물약먹기 HP:" + _usePart.hp + " MP: " + _usePart.mp);
                 break;

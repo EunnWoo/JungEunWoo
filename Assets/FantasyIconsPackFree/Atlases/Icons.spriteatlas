@@ -149,7 +149,7 @@ SpriteAtlas:
   - SteelTowerShield (Type=Shield, Collection=Basic)
   - KnightHelm [Paint] (Type=Helmet, Collection=Basic)
   - GreyKnight (Type=Boots, Collection=SpellMasters)
-  - BanditLightArmor [Paint] (Type=Armor, Collection=Basic) 1
+  - BanditLightArmor [Paint] (Type=Armor, Collection=Basic)
   - WoodenShield2 (Type=Shield, Collection=Vikings)
   - HawkHelm (Type=Helmet, Collection=Basic)
   - RedwoodBow (Type=Weapon, Collection=AbandonedWorkshop, Tags=Bow&2H) 1

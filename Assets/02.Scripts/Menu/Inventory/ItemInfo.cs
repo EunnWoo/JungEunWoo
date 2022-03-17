@@ -64,10 +64,15 @@ public class ItemInfo : MonoBehaviour
         return _rtn;
     }
 
-    public Sprite GetItemInfoSpriteIcon(int _itemcode)
+    public Sprite GetItemInfoSpriteIcon(int _itemcode) //아이템 코드로 불러오는것
     {
         //itemcode를 가지고 icon이름을 찾은후 그것을 atlas에서 이름(string)으로 검색해서 sprite를 찾아온다
         return attlas.GetSprite(GetItemInfoIcon(_itemcode));
+    }
+
+    public Sprite GetSprite(string _itemName) //아이템 이름으로 불러오는것
+    {
+        return attlas.GetSprite(_itemName);
     }
 
     public ItemInfoBase GetItemInfoBase(int _itemcode)
@@ -142,6 +147,8 @@ public class ItemInfo : MonoBehaviour
                 _data.plusatt = parser.getInt("plusatt");           // 장비 공격력, 플러스 공격력
                 _data.plusdef = parser.getInt("plusdef");           // 장비 방어력, 플러스 방어력
                 _data.plushp = parser.getInt("plushp");             // 장비 체력, 플러스 체력
+                _data.skin = parser.getString("skin");
+
 
                 //만들어진 한개의 장비 데이터 클래스를 관리용 Dic에 넣어준다
                 //이 관리용 dic는 데이터를 검색해서 사용한다
