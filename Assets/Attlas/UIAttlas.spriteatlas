@@ -45,10 +45,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: c60f7cf1ed80f5840ac51195ae687e71, type: 3}
   - {fileID: 21300000, guid: fb3a1d13398650540bbd14bf303fc12b, type: 3}
   - {fileID: 21300000, guid: 963a4a43983994b44b9b704505fd1a3f, type: 3}
-  - {fileID: -1908633672454580402, guid: 904300c3ee0e1b944b9c7be8d2d70bf7, type: 3}
-  - {fileID: 457666897295910674, guid: 904300c3ee0e1b944b9c7be8d2d70bf7, type: 3}
-  - {fileID: -7560497817830664090, guid: 904300c3ee0e1b944b9c7be8d2d70bf7, type: 3}
-  - {fileID: 8389612913583208403, guid: 904300c3ee0e1b944b9c7be8d2d70bf7, type: 3}
   - {fileID: -171637973622636266, guid: 904300c3ee0e1b944b9c7be8d2d70bf7, type: 3}
   - {fileID: 8932255603167850041, guid: 904300c3ee0e1b944b9c7be8d2d70bf7, type: 3}
   - {fileID: 21300000, guid: 136c9f47fc323df4ba024baf251f04b6, type: 3}
@@ -66,12 +62,8 @@ SpriteAtlas:
   - 20001
   - 22002
   - 10002
-  - BOW_01
-  - BOW_02
-  - MAGIC_02
-  - MAGIC_01
-  - SWORD_01
-  - SWORD_02
+  - Sword_01
+  - Sword_02
   - 20100
   - 20002
   - 20101
