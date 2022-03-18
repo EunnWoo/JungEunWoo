@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f0b4b4b198f04e4ebeda6a6aaa6c6bd, type: 3}
-  m_Name: IsQuestComplete_KillTheNormalGermSlime5
+  m_Script: {fileID: 11500000, guid: 2ed9d0dbd0abded439db2d6ec8975565, type: 3}
+  m_Name: Target_Move
   m_EditorClassIdentifier: 
-  description: 
-  target: {fileID: 11400000, guid: 3ae1617943e73e4498e886bc86b80427, type: 2}
+  value: Move

@@ -23,9 +23,8 @@ MonoBehaviour:
   - tasks:
     - {fileID: 11400000, guid: f9393b51d6fa05b42beada9a6b1fe2e2, type: 2}
   rewards: []
-  useAutoComplete: 1
+  useAutoComplete: 0
   isCancelable: 0
   isSaveable: 0
-  acceptionConditions:
-  - {fileID: 0}
+  acceptionConditions: []
   cancelConditions: []
