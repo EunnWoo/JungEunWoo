@@ -66,6 +66,7 @@ public class QuestDetailView : MonoBehaviour
             foreach(var task in taskGroup.Tasks){
                 var poolObject = taskDescriptorPool[taskIndex++];
                 poolObject.gameObject.SetActive(true);
+                task.onStateChanged += OnTaskIsCompleted;
                 if(task.IsComplete){
                     poolObject.UpdateTextUsingStrikeThrough(task);
                 }
@@ -98,7 +99,7 @@ public class QuestDetailView : MonoBehaviour
     }
     private void OnTaskSuccessChanged(Quest quest, Task task, int currentSuccess, int prevSuccess)
         =>ShowTasks(quest);
-    //private void OnTaskIsCompleted(Task task, TaskState currentState, TaskState prevState) => ShowTasks(quest);
+    private void OnTaskIsCompleted(Task task, TaskState currentState, TaskState prevState) => ShowTasks(Target);
 
     public void Show(Quest quest){
         displayGroup.SetActive(true);
@@ -107,7 +108,7 @@ public class QuestDetailView : MonoBehaviour
         }
         Target = quest;
         Target.onTaskSuccessChanged += OnTaskSuccessChanged;
-        //onCompleted += OnTaskIsCompleted;
+        
         
 
         title.text = quest.DisplayName;
