@@ -70,9 +70,9 @@ public class UI_Store : UI_Popup
     {
         listInfo.Add(new StoreItemInfo() { itemcode = 10001, itemCount = 1 });
         listInfo.Add(new StoreItemInfo() { itemcode = 10002, itemCount = 1 });
-        listInfo.Add(new StoreItemInfo() { itemcode = 20004, itemCount = 1});
-        listInfo.Add(new StoreItemInfo() { itemcode = 20005, itemCount = 1 });
-        listInfo.Add(new StoreItemInfo() { itemcode = 20006, itemCount = 1 });
+        listInfo.Add(new StoreItemInfo() { itemcode = 20002, itemCount = 1});
+        listInfo.Add(new StoreItemInfo() { itemcode = 20101, itemCount = 1 });
+        listInfo.Add(new StoreItemInfo() { itemcode = 20201, itemCount = 1 });
     } // 상점에 아이템 추가
 
 
