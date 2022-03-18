@@ -83,7 +83,7 @@ public class PlayerController : BaseController
         transform.position += moveVec * moveSpeed * Time.deltaTime;
         animator.SetFloat("Move", moveAmount, 0.2f, Time.deltaTime);
 
-        //마우스로 이동
+        //마우스로 이동 및 행동
         if (_lockTarget != null)
         {
             dir = DestPos(_lockTarget.transform.position); // 타겟과의 거리 값
@@ -92,7 +92,11 @@ public class PlayerController : BaseController
             {
                 if (dir.magnitude < 0.5f) //케릭터가 타겟이랑 0.5미터 이내로 들어오면
                 {
-                    if (_lockTarget.layer == (int)Layer.Item) //타겟의 레이어가 아이템이면
+                    if(_lockTarget.layer == (int)Layer.Npc)
+                    {
+                        //Managers.talk.Action(_lockTarget);
+                    }
+                    else if (_lockTarget.layer == (int)Layer.Item) //타겟의 레이어가 아이템이면
                     {
                        
                         TakeItem(_lockTarget);

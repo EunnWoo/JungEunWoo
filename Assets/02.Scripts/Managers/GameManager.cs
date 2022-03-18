@@ -56,7 +56,11 @@ public class GameManager
             ui_quest.OpenQuest();
 
         }
-
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Managers.UI.CloseAllPopupUI();
+            Managers.UI.isTalk(false);
+        }
         
     }
 

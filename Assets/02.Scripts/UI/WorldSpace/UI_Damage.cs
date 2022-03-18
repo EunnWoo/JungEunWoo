@@ -21,6 +21,8 @@ public class UI_Damage : UI_Base
     public float damage;
     public Transform target;
 
+
+    
     public override void Init()
     {
         if (bInit) return;

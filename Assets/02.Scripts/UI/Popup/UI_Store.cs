@@ -83,6 +83,7 @@ public class UI_Store : UI_Popup
 
     void OnClose(PointerEventData data)
     {
+
         Managers.UI.ClosePopupUI(this);
         Managers.UI.isTalk(false);
     }

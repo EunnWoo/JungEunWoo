@@ -85,7 +85,7 @@ public class Arrow : MonoBehaviour
     private void OnDisable()//오브젝트 비활성화
     {
         //값 초기화
-        transform.SetParent(Managers.Pool.objPoolManager);
+        transform.parent = Managers.Pool.objPoolManager.transform;
         transform.position = Vector3.zero;
         transform.rotation = Quaternion.identity;
         rigid.Sleep();

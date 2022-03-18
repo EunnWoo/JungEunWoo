@@ -82,6 +82,7 @@ public class UI_Message : UI_Popup
     //
     public void SceneMoveOk(PointerEventData data)
     {
+        
         Managers.UI.isTalk(false);
 
         Managers.Scene.LoadScene(SceneState.Town);
@@ -93,6 +94,7 @@ public class UI_Message : UI_Popup
 
     private void Function_Slider(float _value)
     {
+
         ShowMessage("구매", (int)_value + "개 구매");
        
     }
