@@ -52,12 +52,14 @@ public class Bow : PlayerAttack
             arrowObj.transform.rotation = firepos.transform.rotation;
 
             charge += Time.deltaTime;
-            
+
+            arrow.chargeParticle.SetActive(true);
+            arrow.chargeParticle.transform.localScale = new Vector3(charge / 5, charge / 5, charge / 5);
+            Managers.Sound.SnowBallSound("EffectSound/Attack/ArrowCharge", charge / 5);
+
             if (charge>2)
-            {
-                arrow.chargeParticle.SetActive(true);
+            { 
                 attackRatio = 1f * charge;
-             //   Managers.Sound.Play("EffectSound/Attack/ArrowCharge", Define.Sound.Effect);
             }
 
             if (!Managers.Input.fire)

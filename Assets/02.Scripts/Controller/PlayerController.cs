@@ -94,7 +94,7 @@ public class PlayerController : BaseController
                 {
                     if(_lockTarget.layer == (int)Layer.Npc)
                     {
-                        Managers.talk.Action(_lockTarget);
+                        //Managers.talk.Action(_lockTarget);
                     }
                     else if (_lockTarget.layer == (int)Layer.Item) //타겟의 레이어가 아이템이면
                     {

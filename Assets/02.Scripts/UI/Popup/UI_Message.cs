@@ -82,7 +82,7 @@ public class UI_Message : UI_Popup
     //
     public void SceneMoveOk(PointerEventData data)
     {
-        Managers.Sound.Play("EffectSound/Button");
+        
         Managers.UI.isTalk(false);
 
         Managers.Scene.LoadScene(SceneState.Town);

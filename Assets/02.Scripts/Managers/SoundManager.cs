@@ -68,15 +68,15 @@ public class SoundManager
             AudioSource audioSource = _audioSources[(int)Define.Sound.Effect];
             audioSource.pitch = pitch;
             audioSource.PlayOneShot(audioClip);
+            
         }
-        else
+        else 
         {
             AudioSource audioSource = _audioSources[(int)Define.Sound.LoopEffect];
             audioSource.clip = audioClip;
             audioSource.pitch = pitch;
             audioSource.Play();
         }
-        Debug.Log(type);
     }
     public void StopSound(string path)
     {
@@ -87,7 +87,11 @@ public class SoundManager
         audioSource.Stop();
 
     }
-
+    public void SnowBallSound(string path ,float volume)
+    {
+        AudioSource audioSource = _audioSources[(int)Define.Sound.LoopEffect];
+        audioSource.volume = volume;
+    }
     AudioClip GetOrAddAudioClip(string path, Define.Sound type = Define.Sound.Effect)
     {
         if (path.Contains("Sounds/") == false)
