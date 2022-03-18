@@ -57,16 +57,13 @@ public class Bow : PlayerAttack
             {
                 arrow.chargeParticle.SetActive(true);
                 attackRatio = 1f * charge;
-             //   Managers.Sound.Play("EffectSound/ArrowCharge", Define.Sound.Effect);
+             //   Managers.Sound.Play("EffectSound/Attack/ArrowCharge", Define.Sound.Effect);
             }
 
             if (!Managers.Input.fire)
             {
-                if(charge>=5f)
-                {
-                    arrow.fireParticle.SetActive(true);
-                    Managers.Sound.Play("EffectSound/ArrowChargeShot", Define.Sound.Effect);
-                }
+                ArrowSound();
+
                 arrow.FireArrow(firepos);
                 arrow.chargeParticle.SetActive(false); // 날아갈땐 꺼주기
 
@@ -91,7 +88,7 @@ public class Bow : PlayerAttack
 
         while(!animator.GetBool("Fire")) // false 라면 계속 들어감 true 되어야 입장
         {
-            yield return null;
+            yield return new WaitForSeconds(0.2f);
         }
 
         for (int i = 0; i <12; i++)
@@ -116,5 +113,27 @@ public class Bow : PlayerAttack
         isAttack = false;
         
         yield return null;
+    }
+
+    void ArrowSound()
+    {
+        if (charge >= 5f)
+        {
+            arrow.fireParticle.SetActive(true);
+            Managers.Sound.Play("EffectSound/Attack/ArrowChargeShot", Define.Sound.Effect);
+        }
+        else if (charge >= 2f)
+        {
+            Managers.Sound.Play("EffectSound/Attack/ArrowShot", Define.Sound.Effect);
+        }
+        else
+        {
+            Managers.Sound.Play("EffectSound/Attack/Arrow", Define.Sound.Effect);
+        }
+    }
+
+    void OnSkillSound()
+    {
+        Managers.Sound.Play("EffectSound/Attack/BowSkill");
     }
 }

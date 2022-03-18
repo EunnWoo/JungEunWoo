@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//bgm처럼 100퍼센트 들려야하는 사운드만 관리 -->게임 오브젝트가 비활성화되거나 파괴되면 소리가 끊기는걸 방지
+//ex) 몬스터 소리, 배경소재 소리 등 따로 관리해야한다. 
 public class SoundManager 
 {
     AudioSource[] _audioSources = new AudioSource[(int)Define.Sound.MaxCount]; //분류용
@@ -50,7 +53,7 @@ public class SoundManager
         if (type == Define.Sound.BGM)
         {
           
-            AudioSource audioSource = _audioSources[(int)Define.Sound.Effect];
+            AudioSource audioSource = _audioSources[(int)Define.Sound.BGM];
 
             if (audioSource.isPlaying) // bgm이 실행중이라면
                 audioSource.Stop();
@@ -73,7 +76,7 @@ public class SoundManager
             audioSource.pitch = pitch;
             audioSource.Play();
         }
-
+        Debug.Log(type);
     }
     public void StopSound(string path)
     {

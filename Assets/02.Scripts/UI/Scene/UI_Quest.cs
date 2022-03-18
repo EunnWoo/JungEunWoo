@@ -9,8 +9,9 @@ public class UI_Quest : UI_Scene
        QuestView
    }
 
-
     bool bInit;
+
+
     public GameObject questView;
     public override void Init()
     {

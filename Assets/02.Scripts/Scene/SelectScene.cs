@@ -35,6 +35,9 @@ public class SelectScene : BaseScene
         UI_Quest _quest = Managers.UI.ShowSceneUI<UI_Quest>();
         _quest.Init();
         _quest.questView.SetActive(false);
+
+        Managers.Sound.Play("BGM/Select",Define.Sound.BGM);
+
     }
 
     protected override void SceneMove()

@@ -126,4 +126,7 @@ public class UIManager
     public bool isTalk(bool isaction) => (isAction = isaction);
 
 
+
+
+
 }
