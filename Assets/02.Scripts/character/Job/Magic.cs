@@ -25,6 +25,8 @@ public class Magic : PlayerAttack
         range = 10.0f;
         attackRate = 0.8f;
         skillRate = 10f;
+        attackRatio = 1f;
+        skillRatio = 1.5f;
 
     }
 
@@ -53,7 +55,6 @@ public class Magic : PlayerAttack
                     fireballObj.transform.position = fireBallPos[hasFireBall].transform.position;
                     fireballObj.transform.rotation = fireBallPos[hasFireBall].transform.rotation;
                     fireballObj.gameObject.SetActive(true);
-
                     fireBalls[hasFireBall].FireFireBall(fireBalls[hasFireBall].transform);
 
                     hasFireBall++;
@@ -64,10 +65,12 @@ public class Magic : PlayerAttack
 
             if (!Managers.Input.fire) // น฿ป็
             {
+                
                 animator.SetBool("Fire", true);
                 Managers.UI.ClosePopupUI(ui_SkillTime);
                 for (int i = 0; i< hasFireBall; i++)
                 {
+                    fireBalls[i].SetTarget(attackTarget);
                     fireBalls[i].SetFire(true);
                     yield return new WaitForSeconds(0.1f);
 

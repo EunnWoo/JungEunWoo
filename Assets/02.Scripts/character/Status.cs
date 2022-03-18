@@ -50,12 +50,12 @@ public class Status : MonoBehaviour
 
    
 
-    public  bool TakeDamage(Status attacker) //PlayerStatusTest 스크립트 실험용(체력)
+    public  bool TakeDamage(Status attacker,float ratio) //PlayerStatusTest 스크립트 실험용(체력)
     {
         if (bDeath) return false; //만약 사망했다면
 
-        Debug.Log("호출");
-        int damage = Mathf.Max(0, (int)attacker.attack - (int)defense);
+        gameObject.GetComponent<Animator>().SetTrigger("Hit");
+        int damage = Random.Range( (int)(attacker.attack / 10),  (int)((attacker.attack- (int)defense) * ratio));
         hp -= damage;
 
         UI_Damage ui_Damage = Managers.UI.MakeWorldSpaceUI<UI_Damage>(transform);
@@ -79,7 +79,7 @@ public class Status : MonoBehaviour
             QuestReporter questReporter = GetComponent<QuestReporter>();
             questReporter.Report();
             bDeath = true;
-
+            gameObject.GetComponent<Animator>().SetTrigger("Dead");
             if (attacker.tag == "Player")
             {
                 UI_MonsterHpBar ui_MonsterHpBar = FindObjectOfType<UI_MonsterHpBar>();

@@ -31,7 +31,7 @@ TextureImporter:
     second: f7aa5b7fc80cf6fb53605f35f21075b6_8
   - first:
       213: -171637973622636266
-    second: SWORD_01
+    second: Sword_01
   - first:
       213: -1319491305291940649
     second: f7aa5b7fc80cf6fb53605f35f21075b6_10
@@ -46,7 +46,7 @@ TextureImporter:
     second: f7aa5b7fc80cf6fb53605f35f21075b6_13
   - first:
       213: 8932255603167850041
-    second: SWORD_02
+    second: Sword_02
   - first:
       213: -1908633672454580402
     second: BOW_01
@@ -367,11 +367,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SWORD_01
+      name: Sword_01
       rect:
         serializedVersion: 2
         x: 284
-        y: 509
+        y: 510
         width: 87
         height: 87
       alignment: 0
@@ -388,11 +388,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SWORD_02
+      name: Sword_02
       rect:
         serializedVersion: 2
-        x: 194
-        y: 419
+        x: 193
+        y: 607
         width: 87
         height: 87
       alignment: 0
@@ -404,90 +404,6 @@ TextureImporter:
       bones: []
       spriteID: 93eefcd552fb5fb70800000000000000
       internalID: 8932255603167850041
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BOW_01
-      rect:
-        serializedVersion: 2
-        x: 286
-        y: 419
-        width: 87
-        height: 87
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e47defa89cb2385e0800000000000000
-      internalID: -1908633672454580402
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BOW_02
-      rect:
-        serializedVersion: 2
-        x: 378
-        y: 327
-        width: 87
-        height: 87
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 21727c64e95f95600800000000000000
-      internalID: 457666897295910674
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MAGIC_01
-      rect:
-        serializedVersion: 2
-        x: 286
-        y: 137
-        width: 87
-        height: 92
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3d7382dae74ed6470800000000000000
-      internalID: 8389612913583208403
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MAGIC_02
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 47
-        width: 92
-        height: 91
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 668561bba47b31790800000000000000
-      internalID: -7560497817830664090
       vertices: []
       indices: 
       edges: []

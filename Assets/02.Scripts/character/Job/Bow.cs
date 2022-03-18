@@ -19,6 +19,8 @@ public class Bow : PlayerAttack
         range = 10.0f;
         skillRate = 10f;
         attackRate = 0.65f;
+        attackRatio = 1f;
+        skillRatio = 1f;
         
     }
 
@@ -28,6 +30,7 @@ public class Bow : PlayerAttack
         UI_SkillTime ui_SkillTime = Managers.UI.ShowPopupUI<UI_SkillTime>();
         ui_SkillTime.Init();
 
+        attackRatio = 1f; // ºñ·Ê°ª ÃÊ±âÈ­
         animator.SetBool("Fire",false);
         animator.SetTrigger("Attack");
 
@@ -49,9 +52,12 @@ public class Bow : PlayerAttack
             arrowObj.transform.rotation = firepos.transform.rotation;
 
             charge += Time.deltaTime;
-            if(charge>2)
+            
+            if (charge>2)
             {
                 arrow.chargeParticle.SetActive(true);
+                attackRatio = 1f * charge;
+             //   Managers.Sound.Play("EffectSound/ArrowCharge", Define.Sound.Effect);
             }
 
             if (!Managers.Input.fire)
@@ -59,6 +65,7 @@ public class Bow : PlayerAttack
                 if(charge>=5f)
                 {
                     arrow.fireParticle.SetActive(true);
+                    Managers.Sound.Play("EffectSound/ArrowChargeShot", Define.Sound.Effect);
                 }
                 arrow.FireArrow(firepos);
                 arrow.chargeParticle.SetActive(false); // ³¯¾Æ°¥¶© ²¨ÁÖ±â
@@ -78,6 +85,7 @@ public class Bow : PlayerAttack
 
     protected override IEnumerator Skill()
     {
+        attackRatio = skillRatio; // ºñ·Ê°ª ÃÊ±âÈ­
         animator.SetBool("Fire", false);
         animator.SetTrigger("IsSkill");
 
@@ -86,16 +94,16 @@ public class Bow : PlayerAttack
             yield return null;
         }
 
-        for (int i = 0; i <6; i++)
+        for (int i = 0; i <12; i++)
         {
-            for (int j = 0; j < 6; j++)
+            for (int j = 0; j < 12; j++)
             {
                 var arrowObj = Managers.Pool.MakeObj(arrowobj);
          
                 if (arrowObj != null)
                 {        
                     arrowObj.transform.position = new Vector3
-                     (attackTarget.transform.position.x - 3 + i, attackTarget.transform.position.y + 10, attackTarget.transform.position.z - 3 + j);
+                     (attackTarget.transform.position.x - 3 + i*0.5f, attackTarget.transform.position.y + 10, attackTarget.transform.position.z - 3 + j*0.5f);
                     arrowObj.transform.Rotate(0, 0, Random.Range(-65f,-115f));
                     arrowObj.SetActive(true);
                     arrowObj.GetComponent<Rigidbody>().useGravity = true;
@@ -108,23 +116,5 @@ public class Bow : PlayerAttack
         isAttack = false;
         
         yield return null;
-    }
-    protected override void OnHitEvent()
-    {
-        //if (attackTarget.layer == (int)Layer.Monster)
-        //{
-        //    Debug.Log("µé¾î¿È");
-        //}
-        //else
-        //{
-
-        //    Collider[] colls = gameObject.GetComponentsInChildren<Collider>();
-        //    foreach (Collider coll in colls)
-        //    {
-        //        Debug.Log(coll);
-        //        coll.enabled = true;
-        //    }
-
-        //}
     }
 }

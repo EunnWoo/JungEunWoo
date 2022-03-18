@@ -26,6 +26,9 @@ public class FireBall : MonoBehaviour
     Vector3 offset;
     public float speed = 500f;
 
+    GameObject target;
+    public void SetTarget(GameObject value) {target = value ;}
+
 
     private void Start()
     {
@@ -71,14 +74,15 @@ public class FireBall : MonoBehaviour
         {
             if (isFire)
             {
-                if (playerAttack.attackTarget.layer == (int)Layer.Monster)
+                if (target.layer == (int)Layer.Monster)
                 {
+                    
                     Vector3 vec = playerAttack.attackTarget.transform.position;
                     var cal = playerAttack.attackTarget.GetComponent<Collider>();
                     vec.y += cal.bounds.size.y / 2; // 몹의 중앙에 파이어볼 향하게
                     tr.position = Vector3.Lerp(tr.position, vec, 0.1f);
                 }
-                else if (playerAttack.attackTarget.layer == (int)Layer.Ground)
+                else if (target.layer == (int)Layer.Ground)
                 {
                     rigid.AddForce(transform.forward * 30f);
                 }
@@ -106,7 +110,7 @@ public class FireBall : MonoBehaviour
             Status playerstatus = Managers.Game.GetPlayer().GetComponent<Status>();
             Status status = other.GetComponent<Status>();
 
-            status.TakeDamage(playerstatus);
+            status.TakeDamage(playerstatus, playerAttack.attackRatio);
         }
     }
 

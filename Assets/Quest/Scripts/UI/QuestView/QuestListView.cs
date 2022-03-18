@@ -7,12 +7,19 @@ using TMPro;
 
 public class QuestListView : MonoBehaviour
 {
+    public static QuestListView ins;
     [SerializeField]
     private TextMeshProUGUI elementTextPrefab;
     [SerializeField]
     private Dictionary<Quest,GameObject> elementByQuest = new Dictionary<Quest, GameObject>();
     private ToggleGroup toggleGroup;
+
     private void Awake() {
+        ins = this;
+        
+    }
+    public void Init()
+    {
         toggleGroup = GetComponent<ToggleGroup>();
     }
     public void AddElement(Quest quest, UnityAction<bool> onClicked){

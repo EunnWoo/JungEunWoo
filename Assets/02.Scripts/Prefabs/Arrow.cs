@@ -11,7 +11,7 @@ public class Arrow : MonoBehaviour
 
     public GameObject chargeParticle;
     public GameObject fireParticle;
-
+    PlayerAttack playerAttack;
 
     private void Awake()
     {
@@ -19,11 +19,14 @@ public class Arrow : MonoBehaviour
         // chargeParticle = GameObject.Find("StormCharge");
         //  fireParticle = GameObject.Find("StormCleave");
 
-        
-            
-      
 
-
+    }
+    private void OnEnable()
+    {
+        if (Managers.Game.GetPlayer() != null)
+        {
+            playerAttack = Managers.Game.GetPlayer().GetComponent<PlayerAttack>();
+        }
     }
 
     private void Update()
@@ -58,12 +61,12 @@ public class Arrow : MonoBehaviour
             rigid.Sleep();
             rigid.useGravity = false;
             transform.position = other.ClosestPointOnBounds(transform.position);
-            transform.SetParent(other.transform);
+            transform.parent = other.transform; // (other.transform);
             //피격처리
-            Status playerstatus = Managers.Game.GetPlayer().GetComponent<Status>();
+            Status playerstatus = playerAttack.GetComponent<Status>();
             Status status = other.GetComponent<Status>();
 
-            status.TakeDamage(playerstatus);
+            status.TakeDamage(playerstatus,playerAttack.attackRatio);
 
             Invoke("DisableArrow", 3f);
         }
