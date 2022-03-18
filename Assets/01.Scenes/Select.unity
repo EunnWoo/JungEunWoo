@@ -2371,6 +2371,19 @@ MonoBehaviour:
   successCount: 1
   colliderTags:
   - Player
+--- !u!65 &471532637
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471532632}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 6.061752, z: 2}
+  m_Center: {x: 0, y: 3.07, z: 0}
 --- !u!1001 &481634962
 PrefabInstance:
   m_ObjectHideFlags: 0

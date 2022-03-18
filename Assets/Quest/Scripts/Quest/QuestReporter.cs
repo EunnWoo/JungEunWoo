@@ -23,7 +23,6 @@ public class QuestReporter : MonoBehaviour
 
     public void Report(){
         QuestSystem.Instance.ReceiveReport(category,target,successCount);
-
     }
     private void ReportIfPassCondition(Component other){
         if(colliderTags.Any(x => other.CompareTag(x))){

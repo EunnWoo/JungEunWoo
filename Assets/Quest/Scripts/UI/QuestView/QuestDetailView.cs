@@ -60,20 +60,13 @@ public class QuestDetailView : MonoBehaviour
             Target.Cancel();
         }
     }
-
-    public void Show(Quest quest){
-        displayGroup.SetActive(true);
-        Target = quest;
-
-        title.text = quest.DisplayName;
-        description.text = quest.Description;
+    public void ShowTasks(Quest quest){
         int taskIndex = 0;
         foreach(var taskGroup in quest.TaskGroups){
             foreach(var task in taskGroup.Tasks){
                 var poolObject = taskDescriptorPool[taskIndex++];
                 poolObject.gameObject.SetActive(true);
-
-                if(taskGroup.IsComplete){
+                if(task.IsComplete){
                     poolObject.UpdateTextUsingStrikeThrough(task);
                 }
                 else if(taskGroup == quest.CurrentTaskGroup){
@@ -84,7 +77,6 @@ public class QuestDetailView : MonoBehaviour
                 }
             }
         }
-
         for(int i = taskIndex; i<taskDescriptorPool.Count; i++){//사용하지않는 poolObject는 끈다
             taskDescriptorPool[i].gameObject.SetActive(false);
         }
@@ -103,6 +95,43 @@ public class QuestDetailView : MonoBehaviour
         }
 
         cancelButton.gameObject.SetActive(quest.IsCancelable && !quest.IsComplete);
+    }
+    private void OnTaskSuccessChanged(Quest quest, Task task, int currentSuccess, int prevSuccess)
+        =>ShowTasks(quest);
+    //private void OnTaskIsCompleted(Task task, TaskState currentState, TaskState prevState) => ShowTasks(quest);
+
+    public void Show(Quest quest){
+        displayGroup.SetActive(true);
+        if(Target != null){
+            Target.onTaskSuccessChanged -= OnTaskSuccessChanged;
+        }
+        Target = quest;
+        Target.onTaskSuccessChanged += OnTaskSuccessChanged;
+        //onCompleted += OnTaskIsCompleted;
+        
+
+        title.text = quest.DisplayName;
+        description.text = quest.Description;
+        ShowTasks(Target);
+        // int taskIndex = 0;
+        // foreach(var taskGroup in quest.TaskGroups){
+        //     foreach(var task in taskGroup.Tasks){
+        //         var poolObject = taskDescriptorPool[taskIndex++];
+        //         poolObject.gameObject.SetActive(true);
+
+        //         if(task.IsComplete){
+        //             poolObject.UpdateTextUsingStrikeThrough(task);
+        //         }
+        //         else if(taskGroup == quest.CurrentTaskGroup){
+        //             poolObject.UpdateText(task);
+        //         }
+        //         else{
+        //             poolObject.UpdateText("● ? ? ? ? ? ? ? ? ?");
+        //         }
+        //     }
+        // }
+
+        
     }
 
     public void Hide(){
