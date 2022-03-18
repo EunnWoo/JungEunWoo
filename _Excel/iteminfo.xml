@@ -22,7 +22,7 @@
 		<plusdef>0</plusdef>
 		<plushp>0</plushp>
 		<plusmp>0</plusmp>
-		<skin>Sword2_R</skin>
+		<skin>Sword1_L</skin>
 	</wearpart>
 	<wearpart>
 		<itemcode>20002</itemcode>
@@ -31,7 +31,7 @@
 		<equpslot>1</equpslot>
 		<itemname>용사의 검</itemname>
 		<activate>0</activate>
-		<toplist>1</toplist>
+		<toplist>0</toplist>
 		<grade>0</grade>
 		<discount>0</discount>
 		<icon>20002</icon>
@@ -42,14 +42,14 @@
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
 		<description>용사의 검 입니다</description>
-		<plusatt>10</plusatt>
+		<plusatt>25</plusatt>
 		<plusdef>0</plusdef>
 		<plushp>0</plushp>
 		<plusmp>0</plusmp>
-		<skin>Sword3_R</skin>
+		<skin>Sword6_L</skin>
 	</wearpart>
 	<wearpart>
-		<itemcode>20100</itemcode>
+		<itemcode>20101</itemcode>
 		<category>1</category>
 		<subcategory>2</subcategory>
 		<equpslot>1</equpslot>
@@ -58,7 +58,7 @@
 		<toplist>2</toplist>
 		<grade>0</grade>
 		<discount>0</discount>
-		<icon>20100</icon>
+		<icon>20101</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
 		<gamecost>0</gamecost>
@@ -70,18 +70,19 @@
 		<plusdef>0</plusdef>
 		<plushp>0</plushp>
 		<plusmp>0</plusmp>
+		<skin>Wand2_R</skin>
 	</wearpart>
 	<wearpart>
-		<itemcode>20101</itemcode>
+		<itemcode>20102</itemcode>
 		<category>1</category>
 		<subcategory>2</subcategory>
 		<equpslot>1</equpslot>
 		<itemname>마법사 지팡이</itemname>
 		<activate>0</activate>
-		<toplist>0</toplist>
+		<toplist>2</toplist>
 		<grade>0</grade>
 		<discount>0</discount>
-		<icon>20101</icon>
+		<icon>20102</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
 		<gamecost>0</gamecost>
@@ -93,9 +94,10 @@
 		<plusdef>0</plusdef>
 		<plushp>0</plushp>
 		<plusmp>0</plusmp>
+		<skin>Wand1_R</skin>
 	</wearpart>
 	<wearpart>
-		<itemcode>20200</itemcode>
+		<itemcode>20201</itemcode>
 		<category>1</category>
 		<subcategory>2</subcategory>
 		<equpslot>1</equpslot>
@@ -104,7 +106,7 @@
 		<toplist>1</toplist>
 		<grade>0</grade>
 		<discount>0</discount>
-		<icon>20200</icon>
+		<icon>20201</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
 		<gamecost>0</gamecost>
@@ -112,22 +114,23 @@
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
 		<description>초보자 활 입니다</description>
-		<plusatt>25</plusatt>
+		<plusatt>10</plusatt>
 		<plusdef>0</plusdef>
 		<plushp>0</plushp>
 		<plusmp>0</plusmp>
+		<skin>Bow1</skin>
 	</wearpart>
 	<wearpart>
-		<itemcode>20201</itemcode>
+		<itemcode>20202</itemcode>
 		<category>1</category>
 		<subcategory>2</subcategory>
 		<equpslot>1</equpslot>
 		<itemname>명사수 활</itemname>
 		<activate>0</activate>
-		<toplist>2</toplist>
+		<toplist>1</toplist>
 		<grade>0</grade>
 		<discount>0</discount>
-		<icon>20201</icon>
+		<icon>20202</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
 		<gamecost>0</gamecost>
@@ -139,6 +142,7 @@
 		<plusdef>0</plusdef>
 		<plushp>0</plushp>
 		<plusmp>0</plusmp>
+		<skin>Bow2</skin>
 	</wearpart>
 	<wearpart>
 		<itemcode>21001</itemcode>
@@ -147,7 +151,7 @@
 		<equpslot>1</equpslot>
 		<itemname>모험가 헬멧</itemname>
 		<activate>0</activate>
-		<toplist>0</toplist>
+		<toplist>4</toplist>
 		<grade>0</grade>
 		<discount>0</discount>
 		<icon>21001</icon>
@@ -159,9 +163,10 @@
 		<sellcost>0</sellcost>
 		<description>모험가 헬멧 입니다</description>
 		<plusatt>0</plusatt>
-		<plusdef>10</plusdef>
+		<plusdef>5</plusdef>
 		<plushp>0</plushp>
 		<plusmp>0</plusmp>
+		<skin>Crown3</skin>
 	</wearpart>
 	<wearpart>
 		<itemcode>21002</itemcode>
@@ -170,7 +175,7 @@
 		<equpslot>1</equpslot>
 		<itemname>고급 헬멧</itemname>
 		<activate>0</activate>
-		<toplist>0</toplist>
+		<toplist>4</toplist>
 		<grade>0</grade>
 		<discount>0</discount>
 		<icon>21002</icon>
@@ -182,9 +187,10 @@
 		<sellcost>0</sellcost>
 		<description>고급 헬멧 입니다</description>
 		<plusatt>0</plusatt>
-		<plusdef>0</plusdef>
+		<plusdef>10</plusdef>
 		<plushp>0</plushp>
 		<plusmp>50</plusmp>
+		<skin>Crown4</skin>
 	</wearpart>
 	<wearpart>
 		<itemcode>22001</itemcode>
@@ -193,7 +199,7 @@
 		<equpslot>1</equpslot>
 		<itemname>모험가 상의</itemname>
 		<activate>0</activate>
-		<toplist>0</toplist>
+		<toplist>5</toplist>
 		<grade>0</grade>
 		<discount>0</discount>
 		<icon>22001</icon>
@@ -204,10 +210,11 @@
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
 		<description>모험가 상의 입니다</description>
-		<plusatt>10</plusatt>
-		<plusdef>0</plusdef>
+		<plusatt>0</plusatt>
+		<plusdef>5</plusdef>
 		<plushp>0</plushp>
 		<plusmp>0</plusmp>
+		<skin>Cloth6</skin>
 	</wearpart>
 	<wearpart>
 		<itemcode>22002</itemcode>
@@ -216,7 +223,7 @@
 		<equpslot>1</equpslot>
 		<itemname>고급 상의</itemname>
 		<activate>0</activate>
-		<toplist>0</toplist>
+		<toplist>5</toplist>
 		<grade>0</grade>
 		<discount>0</discount>
 		<icon>22002</icon>
@@ -229,8 +236,9 @@
 		<description>고급 상의 입니다</description>
 		<plusatt>0</plusatt>
 		<plusdef>10</plusdef>
-		<plushp>0</plushp>
+		<plushp>50</plushp>
 		<plusmp>0</plusmp>
+		<skin>Cloth7</skin>
 	</wearpart>
 	<wearpart>
 		<itemcode>23001</itemcode>
@@ -239,7 +247,7 @@
 		<equpslot>1</equpslot>
 		<itemname>모험가 신발</itemname>
 		<activate>0</activate>
-		<toplist>0</toplist>
+		<toplist>6</toplist>
 		<grade>0</grade>
 		<discount>0</discount>
 		<icon>23001</icon>
@@ -250,10 +258,11 @@
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
 		<description>모험가 신발 입니다</description>
-		<plusatt>0</plusatt>
+		<plusatt>5</plusatt>
 		<plusdef>0</plusdef>
 		<plushp>0</plushp>
-		<plusmp>50</plusmp>
+		<plusmp>0</plusmp>
+		<skin>Shoe3</skin>
 	</wearpart>
 	<wearpart>
 		<itemcode>23002</itemcode>
@@ -262,7 +271,7 @@
 		<equpslot>1</equpslot>
 		<itemname>고급 신발</itemname>
 		<activate>0</activate>
-		<toplist>0</toplist>
+		<toplist>6</toplist>
 		<grade>0</grade>
 		<discount>0</discount>
 		<icon>23002</icon>
@@ -277,6 +286,7 @@
 		<plusdef>0</plusdef>
 		<plushp>0</plushp>
 		<plusmp>0</plusmp>
+		<skin>Shoe6</skin>
 	</wearpart>
 	<wearpart>
 		<itemcode>300</itemcode>
@@ -300,6 +310,7 @@
 		<plusdef>0</plusdef>
 		<plushp>0</plushp>
 		<plushp>0</plushp>
+		<skin>Belt1</skin>
 	</wearpart>
 	<wearpart>
 		<itemcode>301</itemcode>
@@ -309,7 +320,7 @@
 		<itemname>하의2</itemname>
 		<activate>0</activate>
 		<toplist>0</toplist>
-		<grade>1</grade>
+		<grade>0</grade>
 		<discount>0</discount>
 		<icon>301</icon>
 		<playerlv>0</playerlv>
@@ -323,6 +334,7 @@
 		<plusdef>1</plusdef>
 		<plushp>0</plushp>
 		<plushp>0</plushp>
+		<skin>Belt2</skin>
 	</wearpart>
 	<wearpart>
 		<itemcode>302</itemcode>
@@ -332,7 +344,7 @@
 		<itemname>하의3</itemname>
 		<activate>0</activate>
 		<toplist>0</toplist>
-		<grade>2</grade>
+		<grade>0</grade>
 		<discount>0</discount>
 		<icon>302</icon>
 		<playerlv>0</playerlv>
@@ -346,6 +358,7 @@
 		<plusdef>1</plusdef>
 		<plushp>0</plushp>
 		<plushp>0</plushp>
+		<skin>Belt3</skin>
 	</wearpart>
 	<wearpart>
 		<itemcode>303</itemcode>
@@ -355,7 +368,7 @@
 		<itemname>하의4</itemname>
 		<activate>0</activate>
 		<toplist>0</toplist>
-		<grade>3</grade>
+		<grade>0</grade>
 		<discount>0</discount>
 		<icon>303</icon>
 		<playerlv>0</playerlv>
@@ -369,6 +382,7 @@
 		<plusdef>1</plusdef>
 		<plushp>0</plushp>
 		<plushp>0</plushp>
+		<skin>Belt4</skin>
 	</wearpart>
 	<wearpart>
 		<itemcode>304</itemcode>
@@ -378,7 +392,7 @@
 		<itemname>하의5</itemname>
 		<activate>0</activate>
 		<toplist>0</toplist>
-		<grade>4</grade>
+		<grade>0</grade>
 		<discount>0</discount>
 		<icon>304</icon>
 		<playerlv>0</playerlv>
@@ -392,6 +406,7 @@
 		<plusdef>1</plusdef>
 		<plushp>0</plushp>
 		<plushp>0</plushp>
+		<skin>Belt5</skin>
 	</wearpart>
 	<wearpart>
 		<itemcode>305</itemcode>
@@ -401,7 +416,7 @@
 		<itemname>하의6</itemname>
 		<activate>0</activate>
 		<toplist>0</toplist>
-		<grade>5</grade>
+		<grade>0</grade>
 		<discount>0</discount>
 		<icon>305</icon>
 		<playerlv>0</playerlv>
@@ -415,6 +430,7 @@
 		<plusdef>1</plusdef>
 		<plushp>0</plushp>
 		<plushp>0</plushp>
+		<skin>Belt6</skin>
 	</wearpart>
 	<usepart>
 		<itemcode>10001</itemcode>
@@ -445,7 +461,7 @@
 		<itemname>파란 포션</itemname>
 		<activate>1</activate>
 		<toplist>0</toplist>
-		<grade>2</grade>
+		<grade>1</grade>
 		<discount>0</discount>
 		<icon>10002</icon>
 		<playerlv>0</playerlv>

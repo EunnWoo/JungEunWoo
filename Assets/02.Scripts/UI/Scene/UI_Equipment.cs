@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+//                             0     1       2       3       4
 public enum eEquipmentSlot { Head, Armor, Weapon, Boots, NotSlot };
 [System.Serializable]
 public class EquipmentSlot
@@ -12,6 +12,7 @@ public class EquipmentSlot
     public ItemData itemData;
     public Image icon;
     public SkinnedMeshRenderer skin;
+    public  Sprite backboarSprite;
 }
 
 
@@ -29,7 +30,9 @@ public class UI_Equipment : MonoBehaviour
 
     public GameObject body;
     public EquipmentSlot[] defaultSlots = new EquipmentSlot[4];
-    public EquipmentSlot[] slots = new EquipmentSlot[4]; //4개의 배열생성
+    public EquipmentSlot[] slots = new EquipmentSlot[4]; //4개의 배열생성\
+    PlayerStatus playerstatus;
+
 
     private void Start()
     {
@@ -41,6 +44,18 @@ public class UI_Equipment : MonoBehaviour
         if (bInit) return;
         bInit = true;
         body.SetActive(false);
+
+        GameObject[] _arrayGO = GameObject.FindGameObjectsWithTag("Player");
+        PlayerStatus _ps;
+        for(int i = 0; i< _arrayGO.Length; i++)
+        {
+            _ps = _arrayGO[i].GetComponent<PlayerStatus>();
+            if(_ps != null)
+            {
+                playerstatus = _ps;// "나" 라는 플래그가 있다면?
+                break;
+            }
+        }
     }
 
 
@@ -63,8 +78,11 @@ public class UI_Equipment : MonoBehaviour
             
             if (slots[_index].itemData != null)
             {
-                slots[_index].itemData.equipmentStatus = false;
+                //slots[_index].itemData.equipmentStatus = false;
                 slots[_index].itemData = null;
+                slots[_index].icon.sprite = slots[_index].backboarSprite;
+                slots[_index].icon.color = new Color(1f, 1f, 1f, 100f / 255f); //아이템 탈착시 색깔 연하게
+
 
                 //slots[_index].skin.gameObject.SetActive(false);
                 Debug.Log("@@@ E장착해제");
@@ -72,12 +90,12 @@ public class UI_Equipment : MonoBehaviour
 
             //새것
             slots[_index].itemData = _itemData;
-            slots[_index].icon.sprite = ItemInfo.ins.GetItemInfoSpriteIcon(_itemData.itemcode);
-            slots[_index].itemData.equipmentStatus = true;
+            slots[_index].icon.sprite = _itemData.iconSprite;
+            slots[_index].icon.color = new Color(1f, 1f, 1f, 1f);//장착시 색깔이 찐하게
+            //slots[_index].itemData.equipmentStatus = true;
             Debug.Log("@@@ UI장착중");
 
-            //slots[_index].skin =
-            //slots[_index].skin.gameObject.SetActive(true);
+            playerstatus.Equip((int)_slot, _itemData);
         }
     }
 

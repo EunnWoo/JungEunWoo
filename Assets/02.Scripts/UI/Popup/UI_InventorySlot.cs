@@ -44,7 +44,9 @@ public class UI_InventorySlot : UI_Base, IPointerClickHandler
     public void SetItem(ItemData _itemData)
     {
         itemData = _itemData;
-        icon.sprite = ItemInfo.ins.GetItemInfoSpriteIcon(_itemData.itemcode);
+        icon.sprite = _itemData.iconSprite;
+        //icon.sprite = ItemInfo.ins.GetSprite(_itemData.icon);
+        //icon.sprite = ItemInfo.ins.GetItemInfoSpriteIcon(_itemData.itemcode);
         if (itemData.itemCount <= 1)
         {
             itemCount.gameObject.SetActive(false);

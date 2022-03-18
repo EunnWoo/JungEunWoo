@@ -24,14 +24,12 @@ public class ItemData
 	public int itemcode;
 	public ItemInfoBase iteminfoBase;
 	public int itemCount = 1;
-	public float price;
 	public int upgradeCount = 0;	
 	
 	public ItemData(int _itemcode, int _count = 1)
     {
 		itemcode = _itemcode;
 		itemCount = _count;
-		price = itemcode * itemCount;
 		upgradeCount = 0;
 
 		iteminfoBase = ItemInfo.ins.GetItemInfoBase(_itemcode);
@@ -64,7 +62,16 @@ public class ItemData
 		}
 	}
 
-	public bool equipmentStatus;
+	//public bool equipmentStatus;
+
+	public string skin { 
+		get {
+			//skin wear part -> 기본클래스 -> wear part 클래스 변환
+			ItemInfoWearPart _item = (ItemInfoWearPart)iteminfoBase;
+			if (_item != null) return _item.skin;
+			else return "NOSKIN";
+		} 
+	}
 
 	public string itemName 
 	{
@@ -91,7 +98,9 @@ public class ItemData
 	//{
 	//	return iteminfoBase.icon;
 	//}
-	public string itemIcon {	get	{return iteminfoBase.icon;}	}
+	public string icon { get { return iteminfoBase.icon; } }
+	public Sprite iconSprite { get { return ItemInfo.ins.GetSprite(iteminfoBase.icon); } }
+	// public string itemIcon {	get	{return iteminfoBase.icon;}	}
 }
 
 [System.Serializable]

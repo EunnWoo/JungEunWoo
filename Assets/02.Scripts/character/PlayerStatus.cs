@@ -3,6 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum ePlayerJob { None, Archer,Warrior,Magician};
+
+[System.Serializable]
+public class PartInfo
+{
+    //list 를 전부 끄고 -> 해당이름만 on
+    public string partName;
+    public GameObject partDefault;
+    public List<GameObject> partList = new List<GameObject>();
+
+    public void Equip(string _partName)//장착
+    {
+        for (int i = 0, imax = partList.Count; i < imax; i++)
+        {
+            if(partList[i].name == _partName) //이름이 같으면 킨다
+            {
+                partList[i].SetActive(true);
+            }
+        }
+    }
+
+    public void UnEquio(string _partName) //장비 탈착
+    {
+        for (int i = 0, imax = partList.Count; i < imax; i++)
+        {
+            if (partList[i].name == _partName) //이름이 같으면 끈다
+            {
+                partList[i].SetActive(false);
+            }
+        }
+    }
+}
+
 public class PlayerStatus : Status
 {
     #region sigleton
@@ -11,6 +43,24 @@ public class PlayerStatus : Status
     private void Awake()
     {
         ins = this;
+    }
+    #endregion
+
+
+    #region PartInfo 정보
+    // 0     1       2      3   
+    //Head, Armor, Weapon, Boots
+    public List<PartInfo> listPartInfos = new List<PartInfo>();
+
+    public void Equip(int _index, ItemData _itemData)
+    {
+        PartInfo _partInfo = listPartInfos[_index];
+        //default off 디폴트를 꺼준다
+        if(_partInfo.partDefault != null)
+        {
+            _partInfo.partDefault.SetActive(false);
+        }
+        _partInfo.Equip(_itemData.skin);
     }
     #endregion
 
