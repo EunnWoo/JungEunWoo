@@ -70,11 +70,20 @@ public class UI_Store : UI_Popup
     {
         listInfo.Add(new StoreItemInfo() { itemcode = 10001, itemCount = 1 });
         listInfo.Add(new StoreItemInfo() { itemcode = 10002, itemCount = 1 });
-        listInfo.Add(new StoreItemInfo() { itemcode = 20002, itemCount = 1});
-        listInfo.Add(new StoreItemInfo() { itemcode = 20102, itemCount = 1 });
-        listInfo.Add(new StoreItemInfo() { itemcode = 20202, itemCount = 1 });
+
         listInfo.Add(new StoreItemInfo() { itemcode = 21001, itemCount = 1 });
         listInfo.Add(new StoreItemInfo() { itemcode = 21002, itemCount = 1 });
+        listInfo.Add(new StoreItemInfo() { itemcode = 22001, itemCount = 1 });
+        listInfo.Add(new StoreItemInfo() { itemcode = 22002, itemCount = 1 });
+        listInfo.Add(new StoreItemInfo() { itemcode = 23001, itemCount = 1 });
+        listInfo.Add(new StoreItemInfo() { itemcode = 23002, itemCount = 1 });
+        listInfo.Add(new StoreItemInfo() { itemcode = 20001, itemCount = 1 });
+        listInfo.Add(new StoreItemInfo() { itemcode = 20002, itemCount = 1 });
+        listInfo.Add(new StoreItemInfo() { itemcode = 20101, itemCount = 1 });
+        listInfo.Add(new StoreItemInfo() { itemcode = 20102, itemCount = 1 });
+        listInfo.Add(new StoreItemInfo() { itemcode = 20201, itemCount = 1 });
+        listInfo.Add(new StoreItemInfo() { itemcode = 20202, itemCount = 1 });
+        
     } // 상점에 아이템 추가
 
 

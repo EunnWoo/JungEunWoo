@@ -6438,6 +6438,103 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &1237245009
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4947865147685420989, guid: 95866a274adb0a54cb9699349def63e5, type: 3}
+      propertyPath: m_Name
+      value: UI_InventorySlot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947865147685420990, guid: 95866a274adb0a54cb9699349def63e5, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947865147685420990, guid: 95866a274adb0a54cb9699349def63e5, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947865147685420990, guid: 95866a274adb0a54cb9699349def63e5, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947865147685420990, guid: 95866a274adb0a54cb9699349def63e5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947865147685420990, guid: 95866a274adb0a54cb9699349def63e5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947865147685420990, guid: 95866a274adb0a54cb9699349def63e5, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947865147685420990, guid: 95866a274adb0a54cb9699349def63e5, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947865147685420990, guid: 95866a274adb0a54cb9699349def63e5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 78
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947865147685420990, guid: 95866a274adb0a54cb9699349def63e5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 78
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947865147685420990, guid: 95866a274adb0a54cb9699349def63e5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947865147685420990, guid: 95866a274adb0a54cb9699349def63e5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947865147685420990, guid: 95866a274adb0a54cb9699349def63e5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947865147685420990, guid: 95866a274adb0a54cb9699349def63e5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947865147685420990, guid: 95866a274adb0a54cb9699349def63e5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947865147685420990, guid: 95866a274adb0a54cb9699349def63e5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947865147685420990, guid: 95866a274adb0a54cb9699349def63e5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947865147685420990, guid: 95866a274adb0a54cb9699349def63e5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 46.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947865147685420990, guid: 95866a274adb0a54cb9699349def63e5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -46.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947865147685420990, guid: 95866a274adb0a54cb9699349def63e5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947865147685420990, guid: 95866a274adb0a54cb9699349def63e5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947865147685420990, guid: 95866a274adb0a54cb9699349def63e5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 95866a274adb0a54cb9699349def63e5, type: 3}
 --- !u!1 &1270313306
 GameObject:
   m_ObjectHideFlags: 0
@@ -15640,9 +15737,8 @@ MonoBehaviour:
         itemType: 0
       itemCount: 0
       upgradeCount: 0
-    icon: {fileID: 0}
+    equipSlot: {fileID: 0}
     skin: {fileID: 0}
-    backboarSprite: {fileID: 0}
   - name: Armor
     itemData:
       itemcode: 0
@@ -15666,9 +15762,8 @@ MonoBehaviour:
         itemType: 0
       itemCount: 0
       upgradeCount: 0
-    icon: {fileID: 0}
+    equipSlot: {fileID: 0}
     skin: {fileID: 0}
-    backboarSprite: {fileID: 0}
   - name: Boots
     itemData:
       itemcode: 0
@@ -15692,9 +15787,8 @@ MonoBehaviour:
         itemType: 0
       itemCount: 0
       upgradeCount: 0
-    icon: {fileID: 0}
+    equipSlot: {fileID: 0}
     skin: {fileID: 0}
-    backboarSprite: {fileID: 0}
   - name: Shield
     itemData:
       itemcode: 0
@@ -15718,9 +15812,8 @@ MonoBehaviour:
         itemType: 0
       itemCount: 0
       upgradeCount: 0
-    icon: {fileID: 0}
+    equipSlot: {fileID: 0}
     skin: {fileID: 0}
-    backboarSprite: {fileID: 0}
   slots:
   - name: Head
     itemData:
@@ -15745,9 +15838,8 @@ MonoBehaviour:
         itemType: 0
       itemCount: 0
       upgradeCount: 0
-    icon: {fileID: 5145363286542417167}
+    equipSlot: {fileID: 5145363286377082630}
     skin: {fileID: 0}
-    backboarSprite: {fileID: 21300000, guid: f8fceb41b68ef0a4ea35add24f4635e0, type: 3}
   - name: Armor
     itemData:
       itemcode: 0
@@ -15771,9 +15863,8 @@ MonoBehaviour:
         itemType: 0
       itemCount: 0
       upgradeCount: 0
-    icon: {fileID: 5145363285998007897}
+    equipSlot: {fileID: 5145363286378291728}
     skin: {fileID: 0}
-    backboarSprite: {fileID: 21300000, guid: 65a9410232dbc154c9cec96a5fbd07b1, type: 3}
   - name: Wepon
     itemData:
       itemcode: 0
@@ -15797,9 +15888,8 @@ MonoBehaviour:
         itemType: 0
       itemCount: 0
       upgradeCount: 0
-    icon: {fileID: 5145363285572077156}
+    equipSlot: {fileID: 5145363285765404128}
     skin: {fileID: 0}
-    backboarSprite: {fileID: 21300000, guid: af50dc4fa7b6d314895d0f8c79adb4a5, type: 3}
   - name: Boots
     itemData:
       itemcode: 0
@@ -15823,9 +15913,8 @@ MonoBehaviour:
         itemType: 0
       itemCount: 0
       upgradeCount: 0
-    icon: {fileID: 5145363285934927778}
+    equipSlot: {fileID: 5145363285880042478}
     skin: {fileID: 0}
-    backboarSprite: {fileID: 21300000, guid: b634c8a51d4a2d440b44719a9c1329ba, type: 3}
 --- !u!1001 &2142245015
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16362,6 +16451,7 @@ GameObject:
   - component: {fileID: 5145363285294502579}
   - component: {fileID: 5145363285294502577}
   - component: {fileID: 5145363285294502576}
+  - component: {fileID: 5145363285294502580}
   m_Layer: 5
   m_Name: ShieldBG
   m_TagString: Untagged
@@ -16389,6 +16479,41 @@ RectTransform:
   m_AnchoredPosition: {x: 130, y: 100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5145363285294502580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5145363285294502578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d7f6627b2176348b84846aadf7e53f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData:
+    itemcode: 0
+    iteminfoBase:
+      itemcode: 0
+      subcategory: 0
+      equpslot: 0
+      itemname: 
+      activate: 0
+      toplist: 0
+      grade: 0
+      discount: 0
+      icon: 
+      playerlv: 0
+      multistate: 0
+      gamecost: 0
+      cashcost: 0
+      buyamount: 0
+      sellcost: 0
+      description: 
+      itemType: 0
+    itemCount: 0
+    upgradeCount: 0
+  icon: {fileID: 5145363285736043955}
 --- !u!114 &5145363285317091200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16720,6 +16845,7 @@ GameObject:
   - component: {fileID: 5145363285765404127}
   - component: {fileID: 5145363285765404125}
   - component: {fileID: 5145363285765404124}
+  - component: {fileID: 5145363285765404128}
   m_Layer: 5
   m_Name: WeponBG
   m_TagString: Untagged
@@ -16747,6 +16873,41 @@ RectTransform:
   m_AnchoredPosition: {x: -130, y: 100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5145363285765404128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5145363285765404126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d7f6627b2176348b84846aadf7e53f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData:
+    itemcode: 0
+    iteminfoBase:
+      itemcode: 0
+      subcategory: 0
+      equpslot: 0
+      itemname: 
+      activate: 0
+      toplist: 0
+      grade: 0
+      discount: 0
+      icon: 
+      playerlv: 0
+      multistate: 0
+      gamecost: 0
+      cashcost: 0
+      buyamount: 0
+      sellcost: 0
+      description: 
+      itemType: 0
+    itemCount: 0
+    upgradeCount: 0
+  icon: {fileID: 5145363285572077156}
 --- !u!224 &5145363285836177104
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16895,6 +17056,7 @@ GameObject:
   - component: {fileID: 5145363285880042466}
   - component: {fileID: 5145363285880042464}
   - component: {fileID: 5145363285880042467}
+  - component: {fileID: 5145363285880042478}
   m_Layer: 5
   m_Name: BootsBG
   m_TagString: Untagged
@@ -16902,6 +17064,41 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5145363285880042478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5145363285880042477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d7f6627b2176348b84846aadf7e53f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData:
+    itemcode: 0
+    iteminfoBase:
+      itemcode: 0
+      subcategory: 0
+      equpslot: 0
+      itemname: 
+      activate: 0
+      toplist: 0
+      grade: 0
+      discount: 0
+      icon: 
+      playerlv: 0
+      multistate: 0
+      gamecost: 0
+      cashcost: 0
+      buyamount: 0
+      sellcost: 0
+      description: 
+      itemType: 0
+    itemCount: 0
+    upgradeCount: 0
+  icon: {fileID: 5145363285934927778}
 --- !u!114 &5145363285934927778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17142,6 +17339,7 @@ GameObject:
   - component: {fileID: 5145363286377082746}
   - component: {fileID: 5145363286377082744}
   - component: {fileID: 5145363286377082747}
+  - component: {fileID: 5145363286377082630}
   m_Layer: 5
   m_Name: HeadBG
   m_TagString: Untagged
@@ -17149,6 +17347,41 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5145363286377082630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5145363286377082629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d7f6627b2176348b84846aadf7e53f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData:
+    itemcode: 0
+    iteminfoBase:
+      itemcode: 0
+      subcategory: 0
+      equpslot: 0
+      itemname: 
+      activate: 0
+      toplist: 0
+      grade: 0
+      discount: 0
+      icon: 
+      playerlv: 0
+      multistate: 0
+      gamecost: 0
+      cashcost: 0
+      buyamount: 0
+      sellcost: 0
+      description: 
+      itemType: 0
+    itemCount: 0
+    upgradeCount: 0
+  icon: {fileID: 5145363286542417167}
 --- !u!222 &5145363286377082744
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17256,6 +17489,7 @@ GameObject:
   - component: {fileID: 5145363286378291727}
   - component: {fileID: 5145363286378291725}
   - component: {fileID: 5145363286378291724}
+  - component: {fileID: 5145363286378291728}
   m_Layer: 5
   m_Name: ArmorBG
   m_TagString: Untagged
@@ -17283,6 +17517,41 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5145363286378291728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5145363286378291726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d7f6627b2176348b84846aadf7e53f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData:
+    itemcode: 0
+    iteminfoBase:
+      itemcode: 0
+      subcategory: 0
+      equpslot: 0
+      itemname: 
+      activate: 0
+      toplist: 0
+      grade: 0
+      discount: 0
+      icon: 
+      playerlv: 0
+      multistate: 0
+      gamecost: 0
+      cashcost: 0
+      buyamount: 0
+      sellcost: 0
+      description: 
+      itemType: 0
+    itemCount: 0
+    upgradeCount: 0
+  icon: {fileID: 5145363285998007897}
 --- !u!1 &5145363286542417161
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,9 +10,8 @@ public class EquipmentSlot
 {
     public string name; //º¸±â¿ë
     public ItemData itemData;
-    public Image icon;
+    public UI_EquipmentSlot equipSlot;
     public SkinnedMeshRenderer skin;
-    public  Sprite backboarSprite;
 }
 
 
@@ -77,24 +76,19 @@ public class UI_Equipment : MonoBehaviour
         if (_index < slots.Length)
         {
             
-            if (slots[_index].itemData != null)
+            if (slots[_index].itemData != null && slots[_index].itemData.itemcode != 0)
             {
-                //slots[_index].itemData.equipmentStatus = false;
-                slots[_index].itemData = null;
-                slots[_index].icon.sprite = slots[_index].backboarSprite;
-                slots[_index].icon.color = new Color(1f, 1f, 1f, 100f / 255f); //¾ÆÀÌÅÛ Å»Âø½Ã »ö±ò ¿¬ÇÏ°Ô
-
-
-                //slots[_index].skin.gameObject.SetActive(false);
                 Debug.Log("@@@ EÀåÂøÇØÁ¦");
+
+                UI_Inventory.ins.AddItemData(slots[_index].itemData);
+                slots[_index].itemData = null;
+                slots[_index].equipSlot.SetItem(null);
             }
 
             //»õ°Í
-            slots[_index].itemData = _itemData;
-            slots[_index].icon.sprite = _itemData.iconSprite;
-            slots[_index].icon.color = new Color(1f, 1f, 1f, 1f);//ÀåÂø½Ã »ö±òÀÌ ÂðÇÏ°Ô
-            //slots[_index].itemData.equipmentStatus = true;
             Debug.Log("@@@ UIÀåÂøÁß");
+            slots[_index].itemData = _itemData;
+            slots[_index].equipSlot.SetItem( _itemData);
 
             playerstatus.Equip((int)_slot, _itemData);
             _rtn = true;
@@ -102,8 +96,22 @@ public class UI_Equipment : MonoBehaviour
         return _rtn;
     }
 
-    public void UnEquip(ItemData _itemData)
+    public void UnEquip(ItemData _itemData)//Å»Âø
     {
+        eEquipmentSlot _slot = _itemData.equipmentSlot;
+        int _index = (int)_slot;
+        if (_index < slots.Length)
+        {
 
+            if (slots[_index].itemData != null)
+            {
+                Debug.Log("@@@ EÀåÂøÇØÁ¦");
+                slots[_index].itemData = null;
+                slots[_index].equipSlot.SetItem(null);
+
+                UI_Inventory.ins.AddItemData(_itemData);
+            }
+            playerstatus.UnEquip((int)_slot, _itemData);
+        }
     }
 }

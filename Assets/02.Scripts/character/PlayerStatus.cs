@@ -62,6 +62,18 @@ public class PlayerStatus : Status
         }
         _partInfo.Equip(_itemData.skin);
     }
+
+    public void UnEquip(int _index, ItemData _itemData)
+    {
+        Debug.Log("@@@장비해제에 따른 파라미터 계산");
+        //PartInfo _partInfo = listPartInfos[_index];
+        ////default off 디폴트를 꺼준다
+        //if (_partInfo.partDefault != null)
+        //{
+        //    _partInfo.partDefault.SetActive(false);
+        //}
+        //_partInfo.Equip(_itemData.skin);
+    }
     #endregion
 
     enum eAbiltyKind { LevelHP, LevelMP, LevelAttack, LevelDefense };
