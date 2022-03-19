@@ -23,6 +23,7 @@
 		<plushp>0</plushp>
 		<plusmp>0</plusmp>
 		<skin>Sword1_L</skin>
+		<skin2>Sword1_R</skin2>
 	</wearpart>
 	<wearpart>
 		<itemcode>20002</itemcode>
@@ -47,6 +48,7 @@
 		<plushp>0</plushp>
 		<plusmp>0</plusmp>
 		<skin>Sword6_L</skin>
+		<skin2>Sword6_R</skin2>
 	</wearpart>
 	<wearpart>
 		<itemcode>20101</itemcode>
@@ -71,6 +73,7 @@
 		<plushp>0</plushp>
 		<plusmp>0</plusmp>
 		<skin>Wand2_R</skin>
+		<skin2>X</skin2>
 	</wearpart>
 	<wearpart>
 		<itemcode>20102</itemcode>
@@ -95,6 +98,7 @@
 		<plushp>0</plushp>
 		<plusmp>0</plusmp>
 		<skin>Wand1_R</skin>
+		<skin2>X</skin2>
 	</wearpart>
 	<wearpart>
 		<itemcode>20201</itemcode>
@@ -119,6 +123,7 @@
 		<plushp>0</plushp>
 		<plusmp>0</plusmp>
 		<skin>Bow1</skin>
+		<skin2>X</skin2>
 	</wearpart>
 	<wearpart>
 		<itemcode>20202</itemcode>
@@ -143,6 +148,7 @@
 		<plushp>0</plushp>
 		<plusmp>0</plusmp>
 		<skin>Bow2</skin>
+		<skin2>X</skin2>
 	</wearpart>
 	<wearpart>
 		<itemcode>21001</itemcode>
@@ -167,6 +173,7 @@
 		<plushp>0</plushp>
 		<plusmp>0</plusmp>
 		<skin>Crown3</skin>
+		<skin2>X</skin2>
 	</wearpart>
 	<wearpart>
 		<itemcode>21002</itemcode>
@@ -191,6 +198,7 @@
 		<plushp>0</plushp>
 		<plusmp>50</plusmp>
 		<skin>Crown4</skin>
+		<skin2>X</skin2>
 	</wearpart>
 	<wearpart>
 		<itemcode>22001</itemcode>
@@ -215,6 +223,7 @@
 		<plushp>0</plushp>
 		<plusmp>0</plusmp>
 		<skin>Cloth6</skin>
+		<skin2>X</skin2>
 	</wearpart>
 	<wearpart>
 		<itemcode>22002</itemcode>
@@ -239,6 +248,7 @@
 		<plushp>50</plushp>
 		<plusmp>0</plusmp>
 		<skin>Cloth7</skin>
+		<skin2>X</skin2>
 	</wearpart>
 	<wearpart>
 		<itemcode>23001</itemcode>
@@ -263,6 +273,7 @@
 		<plushp>0</plushp>
 		<plusmp>0</plusmp>
 		<skin>Shoe3</skin>
+		<skin2>X</skin2>
 	</wearpart>
 	<wearpart>
 		<itemcode>23002</itemcode>
@@ -287,6 +298,7 @@
 		<plushp>0</plushp>
 		<plusmp>0</plusmp>
 		<skin>Shoe6</skin>
+		<skin2>X</skin2>
 	</wearpart>
 	<wearpart>
 		<itemcode>300</itemcode>
@@ -311,6 +323,7 @@
 		<plushp>0</plushp>
 		<plushp>0</plushp>
 		<skin>Belt1</skin>
+		<skin2>X</skin2>
 	</wearpart>
 	<wearpart>
 		<itemcode>301</itemcode>
@@ -335,6 +348,7 @@
 		<plushp>0</plushp>
 		<plushp>0</plushp>
 		<skin>Belt2</skin>
+		<skin2>X</skin2>
 	</wearpart>
 	<wearpart>
 		<itemcode>302</itemcode>
@@ -359,6 +373,7 @@
 		<plushp>0</plushp>
 		<plushp>0</plushp>
 		<skin>Belt3</skin>
+		<skin2>X</skin2>
 	</wearpart>
 	<wearpart>
 		<itemcode>303</itemcode>
@@ -383,6 +398,7 @@
 		<plushp>0</plushp>
 		<plushp>0</plushp>
 		<skin>Belt4</skin>
+		<skin2>X</skin2>
 	</wearpart>
 	<wearpart>
 		<itemcode>304</itemcode>
@@ -407,6 +423,7 @@
 		<plushp>0</plushp>
 		<plushp>0</plushp>
 		<skin>Belt5</skin>
+		<skin2>X</skin2>
 	</wearpart>
 	<wearpart>
 		<itemcode>305</itemcode>
@@ -431,6 +448,7 @@
 		<plushp>0</plushp>
 		<plushp>0</plushp>
 		<skin>Belt6</skin>
+		<skin2>X</skin2>
 	</wearpart>
 	<usepart>
 		<itemcode>10001</itemcode>

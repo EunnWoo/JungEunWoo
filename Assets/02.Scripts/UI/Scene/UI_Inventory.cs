@@ -215,7 +215,7 @@ public class UI_Inventory : UI_Scene
                     //Max 상태가 아니면 추가작업, 인덱스도 증가
                     listEquip.Add(_itemDataNew);
                     _index = listEquip.Count - 1;
-                    Debug.Log("장비: " + _index);
+                    //Debug.Log("장비: " + _index);
                     slotsEquip[_index].SetItem(_itemDataNew);
 
                     //추가 되었다는 플래그를 알려줌
@@ -269,6 +269,12 @@ public class UI_Inventory : UI_Scene
                 break;
         }
         return _rtn;
+    }
+
+
+    public void RemoveItemData(ItemData _itemDataRemove)
+    {
+
     }
 
     #region 추후 시간남을시 작업예정

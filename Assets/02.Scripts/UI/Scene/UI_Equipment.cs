@@ -69,8 +69,9 @@ public class UI_Equipment : MonoBehaviour
         body.SetActive(false);
     }
 
-    public void Equip(ItemData _itemData)
+    public bool Equip(ItemData _itemData) //ÀåÂø
     {
+        bool _rtn;
         eEquipmentSlot _slot = _itemData.equipmentSlot;
         int _index = (int)_slot;
         if (_index < slots.Length)
@@ -96,7 +97,9 @@ public class UI_Equipment : MonoBehaviour
             Debug.Log("@@@ UIÀåÂøÁß");
 
             playerstatus.Equip((int)_slot, _itemData);
+            _rtn = true;
         }
+        return _rtn;
     }
 
     public void UnEquip(ItemData _itemData)

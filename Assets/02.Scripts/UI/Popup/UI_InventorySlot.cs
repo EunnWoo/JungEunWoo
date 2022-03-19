@@ -57,6 +57,15 @@ public class UI_InventorySlot : UI_Base, IPointerClickHandler
             itemCount.text = "x" + itemData.itemCount;
         }
     }
+
+
+    public void RemoveItem()
+    {
+        itemData = null;
+        icon.sprite = null;
+        itemCount.gameObject.SetActive(false);
+    }
+
     public void ReDisplayCount()
     {
         itemCount.gameObject.SetActive(true);
@@ -86,9 +95,15 @@ public class UI_InventorySlot : UI_Base, IPointerClickHandler
         {
             case eItemType.Equip:   //장비창에서 더블클릭시
                 Debug.Log("더블클릭 >>장비교체");
-                UI_Equipment.ins.Equip(itemData); //장비 장착해주는거
-
+                
+                bool _bEquip =  UI_Equipment.ins.Equip(itemData); //장비 장착해주는거
+                if(_bEquip)
+                {
+                    UI_Inventory.ins.RemoveItemData(itemData);
+                    RemoveItem();
+                }
                 break;
+
             case eItemType.Use:   //소비창에서 더블클릭시
 
                 //물약을 먹음
@@ -99,9 +114,8 @@ public class UI_InventorySlot : UI_Base, IPointerClickHandler
                 itemData.itemCount--; //아이템에서 수량을 한개빼줌
                 if(itemData.itemCount <= 0)//아이템 수량이 0개가되면
                 {
-                    itemData = null; //아이템을 지움
-                    icon.sprite = null; //아이콘을 지움
-                    Init();
+                    UI_Inventory.ins.RemoveItemData(itemData);
+                    RemoveItem();
                 }
                 else
                 {
