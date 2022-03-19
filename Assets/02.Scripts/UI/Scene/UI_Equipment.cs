@@ -71,7 +71,7 @@ public class UI_Equipment : MonoBehaviour
 
     public bool Equip(ItemData _itemData) //ÀåÂø
     {
-        bool _rtn;
+        bool _rtn = false;
         eEquipmentSlot _slot = _itemData.equipmentSlot;
         int _index = (int)_slot;
         if (_index < slots.Length)

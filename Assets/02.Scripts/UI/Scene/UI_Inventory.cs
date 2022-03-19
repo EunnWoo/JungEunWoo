@@ -93,9 +93,9 @@ public class UI_Inventory : UI_Scene
 
         itemInfo.SetActive(false);
 
-        SetSlot(equipbody, slotsEquip);
-        SetSlot(usebody, slotsUse);
-        SetSlot(etcbody, slotsETC);
+        SetSlot(equipbody, slotsEquip, listEquip);
+        SetSlot(usebody, slotsUse, listUse);
+        SetSlot(etcbody, slotsETC, listETC);
 
         goUseSlot.SetActive(false); //켜고 소비랑 기타 꺼주기
         goETCSlot.SetActive(false);
@@ -113,12 +113,12 @@ public class UI_Inventory : UI_Scene
         body.SetActive(false); //생성되면 꺼주기
 
     }
-    void SetSlot(GameObject _go, List<UI_InventorySlot> _slotList)
+    void SetSlot(GameObject _go, List<UI_InventorySlot> _slotList, List<ItemData>_listData)
     {
         GameObject _itemGO;
         UI_InventorySlot _inventorySlot;
         
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < MAX_EQUIP; i++)
         {
             _itemGO = Managers.Resource.Instantiate("UI/Popup/UI_InventorySlot");
             _inventorySlot = _itemGO.GetComponent<UI_InventorySlot>();
@@ -126,6 +126,8 @@ public class UI_Inventory : UI_Scene
             _inventorySlot.Init();
             _itemGO.transform.SetParent(_go.transform);
             _itemGO.transform.localScale = Vector3.one;
+
+            _listData.Add(null);
         }
     }
     public void Invoke_SetTab()
@@ -209,72 +211,121 @@ public class UI_Inventory : UI_Scene
         ItemData _itemDataOld = null;
         switch (_itemDataNew.itemType)    //탭 에따른 아이템 분류, 그것을 인벤토리 탭 리스트에 추가
         {
-           case eItemType.Equip: //장비창, 장비템이면 한칸에 한개씩
-                if (listEquip.Count < MAX_EQUIP) 
+            case eItemType.Equip: //장비창, 장비템이면 한칸에 한개씩
+                for (int i = 0; i < listEquip.Count; i++)
                 {
-                    //Max 상태가 아니면 추가작업, 인덱스도 증가
-                    listEquip.Add(_itemDataNew);
-                    _index = listEquip.Count - 1;
-                    //Debug.Log("장비: " + _index);
-                    slotsEquip[_index].SetItem(_itemDataNew);
+                    if (listEquip[i] == null || (listEquip[i] != null &&listEquip[i].itemcode ==0)) 
+                    {
+                        listEquip[i] = _itemDataNew;
+                        slotsEquip[i].SetItem(_itemDataNew);
 
-                    //추가 되었다는 플래그를 알려줌
-
-                    _rtn = true;
+                        //추가 되었다는 플래그를 알려줌
+                        _rtn = true;
+                        break;
+                    }
                 }
                 break;
 
             case eItemType.Use: //소비창
 
-                //아이템리스트에서 같은 아이템이 있는지 검색해서 같은 아이템이 있으면 추가기능
-                _itemDataOld = CheckItemData(listUse, _itemDataNew, out _index);
-                if(_itemDataOld != null)
+                for (int i = 0; i < listUse.Count; i++)
                 {
-                    //새로 얻은 아이템이 기존에 있는경우
-                    //기존값에 plus
-                    _itemDataOld.itemCount += _itemDataNew.itemCount;
-                    slotsUse[_index].ReDisplayCount();
-                    _rtn = true;
+                    if (listUse[i] == null || (listUse[i] != null && listUse[i].itemcode == 0))
+                    {
+                        //신규 아이템추가
+                        listUse[i] = _itemDataNew;
+                        slotsUse[i].SetItem(_itemDataNew);
 
-                }
-
-                else if (listUse.Count < MAX_EQUIP)
-                {   //신규획득 할경우
-                    listUse.Add(_itemDataNew);
-                    _index = listUse.Count - 1;
-                    Debug.Log("소비: " + _index);
-                    slotsUse[_index].SetItem(_itemDataNew);
-                    _rtn = true;
+                        //추가 되었다는 플래그를 알려줌
+                        _rtn = true;
+                        break;
+                    }
+                    else if (listUse[i].itemcode != 0 && listUse[i].itemcode == _itemDataNew.itemcode)
+                    {
+                        //동일 아이템에 수량 추가
+                        //아이템리스트에서 같은 아이템이 있는지 검색해서 같은 아이템이 있으면 추가기능
+                        _itemDataOld = listUse[i];
+                        _itemDataOld.itemCount += _itemDataNew.itemCount;
+                        slotsUse[i].ReDisplayCount();
+                        _rtn = true;
+                        break;
+                    }
                 }
                 break;
 
             case eItemType.ETC: //기타창
-                _itemDataOld = CheckItemData(listETC, _itemDataNew, out _index);
-                if (_itemDataOld != null)
-                {//새로 얻은 아이템이 기존에 있는경우
-                    //기존값에 plus
-                    _itemDataOld.itemCount += _itemDataNew.itemCount;
-                    slotsETC[_index].ReDisplayCount();
-                    _rtn = true;
-
-                }
-                else if (listETC.Count < MAX_EQUIP)
+                for (int i = 0; i < listETC.Count; i++)
                 {
-                    listETC.Add(_itemDataNew);
-                    _index = listETC.Count - 1;
-                    slotsETC[_index].SetItem(_itemDataNew);
-                    _rtn = true;
-                }
+                    if (listETC[i] == null || (listETC[i] != null && listETC[i].itemcode == 0))
+                    {
+                        //신규 아이템추가
+                        listETC[i] = _itemDataNew;
+                        slotsETC[i].SetItem(_itemDataNew);
 
+                        //추가 되었다는 플래그를 알려줌
+                        _rtn = true;
+                        break;
+                    }
+                    else if (listETC[i].itemcode != 0 && listETC[i].itemcode == _itemDataNew.itemcode)
+                    {
+                        //동일 아이템에 수량 추가
+                        //아이템리스트에서 같은 아이템이 있는지 검색해서 같은 아이템이 있으면 추가기능
+                        _itemDataOld = listETC[i];
+                        _itemDataOld.itemCount += _itemDataNew.itemCount;
+                        slotsETC[i].ReDisplayCount();
+                        _rtn = true;
+                        break;
+                    }
+                }
                 break;
         }
         return _rtn;
     }
 
 
-    public void RemoveItemData(ItemData _itemDataRemove)
+    public bool RemoveItemData(ItemData _itemDataRemove)
     {
+        bool _rtn = false;
+        switch (_itemDataRemove.itemType)    //탭 에따른 아이템 분류, 그것을 인벤토리 탭 리스트에 추가
+        {
+            case eItemType.Equip: //장비창, 장비템이면 한칸에 한개씩
+                for (int i = 0; i < listEquip.Count; i++)
+                {
+                    if (listEquip[i] == _itemDataRemove)
+                    {
+                        listEquip[i] = null;
+                        _rtn = true;
+                        break;
+                    }
+                }
+                break;
 
+            case eItemType.Use: //소비창
+
+                for (int i = 0; i < listUse.Count; i++)
+                {
+                    if (listUse[i] == _itemDataRemove)
+                    {
+                        listUse[i] = null;
+                        _rtn = true;
+                        break;
+                    }
+                }
+                break;
+
+            case eItemType.ETC: //기타창
+                for (int i = 0; i < listETC.Count; i++)
+                {
+                    if (listETC[i] == _itemDataRemove)
+                    {
+                        listETC[i] = null;
+                        _rtn = true;
+                        break;
+                    }
+                }
+                break;
+        }
+        return _rtn;
     }
 
     #region 추후 시간남을시 작업예정

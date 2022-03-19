@@ -74,6 +74,7 @@ public class UI_Store : UI_Popup
         listInfo.Add(new StoreItemInfo() { itemcode = 20102, itemCount = 1 });
         listInfo.Add(new StoreItemInfo() { itemcode = 20202, itemCount = 1 });
         listInfo.Add(new StoreItemInfo() { itemcode = 21001, itemCount = 1 });
+        listInfo.Add(new StoreItemInfo() { itemcode = 21002, itemCount = 1 });
     } // 상점에 아이템 추가
 
 
