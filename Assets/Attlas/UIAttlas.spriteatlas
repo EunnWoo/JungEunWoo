@@ -59,7 +59,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 47c96e5414c2b4449920b448538df93a, type: 3}
   - {fileID: 21300000, guid: b634c8a51d4a2d440b44719a9c1329ba, type: 3}
   - {fileID: 21300000, guid: a3464046b5f29474b891e5a6b0602b66, type: 3}
-  - {fileID: 21300000, guid: 136c9f47fc323df4ba024baf251f04b6, type: 3}
   - {fileID: 21300000, guid: ea4a9c4889157964ea64778839d97680, type: 3}
   - {fileID: 21300000, guid: af838e5920baaaa4cbb24dab99c4458d, type: 3}
   - {fileID: 21300000, guid: 11fcd679d2a042349b976f4aadbf9edb, type: 3}
@@ -70,6 +69,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 0b3d25bb30efc5847954849ba0b1453d, type: 3}
   - {fileID: 21300000, guid: a83c32cdf9c1bf14dbfb441debb08e25, type: 3}
   - {fileID: 21300000, guid: ef419fce13384654bab5cbf27232d640, type: 3}
+  - {fileID: 21300000, guid: c9d505ee85cf51e41ba92b58884947a7, type: 3}
   - {fileID: 21300000, guid: af50dc4fa7b6d314895d0f8c79adb4a5, type: 3}
   - {fileID: 21300000, guid: 45ff5a9f5ffb13c48a6d5b706cdf0e53, type: 3}
   m_PackedSpriteNamesToIndex:
@@ -92,10 +92,9 @@ SpriteAtlas:
   - Shield_Icon
   - Boots_Icon
   - Comleted_Icon
-  - 20101
   - Plus_Icon
   - 20002
-  - 20102
+  - 20101
   - Crystal_Icon
   - 23002
   - 10001
@@ -103,6 +102,7 @@ SpriteAtlas:
   - Close_Icon
   - 23001
   - 21001
+  - 20102
   - Sword_Icon
   - Coin_Icon
   m_RenderDataMap: {}
