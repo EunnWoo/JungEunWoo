@@ -31,31 +31,34 @@ public class TalkManager
     public void Action(GameObject npc)
     {
         NPC = npc;
-        if(npc.GetComponent<ObjData>().id <=3 )
+        int id = npc.GetComponent<ObjData>().id;
+        if (id <= 3 )
         {
             Managers.UI.ShowPopupUI<UI_JobPanel>();
-            //Managers.Game.GetPlayer().GetComponent<JobController>().changejobstate(npc);
         }
-        else if (npc.GetComponent<ObjData>().id == 4)
+        else if (id == 4)
         {
             Managers.UI.ShowPopupUI<UI_Store>();
         }
-        else if(npc.GetComponent<ObjData>().id == 6000)
+        else if(id /6000 == 1 ) // 보완하기
         {
+            
             UI_Message ui_Message = Managers.UI.ShowPopupUI<UI_Message>();
             ui_Message.Init();
-            ui_Message.ShowMessage("맵 이동", "선택의 길로 이동합니다.");
+            ui_Message.NextScene = id;
+            if (id == 6000)
+            {            
+                ui_Message.ShowMessage("맵 이동", "선택의 길로 이동합니다.");
+            }
+            else if (id == 6001)
+            {        
+                ui_Message.ShowMessage("맵 이동", "마을로 이동합니다.");
+
+            }
             ui_Message.okButton.gameObject.AddUIEvent(ui_Message.SceneMoveOk);
         }
-        else if(npc.GetComponent<ObjData>().id ==6001)
-        {
-            UI_Message ui_Message = Managers.UI.ShowPopupUI<UI_Message>();
-            ui_Message.Init();
-            ui_Message.ShowMessage("맵 이동", "마을로 이동합니다." );
-            ui_Message.okButton.gameObject.AddUIEvent(ui_Message.SceneMoveOk);
 
-
-        }
+       
         
         
         Managers.UI.isTalk(true);

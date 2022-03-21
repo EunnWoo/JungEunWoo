@@ -1,4 +1,3 @@
-//using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,19 +8,15 @@ using UnityEngine.SceneManagement;
 
 public class GameManager 
 {
-    public bool isOpenInventory = false; //인벤토리 활성화여부
-    public bool isOpenSystemMenu = false; //시스템 메뉴 활성화 여부
-    public bool isOpenEquipment = false; //장비창 활성화 여부
 
     GameObject _player;
     public string _name { get; private set; }
     public GameObject GetPlayer() { return _player; }
 
-
     public void Init()
     {
         
-        
+
 
     }
     public void SetName(string name) {  _name = name;  }
@@ -60,6 +55,7 @@ public class GameManager
         {
             Managers.UI.CloseAllPopupUI();
             Managers.UI.isTalk(false);
+
         }
         
     }

@@ -35,12 +35,5 @@ public class CameraFollow : MonoBehaviour
         if(_player != null && _player.activeSelf)
         transform.position = _player.transform.position + offset;
     }
-    //void Update()
-    //{
-        
-        
-        
-        
-    //}
 
 }

@@ -993,7 +993,7 @@ GameObject:
   - component: {fileID: 2018719960264041369}
   - component: {fileID: 2018719960264041374}
   m_Layer: 5
-  m_Name: InventoryUI
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

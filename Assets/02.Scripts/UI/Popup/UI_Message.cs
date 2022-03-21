@@ -23,6 +23,27 @@ public class UI_Message : UI_Popup
 
     System.Action on;
 
+    private SceneState nextScene;
+    public int NextScene
+    {
+        set
+        {
+            if (value == 6000)
+            {
+                nextScene = SceneState.Select;
+            }
+            else if (value ==6001)
+            {
+                nextScene = SceneState.Town;
+            }
+            else
+            {
+                return;
+            }
+        }
+    }
+
+
     enum Texts
     {
         TitleText,
@@ -85,7 +106,7 @@ public class UI_Message : UI_Popup
         
         Managers.UI.isTalk(false);
 
-        Managers.Scene.LoadScene(SceneState.Town);
+        Managers.Scene.LoadScene(nextScene);
 
         Managers.UI.ClosePopupUI(this);
     }

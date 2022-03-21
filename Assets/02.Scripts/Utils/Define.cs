@@ -25,14 +25,6 @@ public class Define
         PointerUp,
         Click,
     }
-
-    public enum Potal
-    {
-        goTownPotal,
-        goMap1Potal,
-        goMap2Potal,
-        goMap3Potal,
-    }
     public enum Sound
     {
         BGM,

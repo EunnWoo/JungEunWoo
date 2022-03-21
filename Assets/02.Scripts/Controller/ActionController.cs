@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PlayerAction : MonoBehaviour
+public class ActionController : MonoBehaviour
 {
-    
     public bool nearNPC = false;
     [SerializeField]
     public GameObject scanNPC { get; private set; }
@@ -20,18 +20,19 @@ public class PlayerAction : MonoBehaviour
     }
     public void OnTriggerExit(Collider other)
     {
-         
+
         nearNPC = false;
         scanNPC = null;
     }
     void Update()
     {
-        if(Managers.Input.talking && scanNPC != null && !Managers.UI.isAction)
+        if (Managers.Input.talking && scanNPC != null && !Managers.UI.isAction)
         {
 
             Managers.talk.Action(scanNPC);
-          //  Managers.UI.ShowPopupUI<UI_Message>();
+            //  Managers.UI.ShowPopupUI<UI_Message>();
         }
     }
-    
+
+
 }
