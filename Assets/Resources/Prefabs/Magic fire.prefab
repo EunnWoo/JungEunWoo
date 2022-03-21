@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4796241490362850}
   - component: {fileID: 198401977771408020}
   - component: {fileID: 199011672764196750}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4830,7 +4830,7 @@ GameObject:
   - component: {fileID: 3740816306283117612}
   - component: {fileID: 8781430134191262264}
   - component: {fileID: 8387569866474720744}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Magic fire
   m_TagString: FireBall
   m_Icon: {fileID: 0}
@@ -9653,6 +9653,7 @@ MonoBehaviour:
   playerAttack: {fileID: 0}
   ps: {fileID: 0}
   childps: {fileID: 0}
+  speed: 500
 --- !u!54 &8781430134191262264
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9693,7 +9694,7 @@ GameObject:
   - component: {fileID: 4294409281478964}
   - component: {fileID: 198368796621386640}
   - component: {fileID: 199205359930986294}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FireDark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14509,7 +14510,7 @@ GameObject:
   - component: {fileID: 4040067153382932}
   - component: {fileID: 198503361657273424}
   - component: {fileID: 199556183087322092}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}

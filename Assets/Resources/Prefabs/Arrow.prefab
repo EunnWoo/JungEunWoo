@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6620473014939740728}
   - component: {fileID: 2704111475682618389}
   - component: {fileID: 4254147079382311497}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BigGlow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4886,7 +4886,7 @@ GameObject:
   - component: {fileID: 6393306648464667544}
   - component: {fileID: 4292995292037249529}
   - component: {fileID: 1789146557596683809}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Rings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9641,7 +9641,7 @@ GameObject:
   - component: {fileID: 5710772023395145646}
   - component: {fileID: 7444278708790568038}
   - component: {fileID: 4943283856958115306}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: StormCharge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14551,7 +14551,7 @@ GameObject:
   - component: {fileID: 5153817716652810299}
   - component: {fileID: 3956396032799796000}
   - component: {fileID: 3059474908525045813}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Linger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19241,7 +19241,7 @@ GameObject:
   - component: {fileID: 4465632651917886112}
   - component: {fileID: 6276163197151403667}
   - component: {fileID: 3166919495828855260}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: VerticalLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23968,7 +23968,7 @@ GameObject:
   - component: {fileID: 5154848751647045121}
   - component: {fileID: 4903513197194479781}
   - component: {fileID: 6515805319974378602}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: StormCleave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28949,7 +28949,7 @@ GameObject:
   - component: {fileID: -3988773494135855712}
   - component: {fileID: 3138283489458366175}
   - component: {fileID: 2278641935129545809}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Arrow
   m_TagString: Arrow
   m_Icon: {fileID: 0}
@@ -29077,7 +29077,7 @@ GameObject:
   - component: {fileID: 7262388075996065028}
   - component: {fileID: 8046939075366312054}
   - component: {fileID: 8175192754306982489}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33794,7 +33794,7 @@ GameObject:
   - component: {fileID: 8341012693143119527}
   - component: {fileID: 920522514057653682}
   - component: {fileID: 597323738852107702}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GroundLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38592,7 +38592,7 @@ GameObject:
   - component: {fileID: 2435079008379379582}
   - component: {fileID: 3530277221100867833}
   - component: {fileID: 5942101982407917082}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Rings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43336,7 +43336,7 @@ GameObject:
   - component: {fileID: 4759122382069242722}
   - component: {fileID: 7678300708006364306}
   - component: {fileID: 2281811095873226118}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

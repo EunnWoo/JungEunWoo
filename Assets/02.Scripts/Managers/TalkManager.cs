@@ -40,7 +40,14 @@ public class TalkManager
         {
             Managers.UI.ShowPopupUI<UI_Store>();
         }
-        else if(npc.GetComponent<ObjData>().id ==6000)
+        else if(npc.GetComponent<ObjData>().id == 6000)
+        {
+            UI_Message ui_Message = Managers.UI.ShowPopupUI<UI_Message>();
+            ui_Message.Init();
+            ui_Message.ShowMessage("맵 이동", "선택의 길로 이동합니다.");
+            ui_Message.okButton.gameObject.AddUIEvent(ui_Message.SceneMoveOk);
+        }
+        else if(npc.GetComponent<ObjData>().id ==6001)
         {
             UI_Message ui_Message = Managers.UI.ShowPopupUI<UI_Message>();
             ui_Message.Init();

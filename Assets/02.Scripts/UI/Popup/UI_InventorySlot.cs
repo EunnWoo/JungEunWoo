@@ -11,6 +11,7 @@ public class UI_InventorySlot : UI_Base, IPointerClickHandler
     Image icon;
     Text itemCount;
 
+    PlayerStatus playerStatus;
     enum  Images
     {
         Item_Icon,
@@ -35,7 +36,7 @@ public class UI_InventorySlot : UI_Base, IPointerClickHandler
         {
             itemCount.gameObject.SetActive(false); //아이템 수량 나오는것을 끔
         }
-
+        playerStatus= Managers.Game.GetPlayer().GetComponent<PlayerStatus>();
 
         AddUIEvent(icon.gameObject, OnPointerClick); // ebenthandler 접근하려고 
 
@@ -109,7 +110,7 @@ public class UI_InventorySlot : UI_Base, IPointerClickHandler
                 //물약을 먹음
                 ItemInfoUsepart _usePart = ItemInfo.ins.GetItemInfoUsepart(itemData.itemcode);
 
-                PlayerStatus.ins.SetHPMP(_usePart.hp, _usePart.mp);
+                playerStatus.SetHPMP(_usePart.hp, _usePart.mp);
 
                 itemData.itemCount--; //아이템에서 수량을 한개빼줌
                 if(itemData.itemCount <= 0)//아이템 수량이 0개가되면

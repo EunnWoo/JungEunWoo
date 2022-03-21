@@ -37,14 +37,6 @@ public class PartInfo
 
 public class PlayerStatus : Status
 {
-    #region sigleton
-
-    public static PlayerStatus ins;
-    private void Awake()
-    {
-        ins = this;
-    }
-    #endregion
 
 
     #region PartInfo 정보
@@ -122,6 +114,7 @@ public class PlayerStatus : Status
                     psLevelUp.gameObject.SetActive(true);//레벨업 파티클 실행
                     psLevelUp.Stop();
                     psLevelUp.Play();
+                    // Managers 소리넣기
                 }
                 
                 hp = MAX_HP; //레벨업시 hp를 전부 회복
@@ -226,6 +219,11 @@ public class PlayerStatus : Status
         }
     }
 
+    public override void Die()
+    {
+        base.Die();
+        
+    }
 
 
 

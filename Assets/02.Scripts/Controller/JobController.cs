@@ -49,7 +49,6 @@ public class JobController : MonoBehaviour
         
 
         animator.runtimeAnimatorController = Managers.Resource.Load<RuntimeAnimatorController>($"Animator/{jobstring}");
-        
         gameObject.AddComponent(System.Type.GetType(jobstring)); // 직업에 맞는 스크립트 부여
 
     }

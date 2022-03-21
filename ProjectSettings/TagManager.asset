@@ -14,6 +14,7 @@ TagManager:
   - Collide
   - FireBall
   - FirePos
+  - Sword
   layers:
   - Default
   - TransparentFX
@@ -25,8 +26,8 @@ TagManager:
   - Monster
   - Npc
   - Ground
-  - 
-  - 
+  - Arrow
+  - FireBall
   - 
   - 
   - 
