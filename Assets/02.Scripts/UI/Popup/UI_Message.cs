@@ -103,7 +103,13 @@ public class UI_Message : UI_Popup
     //
     public void SceneMoveOk(PointerEventData data)
     {
-        
+        if (!SceneMove())
+        {
+            ShowMessage("에러", "이전 퀘스트를 완료해주세요");
+            okButton.gameObject.AddUIEvent(Cancel);
+            return;
+        }
+
         Managers.UI.isTalk(false);
 
         Managers.Scene.LoadScene(nextScene);
@@ -118,5 +124,48 @@ public class UI_Message : UI_Popup
 
         ShowMessage("구매", (int)_value + "개 구매");
        
+    }
+    bool SceneMove()
+    {
+        SceneState sceneState = FindObjectOfType<BaseScene>().SceneType;
+        if (sceneState == SceneState.Tutorial)
+        {
+            QuestSystem questSystem = FindObjectOfType<QuestSystem>();
+            foreach (var quest in questSystem.ActiveQuests)
+            {
+                foreach (var taskgroup in quest.TaskGroups)
+                {
+                    foreach (var task in taskgroup.Tasks)
+                    {
+
+                        if (task.CodeName == "JUMP" && task.IsComplete)
+                        {
+                            return true;
+
+                        }
+                    }
+                }
+            }
+        }
+        else if (sceneState == SceneState.Select)
+        {
+            QuestSystem questSystem = FindObjectOfType<QuestSystem>();
+            foreach (var quest in questSystem.ActiveQuests)
+            {
+                foreach (var taskgroup in quest.TaskGroups)
+                {
+                    foreach (var task in taskgroup.Tasks)
+                    {
+
+                       // if (task.CodeName == "JUMP" && task.IsComplete)
+                        //{
+                            return true;
+
+                        //}
+                    }
+                }
+            }
+        }
+        return false;
     }
 }
