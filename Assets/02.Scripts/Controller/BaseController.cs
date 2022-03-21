@@ -11,6 +11,13 @@ public abstract class BaseController : MonoBehaviour
 	public bool IsDie { get => CurrentHealth <= 0; }
 	public float CurrentHealth;
 
+	public bool isAttackReady { get; protected set; } // 공격 가능
+	public float attackDelay { get; protected set; } //  딜레이 계산
+	public float attackRate { get; protected set; }  // 쿨타임 & 공속
+	public bool isSkillReady { get; protected set; } // 공격 가능
+	public float skillDelay { get; protected set; } //  딜레이 계산
+	public float skillRate { get; protected set; }  // 쿨타임 & 공속
+
 
 	private void Start()
 	{
@@ -23,6 +30,7 @@ public abstract class BaseController : MonoBehaviour
 		
 		UpdateMoving();
 		UpdateAttack();
+		UpdateTime();
 	}
 
 
@@ -33,7 +41,14 @@ public abstract class BaseController : MonoBehaviour
 
 	protected virtual void UpdateAttack() { }
 
+	protected virtual void UpdateTime() 
+	{
+		attackDelay += Time.deltaTime;
+		isAttackReady = attackRate < attackDelay;
 
+		skillDelay += Time.deltaTime;
+		isSkillReady = skillRate < skillDelay;
+	}
 	//타겟과 거리 계산
 	protected Vector3 DestPos(Vector3 targetpoint)
 	{

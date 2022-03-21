@@ -8,7 +8,8 @@ public enum Layer
 	Item = 6,
 	Monster = 7,
 	Npc = 8,
-	Ground = 9
+	Ground = 9,
+	Player = 12
 
 
 }
