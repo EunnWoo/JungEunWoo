@@ -46,6 +46,7 @@ public class TalkManager
             UI_Message ui_Message = Managers.UI.ShowPopupUI<UI_Message>();
             ui_Message.Init();
             ui_Message.NextScene = id;
+
             if (id == 6000)
             {            
                 ui_Message.ShowMessage("맵 이동", "선택의 길로 이동합니다.");
