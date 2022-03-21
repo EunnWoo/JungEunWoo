@@ -43,7 +43,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: b01e95316294b0f49898dd0f437fc0a8, type: 3}
   - {fileID: 21300000, guid: f8fceb41b68ef0a4ea35add24f4635e0, type: 3}
   - {fileID: 21300000, guid: 3a81e8a1835710f4e914c0491fa25cf3, type: 3}
-  - {fileID: 21300000, guid: 3f508bb18da1ca846abca5456a5d9ebd, type: 3}
   - {fileID: 21300000, guid: 108c63f11f514ee4baf0ae61ed6ee363, type: 3}
   - {fileID: 21300000, guid: 672955f1a5b97a3489fbe7d2bf20a74a, type: 3}
   - {fileID: 21300000, guid: c60f7cf1ed80f5840ac51195ae687e71, type: 3}
@@ -77,7 +76,6 @@ SpriteAtlas:
   - 20201
   - Helmet_Icon
   - 21002
-  - 20102
   - 20202
   - 22001
   - 20001

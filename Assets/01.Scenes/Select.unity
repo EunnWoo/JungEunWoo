@@ -7205,7 +7205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c7889f02eb80634fb5f407765e18163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 6000
+  id: 6001
 --- !u!1001 &1426399960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9016,7 +9016,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b62d8b7ca70aa2b4cb2a7a0824b370c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portals: []
 --- !u!114 &1624150717
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8089,9 +8089,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1793074951}
-  - component: {fileID: 1793074950}
-  - component: {fileID: 1793074949}
   - component: {fileID: 1793074948}
+  - component: {fileID: 1793074949}
   m_Layer: 0
   m_Name: '@Scene'
   m_TagString: Untagged
@@ -8121,22 +8120,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1793074947}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40054f80640f15b41aed1b5c51ebe8dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ff92457184a19b498bd33ae9e59cf53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1793074950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793074947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b62d8b7ca70aa2b4cb2a7a0824b370c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  portals: []
 --- !u!4 &1793074951
 Transform:
   m_ObjectHideFlags: 0
