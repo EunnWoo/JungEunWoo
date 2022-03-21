@@ -94,11 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bd54a10a811a824abe385b6fdc82aea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 11400000, guid: a6b2bd04509f2c2458a6bcbc30073712, type: 2}
   markerMaterialDatas:
-  - category: {fileID: 11400000, guid: 52872427afc027e479ca78318d48d5f4, type: 2}
-    markerMaterial: {fileID: 2100000, guid: d133975a65519ce4fa65bba260e46bb9, type: 2}
   - category: {fileID: 11400000, guid: 0d70f51dc91012d49bd408a205c89464, type: 2}
-    markerMaterial: {fileID: 2100000, guid: a36001c68b961824a96fc44b40b1c3c3, type: 2}
-  - category: {fileID: 11400000, guid: 6d3d3cb6ad3e403419bd44de11f94393, type: 2}
-    markerMaterial: {fileID: 2100000, guid: bb6d1578dfae0a04abb0e2e9ae220d84, type: 2}
+    markerMaterial: {fileID: 2100000, guid: 9cf3a589c692b5a448e60a6a87fd97bb, type: 2}

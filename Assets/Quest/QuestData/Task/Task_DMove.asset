@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 810645212c15a81498f03d280e54bd1b, type: 3}
-  m_Name: Task_Move
+  m_Name: Task_DMove
   m_EditorClassIdentifier: 
   category: {fileID: 11400000, guid: 0d70f51dc91012d49bd408a205c89464, type: 2}
   codeName: MOVE
-  description: You have to move front
+  description: You have to move right
   action: {fileID: 11400000, guid: f2e8487896b673045b8b058590e7ae6e, type: 2}
   targets:
-  - {fileID: 11400000, guid: a6b2bd04509f2c2458a6bcbc30073712, type: 2}
+  - {fileID: 11400000, guid: 6ca88e0e2c04fad4ba292e648acaba43, type: 2}
   initialSuccessValue: {fileID: 0}
   needSuccessToComplete: 1
   canReceiveReportDuringCompletion: 0
