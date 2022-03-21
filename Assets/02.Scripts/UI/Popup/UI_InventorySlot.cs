@@ -38,7 +38,7 @@ public class UI_InventorySlot : UI_Base, IPointerClickHandler
         }
         playerStatus= Managers.Game.GetPlayer().GetComponent<PlayerStatus>();
 
-        AddUIEvent(icon.gameObject, OnPointerClick); // ebenthandler 접근하려고 
+        AddUIEvent(icon.gameObject, OnPointerClick); // eventhandler 접근하려고 
 
     }
 
@@ -96,7 +96,7 @@ public class UI_InventorySlot : UI_Base, IPointerClickHandler
         {
             case eItemType.Equip:   //장비창에서 더블클릭시
                 Debug.Log("더블클릭 >>장비교체");
-                
+                if (Dontchange()) return;
                 bool _bEquip =  UI_Equipment.ins.Equip(itemData); //장비 장착해주는거
                 if(_bEquip)
                 {
@@ -129,6 +129,39 @@ public class UI_InventorySlot : UI_Base, IPointerClickHandler
                 break;
         }
         Debug.Log("더블클릭");
+    }
+    bool Dontchange()
+    {
+        Debug.Log(itemData.itemcode);
+        int weaponcode = itemData.itemcode % 20000;
+        Debug.Log(weaponcode);
+        if (weaponcode < 1000) // 직업다른데 착용 시도 했을때
+        {
+            JobController jobController = Managers.Game.GetPlayer().GetComponent<JobController>();
+            //0,1 전사 , 101,102 법사 201,202 궁수
+            if (weaponcode < 100)
+            {
+                //전사
+                Debug.Log(jobController.jobstring);
+                if (jobController.jobstring != "Sword")
+                {
+                    Debug.Log("장착실패");
+                    return true;
+                }
+            }
+            else if (weaponcode < 200)
+            {
+                //법사
+                if (jobController.jobstring != "Magic") return true;
+            }
+            else if (weaponcode < 300)
+            {
+                //궁수
+                if (jobController.jobstring != "Bow") return true;
+            }
+     
+        }
+        return false;
     }
 }
 
