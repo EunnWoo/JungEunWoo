@@ -11,6 +11,12 @@ public class PartInfo
     public string partName;
     public GameObject partDefault;
     public List<GameObject> partList = new List<GameObject>();
+    public ItemData itemData;
+
+    public void SetItemData(ItemData _itemData)
+    {
+        itemData = _itemData;
+    }
 
     public void Equip(string _partName)//장착
     {
@@ -23,9 +29,9 @@ public class PartInfo
         }
     }
 
-    public void UnEquio(string _partName) //장비 탈착
+    public void UnEquip(string _partName) //장비 탈착
     {
-        for (int i = 0, imax = partList.Count; i < imax; i++)
+        for (int i = 0, imax = partList.Count; i < imax; i++) //partList에서 던져준 이름이랑 같은 장비를 찾는다
         {
             if (partList[i].name == _partName) //이름이 같으면 끈다
             {
@@ -52,19 +58,23 @@ public class PlayerStatus : Status
         {
             _partInfo.partDefault.SetActive(false);
         }
-        _partInfo.Equip(_itemData.skin);
+        _partInfo.Equip(_itemData.skin); //장착한 스킨을 낀다
+        _partInfo.Equip(_itemData.skin2); //장착한 스킨을 낀다
+        _partInfo.SetItemData(_itemData);//장착할때 아이템데이터를 넣어준다
     }
 
     public void UnEquip(int _index, ItemData _itemData)
     {
-        Debug.Log("@@@장비해제에 따른 파라미터 계산");
-        //PartInfo _partInfo = listPartInfos[_index];
-        ////default off 디폴트를 꺼준다
-        //if (_partInfo.partDefault != null)
-        //{
-        //    _partInfo.partDefault.SetActive(false);
-        //}
-        //_partInfo.Equip(_itemData.skin);
+        PartInfo _partInfo = listPartInfos[_index];
+        //default off 디폴트를 꺼준다
+        if (_partInfo.partDefault != null) //partDefault null이아니면
+        {
+            _partInfo.partDefault.SetActive(true);
+        }
+        
+        _partInfo.UnEquip(_itemData.skin);//탈착한 스킨을 끈다
+        _partInfo.UnEquip(_itemData.skin2);//탈착한 스킨을 끈다
+        _partInfo.SetItemData(null);//장비를 해제할때는 null을 넣어준다
     }
     #endregion
 

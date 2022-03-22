@@ -148,7 +148,7 @@ public class ItemInfo : MonoBehaviour
                 _data.plusdef   = parser.getInt("plusdef");           // 장비 방어력, 플러스 방어력
                 _data.plushp    = parser.getInt("plushp");             // 장비 체력, 플러스 체력
                 _data.skin      = parser.getString("skin");              //장비 키는거
-                _data.skin      = parser.getString("skin2");
+                _data.skin2      = parser.getString("skin2");
 
 
                 //만들어진 한개의 장비 데이터 클래스를 관리용 Dic에 넣어준다

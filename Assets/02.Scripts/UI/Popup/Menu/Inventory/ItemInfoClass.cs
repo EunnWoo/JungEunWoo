@@ -73,6 +73,17 @@ public class ItemData
 		} 
 	}
 
+	public string skin2
+	{
+		get
+		{
+			//skin wear part -> 기본클래스 -> wear part 클래스 변환
+			ItemInfoWearPart _item = (ItemInfoWearPart)iteminfoBase;
+			if (_item != null) return _item.skin2;
+			else return "NOSKIN";
+		}
+	}
+
 	public string itemName 
 	{
 		get 
@@ -158,6 +169,7 @@ public class ItemInfoWearPart : ItemInfoBase
 	public int plusdef;
 	public int plushp;
 	public string skin;
+	public string skin2;
 }
 
 

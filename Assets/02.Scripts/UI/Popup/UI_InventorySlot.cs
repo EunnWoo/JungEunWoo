@@ -159,7 +159,7 @@ public class UI_InventorySlot : UI_Base, IPointerClickHandler
                 //궁수
                 if (jobController.jobstring != "Bow") return true;
             }
-     
+
         }
         return false;
     }
