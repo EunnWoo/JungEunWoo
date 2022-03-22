@@ -41,7 +41,7 @@ public class TurorialScene : BaseScene
     public override void Clear()
     {
         //ui_Equipment.Eqbody.SetActive(false);
-        ui_Inventory.OpenInventory();
+        //ui_Inventory.OpenInventory();
         ui_MonsterHpbar.OffMonsterHpbar();
     }
 }
