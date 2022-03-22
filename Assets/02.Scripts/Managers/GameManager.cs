@@ -57,7 +57,6 @@ public class GameManager
             Managers.UI.isTalk(false);
 
         }
-        
     }
 
 }

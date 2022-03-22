@@ -12,6 +12,7 @@ public class StoreItem : UI_Base
     enum Texts
     {
         ItemName,
+        CoinPrice,
         ItemDescrip
     }
 
@@ -29,6 +30,7 @@ public class StoreItem : UI_Base
     Text itemName;
     [HideInInspector]
     public Text itemDescrip;
+    public Text coinPrice;
 
     [HideInInspector]
     public ItemData itemData;
@@ -49,8 +51,10 @@ public class StoreItem : UI_Base
 
         itemName = GetText((int)Texts.ItemName);
         itemDescrip = GetText((int)Texts.ItemDescrip);
- 
+        coinPrice = GetText((int)Texts.CoinPrice);
+
     }
+
     public void SetItem(int _itemcode, int _itemCount, System.Action<ItemData> _on)
     {
         gameObject.SetActive(true);
@@ -62,28 +66,37 @@ public class StoreItem : UI_Base
 
         itemName.text = itemData.itemName;
         itemDescrip.text = itemData.iteminfoBase.description;
-
+        coinPrice.text = itemData.gamecost.ToString();
 
         on = _on; //함수 담기
       
     }
-    public void OnClickStoreItem(ItemData _itemData)
+    public void OnClickStoreItem(ItemData _itemData) //아이템 사기
     {
-        Debug.Log("@@@보유머니 확인후 아이템구매");
+        PlayerStatus _playerStatus = Managers.Game.GetPlayer().GetComponent<PlayerStatus>();
+        Debug.Log("보유머니" + _playerStatus.gold + "템가격 : " + _itemData);
         //Debug.Log("@@@ 아이템 구매버튼"+_itemData.itemcode);
-        bool _bGet = UI_Inventory.ins.AddItemData(_itemData);//인벤토리에 넣어주기
-        if (_bGet)//아이템창이 꽉차서 구매를 못할경우
-        {
-         //   Debug.Log("@@@ 보유머니 = 보유머니 - 아이템가격");
-         //   ui_Message.ShowMessage("아이템 구매", _itemData.itemName + "을" + _itemData.itemCount + "개 구매했습니다");
 
+        if (_playerStatus.gold < _itemData.gamecost)//만약 플레이어가 가지고있는 골드가 아이템금액 적으면
+        {
+            ui_Message.ShowMessage("아이템 구매실패", "보유 골드가 부족합니다.");
         }
         else
         {
-            //Debug.Log("@@아이템 인벤토리가 가득찼습니다");
-          //  ui_Message.ShowMessage("아이템 구매실패", "인벤토리가 가득찾습니다"); ;
+            bool _bGet = UI_Inventory.ins.AddItemData(_itemData);//인벤토리에 넣어주기
+            if (_bGet)//아이템창이 꽉차서 구매를 못할경우
+            {
+                //Debug.Log("@@@ 보유머니 = 보유머니 - 아이템가격");
+                //ui_Message.ShowMessage("아이템 구매", _itemData.itemName + "을" + _itemData.itemCount + "개 구매했습니다");
+
+            }
+            else
+            {
+                //Debug.Log("@@아이템 인벤토리가 가득찼습니다");
+                //ui_Message.ShowMessage("아이템 구매실패", "인벤토리가 가득찾습니다");
+            }
+            Managers.UI.ClosePopupUI(ui_Message);
         }
-        Managers.UI.ClosePopupUI(ui_Message);
       
     }
 

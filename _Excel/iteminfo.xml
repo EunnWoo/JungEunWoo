@@ -8,12 +8,12 @@
 		<itemname>초보자 검</itemname>
 		<activate>0</activate>
 		<toplist>0</toplist>
-		<grade>0</grade>
+		<grade>1</grade>
 		<discount>0</discount>
 		<icon>20001</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
-		<gamecost>0</gamecost>
+		<gamecost>100</gamecost>
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
@@ -33,12 +33,12 @@
 		<itemname>용사의 검</itemname>
 		<activate>0</activate>
 		<toplist>0</toplist>
-		<grade>0</grade>
+		<grade>1</grade>
 		<discount>0</discount>
 		<icon>20002</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
-		<gamecost>0</gamecost>
+		<gamecost>500</gamecost>
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
@@ -58,12 +58,12 @@
 		<itemname>초보자 지팡이</itemname>
 		<activate>0</activate>
 		<toplist>2</toplist>
-		<grade>0</grade>
+		<grade>2</grade>
 		<discount>0</discount>
 		<icon>20101</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
-		<gamecost>0</gamecost>
+		<gamecost>100</gamecost>
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
@@ -83,12 +83,12 @@
 		<itemname>마법사 지팡이</itemname>
 		<activate>0</activate>
 		<toplist>2</toplist>
-		<grade>0</grade>
+		<grade>2</grade>
 		<discount>0</discount>
 		<icon>20102</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
-		<gamecost>0</gamecost>
+		<gamecost>500</gamecost>
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
@@ -108,12 +108,12 @@
 		<itemname>초보자 활</itemname>
 		<activate>0</activate>
 		<toplist>1</toplist>
-		<grade>0</grade>
+		<grade>3</grade>
 		<discount>0</discount>
 		<icon>20201</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
-		<gamecost>0</gamecost>
+		<gamecost>100</gamecost>
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
@@ -133,12 +133,12 @@
 		<itemname>명사수 활</itemname>
 		<activate>0</activate>
 		<toplist>1</toplist>
-		<grade>0</grade>
+		<grade>3</grade>
 		<discount>0</discount>
 		<icon>20202</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
-		<gamecost>0</gamecost>
+		<gamecost>500</gamecost>
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
@@ -163,7 +163,7 @@
 		<icon>21001</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
-		<gamecost>0</gamecost>
+		<gamecost>100</gamecost>
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
@@ -188,7 +188,7 @@
 		<icon>21002</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
-		<gamecost>0</gamecost>
+		<gamecost>500</gamecost>
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
@@ -213,7 +213,7 @@
 		<icon>22001</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
-		<gamecost>0</gamecost>
+		<gamecost>100</gamecost>
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
@@ -238,7 +238,7 @@
 		<icon>22002</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
-		<gamecost>0</gamecost>
+		<gamecost>500</gamecost>
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
@@ -263,7 +263,7 @@
 		<icon>23001</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
-		<gamecost>0</gamecost>
+		<gamecost>100</gamecost>
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
@@ -288,7 +288,7 @@
 		<icon>23002</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
-		<gamecost>0</gamecost>
+		<gamecost>500</gamecost>
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
@@ -313,7 +313,7 @@
 		<icon>300</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
-		<gamecost>0</gamecost>
+		<gamecost>100</gamecost>
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
@@ -338,7 +338,7 @@
 		<icon>301</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
-		<gamecost>0</gamecost>
+		<gamecost>100</gamecost>
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
@@ -363,7 +363,7 @@
 		<icon>302</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
-		<gamecost>0</gamecost>
+		<gamecost>100</gamecost>
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
@@ -388,7 +388,7 @@
 		<icon>303</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
-		<gamecost>0</gamecost>
+		<gamecost>100</gamecost>
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
@@ -413,7 +413,7 @@
 		<icon>304</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
-		<gamecost>0</gamecost>
+		<gamecost>100</gamecost>
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
@@ -438,7 +438,7 @@
 		<icon>305</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
-		<gamecost>0</gamecost>
+		<gamecost>100</gamecost>
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
@@ -458,12 +458,12 @@
 		<itemname>빨간 포션</itemname>
 		<activate>1</activate>
 		<toplist>0</toplist>
-		<grade>1</grade>
+		<grade>0</grade>
 		<discount>0</discount>
 		<icon>10001</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
-		<gamecost>0</gamecost>
+		<gamecost>50</gamecost>
 		<cashcost>0</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
@@ -479,12 +479,12 @@
 		<itemname>파란 포션</itemname>
 		<activate>1</activate>
 		<toplist>0</toplist>
-		<grade>1</grade>
+		<grade>0</grade>
 		<discount>0</discount>
 		<icon>10002</icon>
 		<playerlv>0</playerlv>
 		<multistate>0</multistate>
-		<gamecost>0</gamecost>
+		<gamecost>50</gamecost>
 		<cashcost>1</cashcost>
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
@@ -500,7 +500,7 @@
 		<itemname>금화</itemname>
 		<activate>1</activate>
 		<toplist>0</toplist>
-		<grade>1</grade>
+		<grade>0</grade>
 		<discount>0</discount>
 		<icon>30001</icon>
 		<playerlv>0</playerlv>
@@ -519,7 +519,7 @@
 		<itemname>기타템1</itemname>
 		<activate>0</activate>
 		<toplist>0</toplist>
-		<grade>1</grade>
+		<grade>0</grade>
 		<discount>0</discount>
 		<icon>40001</icon>
 		<playerlv>0</playerlv>
