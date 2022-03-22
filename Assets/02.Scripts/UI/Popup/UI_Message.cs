@@ -143,7 +143,7 @@ public class UI_Message : UI_Popup
         if (sceneState == SceneState.Tutorial)
         {
             QuestSystem questSystem = FindObjectOfType<QuestSystem>();
-            foreach (var quest in questSystem.ActiveQuests)
+            foreach (var quest in questSystem.CompletedQuests)
             {
                 foreach (var taskgroup in quest.TaskGroups)
                 {
@@ -162,7 +162,7 @@ public class UI_Message : UI_Popup
         else if (sceneState == SceneState.Select)
         {
             QuestSystem questSystem = FindObjectOfType<QuestSystem>();
-            foreach (var quest in questSystem.ActiveQuests)
+            foreach (var quest in questSystem.CompletedQuests)
             {
                 foreach (var taskgroup in quest.TaskGroups)
                 {
@@ -181,7 +181,7 @@ public class UI_Message : UI_Popup
         else if (sceneState == SceneState.Town)
         {
             QuestSystem questSystem = FindObjectOfType<QuestSystem>();
-            foreach (var quest in questSystem.ActiveQuests)
+            foreach (var quest in questSystem.CompletedQuests)
             {
                 foreach (var taskgroup in quest.TaskGroups)
                 {

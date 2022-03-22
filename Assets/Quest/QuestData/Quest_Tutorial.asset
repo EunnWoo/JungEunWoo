@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   category: {fileID: 11400000, guid: a8cd8a524cffa6144ad6ddbcc3418f78, type: 2}
   icon: {fileID: 0}
-  codeName: TUTORIAL
-  displayName: tutorial
-  description: tutorial
+  codeName: TUTORIAL1
+  displayName: Tutorial 1
+  description: Complete the first tutorial.
   taskGroups:
   - tasks:
     - {fileID: 11400000, guid: 58bc7ab41c0416e4392b481291ce6434, type: 2}
@@ -29,8 +29,9 @@ MonoBehaviour:
   - tasks:
     - {fileID: 11400000, guid: b87be3b8e4d7f3a4dad167bf369d0586, type: 2}
   rewards:
-  - {fileID: 11400000, guid: beda92badf58fd847ab789d725ed8fea, type: 2}
-  useAutoComplete: 0
+  - {fileID: 11400000, guid: 482508190d0e590449be9c15bf285bb0, type: 2}
+  - {fileID: 11400000, guid: 7263e0488b1c93d4eaf7ddaca08e2e4f, type: 2}
+  useAutoComplete: 1
   isCancelable: 0
   isSaveable: 0
   acceptionConditions: []
