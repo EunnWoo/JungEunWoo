@@ -26,15 +26,12 @@ public class UI_Quest : UI_Scene
     }
      public void OpenQuest()
     {
-        //GameManager.isOpenInventory = true;
         if (!questView.activeSelf)
         {
-            Managers.Game.isOpenInventory = true;
             questView.SetActive(true);
         }
         else
         {
-            Managers.Game.isOpenInventory = false;
             questView.SetActive(false);
         }
 

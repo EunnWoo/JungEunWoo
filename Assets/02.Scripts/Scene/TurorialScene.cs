@@ -8,6 +8,8 @@ public class TurorialScene : BaseScene
     protected override void Init()
     {
         base.Init();
+        SceneType = SceneState.Tutorial;
+
         gameObject.GetOrAddComponent<CursorController>();
 
         GameObject  player = Managers.Game.Spawn("Player");
@@ -36,7 +38,7 @@ public class TurorialScene : BaseScene
     public override void Clear()
     {
         //ui_Equipment.Eqbody.SetActive(false);
-        ui_Inventory.body.SetActive(false);
+        ui_Inventory.OpenInventory();
         ui_MonsterHpbar.OffMonsterHpbar();
     }
 }

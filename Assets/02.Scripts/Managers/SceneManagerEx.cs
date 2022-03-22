@@ -7,6 +7,8 @@ public class SceneManagerEx
 {
     public BaseScene CurrentScene { get { return GameObject.FindObjectOfType<BaseScene>(); } }
 
+
+
     string GetSceneName(SceneState type)
     {
         string name = System.Enum.GetName(typeof(SceneState), type); // C#¿« Reflection. Scene enum¿« 

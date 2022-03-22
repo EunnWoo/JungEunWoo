@@ -61,7 +61,7 @@ public class Arrow : MonoBehaviour
             rigid.Sleep();
             rigid.useGravity = false;
             transform.position = other.ClosestPointOnBounds(transform.position);
-            transform.parent = other.transform; // (other.transform);
+            transform.parent = other.transform;
             //피격처리
             Status playerstatus = playerAttack.GetComponent<Status>();
             Status status = other.GetComponent<Status>();

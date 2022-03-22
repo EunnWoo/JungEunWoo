@@ -42,15 +42,6 @@ public class UI_EquipmentSlot : MonoBehaviour, IPointerClickHandler
         }
     }
 
-
-    //public void RemoveItem()
-    //{
-    //    itemData = null;
-    //    icon.sprite = null;
-    //}
-
-
-
     public void OnPointerClick(PointerEventData eventData)
     {
         int clickCount = eventData.clickCount;
@@ -66,6 +57,7 @@ public class UI_EquipmentSlot : MonoBehaviour, IPointerClickHandler
     {
         //장비교체
         if (itemData == null || itemData.itemcode ==0) return;//아이템데이터가 null이면 리턴
+ 
         switch(itemData.itemType)
         {
             case eItemType.Equip:   //장비창에서 더블클릭시

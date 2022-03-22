@@ -30,6 +30,7 @@ public class MonsterController : BaseController
 
     public float attackRange { get; protected set; }
     public float scanRange { get; protected set; }
+
     public override void Init()
     {
         player = Managers.Game.GetPlayer();
@@ -38,14 +39,16 @@ public class MonsterController : BaseController
         Anim = GetComponent<Animator>();
         //초기화 하는 함수
     }
+
     protected virtual void PlayerScan()// --> 상속받은 monster들 마다 스캔방식 다르게  ex) rayhit(보는 방향)골드메탈 참고 Or 적과 플레이어 distance 값 받아서 범위 스캔
     {
         //ex RaycastHit[] rayHits = Physics.SphereCastAll(transform.position,반지름 , tarnsform.forward, scanRange, LayMask.GetMask("Player"));
         //ex 
         if (player == null)
          return;
+
         distance = (player.transform.position - transform.position).magnitude;
-        if(distance <= _attackRange){
+        if(distance <= _attackRange && isAttackReady){
             monsterState = MonsterState.Attack;
             return;
         }
@@ -62,6 +65,7 @@ public class MonsterController : BaseController
 
     protected override void UpdateMoving()
     {
+        
         PlayerScan();
         switch(monsterState){
             case MonsterState.Idle:
@@ -86,16 +90,19 @@ public class MonsterController : BaseController
             //if( attackRange)
             break;
             case MonsterState.Attack:
-            UpdateAttack();
-            break;
+                MonsterAttack();
+                if(isAttackReady)
+                attackDelay = 0;
+                break;
         }
         
     }
     
-    protected override void UpdateAttack()
-    {
-        LookTarget(transform, player.transform, rotateSpeed);
+    void MonsterAttack()
+    {   
+        LookTarget(transform, player.transform, rotateSpeed);   
         Anim.SetInteger("state", (int)monsterState);
+
     }
     private void RandomPos(){
         movePos = new Vector3(Random.Range(-1, 2), transform.position.y, Random.Range(-1, 2));
@@ -120,5 +127,13 @@ public class MonsterController : BaseController
 
 
 
+
+
+
+
+    protected virtual void OnAttack()
+    {
+
+    }
 
 }

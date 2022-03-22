@@ -8,7 +8,6 @@ public enum SceneState
     Unknown,
     Login,
     Tutorial,
-    Lobby,
     Select,
     Town,
     Map1,

@@ -25,13 +25,13 @@ public class UI_Inventory : UI_Scene
     public Text Description_Text; //아이템에 대한 부연설명
     public string[] tabDescription; //탭 부연설명
 
-    public GameObject goEquipTab;
-    public GameObject goEquipSlot;
-    public GameObject goUseTab;
-    public GameObject goUseSlot;
-    public GameObject goETCTab;
-    public GameObject goETCSlot;
-    public GameObject body;
+    GameObject goEquipTab;
+    GameObject goEquipSlot;
+    GameObject goUseTab;
+    GameObject goUseSlot;
+    GameObject goETCTab;
+    GameObject goETCSlot;
+    GameObject body;
 
     public int MAX_EQUIP = 20;
     public List<ItemData> listEquip = new List<ItemData>();
@@ -55,7 +55,8 @@ public class UI_Inventory : UI_Scene
         EquipPanel,
         UsePanel,
         ETCPanel,
-        ItemInfo
+        ItemInfo,
+        Body
     }
     enum Buttons
     {
@@ -81,6 +82,7 @@ public class UI_Inventory : UI_Scene
         goUseSlot = Get<GameObject>((int)GameObjects.Use_GridSlot);
         goETCSlot = Get<GameObject>((int)GameObjects.ETC_GridSlot);
         itemInfo = Get<GameObject>((int)GameObjects.ItemInfo);
+        body = Get<GameObject>((int)GameObjects.Body);
         #endregion
         #region invenslotSet
         GameObject equipbody = Get<GameObject>((int)GameObjects.EquipBody);
@@ -163,21 +165,17 @@ public class UI_Inventory : UI_Scene
     }
     public void Invoke_Close()
     {
-        //GameManager.isOpenInventory = false;
         body.SetActive(false);
     }
 
     public void OpenInventory()
     {
-        //GameManager.isOpenInventory = true;
         if (!body.activeSelf)
         {
-            Managers.Game.isOpenInventory = true;
             body.SetActive(true);
         }
         else
         {
-            Managers.Game.isOpenInventory = false;
             body.SetActive(false);
         }
 
@@ -185,7 +183,6 @@ public class UI_Inventory : UI_Scene
     }
     public void CloseInventory(PointerEventData data)
     {
-        Managers.Game.isOpenInventory = false;
         body.SetActive(false);
     }
     ItemData CheckItemData(List <ItemData>_list, ItemData _newItemData, out int _index)//동일한 아이템이 있는지 검사
@@ -206,7 +203,7 @@ public class UI_Inventory : UI_Scene
     public bool AddItemData(ItemData _itemDataNew)
     {
         
-        int _index = -1;
+      //  int _index = -1;
         bool _rtn = false;
         ItemData _itemDataOld = null;
         switch (_itemDataNew.itemType)    //탭 에따른 아이템 분류, 그것을 인벤토리 탭 리스트에 추가
