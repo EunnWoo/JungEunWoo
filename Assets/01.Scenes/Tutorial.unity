@@ -25,8 +25,8 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubtractiveShadowColor: {r: 1, g: 1, b: 1, a: 1}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 5ffea2aa6a6ed2d4789aa4f55c2298f0, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.8056737, g: 0.85710627, b: 0.72398573, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1893,15 +1893,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1993442684360518423, guid: 0951914f182413141bf69311bdb987a7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.7205205
       objectReference: {fileID: 0}
     - target: {fileID: 1993442684360518423, guid: 0951914f182413141bf69311bdb987a7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.26
+      value: 8.214584
       objectReference: {fileID: 0}
     - target: {fileID: 1993442684360518423, guid: 0951914f182413141bf69311bdb987a7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -13.473753
       objectReference: {fileID: 0}
     - target: {fileID: 1993442684360518423, guid: 0951914f182413141bf69311bdb987a7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1913,11 +1913,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1993442684360518423, guid: 0951914f182413141bf69311bdb987a7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1993442684360518423, guid: 0951914f182413141bf69311bdb987a7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1993442684360518423, guid: 0951914f182413141bf69311bdb987a7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6299,6 +6299,45 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 482800, guid: 679444084a776cb41a6a642071dd3daa, type: 3}
   m_PrefabInstance: {fileID: 1354918123}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1363102855 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1993442684360518416, guid: 0951914f182413141bf69311bdb987a7, type: 3}
+  m_PrefabInstance: {fileID: 431517271}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1363102856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363102855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowDebugText: 0
+  m_ShowCameraFrustum: 1
+  m_IgnoreTimeScale: 0
+  m_WorldUpOverride: {fileID: 0}
+  m_UpdateMethod: 2
+  m_BlendUpdateMethod: 1
+  m_DefaultBlend:
+    m_Style: 1
+    m_Time: 2
+    m_CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  m_CustomBlends: {fileID: 0}
+  m_CameraCutEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_CameraActivatedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1383689437 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 482800, guid: 679444084a776cb41a6a642071dd3daa, type: 3}

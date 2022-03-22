@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
    
-    public Vector3 offset;
+    Vector3 offset;
 
     [SerializeField]
     GameObject _player = null;
@@ -27,13 +27,16 @@ public class CameraFollow : MonoBehaviour
     void Start()
     {
         offset = new Vector3(0, 10, -12);
-
+        
     }
 
     private void LateUpdate()
     {
-        if(_player != null && _player.activeSelf)
-        transform.position = _player.transform.position + offset;
+        if (_player != null && _player.activeSelf)
+        {
+            transform.position = _player.transform.position + offset;
+            transform.rotation = Quaternion.Euler(30f, 0f, 0f);
+        }
     }
 
 }
