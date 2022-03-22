@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class BaseController : MonoBehaviour
 {
-	public Animator Anim{get;set;}
+	public Animator animator{get;set;}
 	
 	[SerializeField]
 	protected GameObject _lockTarget;
