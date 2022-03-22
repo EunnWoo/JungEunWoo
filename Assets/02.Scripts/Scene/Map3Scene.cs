@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Playables;
 public class Map3Scene : BaseScene
 {
-    // Start is called before the first frame update
+    PlayableDirector playableDirector;
     protected override void Init()
     {
         base.Init();
@@ -13,11 +13,22 @@ public class Map3Scene : BaseScene
 
         Managers.Game.GetPlayer().transform.position = new Vector3(-4f, 1.06f, -22f);
         Managers.Sound.Play("BGM/Map3", Define.Sound.BGM);
-
+        playableDirector = GetComponent<PlayableDirector>();
+        playableDirector.Play();
+        
     }
 
     public override void Clear()
     {
 
+    }
+    public void PlayerStop()
+    {
+        Managers.UI.isTalk(true);
+    }
+    public void PlayerGo()
+    {
+        Managers.UI.isTalk(false);
+       
     }
 }
