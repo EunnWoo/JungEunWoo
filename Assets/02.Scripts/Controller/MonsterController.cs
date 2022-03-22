@@ -36,7 +36,7 @@ public class MonsterController : BaseController
         player = Managers.Game.GetPlayer();
         InvokeRepeating("RandomPos", 2f, 3f);
         monsterState = MonsterState.Idle;
-        Anim = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         //초기화 하는 함수
     }
 
@@ -67,28 +67,32 @@ public class MonsterController : BaseController
     {
         
         PlayerScan();
-        switch(monsterState){
+        switch (monsterState) {
             case MonsterState.Idle:
-            if(Random.Range(1, 20) == 2)
-                monsterState = MonsterState.Walk;
-            break;
+                if (Random.Range(1, 20) == 2)
+                    monsterState = MonsterState.Walk;
+                break;
             case MonsterState.Walk:
-            LookDirection(transform, movePos);
-            RigidMovePos(transform, movePos, moveSpeed);
-            LimitMoveRange(transform, limitRange_Min, limitRange_Max);
-            if(Random.Range(1, 20) == 2)
-                monsterState = MonsterState.Idle;
-            Anim.SetInteger("state", (int)monsterState);
-            break;
+                LookDirection(transform, movePos);
+                RigidMovePos(transform, movePos, moveSpeed);
+                LimitMoveRange(transform, limitRange_Min, limitRange_Max);
+                if (Random.Range(1, 20) == 2)
+                    monsterState = MonsterState.Idle;
+                animator.SetInteger("state", (int)monsterState);
+                break;
+
             case MonsterState.Trace:
-            LookTarget(transform, player.transform, rotateSpeed);
-            if(distance >= _attackRange){
-                RigidMovePos(transform, player.transform.position - transform.position, moveSpeed);
-            }
-            LimitMoveRange(transform, limitRange_Min, limitRange_Max);
-            Anim.SetInteger("state", (int)monsterState);
-            //if( attackRange)
+
+
+                LookTarget(transform, player.transform, rotateSpeed);
+                if(distance >= _attackRange){
+                    RigidMovePos(transform, player.transform.position - transform.position, moveSpeed);
+                }
+                LimitMoveRange(transform, limitRange_Min, limitRange_Max);
+                animator.SetInteger("state", (int)monsterState);
+          
             break;
+
             case MonsterState.Attack:
                 MonsterAttack();
                 if(isAttackReady)
@@ -99,9 +103,9 @@ public class MonsterController : BaseController
     }
     
     void MonsterAttack()
-    {   
-        LookTarget(transform, player.transform, rotateSpeed);   
-        Anim.SetInteger("state", (int)monsterState);
+    {
+        LookTarget(transform, player.transform, rotateSpeed);
+        animator.SetInteger("state", (int)monsterState);
 
     }
     private void RandomPos(){
@@ -111,7 +115,9 @@ public class MonsterController : BaseController
         objTransform.rotation = Quaternion.LookRotation(-moveDir.x * Vector3.right + -moveDir.z * Vector3.forward);
     }
 
-    public void LookTarget(Transform objTransform, Transform targetTransform, float speed) {
+    public void LookTarget(Transform objTransform, Transform targetTransform, float speed) 
+    {
+        if (animator.GetBool("Attack")) return;
         Vector3 dir = new Vector3(objTransform.position.x - targetTransform.transform.position.x, 0, objTransform.position.z - targetTransform.transform.position.z);
         objTransform.rotation = Quaternion.Lerp(objTransform.rotation, Quaternion.LookRotation(dir), speed * Time.fixedDeltaTime);
     }

@@ -41,7 +41,7 @@ public class Boss : MonsterController
                 }
                 break;
                 case 6:
-                Anim.SetInteger("state",6);
+                    animator.SetInteger("state",6);
                 break;
                 case 7:
                 break;

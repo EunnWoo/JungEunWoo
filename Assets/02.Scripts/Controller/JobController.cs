@@ -54,12 +54,5 @@ public class JobController : MonoBehaviour
         gameObject.AddComponent(System.Type.GetType(jobstring)); // 직업에 맞는 스크립트 부여
 
     }
-  
-
-
-    //public void changejobstate(GameObject npc)
-    //{
-    //    jobstate = (JobInfo)npc.GetComponent<ObjData>().id;
-    //}
 
 }

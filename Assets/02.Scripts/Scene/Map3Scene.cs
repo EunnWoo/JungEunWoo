@@ -8,9 +8,11 @@ public class Map3Scene : BaseScene
     protected override void Init()
     {
         base.Init();
-        SceneType = SceneState.Select;
+        SceneType = SceneState.Map3;
         gameObject.GetOrAddComponent<CursorController>();
+
         Managers.Game.GetPlayer().transform.position = new Vector3(-4f, 1.06f, -22f);
+        Managers.Sound.Play("BGM/Map3", Define.Sound.BGM);
 
     }
 

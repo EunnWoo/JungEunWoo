@@ -36,6 +36,18 @@ public class UI_Message : UI_Popup
             {
                 nextScene = SceneState.Town;
             }
+            else if(value == 6002)
+            {
+                nextScene = SceneState.Map1;
+            }
+            else if(value == 6003)
+            {
+                nextScene = SceneState.Map2;
+            }
+            else if(value == 6004)
+            {
+                nextScene = SceneState.Map3;
+            }
             else
             {
                 return;
@@ -125,7 +137,7 @@ public class UI_Message : UI_Popup
         ShowMessage("구매", (int)_value + "개 구매");
        
     }
-    bool SceneMove()
+    bool SceneMove()  // 퀘스트 완료 안 하면 못돌아감
     {
         SceneState sceneState = FindObjectOfType<BaseScene>().SceneType;
         if (sceneState == SceneState.Tutorial)
@@ -160,6 +172,25 @@ public class UI_Message : UI_Popup
                        // if (task.CodeName == "JUMP" && task.IsComplete)
                         //{
                             return true;
+
+                        //}
+                    }
+                }
+            }
+        }
+        else if (sceneState == SceneState.Town)
+        {
+            QuestSystem questSystem = FindObjectOfType<QuestSystem>();
+            foreach (var quest in questSystem.ActiveQuests)
+            {
+                foreach (var taskgroup in quest.TaskGroups)
+                {
+                    foreach (var task in taskgroup.Tasks)
+                    {
+
+                        // if (task.CodeName == "JUMP" && task.IsComplete)
+                        //{
+                        return true;
 
                         //}
                     }
