@@ -12,8 +12,8 @@ public class SelectScene : BaseScene
         SceneType = SceneState.Select;
 
         gameObject.GetOrAddComponent<CursorController>();
-     
 
+        Managers.Game.GetPlayer().transform.position = new Vector3(0f, 1f, 0f);
         Managers.Sound.Play("BGM/Select",Define.Sound.BGM);
 
     }

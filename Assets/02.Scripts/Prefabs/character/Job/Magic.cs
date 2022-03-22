@@ -72,7 +72,8 @@ public class Magic : PlayerAttack
                 {
                     fireBalls[i].SetTarget(attackTarget);
                     fireBalls[i].SetFire(true);
-                    yield return new WaitForSeconds(0.1f);
+                    Managers.Sound.Play("EffectSound/Attack/FireBall");
+                    yield return new WaitForSeconds(0.15f);
 
                 }
                 

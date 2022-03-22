@@ -8,22 +8,19 @@ public class Map2Scene : BaseScene
     protected override void Init()
     {
         base.Init();
-        SceneType = SceneState.Select;
+        SceneType = SceneState.Map2;
 
-        portals = GameObject.FindObjectsOfType<Portal>();
+
 
         gameObject.GetOrAddComponent<CursorController>();
         Managers.Game.GetPlayer().transform.position = new Vector3(7.08f, 0.06f, -4.98f);
-
+        Managers.Sound.Play("BGM/Map2", Define.Sound.BGM);
     }
 
     protected override void SceneMove()
     {
         base.SceneMove();
-        if (portals[0].portalOn && Input.GetKeyDown(KeyCode.K))
-        {
-            Managers.Scene.LoadScene(SceneState.Town);
-        }
+
     }
 
 

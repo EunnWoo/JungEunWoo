@@ -29,6 +29,9 @@ public class TurorialScene : BaseScene
         ui_Inventory = Managers.UI.ShowSceneUI<UI_Inventory>();
         ui_MonsterHpbar = Managers.UI.ShowSceneUI<UI_MonsterHpBar>();
         //ui_Equipment = Managers.UI.ShowSceneUI<UI_Equipment>();
+
+
+        Managers.Sound.Play("BGM/Tutorial", Define.Sound.BGM);
     }
 
     protected override void SceneMove()
