@@ -8,7 +8,7 @@ public class PlayerController : BaseController
     public Define.AttackType attackType { get; private set; }
 
     Rigidbody rigid;
-    Animator animator;
+  //  Animator animator;
     PlayerStatus playerStatus;
  
     [HideInInspector]

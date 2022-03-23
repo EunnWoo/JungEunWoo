@@ -22,7 +22,7 @@ public class PlayerAttack : BaseController
 
     }
 
-    protected Animator animator;
+    //protected Animator animator;
     PlayerController playerController;
     UI_CoolTime ui_CoolTime;
 
@@ -31,7 +31,6 @@ public class PlayerAttack : BaseController
     protected override void UpdateAttack() 
     {
       
-
         canMove = animator.GetBool("canMove");
 
         ui_CoolTime.SetCoolTimeImage(attackRate, skillRate, attackDelay, skillDelay);
