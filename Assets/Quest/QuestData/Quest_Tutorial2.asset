@@ -17,9 +17,18 @@ MonoBehaviour:
   codeName: TUTORIAL2
   displayName: Tutorial 2
   description: Complete the second tutorial.
-  taskGroups: []
-  rewards: []
-  useAutoComplete: 0
+  taskGroups:
+  - tasks:
+    - {fileID: 11400000, guid: 308f7a79ca36b3840903cd9948506e95, type: 2}
+  - tasks:
+    - {fileID: 11400000, guid: 566485e76bca7774497aae872c3b9d50, type: 2}
+    - {fileID: 11400000, guid: bc057d6b4ea60c74dbc7c969a9965217, type: 2}
+  - tasks:
+    - {fileID: 11400000, guid: f9393b51d6fa05b42beada9a6b1fe2e2, type: 2}
+  rewards:
+  - {fileID: 11400000, guid: c295f3f484db0614fa0d3f222a6de1e4, type: 2}
+  - {fileID: 11400000, guid: 4b862b58d7c0c9d45a66caba448ee1af, type: 2}
+  useAutoComplete: 1
   isCancelable: 0
   isSaveable: 0
   acceptionConditions: []

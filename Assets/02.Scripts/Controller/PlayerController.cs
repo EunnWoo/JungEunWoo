@@ -263,6 +263,7 @@ public class PlayerController : BaseController
                     playerAttack.AttackTacrgetSet(_lockTarget);
                     _lockTarget = null;
                     playerAttack.OnAttack();
+                    
 
                     return;
                 }
