@@ -79,7 +79,7 @@ public class StoreItem : UI_Base
 
         if (_playerStatus.gold < _itemData.gamecost)//만약 플레이어가 가지고있는 골드가 아이템금액 적으면
         {
-            ui_Message.ShowMessage("아이템 구매실패", "보유 골드가 부족합니다.");
+            UI_ShotMessage.ins.SetMessage("보유 골드가 부족합니다");
         }
         else
         {
@@ -88,12 +88,13 @@ public class StoreItem : UI_Base
             {
                 //Debug.Log("@@@ 보유머니 = 보유머니 - 아이템가격");
                 //ui_Message.ShowMessage("아이템 구매", _itemData.itemName + "을" + _itemData.itemCount + "개 구매했습니다");
-
+                
+                _playerStatus.gold -= _itemData.gamecost; //상점에서 아이템 구매시 보유골드 빼주는거
             }
             else
             {
-                //Debug.Log("@@아이템 인벤토리가 가득찼습니다");
-                //ui_Message.ShowMessage("아이템 구매실패", "인벤토리가 가득찾습니다");
+                UI_ShotMessage.ins.SetMessage("인벤토리가 가득 찼습니다.");
+
             }
             Managers.UI.ClosePopupUI(ui_Message);
         }

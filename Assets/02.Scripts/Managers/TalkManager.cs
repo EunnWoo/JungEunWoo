@@ -26,6 +26,7 @@ public class TalkManager
         talkData.Add(3, new string[] { "궁수의 길을 걷겠는가?", "쉽지 않은 길일거야.." });
 
         talkData.Add(5, new string[] { "퀘스트 튜토리얼" });
+        talkData.Add(6, new string[] { "퀘스트 튜토리얼2" });
 
 
         errorString = new string[] { "자네는 이미 직업이 있군"/*, "다시 한번 생각하고 오게나.."*/ };
@@ -46,7 +47,7 @@ public class TalkManager
         {
             Managers.UI.ShowPopupUI<UI_Store>();
         }
-        else if (id ==5)
+        else if (id ==5 || id ==6)
         {
 
             UI_Panel ui_Panel = Managers.UI.ShowPopupUI<UI_Panel>();

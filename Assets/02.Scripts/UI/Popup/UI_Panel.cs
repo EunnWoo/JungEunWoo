@@ -94,6 +94,8 @@ public class UI_Panel : UI_Popup
             talkIndex = 0;
             Managers.UI.isTalk(false);
             jobController.JobChoice(objData.id); // 직업확정
+            QuestReporter questReporter = Managers.talk.NPC.GetComponent<QuestReporter>();
+            questReporter.Report();
             Managers.UI.ClosePopupUI(this);
         }
 
@@ -101,10 +103,8 @@ public class UI_Panel : UI_Popup
 
     public void QuestGive(PointerEventData data)
     {
-
         Managers.talk.NPC.GetComponent<QuestGiver>().QuestSet();
         Managers.UI.ClosePopupUI(this);
         Managers.UI.isTalk(false);
     }
-
 }

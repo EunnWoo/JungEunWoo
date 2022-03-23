@@ -30,6 +30,7 @@ public class UI_Equipment : MonoBehaviour
     public EquipmentSlot[] defaultSlots = new EquipmentSlot[4];
     public EquipmentSlot[] slots = new EquipmentSlot[4]; //4개의 배열생성\
     PlayerStatus playerstatus;
+    public Text attText, defText, hpText, mpText;
 
     private void Start()
     {
@@ -42,17 +43,18 @@ public class UI_Equipment : MonoBehaviour
         bInit = true;
         body.SetActive(false);
 
-        GameObject[] _arrayGO = GameObject.FindGameObjectsWithTag("Player");
-        PlayerStatus _ps;
-        for(int i = 0; i< _arrayGO.Length; i++)
-        {
-            _ps = _arrayGO[i].GetComponent<PlayerStatus>();
-            if(_ps != null)
-            {
-                playerstatus = _ps;// "나" 라는 플래그가 있다면?
-                break;
-            }
-        }
+        playerstatus = Managers.Game.GetPlayer().GetComponent<PlayerStatus>();
+        //GameObject[] _arrayGO = GameObject.FindGameObjectsWithTag("Player");
+        //PlayerStatus _ps;
+        //for(int i = 0; i< _arrayGO.Length; i++)
+        //{
+        //    _ps = _arrayGO[i].GetComponent<PlayerStatus>();
+        //    if(_ps != null)
+        //    {
+        //        playerstatus = _ps;// "나" 라는 플래그가 있다면?
+        //        break;
+        //    }
+        //}
     }
 
     public void OpenEquipment() //장비창 키는함수(새로운방식)
@@ -83,6 +85,7 @@ public class UI_Equipment : MonoBehaviour
                 slots[_index].itemData = null; //장비창 슬롯을 비워준다
                 slots[_index].equipSlot.SetItem(null); //slots에있는 SetItem의 아이콘을 지움
 
+                //장착 Mesh - 능력치
                 playerstatus.UnEquip(_index, _oldItemData);// 해당 아이템 데이터를 탈착
             }
 
@@ -91,6 +94,7 @@ public class UI_Equipment : MonoBehaviour
             slots[_index].itemData = _itemData; //slots에 아이템 데이터를 넣음
             slots[_index].equipSlot.SetItem( _itemData); //_itemData에서 아이템 데이터를 세팅
 
+            //장착 Mesh + 능력치
             playerstatus.Equip(_index, _itemData);  // 해당 아이템 데이터를 장착
             _rtn = true;
         }
@@ -114,5 +118,27 @@ public class UI_Equipment : MonoBehaviour
             }
             playerstatus.UnEquip((int)_slot, _itemData);
         }
+    }
+
+    
+    public void DisplayAttack(float _att)
+    {
+        attText.text = ((int)_att).ToString();
+    }
+
+    public void DisplayDEF(float _def)
+    {
+        defText.text = ((int)_def).ToString();
+    }
+
+    public void DisplayHP(float _max)
+    {
+        hpText.text = ((int)_max).ToString();
+
+    }
+
+    public void DisplayMP(float _max)
+    {
+        mpText.text = ((int)_max).ToString();
     }
 }
