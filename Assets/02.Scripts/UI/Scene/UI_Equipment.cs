@@ -43,17 +43,18 @@ public class UI_Equipment : MonoBehaviour
         bInit = true;
         body.SetActive(false);
 
-        GameObject[] _arrayGO = GameObject.FindGameObjectsWithTag("Player");
-        PlayerStatus _ps;
-        for(int i = 0; i< _arrayGO.Length; i++)
-        {
-            _ps = _arrayGO[i].GetComponent<PlayerStatus>();
-            if(_ps != null)
-            {
-                playerstatus = _ps;// "나" 라는 플래그가 있다면?
-                break;
-            }
-        }
+        playerstatus = Managers.Game.GetPlayer().GetComponent<PlayerStatus>();
+        //GameObject[] _arrayGO = GameObject.FindGameObjectsWithTag("Player");
+        //PlayerStatus _ps;
+        //for(int i = 0; i< _arrayGO.Length; i++)
+        //{
+        //    _ps = _arrayGO[i].GetComponent<PlayerStatus>();
+        //    if(_ps != null)
+        //    {
+        //        playerstatus = _ps;// "나" 라는 플래그가 있다면?
+        //        break;
+        //    }
+        //}
     }
 
     public void OpenEquipment() //장비창 키는함수(새로운방식)

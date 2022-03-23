@@ -43,6 +43,7 @@ public class UI_Inventory : UI_Scene
     public RectTransform CanvaRect;
     public Vector2 v;
     IEnumerator PointerCoroutine;
+    PlayerStatus playerstatus;
 
     enum GameObjects
     {
@@ -111,6 +112,7 @@ public class UI_Inventory : UI_Scene
         GetButton((int)Buttons.Use_Selected_Tab).gameObject.AddUIEvent(Invoke_UseTab);
         GetButton((int)Buttons.ETC_Selected_Tab).gameObject.AddUIEvent(Invoke_ETCTab);
 
+        playerstatus = Managers.Game.GetPlayer().GetComponent<PlayerStatus>();
 
         body.SetActive(false); //생성되면 꺼주기
 
@@ -325,6 +327,38 @@ public class UI_Inventory : UI_Scene
         return _rtn;
     }
 
+    public ItemData CheckAndEatHP(int _itemcode) //인벤토리 내에 아이템을 찾고 먹는
+    {
+        //체크 존재 유뮤
+        ItemData _itemData = null;
+        
+        for (int i = 0; i < listUse.Count; i++)
+        {
+            if (listUse[i] != null && listUse[i].itemcode == _itemcode && listUse[i].itemCount > 0)//itemcode가 현재들어온itemcode랑 데이터가 일치하면
+            {
+                //찾는다
+               _itemData = listUse[i];
+
+                //해당 아이템 적용(사용)
+                ItemInfoUsepart _usePart = ItemInfo.ins.GetItemInfoUsepart(_itemData.itemcode);
+                playerstatus.SetHPMP(_usePart.hp, _usePart.mp);
+                _itemData.itemCount--;
+                if(_itemData.itemCount <= 0)
+                {
+                    listUse[i] = null;
+                    slotsUse[i].RemoveItem();
+                }
+                else
+                {
+                    slotsUse[i].SetItem(_itemData);
+                }
+                break;
+            }
+        }
+        return _itemData;
+    }
+
+
     #region 추후 시간남을시 작업예정
     //public void PointerEnter(PointerEventData data) //마우스가 인벤토리 슬롯 위에 올려져있을때
     //{
@@ -362,14 +396,14 @@ public class UI_Inventory : UI_Scene
     }
 
 
-    void Update()
-    {
+    //void Update()
+    //{
         //스크린린포인트 0,0부터 1920,1080 를 새로운 사각형 위치로 변환
         //RectTransformUtility.ScreenPointToLocalPointInRectangle(CanvaRect, Input.mousePosition, Camera.main, out Vector2 anchoredPos);
 
         //마우스를 아이템위로 올릴시 설명 유아이창이 뜰위치
         //itemInfo.GetComponent<RectTransform>().anchoredPosition = anchoredPos + new Vector2(700,570);
-    }
+    //}
 
     #endregion
 #endif

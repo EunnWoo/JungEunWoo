@@ -3148,6 +3148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f137415147ed1458ed830da5a7f76f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potionType: 10001
 --- !u!114 &464929066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6010,6 +6011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f137415147ed1458ed830da5a7f76f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potionType: 10002
 --- !u!114 &986220887
 MonoBehaviour:
   m_ObjectHideFlags: 0
