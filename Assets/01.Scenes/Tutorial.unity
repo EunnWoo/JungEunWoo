@@ -624,33 +624,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7184805044447416128, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
   m_PrefabInstance: {fileID: 1630092955}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &185248064
-MonoBehaviour:
+--- !u!136 &185248065
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 185248063}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c7889f02eb80634fb5f407765e18163, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 5
---- !u!114 &185248067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 185248063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de1ccef1d98948e4d82399fdc9a02428, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quests:
-  - {fileID: 11400000, guid: 0bc0c3449cf58904cb2b4364a8ce2bf0, type: 2}
+  m_Radius: 2
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1001 &192848213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1685,7 +1672,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &395848556
 GameObject:
@@ -5436,6 +5423,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 679444084a776cb41a6a642071dd3daa, type: 3}
+--- !u!1 &1192829963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1192829965}
+  - component: {fileID: 1192829964}
+  m_Layer: 0
+  m_Name: QuestGiver
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1192829964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192829963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de1ccef1d98948e4d82399fdc9a02428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests:
+  - {fileID: 11400000, guid: 0bc0c3449cf58904cb2b4364a8ce2bf0, type: 2}
+--- !u!4 &1192829965
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192829963}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1210479022 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 482800, guid: 679444084a776cb41a6a642071dd3daa, type: 3}
@@ -7375,20 +7407,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7184805044447416131, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
-      propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'goggle'\n\tTransform 'goggle'\n\tFrom animation
-        clip 'Idle_noWeapon'\n\tFrom animation clip 'PickUp_noWeapon'\n\tFrom animation
-        clip 'PotionDrink_noWeapon'\n\tFrom animation clip 'Sleep_noWeapon'\n\tFrom
-        animation clip 'Idle_noWeapon'\n\tFrom animation clip 'JumpStart_noWeapon'\n\tFrom
-        animation clip 'JumpAir_noWeapon'\n\tFrom animation clip 'JumpEnd_noWeapon'\n\tFrom
-        animation clip 'Idle_noWeapon'\n\tFrom animation clip 'NormalRun_noWeapon'\n\tand
-        more ..."
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7184805044447416131, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
 --- !u!1 &1653920383
 GameObject:
