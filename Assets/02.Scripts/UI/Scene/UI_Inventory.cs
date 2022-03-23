@@ -398,11 +398,11 @@ public class UI_Inventory : UI_Scene
 
     //void Update()
     //{
-        //스크린린포인트 0,0부터 1920,1080 를 새로운 사각형 위치로 변환
-        //RectTransformUtility.ScreenPointToLocalPointInRectangle(CanvaRect, Input.mousePosition, Camera.main, out Vector2 anchoredPos);
+    //    스크린린포인트 0,0부터 1920,1080 를 새로운 사각형 위치로 변환
+    //    RectTransformUtility.ScreenPointToLocalPointInRectangle(CanvaRect, Input.mousePosition, Camera.main, out Vector2 anchoredPos);
 
-        //마우스를 아이템위로 올릴시 설명 유아이창이 뜰위치
-        //itemInfo.GetComponent<RectTransform>().anchoredPosition = anchoredPos + new Vector2(700,570);
+    //    마우스를 아이템위로 올릴시 설명 유아이창이 뜰위치
+    //    itemInfo.GetComponent<RectTransform>().anchoredPosition = anchoredPos + new Vector2(700, 570);
     //}
 
     #endregion
