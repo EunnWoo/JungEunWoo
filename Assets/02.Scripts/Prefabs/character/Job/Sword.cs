@@ -72,7 +72,7 @@ public class Sword : PlayerAttack
     {
         Status playerstatus = Managers.Game.GetPlayer().GetComponent<Status>();
         Collider[] hit = Physics.OverlapSphere(transform.position, 2.2f, 1 << (int)Layer.Monster);
-
+        Managers.Sound.Play("EffectSound/Attack/Sword3");
 
         for (int i = 0; i < hit.Length; i++)
         {

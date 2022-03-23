@@ -96,10 +96,13 @@ public class UI_InventorySlot : UI_Base, IPointerClickHandler
         {
             case eItemType.Equip:   //장비창에서 더블클릭시
                 Debug.Log("더블클릭 >>장비교체");
+
                 if (Dontchange()) return;
+
                 bool _bEquip =  UI_Equipment.ins.Equip(itemData); //장비 장착해주는거
                 if(_bEquip)
                 {
+
                     UI_Inventory.ins.RemoveItemData(itemData);
                     RemoveItem();
                 }
@@ -130,6 +133,8 @@ public class UI_InventorySlot : UI_Base, IPointerClickHandler
         }
         Debug.Log("더블클릭");
     }
+
+
     bool Dontchange()
     {
         Debug.Log(itemData.itemcode);
@@ -143,21 +148,25 @@ public class UI_InventorySlot : UI_Base, IPointerClickHandler
             {
                 //전사
                 Debug.Log(jobController.jobstring);
-                if (jobController.jobstring != "Sword")
-                {
-                    Debug.Log("장착실패");
-                    return true;
-                }
+                if (jobController.jobstring != "Sword") return true;
+
+                else
+                    jobController.GetComponent<Animator>().runtimeAnimatorController = Managers.Resource.Load<RuntimeAnimatorController>($"Animator/{jobController.jobstring}");
+                
             }
             else if (weaponcode < 200)
             {
                 //법사
                 if (jobController.jobstring != "Magic") return true;
+                else
+                    jobController.GetComponent<Animator>().runtimeAnimatorController = Managers.Resource.Load<RuntimeAnimatorController>($"Animator/{jobController.jobstring}");
             }
             else if (weaponcode < 300)
             {
                 //궁수
                 if (jobController.jobstring != "Bow") return true;
+                else
+                jobController.GetComponent<Animator>().runtimeAnimatorController = Managers.Resource.Load<RuntimeAnimatorController>($"Animator/{jobController.jobstring}");
             }
 
         }

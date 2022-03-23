@@ -11,11 +11,15 @@ public class PlayerAttack : BaseController
     public bool isAttack { get; protected set; }
     public float attackRatio { get; protected set; }
     public float skillRatio { get; protected set; }
-    protected Animator animator;
+    public GameObject attackTarget { get; private set; }  //유도탄을 위한 타겟
 
-    public GameObject attackTarget { get;  private set; }  //유도탄을 위한 타겟
+
+    protected Animator animator;
     PlayerController playerController;
     UI_CoolTime ui_CoolTime;
+
+
+    PartInfo _partInfo;
 
     protected override void UpdateAttack() 
     {
@@ -29,9 +33,11 @@ public class PlayerAttack : BaseController
     public override void Init()
     {
 
-        animator = GetComponentInChildren<Animator>();
+        animator = GetComponent<Animator>();
+     
         playerController = Managers.Game.GetPlayer().GetComponent<PlayerController>();
         playerController.playerAttack = GetComponent<PlayerAttack>(); // 어택을 상속받아 수정되는 값 다시 받아오기
+
         attackDelay = 40;
         skillDelay = 40;
         canMove = true;
@@ -46,6 +52,7 @@ public class PlayerAttack : BaseController
 
     public virtual void OnAttack()
     {
+
         if ( !playerController.isJump&&!playerController.isRoll && !isAttack)
         {
             
@@ -62,6 +69,7 @@ public class PlayerAttack : BaseController
                 StartCoroutine("Skill");
             }
         }
+
     }
     protected virtual IEnumerator Use()
     {

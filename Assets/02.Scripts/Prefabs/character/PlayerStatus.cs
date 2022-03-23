@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ePlayerJob { None, Archer,Warrior,Magician};
 
 [System.Serializable]
 public class PartInfo
@@ -12,6 +11,8 @@ public class PartInfo
     public GameObject partDefault;
     public List<GameObject> partList = new List<GameObject>();
     public ItemData itemData;
+
+    public bool hasWeapon { get; private set; }
 
     public void SetItemData(ItemData _itemData)
     {
@@ -25,6 +26,7 @@ public class PartInfo
             if(partList[i].name == _partName) //이름이 같으면 킨다
             {
                 partList[i].SetActive(true);
+                hasWeapon = true;
             }
         }
     }
@@ -36,6 +38,7 @@ public class PartInfo
             if (partList[i].name == _partName) //이름이 같으면 끈다
             {
                 partList[i].SetActive(false);
+                hasWeapon = false;
             }
         }
     }
