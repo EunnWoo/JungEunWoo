@@ -38,6 +38,7 @@ public class UI_MonsterHpBar : UI_Scene
     }
     public void OffMonsterHpbar()
     {
+        if(body.activeSelf == true)
         body.SetActive(false);
     }
 

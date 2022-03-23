@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UI_JobPanel : UI_Popup
+public class UI_Panel : UI_Popup
 {
-    ObjData objData;
+    
     enum Buttons
     {
         JobButton,
@@ -24,23 +24,39 @@ public class UI_JobPanel : UI_Popup
         JobBackGroundImage
     }
 
+    bool bInit;
+    ObjData objData;
 
+    [HideInInspector]
+    public Button OkButton;
+
+    Text npcNameText;
+    Text talkText;
+
+    
     public override void Init()
     {
         base.Init();
-
+        if (bInit) return;
+        bInit = true;
 
 
         Bind<Button>(typeof(Buttons));
         Bind<Text>(typeof(Texts));
         Bind<Image>(typeof(Images));
 
-        GetButton((int)Buttons.JobButton).gameObject.AddUIEvent(OnJobChoiceButton);
+        OkButton = GetButton((int)Buttons.JobButton);
+        //.gameObject.AddUIEvent(OnJobChoiceButton);
         GetButton((int)Buttons.ExitButton).gameObject.AddUIEvent(JobExitButton);
 
         objData = Managers.talk.NPC.GetComponent<ObjData>();
-        GetText((int)Texts.TalkText).text = Managers.talk.GetTalk(objData.id,talkIndex);
-        GetText((int)Texts.NPCNameText).text = Managers.talk.NPC.name;
+
+        npcNameText = GetText((int)Texts.NPCNameText);
+        talkText = GetText((int)Texts.TalkText);
+
+
+        talkText.text = Managers.talk.GetTalk(objData.id,talkIndex);
+        npcNameText.text = Managers.talk.NPC.name;
 
     }
 
@@ -65,22 +81,30 @@ public class UI_JobPanel : UI_Popup
                 Managers.UI.isTalk(false);
                 Managers.UI.ClosePopupUI();
             }
-            GetText((int)Texts.TalkText).text = Managers.talk.GetTalk(talkIndex);
+            talkText.text = Managers.talk.GetTalk(talkIndex);
             talkIndex++;
         }
         else // 아니면 본 대화 진행
         {
             talkIndex++;
-            GetText((int)Texts.TalkText).text = Managers.talk.GetTalk(objData.id, talkIndex);
+            talkText.text = Managers.talk.GetTalk(objData.id, talkIndex);
         }
         if (Managers.talk.GetTalk(objData.id, talkIndex) == null) //말이 더 없을때
         {
             talkIndex = 0;
             Managers.UI.isTalk(false);
             jobController.JobChoice(objData.id); // 직업확정
-            Managers.UI.ClosePopupUI();
+            Managers.UI.ClosePopupUI(this);
         }
 
+    }
+
+    public void QuestGive(PointerEventData data)
+    {
+
+        Managers.talk.NPC.GetComponent<QuestGiver>().QuestSet();
+        Managers.UI.ClosePopupUI(this);
+        Managers.UI.isTalk(false);
     }
 
 }

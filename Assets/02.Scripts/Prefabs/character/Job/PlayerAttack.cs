@@ -59,8 +59,11 @@ public class PlayerAttack : BaseController
 
     public virtual void OnAttack()
     {
-
-        if ( !playerController.isJump&&!playerController.isRoll && !isAttack && hasWaepon)
+        if(!hasWaepon)
+        {
+            FindObjectOfType<UI_ErrorText>().SetErrorText(Define.Error.NoneWeapon);
+        }
+        else if ( !playerController.isJump&&!playerController.isRoll && !isAttack)
         {
             
             if (isAttackReady && playerController.attackType == Define.AttackType.NormalAttack)
@@ -68,12 +71,19 @@ public class PlayerAttack : BaseController
                 isAttack = true;
                 StopCoroutine("Use");
                 StartCoroutine("Use");
-            }
-            else if(isSkillReady &&playerController.attackType == Define.AttackType.SkillAttack && canMove)
+            }  
+            else if(playerController.attackType == Define.AttackType.SkillAttack && canMove)
             {
-                isAttack = true;
-                StopCoroutine("Skill");
-                StartCoroutine("Skill");
+                if (isSkillReady)
+                {
+                    isAttack = true;
+                    StopCoroutine("Skill");
+                    StartCoroutine("Skill");
+                }
+                else if (!isSkillReady)
+                {
+                    FindObjectOfType<UI_ErrorText>().SetErrorText(Define.Error.CoolTime);
+                }
             }
         }
 

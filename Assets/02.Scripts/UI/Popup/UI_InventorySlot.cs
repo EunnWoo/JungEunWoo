@@ -148,7 +148,11 @@ public class UI_InventorySlot : UI_Base, IPointerClickHandler
             {
                 //전사
                 Debug.Log(jobController.jobstring);
-                if (jobController.jobstring != "Sword") return true;
+                if (jobController.jobstring != "Sword")
+                {
+                    FindObjectOfType<UI_ErrorText>().SetErrorText(Define.Error.OtherWeapon);
+                    return true;
+                }
 
                 else
                     jobController.GetComponent<Animator>().runtimeAnimatorController = Managers.Resource.Load<RuntimeAnimatorController>($"Animator/{jobController.jobstring}");
@@ -157,14 +161,22 @@ public class UI_InventorySlot : UI_Base, IPointerClickHandler
             else if (weaponcode < 200)
             {
                 //법사
-                if (jobController.jobstring != "Magic") return true;
+                if (jobController.jobstring != "Magic")
+                {
+                    FindObjectOfType<UI_ErrorText>().SetErrorText(Define.Error.OtherWeapon);
+                    return true;
+                }
                 else
                     jobController.GetComponent<Animator>().runtimeAnimatorController = Managers.Resource.Load<RuntimeAnimatorController>($"Animator/{jobController.jobstring}");
             }
             else if (weaponcode < 300)
             {
                 //궁수
-                if (jobController.jobstring != "Bow") return true;
+                if (jobController.jobstring != "Bow")
+                {
+                    FindObjectOfType<UI_ErrorText>().SetErrorText(Define.Error.OtherWeapon);
+                    return true;
+                }
                 else
                 jobController.GetComponent<Animator>().runtimeAnimatorController = Managers.Resource.Load<RuntimeAnimatorController>($"Animator/{jobController.jobstring}");
             }

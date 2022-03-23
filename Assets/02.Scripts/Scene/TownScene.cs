@@ -8,6 +8,7 @@ public class TownScene : BaseScene
 
     protected override void Init()
     {
+        base.Init();
         SceneType = SceneState.Town;
         gameObject.GetOrAddComponent<CursorController>();
        

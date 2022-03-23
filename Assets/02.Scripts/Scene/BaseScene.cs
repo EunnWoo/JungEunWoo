@@ -31,7 +31,8 @@ public abstract class BaseScene : MonoBehaviour
     {
         
         Init();
-        
+       
+
     }
     private void Update()
     {
@@ -42,6 +43,12 @@ public abstract class BaseScene : MonoBehaviour
         Object obj = GameObject.FindObjectOfType(typeof(EventSystem));
         if (obj == null)
             Managers.Resource.Instantiate("UI/EventSystem").name = "@EventSystem";
+      
+        if (FindObjectOfType<UI_MonsterHpBar>() != null)
+        {
+
+            FindObjectOfType<UI_MonsterHpBar>().OffMonsterHpbar();
+        }
     }
 
     protected virtual void SceneMove() { }

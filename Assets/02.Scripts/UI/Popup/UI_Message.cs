@@ -16,7 +16,7 @@ public class UI_Message : UI_Popup
     #endregion
     Text title, content;
 
-
+    [HideInInspector]
     public Button okButton;
     [HideInInspector]
     public Slider countSlider;

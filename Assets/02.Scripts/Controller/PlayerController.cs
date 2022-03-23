@@ -31,7 +31,7 @@ public class PlayerController : BaseController
     public override void Init()
     {
         rigid = GetComponent<Rigidbody>();
-        animator = GetComponentInChildren<Animator>();
+        animator = GetComponent<Animator>();
         playerStatus = GetComponent<PlayerStatus>();
 
         Managers.Mouse.MouseAction -= OnMouseEvent;
@@ -252,7 +252,11 @@ public class PlayerController : BaseController
 
             if (_lockTarget.layer == (int)Layer.Monster)
             {
-                if (playerAttack == null) return;
+                if (playerAttack == null)
+                {
+                    FindObjectOfType<UI_ErrorText>().SetErrorText(Define.Error.NoneJob);
+                    return;
+                }
 
                 if (DistanceAttackPos(dir)) //거리 비교 bool
                 {
@@ -269,7 +273,11 @@ public class PlayerController : BaseController
             }
             else if (_lockTarget.layer == (int)Layer.Ground)
             {
-                if (playerAttack == null) return;
+                if (playerAttack == null)
+                {
+                    FindObjectOfType<UI_ErrorText>().SetErrorText(Define.Error.NoneJob);
+                    return;
+                }
                 playerAttack.AttackTacrgetSet(_lockTarget);
                 _lockTarget = null;
                 playerAttack.OnAttack();
@@ -336,6 +344,7 @@ public class PlayerController : BaseController
 
                     break;
             }
+
 
         }
     }

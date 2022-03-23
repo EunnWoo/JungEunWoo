@@ -16,6 +16,8 @@ public class SelectScene : BaseScene
         Managers.Game.GetPlayer().transform.position = new Vector3(0f, 1f, 0f);
         Managers.Sound.Play("BGM/Select",Define.Sound.BGM);
 
+
+        
     }
 
     protected override void SceneMove()
@@ -26,7 +28,7 @@ public class SelectScene : BaseScene
     }
     public override void Clear()
     {
-
+        
     }
 
 

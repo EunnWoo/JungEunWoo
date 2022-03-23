@@ -24,6 +24,10 @@ public class TalkManager
         talkData.Add(1, new string[] { "전사의 길을 걷겠는가?", "쉽지 않은 길일거야.."} );
         talkData.Add(2, new string[] { "마법사의 길을 걷겠는가?", "쉽지 않은 길일거야.." });
         talkData.Add(3, new string[] { "궁수의 길을 걷겠는가?", "쉽지 않은 길일거야.." });
+
+        talkData.Add(5, new string[] { "퀘스트 튜토리얼" });
+
+
         errorString = new string[] { "자네는 이미 직업이 있군"/*, "다시 한번 생각하고 오게나.."*/ };
     }
 
@@ -33,12 +37,24 @@ public class TalkManager
         int id = npc.GetComponent<ObjData>().id;
         if (id <= 3 )
         {
-            Managers.UI.ShowPopupUI<UI_JobPanel>();
+            UI_Panel ui_Panel =  Managers.UI.ShowPopupUI<UI_Panel>();
+            ui_Panel.Init();
+            ui_Panel.OkButton.gameObject.AddUIEvent(ui_Panel.OnJobChoiceButton);
         }
+
         else if (id == 4)
         {
             Managers.UI.ShowPopupUI<UI_Store>();
         }
+        else if (id ==5)
+        {
+
+            UI_Panel ui_Panel = Managers.UI.ShowPopupUI<UI_Panel>();
+            ui_Panel.Init();
+            ui_Panel.OkButton.gameObject.AddUIEvent(ui_Panel.QuestGive);
+        }
+
+
         #region SceneMove
         else if (id /6000 == 1 ) // 보완하기
         {
