@@ -18,7 +18,7 @@
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
 		<description>초보자 검 입니다</description>
-		<plusatt>10</plusatt>
+		<plusatt>25</plusatt>
 		<plusdef>0</plusdef>
 		<plushp>0</plushp>
 		<plusmp>0</plusmp>
@@ -43,7 +43,7 @@
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
 		<description>용사의 검 입니다</description>
-		<plusatt>25</plusatt>
+		<plusatt>50</plusatt>
 		<plusdef>0</plusdef>
 		<plushp>0</plushp>
 		<plusmp>0</plusmp>
@@ -68,7 +68,7 @@
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
 		<description>초보자 지팡이 입니다</description>
-		<plusatt>10</plusatt>
+		<plusatt>25</plusatt>
 		<plusdef>0</plusdef>
 		<plushp>0</plushp>
 		<plusmp>0</plusmp>
@@ -93,7 +93,7 @@
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
 		<description>마법사 지팡이 입니다</description>
-		<plusatt>25</plusatt>
+		<plusatt>50</plusatt>
 		<plusdef>0</plusdef>
 		<plushp>0</plushp>
 		<plusmp>0</plusmp>
@@ -118,7 +118,7 @@
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
 		<description>초보자 활 입니다</description>
-		<plusatt>10</plusatt>
+		<plusatt>25</plusatt>
 		<plusdef>0</plusdef>
 		<plushp>0</plushp>
 		<plusmp>0</plusmp>
@@ -143,7 +143,7 @@
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
 		<description>명사수 활 입니다</description>
-		<plusatt>25</plusatt>
+		<plusatt>50</plusatt>
 		<plusdef>0</plusdef>
 		<plushp>0</plushp>
 		<plusmp>0</plusmp>
@@ -318,7 +318,7 @@
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
 		<description>하의1 입니다</description>
-		<plusatt>-1</plusatt>
+		<plusatt>0</plusatt>
 		<plusdef>0</plusdef>
 		<plushp>0</plushp>
 		<plushp>0</plushp>
@@ -343,8 +343,8 @@
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
 		<description>하의2 입니다</description>
-		<plusatt>4100</plusatt>
-		<plusdef>1</plusdef>
+		<plusatt>0</plusatt>
+		<plusdef>0</plusdef>
 		<plushp>0</plushp>
 		<plushp>0</plushp>
 		<skin>Belt2</skin>
@@ -368,8 +368,8 @@
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
 		<description>하의3 입니다</description>
-		<plusatt>4101</plusatt>
-		<plusdef>1</plusdef>
+		<plusatt>0</plusatt>
+		<plusdef>0</plusdef>
 		<plushp>0</plushp>
 		<plushp>0</plushp>
 		<skin>Belt3</skin>
@@ -393,8 +393,8 @@
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
 		<description>하의4 입니다</description>
-		<plusatt>4102</plusatt>
-		<plusdef>1</plusdef>
+		<plusatt>0</plusatt>
+		<plusdef>0</plusdef>
 		<plushp>0</plushp>
 		<plushp>0</plushp>
 		<skin>Belt4</skin>
@@ -418,8 +418,8 @@
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
 		<description>하의5 입니다</description>
-		<plusatt>4103</plusatt>
-		<plusdef>1</plusdef>
+		<plusatt>0</plusatt>
+		<plusdef>0</plusdef>
 		<plushp>0</plushp>
 		<plushp>0</plushp>
 		<skin>Belt5</skin>
@@ -443,8 +443,8 @@
 		<buyamount>1</buyamount>
 		<sellcost>0</sellcost>
 		<description>하의6 입니다</description>
-		<plusatt>4104</plusatt>
-		<plusdef>1</plusdef>
+		<plusatt>0</plusatt>
+		<plusdef>0</plusdef>
 		<plushp>0</plushp>
 		<plushp>0</plushp>
 		<skin>Belt6</skin>

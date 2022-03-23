@@ -61,32 +61,9 @@ public class ItemData
 			return _slot;
 		}
 	}
-
-	//public bool equipmentStatus;
-
-	public string skin { 
-		get {
-			//skin wear part -> 기본클래스 -> wear part 클래스 변환
-			ItemInfoWearPart _item = (ItemInfoWearPart)iteminfoBase;
-			if (_item != null) return _item.skin;
-			else return "NOSKIN";
-		} 
-	}
-
-	public string skin2
+	public string itemName
 	{
 		get
-		{
-			//skin wear part -> 기본클래스 -> wear part 클래스 변환
-			ItemInfoWearPart _item = (ItemInfoWearPart)iteminfoBase;
-			if (_item != null) return _item.skin2;
-			else return "NOSKIN";
-		}
-	}
-
-	public string itemName 
-	{
-		get 
 		{
 
 			return iteminfoBase != null ? iteminfoBase.itemname : "";
@@ -100,6 +77,7 @@ public class ItemData
 			return iteminfoBase.itemType;
 		}
 	}
+
 	//public string GetItemName()
 	//{
 	//	return iteminfoBase.itemname;
@@ -113,6 +91,76 @@ public class ItemData
 	public string icon { get { return iteminfoBase.icon; } }
 	public Sprite iconSprite { get { return ItemInfo.ins.GetSprite(iteminfoBase.icon); } }
 	// public string itemIcon {	get	{return iteminfoBase.icon;}	}
+
+	//public bool equipmentStatus;
+
+
+	public float plusatt { 
+		get {
+			//plussatt wear part -> 기본클래스 -> wear part 클래스 변환
+			ItemInfoWearPart _item = (ItemInfoWearPart)iteminfoBase; 
+			if (_item != null) return _item.plusatt;//attatck값을 갖고왔는데 plusatt이없으면 0을넣어줌
+			else return 0;
+		} 
+	}
+
+	public float plusdef
+	{
+		get
+		{
+			//plussatt wear part -> 기본클래스 -> wear part 클래스 변환
+			ItemInfoWearPart _item = (ItemInfoWearPart)iteminfoBase;
+			if (_item != null) return _item.plusdef;
+			else return 0;
+		}
+	}
+
+	public float plushp
+	{
+		get
+		{
+			//plussatt wear part -> 기본클래스 -> wear part 클래스 변환
+			ItemInfoWearPart _item = (ItemInfoWearPart)iteminfoBase;
+			if (_item != null) return _item.plushp;
+			else return 0;
+		}
+	}
+
+	public float plusmp
+	{
+		get
+		{
+			//plussatt wear part -> 기본클래스 -> wear part 클래스 변환
+			ItemInfoWearPart _item = (ItemInfoWearPart)iteminfoBase;
+			if (_item != null) return _item.plusmp;
+			else return 0;
+		}
+	}
+
+	public string skin
+	{
+		get
+		{
+			//skin wear part -> 기본클래스 -> wear part 클래스 변환
+			ItemInfoWearPart _item = (ItemInfoWearPart)iteminfoBase;
+			if (_item != null) return _item.skin;
+			else return "NOSKIN";
+		}
+	}
+
+	public string skin2
+	{
+		get
+		{
+			//skin wear part -> 기본클래스 -> wear part 클래스 변환
+			ItemInfoWearPart _item = (ItemInfoWearPart)iteminfoBase;
+			if (_item != null) return _item.skin2;
+			else return "NOSKIN";
+		}
+	}
+
+	
+
 }
 
 [System.Serializable]
@@ -166,9 +214,10 @@ public class ItemInfoBase
 [System.Serializable]
 public class ItemInfoWearPart : ItemInfoBase
 {
-	public int plusatt;
-	public int plusdef;
-	public int plushp;
+	public float plusatt;
+	public float plusdef;
+	public float plushp;
+	public float plusmp;
 	public string skin;
 	public string skin2;
 }

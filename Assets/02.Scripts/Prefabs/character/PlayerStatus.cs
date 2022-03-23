@@ -19,27 +19,32 @@ public class PartInfo
         itemData = _itemData;
     }
 
-    public void Equip(string _partName)//장착
+    public void Equip(string _partName, eEquipmentSlot _equipmentSlot)//장착
     {
         for (int i = 0, imax = partList.Count; i < imax; i++)
         {
             if(partList[i].name == _partName) //이름이 같으면 킨다
             {
                 partList[i].SetActive(true);
-                Managers.Game.GetPlayer().GetComponent<PlayerAttack>().HasWeapon = true;
-    
+                if (_equipmentSlot == eEquipmentSlot.Weapon)
+                {
+                    Managers.Game.GetPlayer().GetComponent<PlayerAttack>().HasWeapon = true;
+                }
             }
         }
     }
 
-    public void UnEquip(string _partName) //장비 탈착
+    public void UnEquip(string _partName, eEquipmentSlot _equipmentSlot) //장비 탈착
     {
         for (int i = 0, imax = partList.Count; i < imax; i++) //partList에서 던져준 이름이랑 같은 장비를 찾는다
         {
             if (partList[i].name == _partName) //이름이 같으면 끈다
             {
                 partList[i].SetActive(false);
-                Managers.Game.GetPlayer().GetComponent<PlayerAttack>().HasWeapon = false;
+                if (_equipmentSlot == eEquipmentSlot.Weapon)
+                {
+                    Managers.Game.GetPlayer().GetComponent<PlayerAttack>().HasWeapon = false;
+                }
             }
         }
     }
@@ -56,15 +61,36 @@ public class PlayerStatus : Status
 
     public void Equip(int _index, ItemData _itemData)
     {
+        //Mesh(외형)교체
         PartInfo _partInfo = listPartInfos[_index];
         //default off 디폴트를 꺼준다
         if(_partInfo.partDefault != null)
         {
             _partInfo.partDefault.SetActive(false);
         }
-        _partInfo.Equip(_itemData.skin); //장착한 스킨을 낀다
-        _partInfo.Equip(_itemData.skin2); //장착한 스킨을 낀다
+        _partInfo.Equip(_itemData.skin, _itemData.equipmentSlot); //장착한 스킨을 낀다
+        _partInfo.Equip(_itemData.skin2, _itemData.equipmentSlot); //장착한 스킨을 낀다
         _partInfo.SetItemData(_itemData);//장착할때 아이템데이터를 넣어준다
+
+
+        //아이템을 장착하면 status교체(증가)
+        wearAttack += _itemData.plusatt;
+        wearDefense += _itemData.plusdef;
+        wearHP += _itemData.plushp;
+        wearMP += _itemData.plusmp;
+       // Debug.Log("장착 wearAttack :" + wearAttack
+            //+ "wearDefense : " + wearDefense
+            //+ "wearHP : " + wearHP
+            //+ "wearMP : " + wearMP);
+        //Debug.Log("@@@UI_PlayerData아래스텟");
+        UI_PlayerData.ins.DisplayHP(hp, MAX_HP); //체력 게이지 이미지 움직임
+        UI_PlayerData.ins.DisplayMP(mp, MAX_MP);
+
+        //Debug.Log("@@@UI_Equipment아래스텟");
+        UI_Equipment.ins.DisplayAttack(attack);
+        UI_Equipment.ins.DisplayDEF(defense);
+        UI_Equipment.ins.DisplayHP(MAX_HP);
+        UI_Equipment.ins.DisplayMP(MAX_MP);
     }
 
     public void UnEquip(int _index, ItemData _itemData)
@@ -76,9 +102,34 @@ public class PlayerStatus : Status
             _partInfo.partDefault.SetActive(true);
         }
         
-        _partInfo.UnEquip(_itemData.skin);//탈착한 스킨을 끈다
-        _partInfo.UnEquip(_itemData.skin2);//탈착한 스킨을 끈다
+        _partInfo.UnEquip(_itemData.skin, _itemData.equipmentSlot);//탈착한 스킨을 끈다
+        _partInfo.UnEquip(_itemData.skin2, _itemData.equipmentSlot);//탈착한 스킨을 끈다
         _partInfo.SetItemData(null);//장비를 해제할때는 null을 넣어준다
+
+
+        //아이템을 장착하면 status교체(감소)
+        wearAttack -= _itemData.plusatt;
+        wearDefense -= _itemData.plusdef;
+        wearHP -= _itemData.plushp;
+        wearMP -= _itemData.plusmp;
+        //Debug.Log("해제 wearAttack :" + wearAttack
+            //+ "wearDefense : " + wearDefense
+            //+ "wearHP : " + wearHP
+            //+ "wearMP : " + wearMP);
+        //Debug.Log("@@@UI_PlayerData아래스텟");
+        UI_PlayerData.ins.DisplayHP(hp, MAX_HP); //체력 게이지 이미지 움직임
+        UI_PlayerData.ins.DisplayMP(mp, MAX_MP);
+
+        //Debug.Log("@@@UI_Equipment아래스텟");
+        UI_Equipment.ins.DisplayAttack(attack);
+        UI_Equipment.ins.DisplayDEF(defense);
+        UI_Equipment.ins.DisplayHP(MAX_HP);
+        UI_Equipment.ins.DisplayMP(MAX_MP);
+
+        //System.Action<float> _attCallback;
+        //System.Action<float> _defCallback;
+        //System.Action<float> _hpCallback;
+        //System.Action<float> _mpCallback;
     }
     #endregion
 
@@ -156,8 +207,14 @@ public class PlayerStatus : Status
         {
             expArray[i] = GetNeedExp(i);
         }
-        
+
         //UI_PlayerData.ins.DisplayLevelText(1);
+
+        //시작시 스텟설정
+        UI_Equipment.ins.DisplayAttack(attack);
+        UI_Equipment.ins.DisplayDEF(defense);
+        UI_Equipment.ins.DisplayHP(hp);
+        UI_Equipment.ins.DisplayMP(mp);
     }
 
     float GetNeedExp(float _level) //경험치 계산하는 함수
@@ -207,7 +264,7 @@ public class PlayerStatus : Status
         //HP MP를 Plus
         hp += _hp; //물약을 먹을시
         hp = hp > MAX_HP ? MAX_HP : hp; //hp가 MAX양을 초과하면 더이상 회복하지않는다
-        //UI_PlayerData.ins.DisplayHP(hp, MAX_HP); //체력 게이지 이미지 움직임
+        UI_PlayerData.ins.DisplayHP(hp, MAX_HP); //체력 게이지 이미지 움직임
         //HP MP
         mp += _mp; //물약을 먹을시
         mp = mp > MAX_MP ? MAX_MP : mp;//mp가 MAX양을 초과하면 더이상 회복하지않는다

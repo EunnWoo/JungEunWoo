@@ -51,21 +51,15 @@ public class UI_PlayerData : UI_Scene
         status = Managers.Game.GetPlayer().GetComponent<Status>();
     }
 
-    //public void DisplayHP(float _hp, float _max)
-    //{
-    //    Debug.Log("hp까임");
-    //    float _v = _hp / _max;
-    //    hpbar.fillAmount = _v;
-    //    hpText.text = string.Format("{0:0.0}", (_v * 100f)) + "%"; //소수점 한자리까지만 출력하는 함수
-
-    //}
-    private void Update()
+    public void DisplayHP(float _hp, float _max)
     {
-        float _v = status.hp / status.MAX_HP;
-        hpbar.fillAmount = status.hp / status.MAX_HP;
-        hpText.text = string.Format("{0:0.0}", (_v * 100f)) + "%";
+        Debug.Log("hp까임");
+        float _v = _hp / _max;
+        hpbar.fillAmount = _v;
+        hpText.text = string.Format("{0:0.0}", (_v * 100f)) + "%"; //소수점 한자리까지만 출력하는 함수
 
     }
+    
     public void DisplayMP(float _mp, float _max)
     {
         float _v = _mp / _max;

@@ -88,7 +88,8 @@ public class StoreItem : UI_Base
             {
                 //Debug.Log("@@@ 보유머니 = 보유머니 - 아이템가격");
                 //ui_Message.ShowMessage("아이템 구매", _itemData.itemName + "을" + _itemData.itemCount + "개 구매했습니다");
-
+                
+                _playerStatus.gold -= _itemData.gamecost; //상점에서 아이템 구매시 보유골드 빼주는거
             }
             else
             {

@@ -1255,7 +1255,7 @@ RectTransform:
   - {fileID: 234079653}
   - {fileID: 287191967}
   m_Father: {fileID: 5145363286552947713}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3675,7 +3675,7 @@ RectTransform:
   - {fileID: 1710783565}
   - {fileID: 386195443}
   m_Father: {fileID: 5145363286552947713}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5054,7 +5054,7 @@ RectTransform:
   - {fileID: 166239152}
   - {fileID: 1270313307}
   m_Father: {fileID: 5145363286552947713}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9353,6 +9353,10 @@ PrefabInstance:
     - target: {fileID: 5657571042990092107, guid: 9463bbab58cb27243b3d7aa88236670a, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5657571042990092107, guid: 9463bbab58cb27243b3d7aa88236670a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5657571042990092109, guid: 9463bbab58cb27243b3d7aa88236670a, type: 3}
       propertyPath: m_RootOrder
@@ -16392,6 +16396,10 @@ MonoBehaviour:
       upgradeCount: 0
     equipSlot: {fileID: 5145363285880042478}
     skin: {fileID: 0}
+  attText: {fileID: 2078259932}
+  defText: {fileID: 1270313308}
+  hpText: {fileID: 386195444}
+  mpText: {fileID: 287191968}
 --- !u!4 &2103599808 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 482800, guid: 679444084a776cb41a6a642071dd3daa, type: 3}
@@ -18174,9 +18182,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 528147653}
+  - {fileID: 722915673}
   - {fileID: 521215244}
   - {fileID: 107873095}
-  - {fileID: 722915673}
   m_Father: {fileID: 5145363287017764331}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
