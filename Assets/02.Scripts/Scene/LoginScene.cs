@@ -10,8 +10,6 @@ public class LoginScene : BaseScene
         
         base.Init();
         SceneType = SceneState.Login;
-        Debug.Log("LoginScene ¿‘¿Â");
-
         Managers.UI.ShowSceneUI<UI_LoginCanvas>();
 
     }
@@ -19,7 +17,6 @@ public class LoginScene : BaseScene
 
     public override void Clear()
     {
-        Debug.Log("LoginScene Clear!");
     }
 
 }

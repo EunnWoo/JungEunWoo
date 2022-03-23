@@ -18,18 +18,16 @@ public class TurorialScene : BaseScene
 
         Managers.UI.ShowSceneUI<UI_PlayerData>();
         Managers.UI.ShowSceneUI<UI_Money>();
+
         UI_Quest _quest = Managers.UI.ShowSceneUI<UI_Quest>();
         _quest.Init();
         _quest.questView.SetActive(false);
-
-
-
-
 
         ui_Inventory = Managers.UI.ShowSceneUI<UI_Inventory>();
         ui_MonsterHpbar = Managers.UI.ShowSceneUI<UI_MonsterHpBar>();
         //ui_Equipment = Managers.UI.ShowSceneUI<UI_Equipment>();
 
+        Managers.UI.ShowSceneUI<UI_ErrorText>();
 
         Managers.Sound.Play("BGM/Tutorial", Define.Sound.BGM);
     }
@@ -41,7 +39,5 @@ public class TurorialScene : BaseScene
     public override void Clear()
     {
         //ui_Equipment.Eqbody.SetActive(false);
-        //ui_Inventory.OpenInventory();
-        ui_MonsterHpbar.OffMonsterHpbar();
     }
 }

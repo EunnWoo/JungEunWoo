@@ -32,5 +32,13 @@ public class Define
         LoopEffect,
         MaxCount
     }
+    public enum Error
+    {
+        NoneWeapon,
+        OtherWeapon,
+        NoneJob,
+        CoolTime
+
+    }
 }
 

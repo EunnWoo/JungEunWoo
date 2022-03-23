@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 303450400}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BombSpawnPoint  (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 846383078}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BombSpawnPoint  (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1158190161}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BombSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1243442560}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BombSpawnPoint  (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1714283461}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BombSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8386886850102196193}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime_Rig_vfin:Hip_Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8386886850102196195}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime_Rig_vfin:HIP_Ctrl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 402083962}
   - component: {fileID: 402083959}
   - component: {fileID: 1053470688}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Boss
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -349,7 +349,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8386886850102196199}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime_Rig_vfin:Ctrl_All
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +381,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8386886850102196201}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime_Rig_vfin:Root_Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,7 +413,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8386886850102196203}
   - component: {fileID: 8386886850096883397}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime_Rig_vfin:Slime_Non_MDL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -498,7 +498,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8386886850102196205}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime_Rig_vfin:Hip_GPR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -529,7 +529,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8386886850102196207}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime_Rig_vfin:Rig_GRP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -560,7 +560,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8386886850102196209}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime_Rig_vfin:Top_GRP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -591,7 +591,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8386886850102196213}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime_Rig_vfin:Top_Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -621,7 +621,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8386886850102196215}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime_Rig_vfin:Top_Ctrl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -654,12 +654,28 @@ PrefabInstance:
       value: AreaDamageFire
       objectReference: {fileID: 0}
     - target: {fileID: 109944, guid: 2ff0199b19f96fd489a4e259a670d9b5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 109944, guid: 2ff0199b19f96fd489a4e259a670d9b5, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 145392, guid: 2ff0199b19f96fd489a4e259a670d9b5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 145392, guid: 2ff0199b19f96fd489a4e259a670d9b5, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 160980, guid: 2ff0199b19f96fd489a4e259a670d9b5, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 185852, guid: 2ff0199b19f96fd489a4e259a670d9b5, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 185852, guid: 2ff0199b19f96fd489a4e259a670d9b5, type: 3}
       propertyPath: m_IsActive

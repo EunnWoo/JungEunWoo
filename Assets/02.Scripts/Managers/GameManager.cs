@@ -41,13 +41,13 @@ public class GameManager
         }
         if (Input.GetKeyDown(KeyCode.I))
         {
-            UI_Inventory ui_inventory = GameObject.FindObjectOfType<UI_Inventory>();
+            UI_Inventory ui_inventory = Object.FindObjectOfType<UI_Inventory>();
             ui_inventory.OpenInventory();
            
         }
         if(Input.GetKeyDown(KeyCode.Q))
         {
-            UI_Quest ui_quest = GameObject.FindObjectOfType<UI_Quest>();
+            UI_Quest ui_quest = Object.FindObjectOfType<UI_Quest>();
             ui_quest.OpenQuest();
 
         }

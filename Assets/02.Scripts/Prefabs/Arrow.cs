@@ -61,21 +61,19 @@ public class Arrow : MonoBehaviour
             rigid.Sleep();
             rigid.useGravity = false;
             transform.position = other.ClosestPointOnBounds(transform.position);
-            transform.parent = other.transform;
             //피격처리
             Status playerstatus = playerAttack.GetComponent<Status>();
             Status status = other.GetComponent<Status>();
 
             status.TakeDamage(playerstatus,playerAttack.attackRatio);
 
-            Invoke("DisableArrow", 3f);
+            DisableArrow();
         }
         else if (other.tag == "Ground")
         {
             rigid.Sleep();
             rigid.useGravity = false;
             transform.position = other.ClosestPointOnBounds(transform.position) + new Vector3(0, 0.5f, 0);
-
             Invoke("DisableArrow", 3f);
         }
         
@@ -85,7 +83,7 @@ public class Arrow : MonoBehaviour
     private void OnDisable()//오브젝트 비활성화
     {
         //값 초기화
-        transform.parent = Managers.Pool.objPoolManager.transform;
+        
         transform.position = Vector3.zero;
         transform.rotation = Quaternion.identity;
         rigid.Sleep();

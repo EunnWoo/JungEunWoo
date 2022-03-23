@@ -11,11 +11,22 @@ public class PlayerAttack : BaseController
     public bool isAttack { get; protected set; }
     public float attackRatio { get; protected set; }
     public float skillRatio { get; protected set; }
-    protected Animator animator;
+    public GameObject attackTarget { get; private set; }  //유도탄을 위한 타겟
 
-    public GameObject attackTarget { get;  private set; }  //유도탄을 위한 타겟
+    private bool hasWaepon;
+    public bool HasWeapon { 
+        set
+        {
+            hasWaepon = value;
+        }
+
+    }
+
+    protected Animator animator;
     PlayerController playerController;
     UI_CoolTime ui_CoolTime;
+
+
 
     protected override void UpdateAttack() 
     {
@@ -29,9 +40,11 @@ public class PlayerAttack : BaseController
     public override void Init()
     {
 
-        animator = GetComponentInChildren<Animator>();
+        animator = GetComponent<Animator>();
+     
         playerController = Managers.Game.GetPlayer().GetComponent<PlayerController>();
         playerController.playerAttack = GetComponent<PlayerAttack>(); // 어택을 상속받아 수정되는 값 다시 받아오기
+
         attackDelay = 40;
         skillDelay = 40;
         canMove = true;
@@ -46,7 +59,11 @@ public class PlayerAttack : BaseController
 
     public virtual void OnAttack()
     {
-        if ( !playerController.isJump&&!playerController.isRoll && !isAttack)
+        if(!hasWaepon)
+        {
+            FindObjectOfType<UI_ErrorText>().SetErrorText(Define.Error.NoneWeapon);
+        }
+        else if ( !playerController.isJump&&!playerController.isRoll && !isAttack)
         {
             
             if (isAttackReady && playerController.attackType == Define.AttackType.NormalAttack)
@@ -54,14 +71,22 @@ public class PlayerAttack : BaseController
                 isAttack = true;
                 StopCoroutine("Use");
                 StartCoroutine("Use");
-            }
-            else if(isSkillReady &&playerController.attackType == Define.AttackType.SkillAttack && canMove)
+            }  
+            else if(playerController.attackType == Define.AttackType.SkillAttack && canMove)
             {
-                isAttack = true;
-                StopCoroutine("Skill");
-                StartCoroutine("Skill");
+                if (isSkillReady)
+                {
+                    isAttack = true;
+                    StopCoroutine("Skill");
+                    StartCoroutine("Skill");
+                }
+                else if (!isSkillReady)
+                {
+                    FindObjectOfType<UI_ErrorText>().SetErrorText(Define.Error.CoolTime);
+                }
             }
         }
+
     }
     protected virtual IEnumerator Use()
     {

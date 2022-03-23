@@ -56,6 +56,7 @@ public class Sword : PlayerAttack
     }
     protected override void OnHitEvent()
     {
+        Managers.Sound.Play("EffectSound/Attack/Sword" + Random.Range(1,3));
         Status playerstatus = Managers.Game.GetPlayer().GetComponent<Status>();
         Vector3 vec = transform.localPosition + transform.forward;
         Collider[] hit = Physics.OverlapSphere(vec, 1.2f, 1 << (int)Layer.Monster);
@@ -72,7 +73,7 @@ public class Sword : PlayerAttack
     {
         Status playerstatus = Managers.Game.GetPlayer().GetComponent<Status>();
         Collider[] hit = Physics.OverlapSphere(transform.position, 2.2f, 1 << (int)Layer.Monster);
-
+        Managers.Sound.Play("EffectSound/Attack/Sword4");
 
         for (int i = 0; i < hit.Length; i++)
         {
