@@ -27,6 +27,7 @@ public class TurorialScene : BaseScene
         ui_MonsterHpbar = Managers.UI.ShowSceneUI<UI_MonsterHpBar>();
         //ui_Equipment = Managers.UI.ShowSceneUI<UI_Equipment>();
 
+        Managers.UI.ShowSceneUI<UI_Menu>();
         Managers.UI.ShowSceneUI<UI_ErrorText>();
 
         Managers.Sound.Play("BGM/Tutorial", Define.Sound.BGM);

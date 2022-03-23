@@ -1919,6 +1919,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Main Camera '
       objectReference: {fileID: 0}
+    - target: {fileID: 1993442684360518422, guid: 0951914f182413141bf69311bdb987a7, type: 3}
+      propertyPath: field of view
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 1993442684360518423, guid: 0951914f182413141bf69311bdb987a7, type: 3}
       propertyPath: m_RootOrder
       value: 2

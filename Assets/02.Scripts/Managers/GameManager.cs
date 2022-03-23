@@ -53,8 +53,17 @@ public class GameManager
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Managers.UI.CloseAllPopupUI();
-            Managers.UI.isTalk(false);
+            if(Managers.UI.StatePopupUI())
+            {
+                Managers.UI.CloseAllPopupUI();
+                Managers.UI.isTalk(false);
+            }
+            else if (!Managers.UI.StatePopupUI())
+            {
+                UI_Menu ui_Menu = Object.FindObjectOfType<UI_Menu>();
+                ui_Menu.OpenMenu();
+            }
+            
 
         }
     }
