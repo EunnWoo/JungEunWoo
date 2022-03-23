@@ -624,19 +624,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7184805044447416128, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
   m_PrefabInstance: {fileID: 1630092955}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &185248064
-MonoBehaviour:
+--- !u!136 &185248065
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 185248063}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c7889f02eb80634fb5f407765e18163, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 5
+  m_Radius: 2
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1001 &192848213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7406,21 +7407,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7184805044447416131, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
-      propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'goggle'\n\tTransform 'goggle'\n\tFrom animation
-        clip 'Idle_noWeapon'\n\tFrom animation clip 'PickUp_noWeapon'\n\tFrom animation
-        clip 'PotionDrink_noWeapon'\n\tFrom animation clip 'Sleep_noWeapon'\n\tFrom
-        animation clip 'Idle_noWeapon'\n\tFrom animation clip 'JumpStart_noWeapon'\n\tFrom
-        animation clip 'JumpAir_noWeapon'\n\tFrom animation clip 'JumpEnd_noWeapon'\n\tFrom
-        animation clip 'Idle_noWeapon'\n\tFrom animation clip 'NormalRun_noWeapon'\n\tand
-        more ..."
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7184805044447416131, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
-    - {fileID: 585730309, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
 --- !u!1 &1653920383
 GameObject:
