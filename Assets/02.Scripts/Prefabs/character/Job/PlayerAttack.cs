@@ -13,13 +13,20 @@ public class PlayerAttack : BaseController
     public float skillRatio { get; protected set; }
     public GameObject attackTarget { get; private set; }  //À¯µµÅºÀ» À§ÇÑ Å¸°Ù
 
+    private bool hasWaepon;
+    public bool HasWeapon { 
+        set
+        {
+            hasWaepon = value;
+        }
+
+    }
 
     protected Animator animator;
     PlayerController playerController;
     UI_CoolTime ui_CoolTime;
 
 
-    PartInfo _partInfo;
 
     protected override void UpdateAttack() 
     {
@@ -53,7 +60,7 @@ public class PlayerAttack : BaseController
     public virtual void OnAttack()
     {
 
-        if ( !playerController.isJump&&!playerController.isRoll && !isAttack)
+        if ( !playerController.isJump&&!playerController.isRoll && !isAttack && hasWaepon)
         {
             
             if (isAttackReady && playerController.attackType == Define.AttackType.NormalAttack)

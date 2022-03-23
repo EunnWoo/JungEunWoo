@@ -22,26 +22,7 @@ public class SceneManagerEx
 
         loadSceneName = GetSceneName(type);
         SceneManager.LoadScene("Loading");
-     //   ui_Loading.StartCoroutine(ui_Loading.LoadSceneProcess());
-     // loadSceneName = GetSceneName(type);
-     //  StartCorutine(LoadSceneProcess());
-
-        // SceneManager.LoadScene(); // SceneManager´Â UnityEngineÀÇ SceneManager
     }
-
-
-
-    //private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
-    //{
-    //    if(arg0.name == loadSceneName)
-    //    {
-    //        ui_Loading.StartCoroutine(ui_Loading.Fade(false));
-    //        SceneManager.sceneLoaded -= OnSceneLoaded;
-    //    }
-    //}
-
-
-
 
     public void Clear()
     {

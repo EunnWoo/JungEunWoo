@@ -55,7 +55,6 @@ public class UI_Message : UI_Popup
         }
     }
 
-
     enum Texts
     {
         TitleText,

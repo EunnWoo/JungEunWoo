@@ -31,21 +31,16 @@ public class JobController : MonoBehaviour
         if (jobstate == (int)JobInfo.SWORD) // 전사
         {
             jobstring = "Sword";
-          //  Weapons[2].SetActive(true);
-          //  Weapons[3].SetActive(true);
         }
         else if (jobstate == (int)JobInfo.MAGIC) // 법사 전직
         {
             jobstring = "Magic";
-         //   Weapons[4].SetActive(true);
         }
 
         else if (jobstate == (int)JobInfo.BOW) // 궁수 전직
         {
             jobstring = "Bow";
-       
-         //   Weapons[0].SetActive(true);
-         //   Weapons[1].SetActive(true);
+
         }
        
       
