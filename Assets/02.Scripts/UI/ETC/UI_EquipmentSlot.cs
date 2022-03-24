@@ -13,6 +13,7 @@ public class UI_EquipmentSlot : UI_Base
 
     bool bInit;
     ItemData itemData;
+    [SerializeField]
     Image icon;
     private Sprite defaulticonSprite;
 

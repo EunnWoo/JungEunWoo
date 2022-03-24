@@ -53,9 +53,9 @@ public class UI_Equipment : UI_Scene
         Bind<GameObject>(typeof(GameObjects));
 
         attText = GetText((int)Texts.Attack_val);
-        defText = GetText((int)Texts.Hp_val);
-        hpText = GetText((int)Texts.Mp_val);
-        mpText = GetText((int)Texts.DEF_val);
+        hpText = GetText((int)Texts.Hp_val);
+        mpText = GetText((int)Texts.Mp_val);
+        defText = GetText((int)Texts.DEF_val);
 
         body = Get<GameObject>((int)GameObjects.Body);
 
@@ -68,12 +68,16 @@ public class UI_Equipment : UI_Scene
         slots[1].equipSlot = armorBG.GetComponent<UI_EquipmentSlot>();
         slots[2].equipSlot = weaponBG.GetComponent<UI_EquipmentSlot>();
         slots[3].equipSlot = bootsBG.GetComponent<UI_EquipmentSlot>();
-        
+        for(int i =0; i < slots.Length; i++)
+        {
+            slots[i].equipSlot.Init();
+        }
 
 
 
 
         playerstatus = Managers.Game.GetPlayer().GetComponent<PlayerStatus>();
+
         body.SetActive(false);
 
     }
