@@ -255,6 +255,10 @@ public class PlayerStatus : Status
             case eAbiltyKind.LevelAttack: _rtn = _level * 5.0f; break;//레벨업시 증가하는 Attack
             case eAbiltyKind.LevelDefense: _rtn = _level * 0.5f; break;//레벨업시 증가하는DEF
         }
+        UI_Equipment.ins.DisplayAttack(attack);
+        UI_Equipment.ins.DisplayDEF(defense);
+        UI_Equipment.ins.DisplayHP(hp);
+        UI_Equipment.ins.DisplayMP(mp);
         return _rtn;
     }
 
