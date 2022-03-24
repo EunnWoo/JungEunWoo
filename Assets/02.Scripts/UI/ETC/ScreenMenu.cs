@@ -16,7 +16,7 @@ public class ScreenMenu : UI_Base
     Slider fovSlider;
 
    
-    Button backButton;
+  
     public override void Init()
     {
         Bind<Button>(typeof(Buttons));
@@ -25,7 +25,7 @@ public class ScreenMenu : UI_Base
         fovSlider = Get<GameObject>((int)GameObjects.FOVSlider).GetComponent<Slider>();
         fovSlider.onValueChanged.AddListener(Function_FOVSlider);
 
-        backButton.gameObject.AddUIEvent(BackClick);
+        GetButton((int)Buttons.BackButton).gameObject.AddUIEvent(BackClick);
     }
 
 

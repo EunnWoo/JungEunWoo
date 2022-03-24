@@ -12,6 +12,8 @@ public class UIManager
     UI_Scene _sceneUI = null;
 
     public bool isAction { get; private set; }
+    public bool isTalk(bool isaction) => (isAction = isaction);
+
     public GameObject Root
     { get
         {
@@ -81,6 +83,10 @@ public class UIManager
      
         go.transform.SetParent(Root.transform); //부모 지정해서 한번에 관리
 
+
+        isAction = true; // 이동 불가능
+
+
         //showpopupui에서 오더 관리 안 해주는 이유 -> 원래 생성되어있던 ui를 컨트롤할때 카운터가 안 된다.
         return popup;
     }
@@ -108,6 +114,8 @@ public class UIManager
     
     public void ClosePopupUI()
     {
+        isAction = false; // 이동가능
+
         //스택 추출해서 닫기
         if (_popupStack.Count == 0) //스택 건드릴때 카운트 체크하기
             return;
@@ -123,7 +131,7 @@ public class UIManager
             ClosePopupUI();
     }
 
-    public bool isTalk(bool isaction) => (isAction = isaction);
+    
 
 
 

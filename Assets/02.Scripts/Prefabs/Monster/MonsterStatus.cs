@@ -16,6 +16,7 @@ public class MonsterStatus : Status
     {
         base.TakeDamage(attacker, ratio);
 
+        
         UI_MonsterHpBar ui_MonsterHpBar = FindObjectOfType<UI_MonsterHpBar>();
         if (ui_MonsterHpBar != null)
         {

@@ -2,14 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.EventSystems;
 public enum ePotionType { HpPotion = 10001, MpPotion = 10002 };
 
-public class Potion : MonoBehaviour
+
+public class Potion : UI_Base
 {
     public ePotionType potionType;
     bool bPotion;
-    public void Invork_Potion(Image _potionBoard)
+
+    enum Images
+    {
+        PotionImage
+    }
+    Image potionImage;
+    public override void Init()
+    {
+        Bind<Image>(typeof(Images));
+        potionImage = GetImage((int)Images.PotionImage);
+
+        potionImage.gameObject.AddUIEvent(Invork_Potion);
+
+    }
+    void Invork_Potion(PointerEventData data)
     {
         if (bPotion) return;
         {
@@ -20,7 +35,7 @@ public class Potion : MonoBehaviour
             ItemData _itemData =  UI_Inventory.ins.CheckAndEatHP(_itemcode);
             if(_itemData != null)
             {
-                StartCoroutine(PotionDelay(1f, _potionBoard)); //µô·¹ÀÌ 1ÃÊ(ÄðÅ¸ÀÓ)
+                StartCoroutine(PotionDelay(1f, potionImage)); //µô·¹ÀÌ 1ÃÊ(ÄðÅ¸ÀÓ)
             }
             else
             {
@@ -28,8 +43,6 @@ public class Potion : MonoBehaviour
             }
         }
     }
-
-    
 
     IEnumerator PotionDelay(float _duration, Image _skillBoard) //Æ÷¼Ç ÄðÅ¸ÀÓ
     {
@@ -44,12 +57,5 @@ public class Potion : MonoBehaviour
         }
         _skillBoard.fillAmount = 0f;
         bPotion = false;
-    }
-    public void TakePotion()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            // PlayerStatus.ins.SetHPMP<>;
-        }
     }
 }

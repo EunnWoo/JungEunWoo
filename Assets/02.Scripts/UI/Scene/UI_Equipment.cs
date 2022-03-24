@@ -25,16 +25,14 @@ public class UI_Equipment : UI_Scene
     }
     #endregion
 
-    public EquipmentSlot[] defaultSlots = new EquipmentSlot[4];
-    public EquipmentSlot[] slots = new EquipmentSlot[4]; //4개의 배열생성\
-
-    GameObject body;
-    PlayerStatus playerstatus;
-    Text attText, defText, hpText, mpText;
 
     enum GameObjects
     {
-        Body
+        Body,
+        HelmetBG,
+        ArmorBG,
+        BootsBG,
+        WeponBG
     }
     enum Texts
     {
@@ -43,6 +41,15 @@ public class UI_Equipment : UI_Scene
         Mp_val,
         DEF_val
     }
+
+    public EquipmentSlot[] defaultSlots = new EquipmentSlot[4];
+    public EquipmentSlot[] slots = new EquipmentSlot[4]; //4개의 배열생성
+
+    GameObject body;
+    GameObject helmetBG, armorBG, bootsBG, weaponBG;
+    PlayerStatus playerstatus;
+    Text attText, defText, hpText, mpText;
+
 
     public override void Init()
     {
@@ -56,7 +63,20 @@ public class UI_Equipment : UI_Scene
         defText = GetText((int)Texts.Hp_val);
         hpText = GetText((int)Texts.Mp_val);
         mpText = GetText((int)Texts.DEF_val);
+
         body = Get<GameObject>((int)GameObjects.Body);
+
+        helmetBG = Get<GameObject>((int)GameObjects.HelmetBG);
+        armorBG = Get<GameObject>((int)GameObjects.ArmorBG); 
+        bootsBG = Get<GameObject>((int)GameObjects.BootsBG);
+        weaponBG = Get<GameObject>((int)GameObjects.WeponBG);
+
+        slots[0].equipSlot = helmetBG.GetComponent<UI_EquipmentSlot>();
+        slots[1].equipSlot = armorBG.GetComponent<UI_EquipmentSlot>();
+        slots[2].equipSlot = weaponBG.GetComponent<UI_EquipmentSlot>();
+        slots[3].equipSlot = bootsBG.GetComponent<UI_EquipmentSlot>();
+        
+
 
 
 

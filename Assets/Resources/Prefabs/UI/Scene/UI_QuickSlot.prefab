@@ -32,12 +32,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8233661744063275615}
-  m_Father: {fileID: 8233661742940966201}
+  m_Father: {fileID: 8233661742060032248}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -124.69214, y: 39.765015}
+  m_AnchoredPosition: {x: -255.00009, y: 105.75629}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &8233661741990951588
@@ -121,19 +121,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8233661741990951587}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8233661741990951585}
-        m_TargetAssemblyTypeName: Potion, Assembly-CSharp
-        m_MethodName: Invork_Potion
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8233661744063275600}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &8233661741990951585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f137415147ed1458ed830da5a7f76f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  potionType: 0
+  potionType: 10001
 --- !u!1 &8233661741997573440
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,7 +147,7 @@ GameObject:
   - component: {fileID: 8233661741997573443}
   - component: {fileID: 8233661741997573442}
   m_Layer: 5
-  m_Name: MPImage
+  m_Name: PotionImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -253,7 +241,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 8233661742940966201}
+  - {fileID: 8233661741990951584}
+  - {fileID: 8233661742549758685}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -367,12 +356,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8233661741997573441}
-  m_Father: {fileID: 8233661742940966201}
+  m_Father: {fileID: 8233661742060032248}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 1.3080444, y: 39.765015}
+  m_AnchoredPosition: {x: -128.99991, y: 105.75629}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &8233661742549758673
@@ -456,19 +445,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8233661742549758672}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8233661742549758686}
-        m_TargetAssemblyTypeName: Potion, Assembly-CSharp
-        m_MethodName: Invork_Potion
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8233661741997573442}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &8233661742549758686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,44 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4f137415147ed1458ed830da5a7f76f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  potionType: 0
---- !u!1 &8233661742940966200
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8233661742940966201}
-  m_Layer: 5
-  m_Name: Body
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &8233661742940966201
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8233661742940966200}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 8233661741990951584}
-  - {fileID: 8233661742549758685}
-  m_Father: {fileID: 8233661742060032248}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 779.692, y: -346.79208}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  potionType: 10002
 --- !u!1 &8233661744063275614
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,7 +471,7 @@ GameObject:
   - component: {fileID: 8233661744063275601}
   - component: {fileID: 8233661744063275600}
   m_Layer: 5
-  m_Name: HPImage
+  m_Name: PotionImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -146,24 +146,16 @@ public class UI_InventorySlot : UI_Base
             //0,1 전사 , 101,102 법사 201,202 궁수
             if (weaponcode < 100)
             {
-                if (jobController.jobstring != "Sword")
-                {
-                    UI_ErrorText.Instance.SetErrorText(Define.Error.OtherWeapon);
-                    return true;
-                }
-                else
-                {
-                    jobController.GetComponent<Animator>().runtimeAnimatorController = Managers.Resource.Load<RuntimeAnimatorController>($"Animator/{jobController.jobstring}");    
-                }
+                return JobAniSet("Sword");
 
             }
             else if (weaponcode < 200)
             {
-                JobAniSet("Magic");
+                return JobAniSet("Magic");
             }
             else if (weaponcode < 300)
             {
-                JobAniSet("Bow");
+                return JobAniSet("Bow");
             }
 
         }
@@ -174,7 +166,7 @@ public class UI_InventorySlot : UI_Base
     bool JobAniSet(string jobstring)
     {
         JobController jobController = Managers.Game.GetPlayer().GetComponent<JobController>();
-        if (jobController.jobstring != "jobstring")
+        if (jobController.jobstring != jobstring)
         {
             UI_ErrorText.Instance.SetErrorText(Define.Error.OtherWeapon);
             return true;

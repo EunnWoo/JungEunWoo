@@ -5298,6 +5298,10 @@ PrefabInstance:
       propertyPath: quests.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 56a50d58d7f698245964de42c1472d83, type: 2}
+    - target: {fileID: 585730309, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+      propertyPath: m_Radius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7184805044447416128, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
       propertyPath: m_Name
       value: NPC (1)

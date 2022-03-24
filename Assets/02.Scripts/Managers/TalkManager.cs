@@ -93,8 +93,6 @@ public class TalkManager
         #endregion
 
 
-
-        Managers.UI.isTalk(true);
         
     }
 

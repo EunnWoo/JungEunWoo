@@ -6,6 +6,15 @@ using UnityEngine.EventSystems;
 
 public class UI_Menu : UI_Scene
 {
+    #region sigletone
+    bool bInit;
+    public static UI_Menu ins;
+    private void Awake()
+    {
+        ins = this;
+        Init();
+    }
+    #endregion
     enum Buttons
     {
         ResumeButton,
@@ -46,10 +55,6 @@ public class UI_Menu : UI_Scene
         GetButton((int)Buttons.ScreenButton).gameObject.AddUIEvent(ScreenButton);
         GetButton((int)Buttons.ExitButton).gameObject.AddUIEvent(ExitButton);
 
-
-        
-
-
         body.SetActive(false);
     }
 
@@ -76,6 +81,8 @@ public class UI_Menu : UI_Scene
 
     public void ExitButton(PointerEventData data)
     {
-        Application.Quit();
+        UI_Message ui_Message = Managers.UI.ShowPopupUI<UI_Message>();
+        ui_Message.ShowMessage("종료", "종료하시겠습니까?");
+        ui_Message.gameObject.AddUIEvent(ui_Message.GameQuit);
     }
 }

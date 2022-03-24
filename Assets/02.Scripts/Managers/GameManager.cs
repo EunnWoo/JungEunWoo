@@ -39,14 +39,12 @@ public class GameManager
         }
         if (Input.GetKeyDown(KeyCode.I))
         {
-            UI_Inventory ui_inventory = Object.FindObjectOfType<UI_Inventory>();
-            ui_inventory.OpenInventory();
+            UI_Inventory.ins.OpenInventory();
            
         }
         if(Input.GetKeyDown(KeyCode.Q))
-        {
-            UI_Quest ui_quest = Object.FindObjectOfType<UI_Quest>();
-            ui_quest.OpenQuest();
+        { 
+            UI_Quest.ins.OpenQuest();
 
         }
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -54,12 +52,10 @@ public class GameManager
             if(Managers.UI.StatePopupUI())
             {
                 Managers.UI.CloseAllPopupUI();
-                Managers.UI.isTalk(false);
             }
             else if (!Managers.UI.StatePopupUI())
             {
-                UI_Menu ui_Menu = Object.FindObjectOfType<UI_Menu>();
-                ui_Menu.OpenMenu();
+                UI_Menu.ins.OpenMenu();
             }
             
 
