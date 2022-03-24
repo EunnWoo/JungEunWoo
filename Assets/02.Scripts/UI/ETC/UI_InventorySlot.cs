@@ -97,7 +97,7 @@ public class UI_InventorySlot : UI_Base
             case eItemType.Equip:   //장비창에서 더블클릭시
                 Debug.Log("더블클릭 >>장비교체");
 
-                if (Dontchange()) return;
+                if (WeaponAniChange()) return;
 
                 bool _bEquip = Managers.UI.ui_Equipment.Equip(itemData); //장비 장착해주는거
                 if(_bEquip)
@@ -134,7 +134,7 @@ public class UI_InventorySlot : UI_Base
     }
 
 
-    bool Dontchange()
+    bool WeaponAniChange()
     {
         Debug.Log(itemData.itemcode);
         int weaponcode = itemData.itemcode % 20000;

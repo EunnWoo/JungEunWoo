@@ -30,6 +30,7 @@ public class UI_EquipmentSlot : UI_Base
 
 
         defaulticonSprite = icon.sprite;
+        icon.gameObject.AddUIEvent(OnPointerClick);
     }
 
 

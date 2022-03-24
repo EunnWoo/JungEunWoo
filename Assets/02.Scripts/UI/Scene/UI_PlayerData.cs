@@ -49,7 +49,7 @@ public class UI_PlayerData : UI_Scene
     {
         float _v = _hp / _max;
         hpbar.fillAmount = _v;
-        hpText.text = string.Format("{0:0.0}", (_v * 100f)) + "%"; //소수점 한자리까지만 출력하는 함수
+        hpText.text = _hp.ToString();
 
     }
     
@@ -57,7 +57,7 @@ public class UI_PlayerData : UI_Scene
     {
         float _v = _mp / _max;
         mpbar.fillAmount = _v;
-        mpText.text = string.Format("{0:0.0}", (_v * 100f)) + "%"; //소수점 한자리까지만 출력하는 함수
+        mpText.text = _mp.ToString();
     }
 
     public void DisplayEXP(float _exp, float _max)

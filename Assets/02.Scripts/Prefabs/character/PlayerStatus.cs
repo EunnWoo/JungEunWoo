@@ -63,8 +63,11 @@ public class PlayerStatus : Status
     {
         //Mesh(외형)교체
         PartInfo _partInfo = listPartInfos[_index];
+        _partInfo.Equip(_itemData.skin, _itemData.equipmentSlot);//탈착한 스킨을 켠다
+        _partInfo.Equip(_itemData.skin2, _itemData.equipmentSlot);//탈착한 스킨을 켠다
+        _partInfo.SetItemData(_itemData);
         //default off 디폴트를 꺼준다
-        if(_partInfo.partDefault != null)
+        if (_partInfo.partDefault != null)
         {
             _partInfo.partDefault.SetActive(false);
         }
@@ -74,30 +77,23 @@ public class PlayerStatus : Status
     public void UnEquip(int _index, ItemData _itemData)
     {
         PartInfo _partInfo = listPartInfos[_index];
+        _partInfo.UnEquip(_itemData.skin, _itemData.equipmentSlot);//탈착한 스킨을 끈다
+        _partInfo.UnEquip(_itemData.skin2, _itemData.equipmentSlot);//탈착한 스킨을 끈다
+        _partInfo.SetItemData(null);//장비를 해제할때는 null을 넣어준다
         //default off 디폴트를 꺼준다
         if (_partInfo.partDefault != null) //partDefault null이아니면
         {
             _partInfo.partDefault.SetActive(true);
         }
-        SetEquip(_partInfo, _itemData);
+        SetEquip(_partInfo, _itemData,-1);
     }
-    public void SetEquip(PartInfo _partInfo, ItemData _itemData)
+    public void SetEquip(PartInfo _partInfo, ItemData _itemData,float Un =1f)
     {
-        _partInfo.UnEquip(_itemData.skin, _itemData.equipmentSlot);//탈착한 스킨을 끈다
-        _partInfo.UnEquip(_itemData.skin2, _itemData.equipmentSlot);//탈착한 스킨을 끈다
-        _partInfo.SetItemData(null);//장비를 해제할때는 null을 넣어준다
-
-
         //아이템을 장착하면 status교체(감소)
-        wearAttack -= _itemData.plusatt;
-        wearDefense -= _itemData.plusdef;
-        wearHP -= _itemData.plushp;
-        wearMP -= _itemData.plusmp;
-        //Debug.Log("해제 wearAttack :" + wearAttack
-        //+ "wearDefense : " + wearDefense
-        //+ "wearHP : " + wearHP
-        //+ "wearMP : " + wearMP);
-        //Debug.Log("@@@UI_PlayerData아래스텟");
+        wearAttack += _itemData.plusatt * Un;
+        wearDefense += _itemData.plusdef * Un;
+        wearHP += _itemData.plushp * Un;
+        wearMP += _itemData.plusmp * Un;
         Managers.UI.ui_PlayerData.DisplayHP(hp, MAX_HP); //체력 게이지 이미지 움직임
         Managers.UI.ui_PlayerData.DisplayMP(mp, MAX_MP);
 
@@ -107,10 +103,6 @@ public class PlayerStatus : Status
         Managers.UI.ui_Equipment.DisplayHP(MAX_HP);
         Managers.UI.ui_Equipment.DisplayMP(MAX_MP);
 
-        //System.Action<float> _attCallback;
-        //System.Action<float> _defCallback;
-        //System.Action<float> _hpCallback;
-        //System.Action<float> _mpCallback;
     }
 
     #endregion
@@ -166,7 +158,7 @@ public class PlayerStatus : Status
                 
                 hp = MAX_HP; //레벨업시 hp를 전부 회복
                 mp = MAX_MP;
-              //  UI_PlayerData.ins.DisplayHP(hp, MAX_HP);
+               Managers.UI.ui_PlayerData.DisplayHP(hp, MAX_HP);
                Managers.UI.ui_PlayerData.DisplayMP(mp, MAX_MP);
             }
             float _needExp = GetNeedExp(level) - GetNeedExp(level - 1); //현재레벨 - 전레벨
@@ -239,8 +231,8 @@ public class PlayerStatus : Status
         }
         Managers.UI.ui_Equipment.DisplayAttack(attack);
         Managers.UI.ui_Equipment.DisplayDEF(defense);
-        Managers.UI.ui_Equipment.DisplayHP(hp);
-        Managers.UI.ui_Equipment.DisplayMP(mp);
+        Managers.UI.ui_Equipment.DisplayHP(MAX_HP);
+        Managers.UI.ui_Equipment.DisplayMP(MAX_MP);
         return _rtn;
     }
 
@@ -283,53 +275,4 @@ public class PlayerStatus : Status
     }
 
 
-
-    #region 실험용으로 만든 함수들
-
-#if UNITY_EDITOR
-    private void Update()
-    {
-        //if (Input.GetKeyDown(KeyCode.Alpha1))
-        //{
-        //    //Monster 클래스의 데미지를 줄때 작동하는 코드
-        //    //-> trigger 인식(상대방 : 유저를 인식)
-        //    //->target.collider.GetComponent<PlayerStatus>().TakeDamage(데미지값);
-        //    Debug.Log(">>Test (이코드는 몬스터에서 작동되어서 유저에게 데미지)데미지 주기");
-        //    PlayerStatus _user = GetComponent<PlayerStatus>();
-        //    if (_user)
-        //    {
-        //        _user.TakeDamage(10);
-        //    }
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.Alpha2))
-        //{
-        //    //자기 자신에서 작동
-        //    PlayerStatus _user = GetComponent<PlayerStatus>();
-        //    if (_user)
-        //    {
-        //        _user.Skill(10);
-        //    }
-        //}
-
-        if (Input.GetKeyDown(KeyCode.Alpha3)) //몬스터를 사냥하면 획득하는 경험치
-        {
-            //자기 자신에서 작동
-            //경험치(10) <- _monster = GetComponent<몬스터>();
-            exp = exp + 5;
-
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha4)) //돈을 1~100원 랜덤 추가하는 함수
-        {
-            gold += Random.Range(1, 100); 
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha5)) //돈을 1~100원 빼는함수
-        {
-            gold -= Random.Range(1, 100);
-        }
-    }
-#endif
-    #endregion
 }
