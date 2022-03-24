@@ -16,14 +16,7 @@ public class EquipmentSlot
 
 public class UI_Equipment : UI_Scene
 {
-    #region sigletone
     bool bInit;
-    public static UI_Equipment ins;
-    private void Awake()
-    {
-        ins = this;      
-    }
-    #endregion
 
 
     enum GameObjects
@@ -109,7 +102,7 @@ public class UI_Equipment : UI_Scene
                 Debug.Log("@@@ E장착해제");
 
                 ItemData _oldItemData = slots[_index].itemData; //기존에 있던 장비 탈착
-                UI_Inventory.ins.AddItemData(slots[_index].itemData);//장비를 해제하면 UI_Inventory 에다 넣어줌
+                Managers.UI.ui_Inventory.AddItemData(slots[_index].itemData);//장비를 해제하면 UI_Inventory 에다 넣어줌
                 slots[_index].itemData = null; //장비창 슬롯을 비워준다
                 slots[_index].equipSlot.SetItem(null); //slots에있는 SetItem의 아이콘을 지움
 
@@ -142,7 +135,7 @@ public class UI_Equipment : UI_Scene
                 slots[_index].itemData = null;
                 slots[_index].equipSlot.SetItem(null);
 
-                UI_Inventory.ins.AddItemData(_itemData);
+                Managers.UI.ui_Inventory.AddItemData(_itemData);
             }
             playerstatus.UnEquip((int)_slot, _itemData);
         }

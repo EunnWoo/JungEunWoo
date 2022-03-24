@@ -6,14 +6,8 @@ using UnityEngine.EventSystems;
 
 public class UI_Message : UI_Popup
 {
-    #region sigletone
-    public static UI_Message ins;
+    
     bool bInit;
-    private void Awake()
-    {
-        ins = this;
-    }
-    #endregion
     Text title, content;
 
     [HideInInspector]

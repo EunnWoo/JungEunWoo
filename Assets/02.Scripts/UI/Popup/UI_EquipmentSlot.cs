@@ -68,7 +68,7 @@ public class UI_EquipmentSlot : UI_Base
         switch(itemData.itemType)
         {
             case eItemType.Equip:   //장비창에서 더블클릭시
-                UI_Equipment.ins.UnEquip(itemData);
+                Managers.UI.ui_Equipment.UnEquip(itemData);
                 break;
         }
     }

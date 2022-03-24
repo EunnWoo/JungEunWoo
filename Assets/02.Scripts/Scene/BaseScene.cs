@@ -22,9 +22,6 @@ public abstract class BaseScene : MonoBehaviour
 {
     public SceneState SceneType { get; protected set; } = SceneState.Unknown;
 
-    protected UI_Inventory ui_Inventory;
-    protected UI_Equipment ui_Equipment;
-    protected UI_MonsterHpBar ui_MonsterHpbar;
 
 
     private void Awake()
@@ -45,10 +42,11 @@ public abstract class BaseScene : MonoBehaviour
             Managers.Resource.Instantiate("UI/EventSystem").name = "@EventSystem";
       
 
-        if (ui_MonsterHpbar != null)
+
+        if (Managers.UI.ui_MonsterHpbar != null)
         {
 
-            ui_MonsterHpbar.OffMonsterHpbar();
+            Managers.UI.ui_MonsterHpbar.OffMonsterHpbar();
         }
     }
 

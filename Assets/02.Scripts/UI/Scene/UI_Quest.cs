@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class UI_Quest : UI_Scene
 {
-    #region sigletone
     bool bInit;
-    public static UI_Quest ins;
-    private void Awake()
-    {
-        ins = this;
-        Init();
-    }
-    #endregion
+
     enum GameObjects
    {
        QuestView

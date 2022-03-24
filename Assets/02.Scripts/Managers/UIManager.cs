@@ -11,8 +11,21 @@ public class UIManager
     Stack<UI_Popup> _popupStack = new Stack<UI_Popup>(); //gameobject대신 popup을 넣는 이유 -> 오브젝트는 컴퍼넌트 패턴형식이라 아무런 정보를 가지고 있지않기 때문
     UI_Scene _sceneUI = null;
 
+
+
     public bool isAction { get; private set; }
     public bool isTalk(bool isaction) => (isAction = isaction);
+
+    #region SceneUISet
+    public UI_Menu ui_Menu { get; private set; }
+    public UI_Inventory ui_Inventory { get; private set; }
+    public UI_Equipment ui_Equipment { get; private set; }
+    public UI_Quest ui_Quest { get; private set; }
+    public UI_MonsterHpBar ui_MonsterHpbar { get; private set; }
+    public UI_ErrorText ui_ErrorText { get; private set; }
+    public UI_PlayerData ui_PlayerData { get; private set; }
+    public UI_Money ui_Money { get; private set; }
+    #endregion
 
     public GameObject Root
     { get
@@ -20,12 +33,12 @@ public class UIManager
             GameObject root = GameObject.Find("@UI_Root");
             if (root == null)
                 root = new GameObject { name = "@UI_Root" };
-           
+            Object.DontDestroyOnLoad(root);
             return root;
         }
     }
 
-    public void SetCanvas(GameObject go, bool sort = true)// 외부에서 팝업이 켜질때 셋캔버스 요청 -> order로 우선순위 채워달라
+        public void SetCanvas(GameObject go, bool sort = true)// 외부에서 팝업이 켜질때 셋캔버스 요청 -> order로 우선순위 채워달라
     {
         Canvas canvas= Util.GetOrAddComponent<Canvas>(go);
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
@@ -114,7 +127,6 @@ public class UIManager
     
     public void ClosePopupUI()
     {
-        isAction = false; // 이동가능
 
         //스택 추출해서 닫기
         if (_popupStack.Count == 0) //스택 건드릴때 카운트 체크하기
@@ -123,6 +135,11 @@ public class UIManager
         Managers.Resource.Destroy(popup.gameObject); // 뽑은 후 지우기
         popup = null; // 혹시 모르니 null 또 접근할까봐
         _order--;
+
+        if (!StatePopupUI())
+        {
+            isAction = false; // 이동가능
+        }
     }
 
     public void CloseAllPopupUI()
@@ -131,7 +148,22 @@ public class UIManager
             ClosePopupUI();
     }
 
-    
+    public void SetSceneUI()
+    {
+        ui_Menu = Managers.UI.ShowSceneUI<UI_Menu>();
+        ui_ErrorText = Managers.UI.ShowSceneUI<UI_ErrorText>();
+        ui_Inventory = Managers.UI.ShowSceneUI<UI_Inventory>();
+        ui_MonsterHpbar = Managers.UI.ShowSceneUI<UI_MonsterHpBar>();
+        ui_Equipment = Managers.UI.ShowSceneUI<UI_Equipment>();
+        ui_PlayerData = Managers.UI.ShowSceneUI<UI_PlayerData>();
+        ui_Money = Managers.UI.ShowSceneUI<UI_Money>();
+
+        Managers.UI.ShowSceneUI<UI_QuickSlot>();
+      
+        ui_Quest = Managers.UI.ShowSceneUI<UI_Quest>();
+        ui_Quest.Init();
+
+    }
 
 
 

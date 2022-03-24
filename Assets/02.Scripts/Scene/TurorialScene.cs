@@ -16,19 +16,8 @@ public class TurorialScene : BaseScene
         player.name = Managers.Game._name;
         Camera.main.gameObject.GetOrAddComponent<CameraFollow>().SetPlayer(player);
 
-        Managers.UI.ShowSceneUI<UI_Menu>();
-        Managers.UI.ShowSceneUI<UI_ErrorText>();
-        Managers.UI.ShowSceneUI<UI_Inventory>();
-        Managers.UI.ShowSceneUI<UI_MonsterHpBar>();
-        Managers.UI.ShowSceneUI<UI_Equipment>();
-        Managers.UI.ShowSceneUI<UI_QuickSlot>();
-        Managers.UI.ShowSceneUI<UI_PlayerData>();
-        Managers.UI.ShowSceneUI<UI_Money>();
 
-        UI_Quest _quest = Managers.UI.ShowSceneUI<UI_Quest>();
-        _quest.Init();
-
-       
+        Managers.UI.SetSceneUI();
 
         Managers.Sound.Play("BGM/Tutorial", Define.Sound.BGM);
     }

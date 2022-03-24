@@ -5,15 +5,8 @@ using UnityEngine.UI;
 
 public class UI_Money : UI_Scene
 {
-    #region sigletone
     bool bInit;
-    public static UI_Money ins;
-    private void Awake()
-    {
-        ins = this;
-        Init();
-    }
-    #endregion
+
 
 
     enum Texts

@@ -6,15 +6,8 @@ using UnityEngine.EventSystems;
 
 public class UI_Menu : UI_Scene
 {
-    #region sigletone
     bool bInit;
-    public static UI_Menu ins;
-    private void Awake()
-    {
-        ins = this;
-        Init();
-    }
-    #endregion
+
     enum Buttons
     {
         ResumeButton,
@@ -60,11 +53,17 @@ public class UI_Menu : UI_Scene
 
     public  void OpenMenu()
     {
-        body.SetActive(true);
-        soundMenu.SetActive(false);
-        screenMenu.SetActive(false);
+        if (!body.activeSelf)
+        {
+            body.SetActive(true);
+            soundMenu.SetActive(false);
+            screenMenu.SetActive(false);
+        }
+        else
+        {
+            body.SetActive(false);
+        }
     }
-
     public void ResumeButton(PointerEventData data)
     {
         body.SetActive(false);

@@ -32,14 +32,14 @@ public class Potion : UI_Base
             //있으면 true 갯수를 감소기킴
             //없으면 false 갯수를 감소시키지않음
             int _itemcode = (int)potionType;
-            ItemData _itemData =  UI_Inventory.ins.CheckAndEatHP(_itemcode);
+            ItemData _itemData =  Managers.UI.ui_Inventory.CheckAndEatHP(_itemcode);
             if(_itemData != null)
             {
                 StartCoroutine(PotionDelay(1f, potionImage)); //딜레이 1초(쿨타임)
             }
             else
             {
-                UI_ErrorText.Instance.SetErrorText(Define.Error.NonePotion);
+                Managers.UI.ui_ErrorText.SetErrorText(Define.Error.NonePotion);
             }
         }
     }
