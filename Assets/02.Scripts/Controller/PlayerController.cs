@@ -330,6 +330,8 @@ public class PlayerController : BaseController
                     }
 
                     _lockTarget = hit.collider.gameObject;
+                    QuestReporter questReporter = GetComponent<QuestReporter>();
+                    questReporter.Report();
 
                     break;
 
