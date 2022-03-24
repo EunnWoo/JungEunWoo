@@ -79,11 +79,11 @@ public class StoreItem : UI_Base
 
         if (_playerStatus.gold < _itemData.gamecost)//만약 플레이어가 가지고있는 골드가 아이템금액 적으면
         {
-            UI_ErrorText.Instance.SetErrorText(Define.Error.NoneGold);
+            Managers.UI.ui_ErrorText.SetErrorText(Define.Error.NoneGold);
         }
         else
         {
-            bool _bGet = UI_Inventory.ins.AddItemData(_itemData);//인벤토리에 넣어주기
+            bool _bGet = Managers.UI.ui_Inventory.AddItemData(_itemData);//인벤토리에 넣어주기
             if (_bGet)//아이템창이 꽉차서 구매를 못할경우
             {
                 //Debug.Log("@@@ 보유머니 = 보유머니 - 아이템가격");
@@ -93,7 +93,7 @@ public class StoreItem : UI_Base
             }
             else
             {
-                UI_ErrorText.Instance.SetErrorText(Define.Error.MaxInv);
+                Managers.UI.ui_ErrorText.SetErrorText(Define.Error.MaxInv);
 
             }
             Managers.UI.ClosePopupUI(ui_Message);

@@ -60,7 +60,7 @@ public class PlayerAttack : BaseController
     {
         if(!hasWaepon)
         {
-            UI_ErrorText.Instance.SetErrorText(Define.Error.NoneWeapon);
+            Managers.UI.ui_ErrorText.SetErrorText(Define.Error.NoneWeapon);
         }
         else if ( !playerController.isJump&&!playerController.isRoll && !isAttack)
         {
@@ -82,7 +82,7 @@ public class PlayerAttack : BaseController
                 }
                 else if (!isSkillReady)
                 {
-                    UI_ErrorText.Instance.SetErrorText(Define.Error.CoolTime);
+                    Managers.UI.ui_ErrorText.SetErrorText(Define.Error.CoolTime);
                 }
             }
         }

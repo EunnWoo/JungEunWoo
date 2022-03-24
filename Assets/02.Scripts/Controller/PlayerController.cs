@@ -132,7 +132,7 @@ public class PlayerController : BaseController
                 }
                 else
                 {
-                    bool _bGet =  UI_Inventory.ins.AddItemData(_pick.itemData);
+                    bool _bGet = Managers.UI.ui_Inventory.AddItemData(_pick.itemData);
                     if (_bGet)
                     {
                         _pick.ClearDestroy();//오브젝트 주우면 필드에 주운아이템은 사라지게하기
@@ -254,7 +254,7 @@ public class PlayerController : BaseController
             {
                 if (playerAttack == null)
                 {
-                    UI_ErrorText.Instance.SetErrorText(Define.Error.NoneJob);
+                    Managers.UI.ui_ErrorText.SetErrorText(Define.Error.NoneJob);
                     return;
                 }
 
@@ -276,7 +276,7 @@ public class PlayerController : BaseController
             {
                 if (playerAttack == null)
                 {
-                    UI_ErrorText.Instance.SetErrorText(Define.Error.NoneJob);
+                    Managers.UI.ui_ErrorText.SetErrorText(Define.Error.NoneJob);
                     return;
                 }
                 playerAttack.AttackTacrgetSet(_lockTarget);

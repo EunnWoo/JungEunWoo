@@ -23,13 +23,13 @@ public class UI_Store : UI_Popup
         ContentGroup,
     }
 
-    #region sigletone
-    public static UI_Store ins;
-    private void Awake()
-    {
-        ins = this;
-    }
-    #endregion
+    //#region sigletone
+    //public static UI_Store ins;
+    //private void Awake()
+    //{
+    //    ins = this;
+    //}
+    //#endregion
 
     GameObject content;
     StoreItem storeItem; // == StoreItem

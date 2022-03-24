@@ -5,13 +5,7 @@ using UnityEngine.UI;
 
 public class UI_PlayerData : UI_Scene
 {
-    #region sigleton
-    public static UI_PlayerData ins;
-    private void Awake()
-    {
-        ins = this;
-    }
-    #endregion
+
     Text levelText;
     Image hpbar, mpbar, expbar;
     Text hpText, mpText, expText;

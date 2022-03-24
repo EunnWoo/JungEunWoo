@@ -5,27 +5,6 @@ using UnityEngine.UI;
 
 public class UI_ErrorText : UI_Scene
 {
-    private static UI_ErrorText instance = null;
-    public static UI_ErrorText Instance
-    {
-        get
-        {
-            if (null == instance)
-            {
-                return null;
-            }
-            return instance;
-        }
-    }
-    void Awake()
-    {
-        if(null == instance)
-        {
-            instance = this;
-  
-        }
-    }
-
     enum Texts
     {
         ErrorText

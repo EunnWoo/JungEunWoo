@@ -15,26 +15,14 @@ public class MonsterStatus : Status
     public override void TakeDamage(Status attacker, float ratio)
     {
         base.TakeDamage(attacker, ratio);
-
+        Managers.UI.ui_MonsterHpbar.ChangeMonsterHit(this);
         
-        UI_MonsterHpBar ui_MonsterHpBar = FindObjectOfType<UI_MonsterHpBar>();
-        if (ui_MonsterHpBar != null)
-        {
-            ui_MonsterHpBar.ChangeMonsterHit(this);
-        }
      
-               
-            
     }
     public override void Die()
     {
         base.Die();
-
-        UI_MonsterHpBar ui_MonsterHpBar = FindObjectOfType<UI_MonsterHpBar>();
-        if (ui_MonsterHpBar != null)
-        {
-            ui_MonsterHpBar.OffMonsterHpbar();
-        }
+        Managers.UI.ui_MonsterHpbar.OffMonsterHpbar();
     }
 
 }

@@ -99,11 +99,10 @@ public class UI_InventorySlot : UI_Base
 
                 if (Dontchange()) return;
 
-                bool _bEquip =  UI_Equipment.ins.Equip(itemData); //장비 장착해주는거
+                bool _bEquip = Managers.UI.ui_Equipment.Equip(itemData); //장비 장착해주는거
                 if(_bEquip)
                 {
-
-                    UI_Inventory.ins.RemoveItemData(itemData);
+                    Managers.UI.ui_Inventory.RemoveItemData(itemData);
                     RemoveItem();
                 }
                 break;
@@ -118,7 +117,7 @@ public class UI_InventorySlot : UI_Base
                 itemData.itemCount--; //아이템에서 수량을 한개빼줌
                 if(itemData.itemCount <= 0)//아이템 수량이 0개가되면
                 {
-                    UI_Inventory.ins.RemoveItemData(itemData);
+                    Managers.UI.ui_Inventory.RemoveItemData(itemData);
                     RemoveItem();
                 }
                 else
@@ -168,7 +167,7 @@ public class UI_InventorySlot : UI_Base
         JobController jobController = Managers.Game.GetPlayer().GetComponent<JobController>();
         if (jobController.jobstring != jobstring)
         {
-            UI_ErrorText.Instance.SetErrorText(Define.Error.OtherWeapon);
+            Managers.UI.ui_ErrorText.SetErrorText(Define.Error.OtherWeapon);
             return true;
         }
         else

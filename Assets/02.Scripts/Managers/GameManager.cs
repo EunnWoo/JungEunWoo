@@ -13,6 +13,9 @@ public class GameManager
     public string _name { get; private set; }
     public GameObject GetPlayer() { return _player; }
 
+    
+
+    
     public void Init()
     {
         
@@ -35,16 +38,17 @@ public class GameManager
     {
         if (Input.GetKeyDown(KeyCode.U)) //u를 누를시
         {
-            UI_Equipment.ins.OpenEquipment();
+            Managers.UI.ui_Equipment.OpenEquipment();
+   
         }
         if (Input.GetKeyDown(KeyCode.I))
         {
-            UI_Inventory.ins.OpenInventory();
-           
+            Managers.UI.ui_Inventory.OpenInventory();
+
         }
         if(Input.GetKeyDown(KeyCode.Q))
-        { 
-            UI_Quest.ins.OpenQuest();
+        {
+            Managers.UI.ui_Quest.OpenQuest();
 
         }
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -55,9 +59,8 @@ public class GameManager
             }
             else if (!Managers.UI.StatePopupUI())
             {
-                UI_Menu.ins.OpenMenu();
+             //   Managers.Scene.CurrentScene.ui_Menu.OpenMenu();
             }
-            
 
         }
     }

@@ -68,29 +68,7 @@ public class PlayerStatus : Status
         {
             _partInfo.partDefault.SetActive(false);
         }
-        _partInfo.Equip(_itemData.skin, _itemData.equipmentSlot); //장착한 스킨을 낀다
-        _partInfo.Equip(_itemData.skin2, _itemData.equipmentSlot); //장착한 스킨을 낀다
-        _partInfo.SetItemData(_itemData);//장착할때 아이템데이터를 넣어준다
-
-
-        //아이템을 장착하면 status교체(증가)
-        wearAttack += _itemData.plusatt;
-        wearDefense += _itemData.plusdef;
-        wearHP += _itemData.plushp;
-        wearMP += _itemData.plusmp;
-       // Debug.Log("장착 wearAttack :" + wearAttack
-            //+ "wearDefense : " + wearDefense
-            //+ "wearHP : " + wearHP
-            //+ "wearMP : " + wearMP);
-        //Debug.Log("@@@UI_PlayerData아래스텟");
-        UI_PlayerData.ins.DisplayHP(hp, MAX_HP); //체력 게이지 이미지 움직임
-        UI_PlayerData.ins.DisplayMP(mp, MAX_MP);
-
-        //Debug.Log("@@@UI_Equipment아래스텟");
-        UI_Equipment.ins.DisplayAttack(attack);
-        UI_Equipment.ins.DisplayDEF(defense);
-        UI_Equipment.ins.DisplayHP(MAX_HP);
-        UI_Equipment.ins.DisplayMP(MAX_MP);
+        SetEquip(_partInfo, _itemData);
     }
 
     public void UnEquip(int _index, ItemData _itemData)
@@ -101,7 +79,10 @@ public class PlayerStatus : Status
         {
             _partInfo.partDefault.SetActive(true);
         }
-        
+        SetEquip(_partInfo, _itemData);
+    }
+    public void SetEquip(PartInfo _partInfo, ItemData _itemData)
+    {
         _partInfo.UnEquip(_itemData.skin, _itemData.equipmentSlot);//탈착한 스킨을 끈다
         _partInfo.UnEquip(_itemData.skin2, _itemData.equipmentSlot);//탈착한 스킨을 끈다
         _partInfo.SetItemData(null);//장비를 해제할때는 null을 넣어준다
@@ -113,24 +94,25 @@ public class PlayerStatus : Status
         wearHP -= _itemData.plushp;
         wearMP -= _itemData.plusmp;
         //Debug.Log("해제 wearAttack :" + wearAttack
-            //+ "wearDefense : " + wearDefense
-            //+ "wearHP : " + wearHP
-            //+ "wearMP : " + wearMP);
+        //+ "wearDefense : " + wearDefense
+        //+ "wearHP : " + wearHP
+        //+ "wearMP : " + wearMP);
         //Debug.Log("@@@UI_PlayerData아래스텟");
-        UI_PlayerData.ins.DisplayHP(hp, MAX_HP); //체력 게이지 이미지 움직임
-        UI_PlayerData.ins.DisplayMP(mp, MAX_MP);
+        Managers.UI.ui_PlayerData.DisplayHP(hp, MAX_HP); //체력 게이지 이미지 움직임
+        Managers.UI.ui_PlayerData.DisplayMP(mp, MAX_MP);
 
         //Debug.Log("@@@UI_Equipment아래스텟");
-        UI_Equipment.ins.DisplayAttack(attack);
-        UI_Equipment.ins.DisplayDEF(defense);
-        UI_Equipment.ins.DisplayHP(MAX_HP);
-        UI_Equipment.ins.DisplayMP(MAX_MP);
+        Managers.UI.ui_Equipment.DisplayAttack(attack);
+        Managers.UI.ui_Equipment.DisplayDEF(defense);
+        Managers.UI.ui_Equipment.DisplayHP(MAX_HP);
+        Managers.UI.ui_Equipment.DisplayMP(MAX_MP);
 
         //System.Action<float> _attCallback;
         //System.Action<float> _defCallback;
         //System.Action<float> _hpCallback;
         //System.Action<float> _mpCallback;
     }
+
     #endregion
 
     enum eAbiltyKind { LevelHP, LevelMP, LevelAttack, LevelDefense };
@@ -151,7 +133,7 @@ public class PlayerStatus : Status
             gold1 += _g1;
             gold2 += _g2;
 
-            UI_Money.ins.DisplayCoin(gold);
+            Managers.UI.ui_Money.DisplayCoin(gold);
         }
     }
     public float level;
@@ -185,12 +167,12 @@ public class PlayerStatus : Status
                 hp = MAX_HP; //레벨업시 hp를 전부 회복
                 mp = MAX_MP;
               //  UI_PlayerData.ins.DisplayHP(hp, MAX_HP);
-                UI_PlayerData.ins.DisplayMP(mp, MAX_MP);
+               Managers.UI.ui_PlayerData.DisplayMP(mp, MAX_MP);
             }
             float _needExp = GetNeedExp(level) - GetNeedExp(level - 1); //현재레벨 - 전레벨
             float _curExp = totalExp - GetNeedExp(level - 1); //전레벨에서 현재레벨빼기
-            UI_PlayerData.ins.DisplayEXP(_curExp, _needExp);
-            UI_PlayerData.ins.DisplayLevelText(level);
+            Managers.UI.ui_PlayerData.DisplayEXP(_curExp, _needExp);
+            Managers.UI.ui_PlayerData.DisplayLevelText(level);
         }
         
     }
@@ -211,10 +193,10 @@ public class PlayerStatus : Status
         //UI_PlayerData.ins.DisplayLevelText(1);
 
         //시작시 스텟설정
-        UI_Equipment.ins.DisplayAttack(attack);
-        UI_Equipment.ins.DisplayDEF(defense);
-        UI_Equipment.ins.DisplayHP(hp);
-        UI_Equipment.ins.DisplayMP(mp);
+        Managers.UI.ui_Equipment.DisplayAttack(attack);
+        Managers.UI.ui_Equipment.DisplayDEF(defense);
+        Managers.UI.ui_Equipment.DisplayHP(hp);
+        Managers.UI.ui_Equipment.DisplayMP(mp);
     }
 
     float GetNeedExp(float _level) //경험치 계산하는 함수
@@ -255,10 +237,10 @@ public class PlayerStatus : Status
             case eAbiltyKind.LevelAttack: _rtn = _level * 5.0f; break;//레벨업시 증가하는 Attack
             case eAbiltyKind.LevelDefense: _rtn = _level * 0.5f; break;//레벨업시 증가하는DEF
         }
-        UI_Equipment.ins.DisplayAttack(attack);
-        UI_Equipment.ins.DisplayDEF(defense);
-        UI_Equipment.ins.DisplayHP(hp);
-        UI_Equipment.ins.DisplayMP(mp);
+        Managers.UI.ui_Equipment.DisplayAttack(attack);
+        Managers.UI.ui_Equipment.DisplayDEF(defense);
+        Managers.UI.ui_Equipment.DisplayHP(hp);
+        Managers.UI.ui_Equipment.DisplayMP(mp);
         return _rtn;
     }
 
@@ -268,11 +250,11 @@ public class PlayerStatus : Status
         //HP MP를 Plus
         hp += _hp; //물약을 먹을시
         hp = hp > MAX_HP ? MAX_HP : hp; //hp가 MAX양을 초과하면 더이상 회복하지않는다
-        UI_PlayerData.ins.DisplayHP(hp, MAX_HP); //체력 게이지 이미지 움직임
+        Managers.UI.ui_PlayerData.DisplayHP(hp, MAX_HP); //체력 게이지 이미지 움직임
         //HP MP
         mp += _mp; //물약을 먹을시
         mp = mp > MAX_MP ? MAX_MP : mp;//mp가 MAX양을 초과하면 더이상 회복하지않는다
-        UI_PlayerData.ins.DisplayMP(mp, MAX_MP);
+        Managers.UI.ui_PlayerData.DisplayMP(mp, MAX_MP);
     }
 
 
@@ -288,7 +270,7 @@ public class PlayerStatus : Status
         else
         {
             mp -= _useMP;
-            UI_PlayerData.ins.DisplayMP(mp, MAX_MP);
+            Managers.UI.ui_PlayerData.DisplayMP(mp, MAX_MP);
             return true;
 
         }

@@ -7,17 +7,8 @@ using UnityEngine.UI;
 
 public class UI_Inventory : UI_Scene
 {
-    #region sigletone
     bool bInit;
-    public static UI_Inventory ins;
-    private void Awake()
-    {
-        ins = this;
-        Init();
-    }
-    #endregion
-
-    
+   
     public List<UI_InventorySlot> slotsEquip = new List<UI_InventorySlot>();  //인벤토리 슬롯들
     public List<UI_InventorySlot> slotsUse = new List<UI_InventorySlot>();
     public List<UI_InventorySlot> slotsETC = new List<UI_InventorySlot>();
@@ -113,7 +104,7 @@ public class UI_Inventory : UI_Scene
         GetButton((int)Buttons.ETC_Selected_Tab).gameObject.AddUIEvent(Invoke_ETCTab);
 
         playerstatus = Managers.Game.GetPlayer().GetComponent<PlayerStatus>();
-
+        
         body.SetActive(false); //생성되면 꺼주기
 
     }

@@ -37,7 +37,7 @@ public class Managers : MonoBehaviour
     private void Start()
     {
         Init();
-        DontDestroyOnLoad(Managers.UI.Root);
+        
     }
     private void Update()
     {
@@ -67,7 +67,7 @@ public class Managers : MonoBehaviour
             s_instance._talk.Init();
             s_instance._game.Init();
             s_instance._sound.Init();
-
+        //    DontDestroyOnLoad(Managers.UI.Root);
         }
 
 
