@@ -10,7 +10,7 @@ public class SoundManager
     AudioSource[] _audioSources = new AudioSource[(int)Define.Sound.MaxCount]; //ºÐ·ù¿ë
 
     Dictionary<string, AudioClip> _audipClips = new Dictionary<string, AudioClip>();
-
+    float StateVolume;
     public void Init()
     {
         GameObject root = GameObject.Find("@Sound");
@@ -124,5 +124,24 @@ public class SoundManager
             Debug.Log("AudioClip Missing! ");
 
         return audioClip;
+    }
+    public void AllSoundCtrl(float value)
+    {
+        StateVolume = value;
+        for (int i =0; i< _audioSources.Length; i++)
+        {
+            _audioSources[i].volume = value;
+        }
+    }
+    public void BGMSoundCtrl(float value)
+    {
+       
+         _audioSources[(int)Define.Sound.BGM].volume = value * StateVolume;
+        
+    }
+    public void EffectSoundCtrl(float value)
+    {
+        _audioSources[(int)Define.Sound.Effect].volume = value * StateVolume;
+        _audioSources[(int)Define.Sound.LoopEffect].volume = value * StateVolume;
     }
 }

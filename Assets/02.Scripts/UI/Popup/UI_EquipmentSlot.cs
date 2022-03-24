@@ -4,23 +4,30 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UI_EquipmentSlot : MonoBehaviour, IPointerClickHandler
+public class UI_EquipmentSlot : UI_Base
 {
+    enum Images
+    {
+        SlotImage
+    }
+
     bool bInit;
-    public ItemData itemData;
-    public Image icon;
+    ItemData itemData;
+    Image icon;
     private Sprite defaulticonSprite;
 
 
-    private void Awake()
-    {
-        Init();
-    }
 
-    public void Init()
+    public override void Init()
     {
         if (bInit) return;
         bInit = true;
+
+
+        Bind<Image>(typeof(Images));
+        icon = GetImage((int)Images.SlotImage);
+
+
         defaulticonSprite = icon.sprite;
     }
 

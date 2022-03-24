@@ -14,47 +14,75 @@ public class EquipmentSlot
 }
 
 
-public class UI_Equipment : MonoBehaviour
+public class UI_Equipment : UI_Scene
 {
     #region sigletone
     bool bInit;
     public static UI_Equipment ins;
     private void Awake()
     {
-        ins = this;
-        Init();
+        ins = this;      
     }
     #endregion
 
-    public GameObject body;
-    public EquipmentSlot[] defaultSlots = new EquipmentSlot[4];
-    public EquipmentSlot[] slots = new EquipmentSlot[4]; //4개의 배열생성\
-    PlayerStatus playerstatus;
-    public Text attText, defText, hpText, mpText;
 
-    private void Start()
+    enum GameObjects
     {
-        Init();
+        Body,
+        HelmetBG,
+        ArmorBG,
+        BootsBG,
+        WeponBG
+    }
+    enum Texts
+    {
+        Attack_val,
+        Hp_val,
+        Mp_val,
+        DEF_val
     }
 
-    public void Init()
+    public EquipmentSlot[] defaultSlots = new EquipmentSlot[4];
+    public EquipmentSlot[] slots = new EquipmentSlot[4]; //4개의 배열생성
+
+    GameObject body;
+    GameObject helmetBG, armorBG, bootsBG, weaponBG;
+    PlayerStatus playerstatus;
+    Text attText, defText, hpText, mpText;
+
+
+    public override void Init()
     {
         if (bInit) return;
         bInit = true;
-        body.SetActive(false);
+
+        Bind<Text>(typeof(Texts));
+        Bind<GameObject>(typeof(GameObjects));
+
+        attText = GetText((int)Texts.Attack_val);
+        defText = GetText((int)Texts.Hp_val);
+        hpText = GetText((int)Texts.Mp_val);
+        mpText = GetText((int)Texts.DEF_val);
+
+        body = Get<GameObject>((int)GameObjects.Body);
+
+        helmetBG = Get<GameObject>((int)GameObjects.HelmetBG);
+        armorBG = Get<GameObject>((int)GameObjects.ArmorBG); 
+        bootsBG = Get<GameObject>((int)GameObjects.BootsBG);
+        weaponBG = Get<GameObject>((int)GameObjects.WeponBG);
+
+        slots[0].equipSlot = helmetBG.GetComponent<UI_EquipmentSlot>();
+        slots[1].equipSlot = armorBG.GetComponent<UI_EquipmentSlot>();
+        slots[2].equipSlot = weaponBG.GetComponent<UI_EquipmentSlot>();
+        slots[3].equipSlot = bootsBG.GetComponent<UI_EquipmentSlot>();
+        
+
+
+
 
         playerstatus = Managers.Game.GetPlayer().GetComponent<PlayerStatus>();
-        //GameObject[] _arrayGO = GameObject.FindGameObjectsWithTag("Player");
-        //PlayerStatus _ps;
-        //for(int i = 0; i< _arrayGO.Length; i++)
-        //{
-        //    _ps = _arrayGO[i].GetComponent<PlayerStatus>();
-        //    if(_ps != null)
-        //    {
-        //        playerstatus = _ps;// "나" 라는 플래그가 있다면?
-        //        break;
-        //    }
-        //}
+        body.SetActive(false);
+
     }
 
     public void OpenEquipment() //장비창 키는함수(새로운방식)
@@ -120,7 +148,6 @@ public class UI_Equipment : MonoBehaviour
         }
     }
 
-    
     public void DisplayAttack(float _att)
     {
         attText.text = ((int)_att).ToString();

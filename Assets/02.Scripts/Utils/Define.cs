@@ -37,7 +37,11 @@ public class Define
         NoneWeapon,
         OtherWeapon,
         NoneJob,
-        CoolTime
+        CoolTime,
+        NonePotion,
+        NoneGold,
+        MaxInv
+
 
     }
 }

@@ -36,25 +36,28 @@ public class GameManager
         if (Input.GetKeyDown(KeyCode.U)) //u를 누를시
         {
             UI_Equipment.ins.OpenEquipment();
-            //UI_Equipment ui_equipment = GameObject.FindObjectOfType<UI_Equipment>();
-            //ui_equipment.OpenEquipment();
         }
         if (Input.GetKeyDown(KeyCode.I))
         {
-            UI_Inventory ui_inventory = Object.FindObjectOfType<UI_Inventory>();
-            ui_inventory.OpenInventory();
+            UI_Inventory.ins.OpenInventory();
            
         }
         if(Input.GetKeyDown(KeyCode.Q))
-        {
-            UI_Quest ui_quest = Object.FindObjectOfType<UI_Quest>();
-            ui_quest.OpenQuest();
+        { 
+            UI_Quest.ins.OpenQuest();
 
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Managers.UI.CloseAllPopupUI();
-            Managers.UI.isTalk(false);
+            if(Managers.UI.StatePopupUI())
+            {
+                Managers.UI.CloseAllPopupUI();
+            }
+            else if (!Managers.UI.StatePopupUI())
+            {
+                UI_Menu.ins.OpenMenu();
+            }
+            
 
         }
     }

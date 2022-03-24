@@ -107,8 +107,8 @@ public class UI_Message : UI_Popup
         {
             return;
         }
-        else
-            Managers.UI.isTalk(false);
+        //else
+            //Managers.UI.isTalk(false);
     }
 
     //
@@ -121,13 +121,16 @@ public class UI_Message : UI_Popup
             return;
         }
 
-        Managers.UI.isTalk(false);
 
         Managers.Scene.LoadScene(nextScene);
 
         Managers.UI.ClosePopupUI(this);
     }
+    public void GameQuit(PointerEventData data)
+    {
 
+        Application.Quit();
+    }
 
 
     private void Function_Slider(float _value)
