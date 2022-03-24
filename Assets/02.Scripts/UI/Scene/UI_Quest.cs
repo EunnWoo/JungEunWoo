@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class UI_Quest : UI_Scene
 {
-   enum GameObjects
+    #region sigletone
+    bool bInit;
+    public static UI_Quest ins;
+    private void Awake()
+    {
+        ins = this;
+        Init();
+    }
+    #endregion
+    enum GameObjects
    {
        QuestView
    }
 
-    bool bInit;
 
 
     public GameObject questView;
@@ -20,9 +28,9 @@ public class UI_Quest : UI_Scene
         bInit = true;
         Bind<GameObject>(typeof(GameObjects));
         questView = Get<GameObject>((int)GameObjects.QuestView);
-       
 
 
+        questView.SetActive(false);
     }
      public void OpenQuest()
     {

@@ -96,6 +96,6 @@ public class UI_Store : UI_Popup
     {
 
         Managers.UI.ClosePopupUI(this);
-        Managers.UI.isTalk(false);
+       // Managers.UI.isTalk(false);
     }
 }

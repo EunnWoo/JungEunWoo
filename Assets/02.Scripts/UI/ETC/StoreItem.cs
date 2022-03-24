@@ -79,7 +79,7 @@ public class StoreItem : UI_Base
 
         if (_playerStatus.gold < _itemData.gamecost)//만약 플레이어가 가지고있는 골드가 아이템금액 적으면
         {
-            UI_ShotMessage.ins.SetMessage("보유 골드가 부족합니다");
+            UI_ErrorText.Instance.SetErrorText(Define.Error.NoneGold);
         }
         else
         {
@@ -93,7 +93,7 @@ public class StoreItem : UI_Base
             }
             else
             {
-                UI_ShotMessage.ins.SetMessage("인벤토리가 가득 찼습니다.");
+                UI_ErrorText.Instance.SetErrorText(Define.Error.MaxInv);
 
             }
             Managers.UI.ClosePopupUI(ui_Message);

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UI_InventorySlot : UI_Base, IPointerClickHandler
+public class UI_InventorySlot : UI_Base
 {
     bool bInit;
     public ItemData itemData;
@@ -146,43 +146,36 @@ public class UI_InventorySlot : UI_Base, IPointerClickHandler
             //0,1 전사 , 101,102 법사 201,202 궁수
             if (weaponcode < 100)
             {
-                //전사
-                Debug.Log(jobController.jobstring);
-                if (jobController.jobstring != "Sword")
-                {
-                    FindObjectOfType<UI_ErrorText>().SetErrorText(Define.Error.OtherWeapon);
-                    return true;
-                }
+                return JobAniSet("Sword");
 
-                else
-                    jobController.GetComponent<Animator>().runtimeAnimatorController = Managers.Resource.Load<RuntimeAnimatorController>($"Animator/{jobController.jobstring}");
-                
             }
             else if (weaponcode < 200)
             {
-                //법사
-                if (jobController.jobstring != "Magic")
-                {
-                    FindObjectOfType<UI_ErrorText>().SetErrorText(Define.Error.OtherWeapon);
-                    return true;
-                }
-                else
-                    jobController.GetComponent<Animator>().runtimeAnimatorController = Managers.Resource.Load<RuntimeAnimatorController>($"Animator/{jobController.jobstring}");
+                return JobAniSet("Magic");
             }
             else if (weaponcode < 300)
             {
-                //궁수
-                if (jobController.jobstring != "Bow")
-                {
-                    FindObjectOfType<UI_ErrorText>().SetErrorText(Define.Error.OtherWeapon);
-                    return true;
-                }
-                else
-                jobController.GetComponent<Animator>().runtimeAnimatorController = Managers.Resource.Load<RuntimeAnimatorController>($"Animator/{jobController.jobstring}");
+                return JobAniSet("Bow");
             }
 
         }
         return false;
+    }
+
+
+    bool JobAniSet(string jobstring)
+    {
+        JobController jobController = Managers.Game.GetPlayer().GetComponent<JobController>();
+        if (jobController.jobstring != jobstring)
+        {
+            UI_ErrorText.Instance.SetErrorText(Define.Error.OtherWeapon);
+            return true;
+        }
+        else
+        {
+            jobController.GetComponent<Animator>().runtimeAnimatorController = Managers.Resource.Load<RuntimeAnimatorController>($"Animator/{jobController.jobstring}");
+            return false;
+        }
     }
 }
 

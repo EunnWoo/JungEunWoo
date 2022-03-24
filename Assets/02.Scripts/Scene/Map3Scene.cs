@@ -27,7 +27,7 @@ public class Map3Scene : BaseScene
         Managers.UI.isTalk(true);
     }
     public void PlayerGo()
-    {
+    { 
         Managers.UI.isTalk(false);
        
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class UI_MonsterHpBar : UI_Scene
 {
+
     enum GameObjects
     {
         Body,
@@ -28,7 +29,7 @@ public class UI_MonsterHpBar : UI_Scene
         body.SetActive(false);
     }
 
-    public void ChangeMonsterHit( Status status)
+    public void ChangeMonsterHit(Status status)
     {
         time = 0;
         body.SetActive(true);
@@ -45,7 +46,7 @@ public class UI_MonsterHpBar : UI_Scene
     private void Update()
     {
         time += Time.deltaTime;
-        if(time >= 10)
+        if(time >= 7)
         {
             body.SetActive(false);
         }

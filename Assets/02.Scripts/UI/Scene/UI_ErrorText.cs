@@ -5,6 +5,27 @@ using UnityEngine.UI;
 
 public class UI_ErrorText : UI_Scene
 {
+    private static UI_ErrorText instance = null;
+    public static UI_ErrorText Instance
+    {
+        get
+        {
+            if (null == instance)
+            {
+                return null;
+            }
+            return instance;
+        }
+    }
+    void Awake()
+    {
+        if(null == instance)
+        {
+            instance = this;
+  
+        }
+    }
+
     enum Texts
     {
         ErrorText
@@ -50,6 +71,15 @@ public class UI_ErrorText : UI_Scene
                 break;
             case Define.Error.CoolTime:
                 errorText.text = "쿨타임 입니다.";
+                break;
+            case Define.Error.NonePotion:
+                errorText.text = "물약이 없습니다.";
+                break;
+            case Define.Error.NoneGold:
+                errorText.text = "보유 골드가 부족합니다";
+                break;
+            case Define.Error.MaxInv:
+                errorText.text = "인벤토리가 가득 찼습니다.";
                 break;
         }
 
