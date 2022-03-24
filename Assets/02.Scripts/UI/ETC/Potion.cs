@@ -24,7 +24,7 @@ public class Potion : MonoBehaviour
             }
             else
             {
-                UI_ShotMessage.ins.SetMessage("물약이 없습니다");
+                UI_ErrorText.Instance.SetErrorText(Define.Error.NonePotion);
             }
         }
     }

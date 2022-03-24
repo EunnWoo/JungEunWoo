@@ -36,8 +36,6 @@ public class GameManager
         if (Input.GetKeyDown(KeyCode.U)) //u를 누를시
         {
             UI_Equipment.ins.OpenEquipment();
-            //UI_Equipment ui_equipment = GameObject.FindObjectOfType<UI_Equipment>();
-            //ui_equipment.OpenEquipment();
         }
         if (Input.GetKeyDown(KeyCode.I))
         {

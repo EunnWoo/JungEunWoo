@@ -60,7 +60,7 @@ public class PlayerAttack : BaseController
     {
         if(!hasWaepon)
         {
-            FindObjectOfType<UI_ErrorText>().SetErrorText(Define.Error.NoneWeapon);
+            UI_ErrorText.Instance.SetErrorText(Define.Error.NoneWeapon);
         }
         else if ( !playerController.isJump&&!playerController.isRoll && !isAttack)
         {
@@ -71,6 +71,7 @@ public class PlayerAttack : BaseController
                 StopCoroutine("Use");
                 StartCoroutine("Use");
             }  
+
             else if(playerController.attackType == Define.AttackType.SkillAttack && canMove)
             {
                 if (isSkillReady)
@@ -81,7 +82,7 @@ public class PlayerAttack : BaseController
                 }
                 else if (!isSkillReady)
                 {
-                    FindObjectOfType<UI_ErrorText>().SetErrorText(Define.Error.CoolTime);
+                    UI_ErrorText.Instance.SetErrorText(Define.Error.CoolTime);
                 }
             }
         }

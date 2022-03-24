@@ -20,9 +20,9 @@ public class UI_Quest : UI_Scene
         bInit = true;
         Bind<GameObject>(typeof(GameObjects));
         questView = Get<GameObject>((int)GameObjects.QuestView);
-       
 
 
+        questView.SetActive(false);
     }
      public void OpenQuest()
     {

@@ -14,47 +14,55 @@ public class EquipmentSlot
 }
 
 
-public class UI_Equipment : MonoBehaviour
+public class UI_Equipment : UI_Scene
 {
     #region sigletone
     bool bInit;
     public static UI_Equipment ins;
     private void Awake()
     {
-        ins = this;
-        Init();
+        ins = this;      
     }
     #endregion
 
-    public GameObject body;
     public EquipmentSlot[] defaultSlots = new EquipmentSlot[4];
     public EquipmentSlot[] slots = new EquipmentSlot[4]; //4개의 배열생성\
-    PlayerStatus playerstatus;
-    public Text attText, defText, hpText, mpText;
 
-    private void Start()
+    GameObject body;
+    PlayerStatus playerstatus;
+    Text attText, defText, hpText, mpText;
+
+    enum GameObjects
     {
-        Init();
+        Body
+    }
+    enum Texts
+    {
+        Attack_val,
+        Hp_val,
+        Mp_val,
+        DEF_val
     }
 
-    public void Init()
+    public override void Init()
     {
         if (bInit) return;
         bInit = true;
-        body.SetActive(false);
+
+        Bind<Text>(typeof(Texts));
+        Bind<GameObject>(typeof(GameObjects));
+
+        attText = GetText((int)Texts.Attack_val);
+        defText = GetText((int)Texts.Hp_val);
+        hpText = GetText((int)Texts.Mp_val);
+        mpText = GetText((int)Texts.DEF_val);
+        body = Get<GameObject>((int)GameObjects.Body);
+
+
 
         playerstatus = Managers.Game.GetPlayer().GetComponent<PlayerStatus>();
-        //GameObject[] _arrayGO = GameObject.FindGameObjectsWithTag("Player");
-        //PlayerStatus _ps;
-        //for(int i = 0; i< _arrayGO.Length; i++)
-        //{
-        //    _ps = _arrayGO[i].GetComponent<PlayerStatus>();
-        //    if(_ps != null)
-        //    {
-        //        playerstatus = _ps;// "나" 라는 플래그가 있다면?
-        //        break;
-        //    }
-        //}
+        body.SetActive(false);
+
     }
 
     public void OpenEquipment() //장비창 키는함수(새로운방식)
@@ -120,7 +128,6 @@ public class UI_Equipment : MonoBehaviour
         }
     }
 
-    
     public void DisplayAttack(float _att)
     {
         attText.text = ((int)_att).ToString();

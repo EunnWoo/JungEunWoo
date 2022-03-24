@@ -254,7 +254,7 @@ public class PlayerController : BaseController
             {
                 if (playerAttack == null)
                 {
-                    FindObjectOfType<UI_ErrorText>().SetErrorText(Define.Error.NoneJob);
+                    UI_ErrorText.Instance.SetErrorText(Define.Error.NoneJob);
                     return;
                 }
 
@@ -276,7 +276,7 @@ public class PlayerController : BaseController
             {
                 if (playerAttack == null)
                 {
-                    FindObjectOfType<UI_ErrorText>().SetErrorText(Define.Error.NoneJob);
+                    UI_ErrorText.Instance.SetErrorText(Define.Error.NoneJob);
                     return;
                 }
                 playerAttack.AttackTacrgetSet(_lockTarget);
