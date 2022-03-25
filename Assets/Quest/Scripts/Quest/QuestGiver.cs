@@ -7,12 +7,11 @@ public class QuestGiver : MonoBehaviour
     [SerializeField]
     private Quest[] quests;
 
-
-    public void QuestSet()
+    public async void QuestSet()
     {
         foreach (var quest in quests)
         {
-            if (quest.IsAcceptable && !QuestSystem.Instance.ContainsInCompleteQuests(quest))
+            if (quest.IsAcceptable && !QuestSystem.Instance.ContainsInCompleteQuests(quest) && !QuestSystem.Instance.ContainsInActiveQuests(quest))
             {
                 QuestSystem.Instance.Register(quest);
             }
