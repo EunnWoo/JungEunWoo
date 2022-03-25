@@ -4,6 +4,7 @@ using UnityEngine;
 
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Text.RegularExpressions;
 
 public class UI_LoginCanvas : UI_Scene 
 {
@@ -41,10 +42,10 @@ public class UI_LoginCanvas : UI_Scene
         exitButton = GetButton((int)Buttons.ExitButton);
 
         idInput = Get<GameObject>((int)GameObjects.IDInputField).GetComponent<InputField>();
+        idInput.characterLimit = 10; // ±ÛÀÚ¼ö Á¦ÇÑ
 
 
-       
-        
+
         #region buttonevent
         loginButton.gameObject.AddUIEvent(ClickLogin); // ·Î±×ÀÎ Å¬¸¯½Ã
 
@@ -59,10 +60,20 @@ public class UI_LoginCanvas : UI_Scene
 
     public void ClickLogin(PointerEventData data)
     {
+        if(Regex.IsMatch(idInput.text, @"[^a-zA-Z0-9°¡-ÆR]"))
+        {
+            UI_Message ui_Message =  Managers.UI.ShowPopupUI<UI_Message>();
+            ui_Message.Init();
+            ui_Message.ShowMessage("¿¡·¯", "ÀÌ¸§¿¡ Æ¯¼ö¹®ÀÚ´Â ¾µ ¼ö ¾ø½À´Ï´Ù");
+            ui_Message.okButton.gameObject.AddUIEvent(ui_Message.Cancel);
+            return;
+        }
         Managers.Game.SetName(idInput.text);
         Managers.Scene.LoadScene(SceneState.Tutorial);
         Destroy(gameObject);
     }
+
+
     public void  Exit(PointerEventData data)
     {
         Application.Quit();

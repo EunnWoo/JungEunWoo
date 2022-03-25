@@ -7,9 +7,9 @@ public class UI_Quest : UI_Scene
     bool bInit;
 
     enum GameObjects
-   {
+    {
        QuestView
-   }
+    }
 
 
 
@@ -19,22 +19,27 @@ public class UI_Quest : UI_Scene
         if (bInit) return;
         base.Init();
         bInit = true;
+
+        
         Bind<GameObject>(typeof(GameObjects));
         questView = Get<GameObject>((int)GameObjects.QuestView);
 
-
+        Debug.Log("UI_Quest 초기화");
         questView.SetActive(false);
     }
      public void OpenQuest()
-    {
-        if (!questView.activeSelf)
-        {
-            questView.SetActive(true);
-        }
-        else
-        {
-            questView.SetActive(false);
-        }
+     {
+        questView.SetActive(!questView.activeSelf);
+        //if (!questView.activeSelf)
+        //{
+        //    Debug.Log("OpenQuest 활성화");
+        //    questView.SetActive(true);
+        //}
+        //else
+        //{
+        //    Debug.Log("OpenQuest 비활성화");
+        //    questView.SetActive(false);
+        //}
 
 
     }

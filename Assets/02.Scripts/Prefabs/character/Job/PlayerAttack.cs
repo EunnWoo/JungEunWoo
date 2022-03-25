@@ -30,13 +30,13 @@ public class PlayerAttack : BaseController
 
     protected override void UpdateAttack() 
     {
-      
+        Debug.Log(isAttackReady);
         canMove = animator.GetBool("canMove");
 
         ui_CoolTime.SetCoolTimeImage(attackRate, skillRate, attackDelay, skillDelay);
     }
 
-    public override void Init()
+    protected override void Init()
     {
 
         animator = GetComponent<Animator>();
@@ -56,15 +56,16 @@ public class PlayerAttack : BaseController
 
     }
 
-    public virtual void OnAttack()
+    public void OnAttack()
     {
         if(!hasWaepon)
         {
             Managers.UI.ui_ErrorText.SetErrorText(Define.Error.NoneWeapon);
         }
-        else if ( !playerController.isJump&&!playerController.isRoll && !isAttack)
+
+
+        else if ( !playerController.isJump&&!playerController.isRoll && !isAttack )
         {
-            
             if (isAttackReady && playerController.attackType == Define.AttackType.NormalAttack)
             {
                 isAttack = true;
@@ -72,7 +73,7 @@ public class PlayerAttack : BaseController
                 StartCoroutine("Use");
             }  
 
-            else if(playerController.attackType == Define.AttackType.SkillAttack && canMove)
+            else if(playerController.attackType == Define.AttackType.SkillAttack )
             {
                 if (isSkillReady)
                 {

@@ -34,7 +34,7 @@ public class UI_MonsterHpBar : UI_Scene
         time = 0;
         body.SetActive(true);
         nameText.text = status.name;
-        hpBarImage.fillAmount = status.hp / status.MAX_HP;
+        hpBarImage.fillAmount = status.Hp / status.MAX_HP;
 
     }
     public void OffMonsterHpbar()

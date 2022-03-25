@@ -136,9 +136,7 @@ public class UI_InventorySlot : UI_Base
 
     bool WeaponAniChange()
     {
-        Debug.Log(itemData.itemcode);
         int weaponcode = itemData.itemcode % 20000;
-        Debug.Log(weaponcode);
         if (weaponcode < 1000) // 직업다른데 착용 시도 했을때
         {
             JobController jobController = Managers.Game.GetPlayer().GetComponent<JobController>();

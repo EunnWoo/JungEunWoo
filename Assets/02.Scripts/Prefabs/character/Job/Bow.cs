@@ -17,8 +17,10 @@ public class Bow : PlayerAttack
         firepos = Util.FindChild(gameObject, "Firepos", true).transform;
         arrowobj = "Arrow";  
         range = 10.0f;
+
         skillRate = 10f;
         attackRate = 0.65f;
+
         attackRatio = 1f;
         skillRatio = 1f;
         
@@ -27,6 +29,7 @@ public class Bow : PlayerAttack
 
     protected override IEnumerator Use()
     {
+
         UI_SkillTime ui_SkillTime = Managers.UI.ShowPopupUI<UI_SkillTime>();
         ui_SkillTime.Init();
 
@@ -72,8 +75,11 @@ public class Bow : PlayerAttack
                 Managers.UI.ClosePopupUI(ui_SkillTime);
                 animator.SetBool("Fire", true);
                 attackDelay = 0;
+                yield return new WaitForSeconds(0.1f);
                 isAttack = false;
+                
                 charge = 0;
+
                 break;
             }
 

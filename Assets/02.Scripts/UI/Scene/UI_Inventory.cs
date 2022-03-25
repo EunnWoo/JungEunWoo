@@ -161,18 +161,14 @@ public class UI_Inventory : UI_Scene
         body.SetActive(false);
     }
 
-    public void OpenInventory()
+    public void OnOffInventory(bool visible = true)
     {
-        if (!body.activeSelf)
+        if(!visible)
         {
-            body.SetActive(true);
+            body.SetActive(visible);
         }
-        else
-        {
-            body.SetActive(false);
-        }
-
-
+        body.SetActive(!body.activeSelf);
+        
     }
     public void CloseInventory(PointerEventData data)
     {

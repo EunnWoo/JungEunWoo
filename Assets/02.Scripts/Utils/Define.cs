@@ -41,8 +41,19 @@ public class Define
         NonePotion,
         NoneGold,
         MaxInv
+    }
 
-
+    public enum Items
+    {
+        HpPotion,
+        MpPotion,
+        Bow1,
+        Bow2,
+        Sword1,
+        Sword2,
+        Wand1,
+        Wand2,
+        Coin
     }
 }
 

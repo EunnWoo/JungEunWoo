@@ -38,12 +38,12 @@ public class GameManager
     {
         if (Input.GetKeyDown(KeyCode.U)) //u를 누를시
         {
-            Managers.UI.ui_Equipment.OpenEquipment();
+            Managers.UI.ui_Equipment.OnOffEquipment();
    
         }
         if (Input.GetKeyDown(KeyCode.I))
         {
-            Managers.UI.ui_Inventory.OpenInventory();
+            Managers.UI.ui_Inventory.OnOffInventory();
 
         }
         if(Input.GetKeyDown(KeyCode.Q))
@@ -59,7 +59,7 @@ public class GameManager
             }
             else if (!Managers.UI.StatePopupUI())
             {
-             //   Managers.Scene.CurrentScene.ui_Menu.OpenMenu();
+                Managers.UI.ui_Menu.OpenMenu();
             }
 
         }

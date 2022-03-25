@@ -8,7 +8,6 @@ public class PlayerController : BaseController
     public Define.AttackType attackType { get; private set; }
 
     Rigidbody rigid;
-  //  Animator animator;
     PlayerStatus playerStatus;
  
     [HideInInspector]
@@ -28,7 +27,7 @@ public class PlayerController : BaseController
         | (1 << (int)Layer.Monster)
         | (1 << (int)Layer.Ground);
 
-    public override void Init()
+    protected override void Init()
     {
         rigid = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
@@ -42,7 +41,6 @@ public class PlayerController : BaseController
     {
         
         if (playerAttack == null ? false : !playerAttack.canMove ) return;
-
         if (!Managers.UI.isAction)
         {
            
@@ -218,6 +216,8 @@ public class PlayerController : BaseController
     #region roll
     private void Roll()
     {
+        if (playerAttack != null ? playerAttack.isAttack : false) return;
+
         if (!isJump && moveAmount != 0 && Managers.Input.roll)
         {
 

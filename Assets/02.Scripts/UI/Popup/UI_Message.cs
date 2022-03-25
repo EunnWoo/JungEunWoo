@@ -120,6 +120,7 @@ public class UI_Message : UI_Popup
 
         Managers.UI.ClosePopupUI(this);
     }
+
     public void GameQuit(PointerEventData data)
     {
 
@@ -133,6 +134,8 @@ public class UI_Message : UI_Popup
         ShowMessage("구매", (int)_value + "개 구매");
        
     }
+
+
     bool SceneMove()  // 퀘스트 완료 안 하면 못돌아감
     {
         SceneState sceneState = FindObjectOfType<BaseScene>().SceneType;

@@ -94,7 +94,7 @@ public class PlayerStatus : Status
         wearDefense += _itemData.plusdef * Un;
         wearHP += _itemData.plushp * Un;
         wearMP += _itemData.plusmp * Un;
-        Managers.UI.ui_PlayerData.DisplayHP(hp, MAX_HP); //체력 게이지 이미지 움직임
+        Managers.UI.ui_PlayerData.DisplayHP(Hp, MAX_HP); //체력 게이지 이미지 움직임
         Managers.UI.ui_PlayerData.DisplayMP(mp, MAX_MP);
 
         //Debug.Log("@@@UI_Equipment아래스텟");
@@ -155,11 +155,11 @@ public class PlayerStatus : Status
                     psLevelUp.Play();
                     // Managers 소리넣기
                 }
-                
-                hp = MAX_HP; //레벨업시 hp를 전부 회복
+
+                Hp = MAX_HP; //레벨업시 hp를 전부 회복
                 mp = MAX_MP;
-               Managers.UI.ui_PlayerData.DisplayHP(hp, MAX_HP);
-               Managers.UI.ui_PlayerData.DisplayMP(mp, MAX_MP);
+               Managers.UI.ui_PlayerData.DisplayHP(Hp, MAX_HP);
+               Managers.UI.ui_PlayerData.DisplayMP(Hp, MAX_MP);
             }
             float _needExp = GetNeedExp(level) - GetNeedExp(level - 1); //현재레벨 - 전레벨
             float _curExp = totalExp - GetNeedExp(level - 1); //전레벨에서 현재레벨빼기
@@ -187,7 +187,7 @@ public class PlayerStatus : Status
         //시작시 스텟설정
         Managers.UI.ui_Equipment.DisplayAttack(attack);
         Managers.UI.ui_Equipment.DisplayDEF(defense);
-        Managers.UI.ui_Equipment.DisplayHP(hp);
+        Managers.UI.ui_Equipment.DisplayHP(Hp);
         Managers.UI.ui_Equipment.DisplayMP(mp);
     }
 
@@ -240,9 +240,9 @@ public class PlayerStatus : Status
     public void SetHPMP(float _hp, float _mp)
     {
         //HP MP를 Plus
-        hp += _hp; //물약을 먹을시
-        hp = hp > MAX_HP ? MAX_HP : hp; //hp가 MAX양을 초과하면 더이상 회복하지않는다
-        Managers.UI.ui_PlayerData.DisplayHP(hp, MAX_HP); //체력 게이지 이미지 움직임
+        Hp += _hp; //물약을 먹을시
+        Hp = Hp > MAX_HP ? MAX_HP : Hp; //hp가 MAX양을 초과하면 더이상 회복하지않는다
+        Managers.UI.ui_PlayerData.DisplayHP(Hp, MAX_HP); //체력 게이지 이미지 움직임
         //HP MP
         mp += _mp; //물약을 먹을시
         mp = mp > MAX_MP ? MAX_MP : mp;//mp가 MAX양을 초과하면 더이상 회복하지않는다
@@ -268,7 +268,7 @@ public class PlayerStatus : Status
         }
     }
 
-    public override void Die()
+    protected override void Die()
     {
         base.Die();
         

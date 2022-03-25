@@ -29,10 +29,12 @@ public class Sword : PlayerAttack
         yield return null;
     }
 
+
+
     protected override IEnumerator Skill()
     {
         animator.SetTrigger("IsSkill");
-        UI_SkillTime ui_SkillTime = Managers.UI.ShowPopupUI<UI_SkillTime>();
+        UI_SkillTime ui_SkillTime = Managers.UI.ShowPopupUI<UI_SkillTime>(false);
         ui_SkillTime.Init();
         while (true)
         {

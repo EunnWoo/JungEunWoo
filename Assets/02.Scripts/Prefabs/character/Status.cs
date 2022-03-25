@@ -6,7 +6,23 @@ public class Status : MonoBehaviour
 {
 
     #region hp = baseHP + 장비 + 레벨
-    public float hp;
+    float hp;
+    public float Hp
+    {
+        get
+        {
+            return hp;
+        }
+        set
+        {
+            hp = value;
+            if(hp <=0)
+            {
+                Die();
+            }
+
+        }
+    }
 
     public float baseHP = 300; //기본최대체력
     protected float wearHP = 0; //장비를 껴서 얻는 최대체력
@@ -58,30 +74,30 @@ public class Status : MonoBehaviour
         gameObject.GetComponent<Animator>().SetTrigger("Hit");
 
         int damage = Random.Range( (int)(attacker.attack / 10),  (int)((attacker.attack- (int)defense) * ratio));
-        hp -= damage;
+        Hp -= damage;
 
         UI_Damage ui_Damage = Managers.UI.MakeWorldSpaceUI<UI_Damage>(transform);
         ui_Damage.target = transform;
         ui_Damage.damage = damage;
 
 
-        if (hp <= 0) //hp가 0이되면
-        {
-            Die();    
-        }
+        //if (hp <= 0) //hp가 0이되면
+        //{
+        //    Die();    
+        //}
        
   
     }
 
 
-    public virtual void Die()
+    protected virtual void Die()
     {
         Debug.Log("@@@사망");
         bDeath = true;
         QuestReporter questReporter = GetComponent<QuestReporter>();
         questReporter.Report();
         gameObject.GetComponent<Animator>().SetTrigger("Dead");
-        gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        //gameObject.GetComponent<Rigidbody>().isKinematic = false;
 
     }
 

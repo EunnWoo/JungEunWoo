@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.EventSystems;
 public enum eEquipmentSlot { Head, Armor, Weapon, Boots, NotSlot };
 [System.Serializable]
 public class EquipmentSlot
@@ -25,7 +25,8 @@ public class UI_Equipment : UI_Scene
         HelmetBG,
         ArmorBG,
         BootsBG,
-        WeponBG
+        WeponBG,
+        ExitButton
     }
     enum Texts
     {
@@ -34,7 +35,7 @@ public class UI_Equipment : UI_Scene
         Mp_val,
         DEF_val
     }
-
+    
     public EquipmentSlot[] defaultSlots = new EquipmentSlot[4];
     public EquipmentSlot[] slots = new EquipmentSlot[4]; //4개의 배열생성
 
@@ -64,6 +65,8 @@ public class UI_Equipment : UI_Scene
         bootsBG = Get<GameObject>((int)GameObjects.BootsBG);
         weaponBG = Get<GameObject>((int)GameObjects.WeponBG);
 
+        Get<GameObject>((int)GameObjects.ExitButton).AddUIEvent(Invoke_CloseEquipment);
+
         slots[0].equipSlot = helmetBG.GetComponent<UI_EquipmentSlot>();
         slots[1].equipSlot = armorBG.GetComponent<UI_EquipmentSlot>();
         slots[2].equipSlot = weaponBG.GetComponent<UI_EquipmentSlot>();
@@ -82,12 +85,18 @@ public class UI_Equipment : UI_Scene
 
     }
 
-    public void OpenEquipment() //장비창 키는함수(새로운방식)
+    public void OnOffEquipment(bool visible = true) //장비창 키는함수(새로운방식)
     {
+        if (!visible)
+        {
+            body.SetActive(visible);
+        }
         body.SetActive(!body.activeSelf);
     }
+    
 
-    public void Invoke_CloseEquipment() //장비창 끄는함수(기존에 알던 방식)
+
+        public void Invoke_CloseEquipment(PointerEventData data) //장비창 끄는함수(기존에 알던 방식)
     {
         body.SetActive(false);
     }

@@ -31,7 +31,7 @@ public class MonsterController : BaseController
     public float attackRange { get; protected set; }
     public float scanRange { get; protected set; }
 
-    public override void Init()
+    protected override void Init()
     {
         player = Managers.Game.GetPlayer();
         InvokeRepeating("RandomPos", 2f, 3f);

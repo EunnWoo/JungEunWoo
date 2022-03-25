@@ -10,6 +10,7 @@ public class UIManager
 
     Stack<UI_Popup> _popupStack = new Stack<UI_Popup>(); //gameobject대신 popup을 넣는 이유 -> 오브젝트는 컴퍼넌트 패턴형식이라 아무런 정보를 가지고 있지않기 때문
     UI_Scene _sceneUI = null;
+    Stack<UI_Scene> _sceneStack = new Stack<UI_Scene>();
 
 
 
@@ -54,6 +55,10 @@ public class UIManager
             canvas.sortingOrder = 0;
         }
     }
+    public void SetSceneStack(UI_Scene ui_Scene)
+    {
+        _sceneStack.Push(ui_Scene);
+    }
     public T MakeWorldSpaceUI<T>(Transform parent = null,string name =null) where T : UI_Base// 이름과 T를 따로 받는 이유 ->name -> prefabs 연동을 위해  // T는  타입
     {
         if (string.IsNullOrEmpty(name)) //이름이 비어있다면 프리팹타입의 name 받아와서 넣어주기
@@ -85,7 +90,7 @@ public class UIManager
         //showpopupui에서 오더 관리 안 해주는 이유 -> 원래 생성되어있던 ui를 컨트롤할때 카운터가 안 된다.
         return sceneUI;
     }
-    public T ShowPopupUI<T>(string name =null) where T :UI_Popup// 이름과 T를 따로 받는 이유 ->name -> prefabs 연동을 위해  // T는  타입
+    public T ShowPopupUI<T>(bool movestop = true,string name = null) where T :UI_Popup// 이름과 T를 따로 받는 이유 ->name -> prefabs 연동을 위해  // T는  타입
     {
         if (string.IsNullOrEmpty(name)) //이름이 비어있다면 프리팹타입의 name 받아와서 넣어주기
             name = typeof(T).Name;
@@ -97,7 +102,7 @@ public class UIManager
         go.transform.SetParent(Root.transform); //부모 지정해서 한번에 관리
 
 
-        isAction = true; // 이동 불가능
+        isAction = movestop; // 이동 불가능
 
 
         //showpopupui에서 오더 관리 안 해주는 이유 -> 원래 생성되어있던 ui를 컨트롤할때 카운터가 안 된다.

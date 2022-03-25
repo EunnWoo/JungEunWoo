@@ -10,7 +10,7 @@ public class Boss : MonsterController
     //private float moveSpeed = 8f, rotateSpeed = 3f;
     private string bombSlime;
     
-    public override void Init()
+    protected override void Init()
     {
         base.Init();
         //gameObject.SetActive(false);        

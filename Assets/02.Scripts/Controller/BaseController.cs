@@ -35,13 +35,13 @@ public abstract class BaseController : MonoBehaviour
 
 
 
-	public abstract void Init();
+	protected abstract void Init();
 
 	protected virtual void UpdateMoving() { }
 
 	protected virtual void UpdateAttack() { }
 
-	protected virtual void UpdateTime() 
+	void UpdateTime() 
 	{
 		attackDelay += Time.deltaTime;
 		isAttackReady = attackRate < attackDelay;
