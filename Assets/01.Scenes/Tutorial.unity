@@ -5496,6 +5496,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 185248067, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+      propertyPath: quests.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0bc0c3449cf58904cb2b4364a8ce2bf0, type: 2}
     - target: {fileID: 7184805044337704548, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
       propertyPath: m_Layer
       value: 8

@@ -39,8 +39,8 @@ public class UIManager
         }
     }
 
-        public void SetCanvas(GameObject go, bool sort = true)// 외부에서 팝업이 켜질때 셋캔버스 요청 -> order로 우선순위 채워달라
-    {
+      public void SetCanvas(GameObject go, bool sort = true)// 외부에서 팝업이 켜질때 셋캔버스 요청 -> order로 우선순위 채워달라
+      { 
         Canvas canvas= Util.GetOrAddComponent<Canvas>(go);
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
         canvas.overrideSorting = true; // 중첩캔버스에서 부모가 어떤 값을 따르던 본인의 소팅오더를 받는다
