@@ -42,10 +42,8 @@ public class MonsterStatus : Status
             item.transform.position = transform.position;
             item.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-5,5), Random.Range(5, 10), Random.Range(-5, 5)),ForceMode.Impulse);
         }
-          
 
     }
-
 
 
     GameObject ItemSet(Define.Items type)

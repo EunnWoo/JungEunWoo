@@ -26,7 +26,8 @@ public class UI_Equipment : UI_Scene
         ArmorBG,
         BootsBG,
         WeponBG,
-        ExitButton
+        ExitButton,
+        Equipment
     }
     enum Texts
     {
@@ -41,6 +42,8 @@ public class UI_Equipment : UI_Scene
 
     GameObject body;
     GameObject helmetBG, armorBG, bootsBG, weaponBG;
+    GameObject equipment;
+
     PlayerStatus playerstatus;
     Text attText, defText, hpText, mpText;
 
@@ -64,6 +67,7 @@ public class UI_Equipment : UI_Scene
         armorBG = Get<GameObject>((int)GameObjects.ArmorBG); 
         bootsBG = Get<GameObject>((int)GameObjects.BootsBG);
         weaponBG = Get<GameObject>((int)GameObjects.WeponBG);
+        equipment = Get<GameObject>((int)GameObjects.Equipment);
 
         Get<GameObject>((int)GameObjects.ExitButton).AddUIEvent(Invoke_CloseEquipment);
 
@@ -76,7 +80,7 @@ public class UI_Equipment : UI_Scene
             slots[i].equipSlot.Init();
         }
 
-
+        equipment.AddUIEvent((PointerEventData data) => { equipment.transform.position = data.position; }, Define.UIEvent.Drag);
 
 
         playerstatus = Managers.Game.GetPlayer().GetComponent<PlayerStatus>();
@@ -85,13 +89,21 @@ public class UI_Equipment : UI_Scene
 
     }
 
-    public void OnOffEquipment(bool visible = true) //장비창 키는함수(새로운방식)
+    public void OnOffEquipment() //장비창 키는함수(새로운방식)
     {
-        if (!visible)
+        if(!body.activeSelf)
         {
-            body.SetActive(visible);
+            body.SetActive(true);
+            Managers.UI.AddSceneLinkedList(body);
         }
-        body.SetActive(!body.activeSelf);
+        else
+        {
+            body.SetActive(false);
+            Managers.UI.RemoveSceneLinkedList(body);
+        }
+
+
+        
     }
     
 

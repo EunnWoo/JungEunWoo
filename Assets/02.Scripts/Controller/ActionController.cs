@@ -28,9 +28,7 @@ public class ActionController : MonoBehaviour
     {
         if (Managers.Input.talking && scanNPC != null && !Managers.UI.isAction)
         {
-
             Managers.talk.Action(scanNPC);
-            //  Managers.UI.ShowPopupUI<UI_Message>();
         }
     }
 

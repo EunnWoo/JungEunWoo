@@ -10,7 +10,7 @@ public class UIManager
 
     Stack<UI_Popup> _popupStack = new Stack<UI_Popup>(); //gameobject대신 popup을 넣는 이유 -> 오브젝트는 컴퍼넌트 패턴형식이라 아무런 정보를 가지고 있지않기 때문
     UI_Scene _sceneUI = null;
-    Stack<UI_Scene> _sceneStack = new Stack<UI_Scene>();
+    LinkedList<GameObject> _sceneLinkedList = new LinkedList<GameObject>();
 
 
 
@@ -55,9 +55,20 @@ public class UIManager
             canvas.sortingOrder = 0;
         }
     }
-    public void SetSceneStack(UI_Scene ui_Scene)
+    public void AddSceneLinkedList(GameObject go) // 1 2
     {
-        _sceneStack.Push(ui_Scene);
+        _sceneLinkedList.AddLast(go);
+    }
+    public void RemoveSceneLinkedList(GameObject go) // 1 2
+    {
+        _sceneLinkedList.Remove(go);
+    }
+    public void CloseScene()
+    {
+        if (_sceneLinkedList == null) return;
+        _sceneLinkedList.Last.Value.gameObject.SetActive(false);
+        _sceneLinkedList.RemoveLast();
+
     }
     public T MakeWorldSpaceUI<T>(Transform parent = null,string name =null) where T : UI_Base// 이름과 T를 따로 받는 이유 ->name -> prefabs 연동을 위해  // T는  타입
     {

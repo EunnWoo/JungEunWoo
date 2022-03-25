@@ -23,6 +23,7 @@ public class UI_Inventory : UI_Scene
     GameObject goETCTab;
     GameObject goETCSlot;
     GameObject body;
+    GameObject inventory;
 
     public int MAX_EQUIP = 20;
     public List<ItemData> listEquip = new List<ItemData>();
@@ -47,8 +48,8 @@ public class UI_Inventory : UI_Scene
         EquipPanel,
         UsePanel,
         ETCPanel,
-        ItemInfo,
-        Body
+        Body,
+        Inventory
     }
     enum Buttons
     {
@@ -56,6 +57,10 @@ public class UI_Inventory : UI_Scene
         Use_Selected_Tab,
         ETC_Selected_Tab,
         CloseButton
+    }
+    enum Texts
+    {
+        
     }
 
     public override void Init()
@@ -73,8 +78,8 @@ public class UI_Inventory : UI_Scene
         goEquipSlot = Get<GameObject>((int)GameObjects.Equip_GridSlot); 
         goUseSlot = Get<GameObject>((int)GameObjects.Use_GridSlot);
         goETCSlot = Get<GameObject>((int)GameObjects.ETC_GridSlot);
-        itemInfo = Get<GameObject>((int)GameObjects.ItemInfo);
         body = Get<GameObject>((int)GameObjects.Body);
+        inventory = Get<GameObject>((int)GameObjects.Inventory);
         #endregion
         #region invenslotSet
         GameObject equipbody = Get<GameObject>((int)GameObjects.EquipBody);
@@ -83,9 +88,6 @@ public class UI_Inventory : UI_Scene
 
         GetButton((int)Buttons.CloseButton).gameObject.AddUIEvent(CloseInventory);
         
-
-
-        itemInfo.SetActive(false);
 
         SetSlot(equipbody, slotsEquip, listEquip);
         SetSlot(usebody, slotsUse, listUse);
@@ -104,7 +106,8 @@ public class UI_Inventory : UI_Scene
         GetButton((int)Buttons.ETC_Selected_Tab).gameObject.AddUIEvent(Invoke_ETCTab);
 
         playerstatus = Managers.Game.GetPlayer().GetComponent<PlayerStatus>();
-        
+
+        inventory.AddUIEvent((PointerEventData data) => { inventory.transform.position = data.position; }, Define.UIEvent.Drag);
         body.SetActive(false); //생성되면 꺼주기
 
     }
@@ -161,14 +164,20 @@ public class UI_Inventory : UI_Scene
         body.SetActive(false);
     }
 
-    public void OnOffInventory(bool visible = true)
+    public void OnOffInventory()
     {
-        if(!visible)
+        if (!body.activeSelf)
         {
-            body.SetActive(visible);
+            body.SetActive(true);
+            Managers.UI.AddSceneLinkedList(body);
         }
-        body.SetActive(!body.activeSelf);
-        
+        else
+        {
+            body.SetActive(false);
+            Managers.UI.RemoveSceneLinkedList(body);
+        }
+
+
     }
     public void CloseInventory(PointerEventData data)
     {

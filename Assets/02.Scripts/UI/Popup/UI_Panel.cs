@@ -77,8 +77,7 @@ public class UI_Panel : UI_Popup
             if (Managers.talk.GetTalk(talkIndex) == null)
             {
                 talkIndex = 0;
-             //   Managers.UI.isTalk(false);
-                Managers.UI.ClosePopupUI();
+                Managers.UI.ClosePopupUI(this);
             }
             talkText.text = Managers.talk.GetTalk(talkIndex);
             talkIndex++;
@@ -91,7 +90,6 @@ public class UI_Panel : UI_Popup
         if (Managers.talk.GetTalk(objData.id, talkIndex) == null) //말이 더 없을때
         {
             talkIndex = 0;
-          //  Managers.UI.isTalk(false);
             jobController.JobChoice(objData.id); // 직업확정
             QuestReporter questReporter = Managers.talk.NPC.GetComponent<QuestReporter>();
             questReporter.Report();
@@ -104,6 +102,5 @@ public class UI_Panel : UI_Popup
     {
         Managers.talk.NPC.GetComponent<QuestGiver>().QuestSet();
         Managers.UI.ClosePopupUI(this);
-       // Managers.UI.isTalk(false);
     }
 }

@@ -29,7 +29,7 @@ public class TalkManager
         talkData.Add(6, new string[] { "퀘스트 튜토리얼2" });
 
 
-        errorString = new string[] { "자네는 이미 직업이 있군"/*, "다시 한번 생각하고 오게나.."*/ };
+        errorString = new string[] { "자네는 이미 직업이 있군"};
     }
 
     public void Action(GameObject npc)
@@ -71,6 +71,15 @@ public class TalkManager
             else if (id == 6001) // 타운 이동
             {        
                 ui_Message.ShowMessage("맵 이동", "마을로 이동합니다.");
+
+                if(NPC.GetComponent<QuestReporter>() == null)
+                {
+                    Debug.Log("QuestReporter가 아닙니다 ");
+                }
+                else
+                {
+                    NPC.GetComponent<QuestReporter>().Report();
+                }
 
             }
             else if (id == 6002) // 사냥터 1로 이동

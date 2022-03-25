@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 6504027550749841140}
   - component: {fileID: 7078214141224549602}
   - component: {fileID: 6048946207255367319}
-  m_Layer: 0
+  - component: {fileID: 1876002312237234253}
+  m_Layer: 7
   m_Name: WaterSlime
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,10 +87,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d884a80f68802849b29901905f4c73d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
   baseHP: 50
   baseMP: 100
   baseAttack: 15
+--- !u!135 &1876002312237234253
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6504027550742553888}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.015
+  m_Center: {x: 0, y: 0.01, z: 0}
 --- !u!1 &6504027550742553892
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,7 +112,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6504027550742395140}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime_Rig_vfin:Top_Ctrl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +142,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6504027550742395142}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime_Rig_vfin:Top_GRP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +173,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6504027550742395152}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime_Rig_vfin:HIP_Ctrl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +204,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6504027550742395154}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime_Rig_vfin:Hip_GPR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +235,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6504027550742395156}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime_Rig_vfin:Ctrl_All
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +267,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6504027550742395158}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime_Rig_vfin:Hip_Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6504027550742395160}
   - component: {fileID: 6504027550745733172}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime_Rig_vfin:Slime_Non_Sub2_MDL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,7 +384,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6504027550742395162}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime_Rig_vfin:Top_Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -401,7 +414,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6504027550742395164}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime_Rig_vfin:Rig_GRP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +445,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6504027550742395166}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slime_Rig_vfin:Root_Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
