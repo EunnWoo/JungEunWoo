@@ -30,7 +30,6 @@ public class PlayerAttack : BaseController
 
     protected override void UpdateAttack() 
     {
-        Debug.Log(isAttackReady);
         canMove = animator.GetBool("canMove");
 
         ui_CoolTime.SetCoolTimeImage(attackRate, skillRate, attackDelay, skillDelay);

@@ -65,7 +65,7 @@ public class UIManager
     }
     public void CloseScene()
     {
-        if (_sceneLinkedList == null) return;
+        if (_sceneLinkedList.Count == 0) return;
         _sceneLinkedList.Last.Value.gameObject.SetActive(false);
         _sceneLinkedList.RemoveLast();
 
