@@ -8,7 +8,7 @@ public class MonsterStatus : Status
     void Start()
     {
         Hp = MAX_HP;
-
+        
     }
     
 
@@ -25,6 +25,8 @@ public class MonsterStatus : Status
         base.Die();
         ItemDrop();
         Managers.UI.ui_MonsterHpbar.OffMonsterHpbar();
+        QuestReporter questReporter = GetComponent<QuestReporter>();
+        questReporter.Report();
     }
 
     List<GameObject> items = new List<GameObject>();
