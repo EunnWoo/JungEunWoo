@@ -163,8 +163,7 @@ public class PlayerController : BaseController
             moveSpeed = 8f*0.8f;
             return;
         }
-        bool runnig = false;
-        runnig = Managers.Input.run && moveVec.magnitude != 0f;
+        bool runnig = Managers.Input.run && moveVec.magnitude != 0f;
         moveSpeed = runnig ? 8f * 1.1f : 8f * 0.8f;
         animator.SetBool("IsRun", runnig);
     }

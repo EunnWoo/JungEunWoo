@@ -113,6 +113,11 @@ public class UI_Message : UI_Popup
     public void ReSpawn(PointerEventData data)
     {
         Managers.Scene.LoadScene(SceneState.Town);
+        PlayerStatus playerStatus = Managers.Game.GetPlayer().GetComponent<PlayerStatus>();
+        playerStatus.Hp = playerStatus.MAX_HP;
+        Managers.UI.ui_PlayerData.DisplayHP(playerStatus.Hp, playerStatus.MAX_HP);
+
+        Managers.UI.ClosePopupUI(this);
     }
     public void GameQuit(PointerEventData data)
     {
