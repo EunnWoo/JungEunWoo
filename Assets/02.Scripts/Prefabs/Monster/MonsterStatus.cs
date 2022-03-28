@@ -27,6 +27,8 @@ public class MonsterStatus : Status
         Managers.UI.ui_MonsterHpbar.OffMonsterHpbar();
         QuestReporter questReporter = GetComponent<QuestReporter>();
         questReporter.Report();
+        GetComponent<Collider>().isTrigger = true;
+        Managers.Resource.Destroy(gameObject, 3f);
     }
 
    
@@ -43,6 +45,10 @@ public class MonsterStatus : Status
         }
         foreach(GameObject item in items)
         {
+            if(item.GetComponent<ItemPickUp>().itemcode == 30001)
+            {
+                item.GetComponent<ItemPickUp>().count = (int)Random.Range(100f, 1000f);
+            }
             item.transform.position = transform.position;
             item.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-5,5), Random.Range(5, 10), Random.Range(-5, 5)),ForceMode.Impulse);
         }

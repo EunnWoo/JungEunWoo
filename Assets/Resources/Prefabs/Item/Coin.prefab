@@ -61,28 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemcode: 30001
   count: 99
-  itemData:
-    itemcode: 30001
-    iteminfoBase:
-      itemcode: 0
-      subcategory: 0
-      equpslot: 0
-      itemname: 
-      activate: 0
-      toplist: 0
-      grade: 0
-      discount: 0
-      icon: 
-      playerlv: 0
-      multistate: 0
-      gamecost: 0
-      cashcost: 0
-      buyamount: 0
-      sellcost: 0
-      description: 
-      itemType: 0
-    itemCount: 0
-    upgradeCount: 0
+  eitemType: 3
   TurnSpeed: 0
   axis: {x: 0, y: 1, z: 0}
 --- !u!54 &-4386428895373563767
