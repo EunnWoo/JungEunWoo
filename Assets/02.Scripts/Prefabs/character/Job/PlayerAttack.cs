@@ -76,6 +76,11 @@ public class PlayerAttack : BaseController
             {
                 if (isSkillReady)
                 {
+                    if (!GetComponent<PlayerStatus>().Skill(100))
+                    {
+                        Managers.UI.ui_ErrorText.SetErrorText(Define.Error.NoneMp);
+                        return;
+                    }
                     isAttack = true;
                     StopCoroutine("Skill");
                     StartCoroutine("Skill");

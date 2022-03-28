@@ -62,13 +62,13 @@ public class TalkManager
             
             UI_Message ui_Message = Managers.UI.ShowPopupUI<UI_Message>();
             ui_Message.Init();
-            ui_Message.NextScene = id;
+            //ui_Message.NextScene = id;
 
-            if (id == 6000) // 셀렉 신으로 이동
+            if (id == (int)SceneState.Select) // 셀렉 신으로 이동
             {            
                 ui_Message.ShowMessage("맵 이동", "선택의 길로 이동합니다.");
             }
-            else if (id == 6001) // 타운 이동
+            else if (id == (int)SceneState.Town) // 타운 이동
             {        
                 ui_Message.ShowMessage("맵 이동", "마을로 이동합니다.");
 
@@ -82,17 +82,17 @@ public class TalkManager
                 }
 
             }
-            else if (id == 6002) // 사냥터 1로 이동
+            else if (id == (int)SceneState.Map1) // 사냥터 1로 이동
             {
                 ui_Message.ShowMessage("맵 이동", "늪의 길로 이동합니다 ");
                 
             }
-            else if (id == 6003) // 사냥터 2로 이동
+            else if (id == (int)SceneState.Map2) // 사냥터 2로 이동
             {
                 ui_Message.ShowMessage("맵 이동", "망자들의 길로 이동합니다.");
                 
             }
-            else if (id == 6004)
+            else if (id == (int)SceneState.Map3)
             {
                 ui_Message.ShowMessage("맵 이동", "-위험-\n왕의 길로 이동합니다");
                

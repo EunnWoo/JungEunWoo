@@ -16,37 +16,37 @@ public class UI_Message : UI_Popup
 
     System.Action on;
 
-    private SceneState nextScene;
-    public int NextScene
-    {
-        set
-        {
-            if (value == 6000)
-            {
-                nextScene = SceneState.Select;
-            }
-            else if (value ==6001)
-            {
-                nextScene = SceneState.Town;
-            }
-            else if(value == 6002)
-            {
-                nextScene = SceneState.Map1;
-            }
-            else if(value == 6003)
-            {
-                nextScene = SceneState.Map2;
-            }
-            else if(value == 6004)
-            {
-                nextScene = SceneState.Map3;
-            }
-            else
-            {
-                return;
-            }
-        }
-    }
+    //private SceneState nextScene;
+    //public int NextScene
+    //{
+    //    set
+    //    {
+    //        if (value == 6000)
+    //        {
+    //            nextScene = SceneState.Select;
+    //        }
+    //        else if (value ==6001)
+    //        {
+    //            nextScene = SceneState.Town;
+    //        }
+    //        else if(value == 6002)
+    //        {
+    //            nextScene = SceneState.Map1;
+    //        }
+    //        else if(value == 6003)
+    //        {
+    //            nextScene = SceneState.Map2;
+    //        }
+    //        else if(value == 6004)
+    //        {
+    //            nextScene = SceneState.Map3;
+    //        }
+    //        else
+    //        {
+    //            return;
+    //        }
+    //    }
+    //}
 
     enum Texts
     {
@@ -106,11 +106,14 @@ public class UI_Message : UI_Popup
             return;
         }
 
-        Managers.Scene.LoadScene(nextScene);
+        Managers.Scene.LoadScene((SceneState)Managers.talk.NPC.GetComponent<ObjData>().id);
 
         Managers.UI.ClosePopupUI(this);
     }
-
+    public void ReSpawn(PointerEventData data)
+    {
+        Managers.Scene.LoadScene(SceneState.Town);
+    }
     public void GameQuit(PointerEventData data)
     {
         Application.Quit();
