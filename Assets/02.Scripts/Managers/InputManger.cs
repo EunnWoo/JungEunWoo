@@ -14,7 +14,9 @@ public class InputManager
     public string runName = "Run";
     public string jumpName = "Jump";
     public string talkName = "Talk";
-   
+    
+
+
     public float hAxis { get; private set; }
     public float vAxis { get; private set; }
     public bool roll { get; private set; }
@@ -23,8 +25,11 @@ public class InputManager
     public bool jump { get; private set; }
     public bool talking { get; private set; }
    
-    public bool keyInput { get; private set; }
-    
+    public bool escape { get; private set; }
+    public bool equip { get; private set; }
+    public bool inven { get; private set; }
+    public bool quest { get; private set; }
+    public bool skillFire { get; private set; }
     public void OnUpdate()
     {
         //if (Input.anyKey && KeyAction != null)
@@ -37,9 +42,12 @@ public class InputManager
         fire = Input.GetButton(fireName);
         jump = Input.GetButton(jumpName);
         talking = Input.GetButtonDown(talkName);
-
         run = Input.GetButton(runName);
 
-       
+        escape = Input.GetKeyDown(KeyCode.Escape);
+        equip = Input.GetKeyDown(KeyCode.U);
+        inven = Input.GetKeyDown(KeyCode.I);
+        quest = Input.GetKeyDown(KeyCode.Q);
+
     }
 }

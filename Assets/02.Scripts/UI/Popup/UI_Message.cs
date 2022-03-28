@@ -12,8 +12,7 @@ public class UI_Message : UI_Popup
 
     [HideInInspector]
     public Button okButton;
-    [HideInInspector]
-    public Slider countSlider;
+    public Slider countSlider { get; private set; }
 
     System.Action on;
 
@@ -85,24 +84,16 @@ public class UI_Message : UI_Popup
         countSlider.onValueChanged.AddListener(Function_Slider);
         countSlider.gameObject.SetActive(false);
     }
-    public void ShowMessage(string _title, string _content/*, System.Action _on = null*/)
+    public void ShowMessage(string _title, string _content)
     {
         title.text = _title; //타이틀은 타이틀에넣어준다
         content.text = _content;
-
-        //on = _on;
     }
 
 
     public void Cancel(PointerEventData data)
     {
         Managers.UI.ClosePopupUI(this);
-        if (Managers.UI.StatePopupUI())
-        {
-            return;
-        }
-        //else
-            //Managers.UI.isTalk(false);
     }
 
     //
@@ -115,7 +106,6 @@ public class UI_Message : UI_Popup
             return;
         }
 
-
         Managers.Scene.LoadScene(nextScene);
 
         Managers.UI.ClosePopupUI(this);
@@ -123,14 +113,12 @@ public class UI_Message : UI_Popup
 
     public void GameQuit(PointerEventData data)
     {
-
         Application.Quit();
     }
 
 
-    private void Function_Slider(float _value)
+    private void Function_Slider(float _value) // value에 따른 개수 변경
     {
-
         ShowMessage("구매", (int)_value + "개 구매");
        
     }

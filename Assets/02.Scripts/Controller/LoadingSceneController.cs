@@ -36,7 +36,7 @@ public class LoadingSceneController : UI_Base
         {
             yield return null;
 
-            if(op.progress < 0.9f)
+            if(op.progress < 0.9f) //fake
             {
                 progressBar.fillAmount = op.progress;
             }

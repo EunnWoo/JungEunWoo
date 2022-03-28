@@ -58,11 +58,16 @@ public class UI_Menu : UI_Scene
             body.SetActive(true);
             soundMenu.SetActive(false);
             screenMenu.SetActive(false);
+            Managers.UI.AddLinkedList(body);
         }
         else
         {
             body.SetActive(false);
+            Managers.UI.RemoveLinkedList(body);
         }
+
+
+        
     }
     public void ResumeButton(PointerEventData data)
     {
@@ -81,6 +86,7 @@ public class UI_Menu : UI_Scene
     public void ExitButton(PointerEventData data)
     {
         UI_Message ui_Message = Managers.UI.ShowPopupUI<UI_Message>();
+        ui_Message.Init();
         ui_Message.ShowMessage("종료", "종료하시겠습니까?");
         ui_Message.gameObject.AddUIEvent(ui_Message.GameQuit);
     }

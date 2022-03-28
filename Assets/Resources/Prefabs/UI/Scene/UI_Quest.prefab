@@ -329,6 +329,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5352993042627926322, guid: 89a530438a09a9143985907ee2fe04d7, type: 3}
+      propertyPath: m_Name
+      value: CompletedQuestListView
+      objectReference: {fileID: 0}
+    - target: {fileID: 5352993042627926322, guid: 89a530438a09a9143985907ee2fe04d7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6356727453516242277, guid: 89a530438a09a9143985907ee2fe04d7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

@@ -36,42 +36,46 @@ public class GameManager
 
     public void OnUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.U)) //u를 누를시
+
+        if (Managers.Input.escape)
+        {
+
+
+            if (Managers.UI.StatePopupUI())
+            {
+                Managers.UI.ClosePopupUI();
+
+
+            }
+            else if (Managers.UI.StateLinkedList())
+            {
+                Managers.UI.CloseScene();
+            }
+            else
+            {
+                Managers.UI.ui_Menu.OpenMenu();
+            }
+        }
+
+        if (Managers.UI.isAction) return;
+
+
+        if (Managers.Input.equip) //u를 누를시
         {
             Managers.UI.ui_Equipment.OnOffEquipment();
    
         }
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Managers.Input.inven)
         {
             Managers.UI.ui_Inventory.OnOffInventory();
 
         }
-        if(Input.GetKeyDown(KeyCode.Q))
+        if(Managers.Input.quest)
         {
             Managers.UI.ui_Quest.OpenQuest();
 
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-
-           
-            if (Managers.UI.StatePopupUI())
-            {
-                  Managers.UI.ClosePopupUI();
-
-
-            }
-            else
-            {
-                Managers.UI.CloseScene();
-            }
-
-            //else if (!Managers.UI.StatePopupUI())
-            //{
-            //    Managers.UI.ui_Menu.OpenMenu();
-            //}
-
-        }
+        
     }
 
 }

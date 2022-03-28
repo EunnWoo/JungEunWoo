@@ -8,12 +8,14 @@ public class UI_Quest : UI_Scene
 
     enum GameObjects
     {
-       QuestView
+       QuestView,
+       CompletedQuestListView
     }
 
 
 
     public GameObject questView;
+    GameObject completedQuestListView;
     public override void Init()
     {
         if (bInit) return;
@@ -23,24 +25,24 @@ public class UI_Quest : UI_Scene
         
         Bind<GameObject>(typeof(GameObjects));
         questView = Get<GameObject>((int)GameObjects.QuestView);
+        completedQuestListView = Get<GameObject>((int)GameObjects.CompletedQuestListView);
 
-        Debug.Log("UI_Quest 초기화");
         questView.SetActive(false);
+        completedQuestListView.SetActive(false);
     }
+
      public void OpenQuest()
      {
-        questView.SetActive(!questView.activeSelf);
-        //if (!questView.activeSelf)
-        //{
-        //    Debug.Log("OpenQuest 활성화");
-        //    questView.SetActive(true);
-        //}
-        //else
-        //{
-        //    Debug.Log("OpenQuest 비활성화");
-        //    questView.SetActive(false);
-        //}
-
+        if (!questView.activeSelf)
+        {
+            questView.SetActive(true);
+            Managers.UI.AddLinkedList(questView);
+        }
+        else
+        {
+            questView.SetActive(false);
+            Managers.UI.RemoveLinkedList(questView);
+        }
 
     }
 }

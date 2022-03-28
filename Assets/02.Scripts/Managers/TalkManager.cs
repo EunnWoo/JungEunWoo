@@ -100,9 +100,7 @@ public class TalkManager
             ui_Message.okButton.gameObject.AddUIEvent(ui_Message.SceneMoveOk);
         }
         #endregion
-
-
-        
+    
     }
 
     public string GetTalk(int id, int talkIndex)

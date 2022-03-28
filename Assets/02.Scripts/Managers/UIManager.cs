@@ -55,12 +55,13 @@ public class UIManager
             canvas.sortingOrder = 0;
         }
     }
-    public void AddSceneLinkedList(GameObject go)
+    public void AddLinkedList(GameObject go) //esc 눌렀을때 순서대로 제어 하기위해 linkedlist 사용
     {
         _sceneLinkedList.AddLast(go);
     }
-    public void RemoveSceneLinkedList(GameObject go)
+    public void RemoveLinkedList(GameObject go)
     {
+        if (_sceneLinkedList.Count == 0) return;
         _sceneLinkedList.Remove(go);
     }
     public void CloseScene()
@@ -68,7 +69,17 @@ public class UIManager
         if (_sceneLinkedList.Count == 0) return;
         _sceneLinkedList.Last.Value.gameObject.SetActive(false);
         _sceneLinkedList.RemoveLast();
+     
 
+    }
+    public bool StateLinkedList() // 현재 켜진 팝업이 있다면
+    {
+        if (_sceneLinkedList.Count != 0)
+        {
+            return true;
+        }
+        else
+            return false;
     }
     public T MakeWorldSpaceUI<T>(Transform parent = null,string name =null) where T : UI_Base// 이름과 T를 따로 받는 이유 ->name -> prefabs 연동을 위해  // T는  타입
     {
