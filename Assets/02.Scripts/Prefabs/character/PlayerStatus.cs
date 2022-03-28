@@ -269,11 +269,16 @@ public class PlayerStatus : Status
 
         }
     }
-
+    public override void TakeDamage(Status attacker, float ratio)
+    {
+        base.TakeDamage(attacker, ratio);
+        Managers.UI.ui_PlayerData.DisplayHP(Hp, MAX_HP); //체력 게이지 이미지 움직임
+    }
     protected override void Die()
     {
         base.Die();
-        
+        UI_Message ui_Message = Managers.UI.ShowPopupUI<UI_Message>();
+        ui_Message.okButton.gameObject.AddUIEvent(ui_Message.ReSpawn);
     }
 
 

@@ -56,7 +56,7 @@ public class Boss : MonsterController
 
         for (int i = 0; i < hit.Length; i++)
         {
-            Debug.Log("¸ÂÀ½");
+           
             Status status = hit[i].GetComponent<Status>();
             status.TakeDamage(GetComponent<Status>());
         }

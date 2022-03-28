@@ -8,11 +8,11 @@ public enum SceneState
     Unknown,
     Login,
     Tutorial,
-    Select,
-    Town,
-    Map1,
-    Map2,
-    Map3,
+    Select = 6000,
+    Town =6001,
+    Map1 = 6002,
+    Map2 = 6003,
+    Map3 = 6004
 
 }
 

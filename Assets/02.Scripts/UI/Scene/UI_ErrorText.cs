@@ -51,6 +51,9 @@ public class UI_ErrorText : UI_Scene
             case Define.Error.CoolTime:
                 errorText.text = "쿨타임 입니다.";
                 break;
+            case Define.Error.NoneMp:
+                errorText.text = "마나가 부족합니다.";
+                break;
             case Define.Error.NonePotion:
                 errorText.text = "물약이 없습니다.";
                 break;
