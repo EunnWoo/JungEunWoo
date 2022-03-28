@@ -88,6 +88,6 @@ public class UI_Menu : UI_Scene
         UI_Message ui_Message = Managers.UI.ShowPopupUI<UI_Message>();
         ui_Message.Init();
         ui_Message.ShowMessage("종료", "종료하시겠습니까?");
-        ui_Message.gameObject.AddUIEvent(ui_Message.GameQuit);
+        ui_Message.okButton.gameObject.AddUIEvent(ui_Message.GameQuit);
     }
 }

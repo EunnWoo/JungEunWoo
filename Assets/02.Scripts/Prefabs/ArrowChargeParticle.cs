@@ -13,6 +13,6 @@ public class ArrowChargeParticle : MonoBehaviour
     
     private void OnDisable()
     {
-        Managers.Sound.StopSound("EffectSound/Attack/ArrowCharge");
+        Managers.Sound.StopSound("EffectSound/Attack/ArrowCharge",Define.Sound.LoopEffect);
     }
 }

@@ -71,6 +71,18 @@ public class SoundManager
             audioSource.PlayOneShot(audioClip);
             
         }
+        else if (type == Define.Sound.Moving)
+        {
+            if (audioClip == _audioSources[(int)Define.Sound.Moving].clip)
+            {
+                Debug.Log("∏Æ≈œ");
+                return;
+            }
+            AudioSource audioSource = _audioSources[(int)Define.Sound.Moving];
+            audioSource.clip = audioClip;
+            audioSource.pitch = pitch;
+            audioSource.Play();
+        }
         else 
         {
             AudioSource audioSource = _audioSources[(int)Define.Sound.LoopEffect];
@@ -79,13 +91,14 @@ public class SoundManager
             audioSource.Play();
         }
     }
-    public void StopSound(string path)
+    public void StopSound(string path, Define.Sound type)
     {
-        AudioClip audioClip = GetOrAddAudioClip(path, Define.Sound.LoopEffect);
-        AudioSource audioSource = _audioSources[(int)Define.Sound.LoopEffect];
-        audioSource.clip = audioClip;
-
-        audioSource.Stop();
+        _audioSources[(int)type].clip = null;
+        //AudioClip audioClip = GetOrAddAudioClip(path, type);
+        //AudioSource audioSource = _audioSources[(int)type];
+        //audioSource.clip = audioClip;
+        //audioSource.Stop();
+        
 
     }
     public void SnowBallSound(string path ,float volume)
@@ -113,6 +126,14 @@ public class SoundManager
                 _audipClips.Add(path, audioClip);
             }
         }
+        else if (type ==Define.Sound.Moving)
+        {
+            if (_audipClips.TryGetValue(path, out audioClip) == false)
+            {
+                audioClip = Managers.Resource.Load<AudioClip>(path);
+                _audipClips.Add(path, audioClip);
+            }
+        }
         else
         {
             if (_audipClips.TryGetValue(path, out audioClip) == false)
@@ -126,6 +147,10 @@ public class SoundManager
 
         return audioClip;
     }
+
+
+
+
 
     public void AllSoundCtrl(float value)
     {

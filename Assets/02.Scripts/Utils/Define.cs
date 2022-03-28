@@ -30,6 +30,7 @@ public class Define
         BGM,
         Effect,
         LoopEffect,
+        Moving,
         MaxCount
     }
     public enum Error

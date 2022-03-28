@@ -42,11 +42,12 @@ public class PlayerController : BaseController
         
         if (playerAttack == null ? false : !playerAttack.canMove ) return; // 전직을 했고, canMove -> 공격, 스킬 사용중 이동 안 됨(특정스킬 제외)
         if (!Managers.UI.isAction) //팝업 있을때 행동 막기
-        {    
+        {
             Move();
             Run();
             Jump();
             Roll();
+            SoundSet();
         }
         
     }
@@ -73,6 +74,7 @@ public class PlayerController : BaseController
         float m = Mathf.Abs(Managers.Input.hAxis) + Mathf.Abs(Managers.Input.vAxis);
         moveAmount = Mathf.Clamp01(m);
 
+        
 
         transform.LookAt(transform.position + moveVec);
 
@@ -164,6 +166,7 @@ public class PlayerController : BaseController
             return;
         }
         bool runnig = Managers.Input.run && moveVec.magnitude != 0f;
+        
         moveSpeed = runnig ? 8f * 1.1f : 8f * 0.8f;
         animator.SetBool("IsRun", runnig);
     }
@@ -187,6 +190,7 @@ public class PlayerController : BaseController
             isJump = true;
             animator.SetBool("IsJump", true);
             animator.SetTrigger("DoJump");
+            animator.SetBool("IsRun", false);
             rigid.AddForce(Vector3.up * 17, ForceMode.Impulse);
         }
         
@@ -349,5 +353,33 @@ public class PlayerController : BaseController
 
 
         }
+    }
+
+    void SoundSet()
+    {
+
+
+        if (animator.GetFloat("Move") > 0.3f)
+        {
+
+            if (animator.GetBool("IsRun") == true)
+            {
+                // Managers.Sound.StopSound("Moving/Run", Define.Sound.Moving);
+                Managers.Sound.Play("Moving/Run", Define.Sound.Moving);
+            }
+            else if (animator.GetBool("IsRun") == false)
+            {
+                Debug.Log("walk 입장");
+                Managers.Sound.Play("Moving/Walk", Define.Sound.Moving);
+            }
+        }
+        else
+        {
+            Debug.Log("walk 꺼짐");
+            Managers.Sound.StopSound("Moving/Walk", Define.Sound.Moving);
+        }
+        //else if (animator.GetBool("IsRun") == false) Managers.Sound.StopSound("Moving/Run", Define.Sound.Moving);
+        //else if (animator.GetFloat("Move") == 0f) Managers.Sound.StopSound("Moving/Walk", Define.Sound.Moving);
+
     }
 }
