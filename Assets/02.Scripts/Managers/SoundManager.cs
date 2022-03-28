@@ -29,6 +29,7 @@ public class SoundManager
             _audioSources[(int)Define.Sound.BGM].loop = true;
             _audioSources[(int)Define.Sound.LoopEffect].loop = true;
         }
+        StateVolume = 1;
     }
 
     public void Clear()
@@ -125,6 +126,7 @@ public class SoundManager
 
         return audioClip;
     }
+
     public void AllSoundCtrl(float value)
     {
         StateVolume = value;

@@ -144,6 +144,7 @@ public class UI_Equipment : UI_Scene
             playerstatus.Equip(_index, _itemData);  // 해당 아이템 데이터를 장착
             _rtn = true;
         }
+        Managers.Sound.Play("EffectSound/Equip");
         return _rtn;
     }
 
@@ -164,6 +165,9 @@ public class UI_Equipment : UI_Scene
             }
             playerstatus.UnEquip((int)_slot, _itemData);
         }
+        Managers.Game.GetPlayer().GetComponent<JobController>().GetComponent<Animator>()
+                       .runtimeAnimatorController = Managers.Resource.Load<RuntimeAnimatorController>("Animator/None");
+        Managers.Sound.Play("EffectSound/Equip");
     }
 
     public void DisplayAttack(float _att)

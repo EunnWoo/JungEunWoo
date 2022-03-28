@@ -19,7 +19,7 @@ public class PartInfo
         itemData = _itemData;
     }
 
-    public void Equip(string _partName, eEquipmentSlot _equipmentSlot)//ÀåÂø
+    public void Equip(string _partName, eEquipmentSlot _equipmentSlot)//ÀåÂø  ½ºÅ² ÄÑÁü
     {
         for (int i = 0, imax = partList.Count; i < imax; i++)
         {
@@ -32,6 +32,7 @@ public class PartInfo
                 }
             }
         }
+        
     }
 
     public void UnEquip(string _partName, eEquipmentSlot _equipmentSlot) //Àåºñ Å»Âø
@@ -44,6 +45,7 @@ public class PartInfo
                 if (_equipmentSlot == eEquipmentSlot.Weapon)
                 {
                     Managers.Game.GetPlayer().GetComponent<PlayerAttack>().HasWeapon = false;
+                   
                 }
             }
         }

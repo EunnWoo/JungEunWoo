@@ -124,6 +124,7 @@ public class PlayerController : BaseController
                 if(_pick.itemData.itemType == eItemType.Coin) //아이템타입이 코인이면
                 {
                     //스텟에 직접넣어준다
+                    Managers.Sound.Play("EffectSound/Coin");
                     playerStatus.gold += _pick.count;
                     _pick.ClearDestroy();
                 }
@@ -224,7 +225,7 @@ public class PlayerController : BaseController
             isRoll = true;
             animator.SetTrigger("IsRoll");
             moveSpeed *= 1.5f;
-            Invoke("RollOut", 0.55f); // 0.55초간 행동 제어
+            Invoke("RollOut", 0.5f); // 0.5초간 행동 제어
         }
     }
     private void RollOut()

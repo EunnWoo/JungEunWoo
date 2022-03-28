@@ -111,28 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemcode: 20202
   count: 1
-  itemData:
-    itemcode: 20202
-    iteminfoBase:
-      itemcode: 0
-      subcategory: 0
-      equpslot: 0
-      itemname: 
-      activate: 0
-      toplist: 0
-      grade: 0
-      discount: 0
-      icon: 
-      playerlv: 0
-      multistate: 0
-      gamecost: 0
-      cashcost: 0
-      buyamount: 0
-      sellcost: 0
-      description: 
-      itemType: 0
-    itemCount: 0
-    upgradeCount: 0
+  eitemType: 1
   TurnSpeed: 90
   axis: {x: 0, y: 1, z: 0}
 --- !u!54 &6376437569140119272

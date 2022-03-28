@@ -110,28 +110,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemcode: 20004
   count: 1
-  itemData:
-    itemcode: 20004
-    iteminfoBase:
-      itemcode: 0
-      subcategory: 0
-      equpslot: 0
-      itemname: 
-      activate: 0
-      toplist: 0
-      grade: 0
-      discount: 0
-      icon: 
-      playerlv: 0
-      multistate: 0
-      gamecost: 0
-      cashcost: 0
-      buyamount: 0
-      sellcost: 0
-      description: 
-      itemType: 0
-    itemCount: 0
-    upgradeCount: 0
   TurnSpeed: 90
   axis: {x: 0, y: 1, z: 0}
 --- !u!1 &3279036730921725507
@@ -162,12 +140,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3279036730921725507}
-  m_LocalRotation: {x: -0.70839787, y: -0.00031847096, z: -0.0022091568, w: 0.7058099}
-  m_LocalPosition: {x: 0.212, y: -0.035, z: -0.02}
+  m_LocalRotation: {x: 0.70580983, y: -0.0022091637, z: 0.00031847222, w: 0.70839787}
+  m_LocalPosition: {x: -0.188, y: 0.035, z: -0.477}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 8287221629593398811}
-  m_RootOrder: 7
+  m_Father: {fileID: 8287221629348090181}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3279036730924868507
 MeshFilter:
@@ -176,7 +154,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3279036730921725507}
-  m_Mesh: {fileID: 4300002, guid: 0ebe59f48b03fc44381e8dda8749d4cb, type: 3}
+  m_Mesh: {fileID: 4300174, guid: 47388b002c80e8b49827d81977725b78, type: 3}
 --- !u!23 &3279036730923926449
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -232,28 +210,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemcode: 20102
   count: 1
-  itemData:
-    itemcode: 0
-    iteminfoBase:
-      itemcode: 0
-      subcategory: 0
-      equpslot: 0
-      itemname: 
-      activate: 0
-      toplist: 0
-      grade: 0
-      discount: 0
-      icon: 
-      playerlv: 0
-      multistate: 0
-      gamecost: 0
-      cashcost: 0
-      buyamount: 0
-      sellcost: 0
-      description: 
-      itemType: 0
-    itemCount: 0
-    upgradeCount: 0
   TurnSpeed: 90
   axis: {x: 0, y: 1, z: 0}
 --- !u!65 &3279036732453256377
@@ -283,28 +239,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemcode: 20102
   count: 1
-  itemData:
-    itemcode: 0
-    iteminfoBase:
-      itemcode: 0
-      subcategory: 0
-      equpslot: 0
-      itemname: 
-      activate: 0
-      toplist: 0
-      grade: 0
-      discount: 0
-      icon: 
-      playerlv: 0
-      multistate: 0
-      gamecost: 0
-      cashcost: 0
-      buyamount: 0
-      sellcost: 0
-      description: 
-      itemType: 0
-    itemCount: 0
-    upgradeCount: 0
   TurnSpeed: 90
   axis: {x: 0, y: 1, z: 0}
 --- !u!1 &4638125987541106779
@@ -417,28 +351,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemcode: 20202
   count: 1
-  itemData:
-    itemcode: 20005
-    iteminfoBase:
-      itemcode: 0
-      subcategory: 0
-      equpslot: 0
-      itemname: 
-      activate: 0
-      toplist: 0
-      grade: 0
-      discount: 0
-      icon: 
-      playerlv: 0
-      multistate: 0
-      gamecost: 0
-      cashcost: 0
-      buyamount: 0
-      sellcost: 0
-      description: 
-      itemType: 0
-    itemCount: 0
-    upgradeCount: 0
   TurnSpeed: 90
   axis: {x: 0, y: 1, z: 0}
 --- !u!1 &8287221629079029901
@@ -925,7 +837,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8287221629593398811}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8287221629119721153
 MeshFilter:
@@ -1790,12 +1702,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8287221629271804939}
-  m_LocalRotation: {x: -0.70839787, y: -0.00031847096, z: -0.0022091568, w: 0.7058099}
-  m_LocalPosition: {x: 0, y: -0.032343864, z: 0.6351667}
+  m_LocalRotation: {x: 0.70580983, y: -0.0022091637, z: 0.00031847222, w: 0.70839787}
+  m_LocalPosition: {x: -0.2, y: 0.035, z: 0.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 8287221629593398811}
-  m_RootOrder: 9
+  m_Father: {fileID: 8287221629348090181}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8287221629271804940
 MeshFilter:
@@ -1943,6 +1855,8 @@ Transform:
   - {fileID: 4638125987541106752}
   - {fileID: 8287221630142891423}
   - {fileID: 1638482484656029972}
+  - {fileID: 3279036730921503609}
+  - {fileID: 8287221629271804938}
   - {fileID: 8287221630553251418}
   m_Father: {fileID: 8287221629644849304}
   m_RootOrder: 0
@@ -4342,9 +4256,7 @@ Transform:
   - {fileID: 8287221630132011675}
   - {fileID: 8287221630030506001}
   - {fileID: 8287221630647095627}
-  - {fileID: 3279036730921503609}
   - {fileID: 8287221629119721167}
-  - {fileID: 8287221629271804938}
   m_Father: {fileID: 8287221630168874008}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10561,7 +10473,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8287221629348090181}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8287221630553251420
 MeshFilter:

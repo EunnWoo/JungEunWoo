@@ -17,7 +17,7 @@ public class ItemPickUp : MonoBehaviour
     //itemcode로 얻어온 아이템 데이터
     //itemData는 가변데이터(예: 강화횟수,물약 갯수)과 불변데이터가 공존
     public ItemData itemData { get; private set; }
-
+    public eItemType eitemType;
 
     private void Start()
     {

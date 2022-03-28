@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 7184805044347754010}
   m_Layer: 8
   m_Name: ShoulderPad4
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 7184805044355922274}
   m_Layer: 8
   m_Name: Sword1_L
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 7184805044372080638}
   m_Layer: 8
   m_Name: Cloth3
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 7184805044380679478}
   m_Layer: 8
   m_Name: Hair3
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -562,7 +562,7 @@ GameObject:
   - component: {fileID: 7184805044393626921}
   m_Layer: 8
   m_Name: Hair6Half
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -708,7 +708,7 @@ GameObject:
   - component: {fileID: 7184805044396442359}
   m_Layer: 8
   m_Name: Hair7
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -854,7 +854,7 @@ GameObject:
   - component: {fileID: 7184805044398916277}
   m_Layer: 8
   m_Name: Hair6
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -999,7 +999,7 @@ GameObject:
   - component: {fileID: 7184805044400907194}
   m_Layer: 8
   m_Name: pinky_02_l
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1032,7 +1032,7 @@ GameObject:
   - component: {fileID: 7184805044413125051}
   m_Layer: 8
   m_Name: Hammer1_L
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1142,7 +1142,7 @@ GameObject:
   - component: {fileID: 7184805044433602097}
   m_Layer: 8
   m_Name: weaponPositionTop
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1174,7 +1174,7 @@ GameObject:
   - component: {fileID: 7184805044434622644}
   m_Layer: 8
   m_Name: Sword5_L
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1255,7 +1255,7 @@ GameObject:
   - component: {fileID: 7184805044439209196}
   m_Layer: 8
   m_Name: Sword1_R
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1460,7 +1460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quests:
-  - {fileID: 11400000, guid: 7ff5051d5e1dbd047b6a52af884324ec, type: 2}
+  - {fileID: 11400000, guid: 56a50d58d7f698245964de42c1472d83, type: 2}
 --- !u!1 &7184805044449754932
 GameObject:
   m_ObjectHideFlags: 0
@@ -1473,7 +1473,7 @@ GameObject:
   - component: {fileID: 7184805044449754934}
   m_Layer: 8
   m_Name: Helm4
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1620,7 +1620,7 @@ GameObject:
   - component: {fileID: 7184805044454343010}
   m_Layer: 8
   m_Name: Arrow2
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1701,7 +1701,7 @@ GameObject:
   - component: {fileID: 7184805044480052222}
   m_Layer: 8
   m_Name: Shield1
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1781,7 +1781,7 @@ GameObject:
   - component: {fileID: 7184805044506989618}
   m_Layer: 8
   m_Name: Helm5
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1958,7 +1958,7 @@ GameObject:
   - component: {fileID: 7184805044550183310}
   m_Layer: 8
   m_Name: Glove3
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2103,7 +2103,7 @@ GameObject:
   - component: {fileID: 7184805044567690721}
   m_Layer: 8
   m_Name: backpackShield02
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2196,7 +2196,7 @@ GameObject:
   - component: {fileID: 7184805044600279368}
   m_Layer: 8
   m_Name: Glove1
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2341,7 +2341,7 @@ GameObject:
   - component: {fileID: 7184805044619047548}
   m_Layer: 8
   m_Name: weaponPosition_l
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2372,7 +2372,7 @@ GameObject:
   - component: {fileID: 7184805044619751234}
   m_Layer: 8
   m_Name: Hair4
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2519,7 +2519,7 @@ GameObject:
   - component: {fileID: 7184805044622527450}
   m_Layer: 8
   m_Name: Shield2
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2598,7 +2598,7 @@ GameObject:
   - component: {fileID: 7184805044650978247}
   m_Layer: 8
   m_Name: ball_l
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2629,7 +2629,7 @@ GameObject:
   - component: {fileID: 7184805044663228297}
   m_Layer: 8
   m_Name: Helm6
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2775,7 +2775,7 @@ GameObject:
   - component: {fileID: 7184805044672431476}
   m_Layer: 8
   m_Name: Helm1
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2920,7 +2920,7 @@ GameObject:
   - component: {fileID: 7184805044684167194}
   m_Layer: 8
   m_Name: upperarm_l
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2951,7 +2951,7 @@ GameObject:
   - component: {fileID: 7184805044691165521}
   m_Layer: 8
   m_Name: index_02_l
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2982,7 +2982,7 @@ GameObject:
   - component: {fileID: 7184805044719904417}
   m_Layer: 8
   m_Name: calf_l
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3045,7 +3045,7 @@ GameObject:
   - component: {fileID: 7184805044748906594}
   m_Layer: 8
   m_Name: Hat2
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3190,7 +3190,7 @@ GameObject:
   - component: {fileID: 7184805044758167094}
   m_Layer: 8
   m_Name: index_01_l
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3223,7 +3223,7 @@ GameObject:
   - component: {fileID: 7184805044773226180}
   m_Layer: 8
   m_Name: Axe2_L
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3302,7 +3302,7 @@ GameObject:
   - component: {fileID: 7184805044790128467}
   m_Layer: 8
   m_Name: ring_01_l
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3334,7 +3334,7 @@ GameObject:
   - component: {fileID: 7184805044798723819}
   m_Layer: 8
   m_Name: Hat1
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3481,7 +3481,7 @@ GameObject:
   - component: {fileID: 7184805044809508254}
   m_Layer: 8
   m_Name: Arrow1
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3560,7 +3560,7 @@ GameObject:
   - component: {fileID: 7184805044830199982}
   m_Layer: 8
   m_Name: shoulderPad_r
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3590,7 +3590,7 @@ GameObject:
   - component: {fileID: 7184805044853403106}
   m_Layer: 8
   m_Name: head
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3621,7 +3621,7 @@ GameObject:
   - component: {fileID: 7184805044858354788}
   m_Layer: 8
   m_Name: lowerarm_l
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3652,7 +3652,7 @@ GameObject:
   - component: {fileID: 7184805044871762663}
   m_Layer: 8
   m_Name: hand_r
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3689,7 +3689,7 @@ GameObject:
   - component: {fileID: 7184805044875803769}
   m_Layer: 8
   m_Name: Sword4_R
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3770,7 +3770,7 @@ GameObject:
   - component: {fileID: 7184805044901425484}
   m_Layer: 8
   m_Name: Shield7
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3851,7 +3851,7 @@ GameObject:
   - component: {fileID: 7184805044918676416}
   m_Layer: 8
   m_Name: Backpack3
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3930,7 +3930,7 @@ GameObject:
   - component: {fileID: 7184805044928690248}
   m_Layer: 8
   m_Name: thigh_l
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3963,7 +3963,7 @@ GameObject:
   - component: {fileID: 7184805044945019825}
   m_Layer: 8
   m_Name: Sword7_R
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4044,7 +4044,7 @@ GameObject:
   - component: {fileID: 7184805044956820649}
   m_Layer: 8
   m_Name: Hammer2_L
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4123,7 +4123,7 @@ GameObject:
   - component: {fileID: 7184805044989549317}
   m_Layer: 8
   m_Name: goggle
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4154,7 +4154,7 @@ GameObject:
   - component: {fileID: 7184805045007732391}
   m_Layer: 8
   m_Name: Hair5
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4299,7 +4299,7 @@ GameObject:
   - component: {fileID: 7184805045012270370}
   m_Layer: 8
   m_Name: ring_02_l
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4331,7 +4331,7 @@ GameObject:
   - component: {fileID: 7184805045018308642}
   m_Layer: 8
   m_Name: ShoulderPad2
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4477,7 +4477,7 @@ GameObject:
   - component: {fileID: 7184805045021707489}
   m_Layer: 8
   m_Name: Face5
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4624,7 +4624,7 @@ GameObject:
   - component: {fileID: 7184805045042265703}
   m_Layer: 8
   m_Name: BackPack1
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4703,7 +4703,7 @@ GameObject:
   - component: {fileID: 7184805045045198328}
   m_Layer: 8
   m_Name: weaponShield_l
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4758,7 +4758,7 @@ GameObject:
   - component: {fileID: 7184805045055816572}
   m_Layer: 8
   m_Name: Hair2
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4904,7 +4904,7 @@ GameObject:
   - component: {fileID: 7184805045066367866}
   m_Layer: 8
   m_Name: Face2
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5051,7 +5051,7 @@ GameObject:
   - component: {fileID: 7184805045067117255}
   m_Layer: 8
   m_Name: Axe2_R
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5132,7 +5132,7 @@ GameObject:
   - component: {fileID: 7184805045072695134}
   m_Layer: 8
   m_Name: Sword3_R
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5212,7 +5212,7 @@ GameObject:
   - component: {fileID: 7184805045086388563}
   m_Layer: 8
   m_Name: Helm3
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5359,7 +5359,7 @@ GameObject:
   - component: {fileID: 7184805045095490789}
   m_Layer: 8
   m_Name: Shield5
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5438,7 +5438,7 @@ GameObject:
   - component: {fileID: 7184805045113290937}
   m_Layer: 8
   m_Name: thumb_02_l
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5470,7 +5470,7 @@ GameObject:
   - component: {fileID: 7184805045115077752}
   m_Layer: 8
   m_Name: Belt3
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5616,7 +5616,7 @@ GameObject:
   - component: {fileID: 7184805045115671224}
   m_Layer: 8
   m_Name: ShoulderPad3
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5761,7 +5761,7 @@ GameObject:
   - component: {fileID: 7184805045121527225}
   m_Layer: 8
   m_Name: hand_l
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5798,7 +5798,7 @@ GameObject:
   - component: {fileID: 7184805045127889948}
   m_Layer: 8
   m_Name: Shield8
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5878,7 +5878,7 @@ GameObject:
   - component: {fileID: 7184805045129526193}
   m_Layer: 8
   m_Name: Shoe4
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6024,7 +6024,7 @@ GameObject:
   - component: {fileID: 7184805045138710261}
   m_Layer: 8
   m_Name: Crown3
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6169,7 +6169,7 @@ GameObject:
   - component: {fileID: 7184805045154564925}
   m_Layer: 8
   m_Name: thumb_03_l
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6201,7 +6201,7 @@ GameObject:
   - component: {fileID: 7184805045171857913}
   m_Layer: 8
   m_Name: Bow2
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6343,7 +6343,7 @@ GameObject:
   - component: {fileID: 7184805045231366385}
   m_Layer: 8
   m_Name: Wand1_L
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6423,7 +6423,7 @@ GameObject:
   - component: {fileID: 7184805045232724872}
   m_Layer: 8
   m_Name: Shoe1
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6568,7 +6568,7 @@ GameObject:
   - component: {fileID: 7184805045254038521}
   m_Layer: 8
   m_Name: spine_01
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6599,7 +6599,7 @@ GameObject:
   - component: {fileID: 7184805045263663903}
   m_Layer: 8
   m_Name: pinky_03_l
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6629,7 +6629,7 @@ GameObject:
   - component: {fileID: 7184805045282227033}
   m_Layer: 8
   m_Name: weaponPosition_r
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6661,7 +6661,7 @@ GameObject:
   - component: {fileID: 7184805045290845756}
   m_Layer: 8
   m_Name: Axe1_L
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6741,7 +6741,7 @@ GameObject:
   - component: {fileID: 7184805045291909213}
   m_Layer: 8
   m_Name: Cloth7
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6886,7 +6886,7 @@ GameObject:
   - component: {fileID: 7184805045301398382}
   m_Layer: 8
   m_Name: foot_r
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6919,7 +6919,7 @@ GameObject:
   - component: {fileID: 7184805045308713033}
   m_Layer: 8
   m_Name: Sword5_R
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6999,7 +6999,7 @@ GameObject:
   - component: {fileID: 7184805045319547815}
   m_Layer: 8
   m_Name: Belt2
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7144,7 +7144,7 @@ GameObject:
   - component: {fileID: 7184805045333460377}
   m_Layer: 8
   m_Name: backpackShield01
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7183,7 +7183,7 @@ GameObject:
   - component: {fileID: 7184805045345473074}
   m_Layer: 8
   m_Name: Sword2_R
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7264,7 +7264,7 @@ GameObject:
   - component: {fileID: 7184805045351529008}
   m_Layer: 8
   m_Name: Wand2_L
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7344,7 +7344,7 @@ GameObject:
   - component: {fileID: 7184805045353524437}
   m_Layer: 8
   m_Name: Hair1Half
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7490,7 +7490,7 @@ GameObject:
   - component: {fileID: 7184805045386315197}
   m_Layer: 8
   m_Name: Cloth4
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7637,7 +7637,7 @@ GameObject:
   - component: {fileID: 7184805045390390387}
   m_Layer: 8
   m_Name: Shield3
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7748,7 +7748,7 @@ GameObject:
   - component: {fileID: 7184805045451491032}
   m_Layer: 8
   m_Name: Hair5Half
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7953,7 +7953,7 @@ GameObject:
   - component: {fileID: 7184805045467462847}
   m_Layer: 8
   m_Name: clavicle_l
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7986,7 +7986,7 @@ GameObject:
   - component: {fileID: 7184805045480137691}
   m_Layer: 8
   m_Name: Hair7Half
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8132,7 +8132,7 @@ GameObject:
   - component: {fileID: 7184805045484084225}
   m_Layer: 8
   m_Name: Shoe6
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8277,7 +8277,7 @@ GameObject:
   - component: {fileID: 7184805045495140912}
   m_Layer: 8
   m_Name: spine_02
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8310,7 +8310,7 @@ GameObject:
   - component: {fileID: 7184805045505986174}
   m_Layer: 8
   m_Name: Sword3_L
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8389,7 +8389,7 @@ GameObject:
   - component: {fileID: 7184805045507541979}
   m_Layer: 8
   m_Name: thumb_01_l
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8421,7 +8421,7 @@ GameObject:
   - component: {fileID: 7184805045519728158}
   m_Layer: 8
   m_Name: Cloth5
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8568,7 +8568,7 @@ GameObject:
   - component: {fileID: 7184805045527674979}
   m_Layer: 8
   m_Name: BackPack2
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8648,7 +8648,7 @@ GameObject:
   - component: {fileID: 7184805045532113848}
   m_Layer: 8
   m_Name: Shoe3
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8795,7 +8795,7 @@ GameObject:
   - component: {fileID: 7184805045545704430}
   m_Layer: 8
   m_Name: Axe1_R
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8875,7 +8875,7 @@ GameObject:
   - component: {fileID: 7184805045557676477}
   m_Layer: 8
   m_Name: ShoulderPad1
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9020,7 +9020,7 @@ GameObject:
   - component: {fileID: 7184805045583291547}
   m_Layer: 8
   m_Name: middle_03_l
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9051,7 +9051,7 @@ GameObject:
   - component: {fileID: 7184805045599753661}
   m_Layer: 8
   m_Name: Glove7
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9197,7 +9197,7 @@ GameObject:
   - component: {fileID: 7184805045608569474}
   m_Layer: 8
   m_Name: Crown4
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9343,7 +9343,7 @@ GameObject:
   - component: {fileID: 7184805045611192969}
   m_Layer: 8
   m_Name: Cloth9
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9490,7 +9490,7 @@ GameObject:
   - component: {fileID: 7184805045636059037}
   m_Layer: 8
   m_Name: Hammer2_R
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9571,7 +9571,7 @@ GameObject:
   - component: {fileID: 7184805045655947306}
   m_Layer: 8
   m_Name: Wand2_R
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9651,7 +9651,7 @@ GameObject:
   - component: {fileID: 7184805045688732429}
   m_Layer: 8
   m_Name: Hair1
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9797,7 +9797,7 @@ GameObject:
   - component: {fileID: 7184805045698944932}
   m_Layer: 8
   m_Name: Belt1
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9942,7 +9942,7 @@ GameObject:
   - component: {fileID: 7184805045729696917}
   m_Layer: 8
   m_Name: spine_03
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9977,7 +9977,7 @@ GameObject:
   - component: {fileID: 7184805045729851346}
   m_Layer: 8
   m_Name: Glove6
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10123,7 +10123,7 @@ GameObject:
   - component: {fileID: 7184805045734121547}
   m_Layer: 8
   m_Name: Cloth2
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10268,7 +10268,7 @@ GameObject:
   - component: {fileID: 7184805045735347115}
   m_Layer: 8
   m_Name: clavicle_r
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10300,7 +10300,7 @@ GameObject:
   - component: {fileID: 7184805045768360344}
   m_Layer: 8
   m_Name: neck_01
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10363,7 +10363,7 @@ GameObject:
   - component: {fileID: 7184805045803113424}
   m_Layer: 8
   m_Name: Crown1
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10508,7 +10508,7 @@ GameObject:
   - component: {fileID: 7184805045803932194}
   m_Layer: 8
   m_Name: middle_02_l
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10539,7 +10539,7 @@ GameObject:
   - component: {fileID: 7184805045807144262}
   m_Layer: 8
   m_Name: shoulderPad_l
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10569,7 +10569,7 @@ GameObject:
   - component: {fileID: 7184805045807564924}
   m_Layer: 8
   m_Name: foot_l
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10633,7 +10633,7 @@ GameObject:
   - component: {fileID: 7184805045815986841}
   m_Layer: 8
   m_Name: Bow1
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10714,7 +10714,7 @@ GameObject:
   - component: {fileID: 7184805045844208873}
   m_Layer: 8
   m_Name: Shield6
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10793,7 +10793,7 @@ GameObject:
   - component: {fileID: 7184805045861970730}
   m_Layer: 8
   m_Name: root
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10827,7 +10827,7 @@ GameObject:
   - component: {fileID: 7184805045891918226}
   m_Layer: 8
   m_Name: Shoe5
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10973,7 +10973,7 @@ GameObject:
   - component: {fileID: 7184805045893943284}
   m_Layer: 8
   m_Name: Helm2
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11149,7 +11149,7 @@ GameObject:
   - component: {fileID: 7184805045920559347}
   m_Layer: 8
   m_Name: ShoulderPad6
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11295,7 +11295,7 @@ GameObject:
   - component: {fileID: 7184805045929289037}
   m_Layer: 8
   m_Name: Hat3
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11441,7 +11441,7 @@ GameObject:
   - component: {fileID: 7184805045930394384}
   m_Layer: 8
   m_Name: Hair2Half
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11587,7 +11587,7 @@ GameObject:
   - component: {fileID: 7184805045944926076}
   m_Layer: 8
   m_Name: Helm7
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11733,7 +11733,7 @@ GameObject:
   - component: {fileID: 7184805045959244193}
   m_Layer: 8
   m_Name: Cloth8
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11878,7 +11878,7 @@ GameObject:
   - component: {fileID: 7184805045990466890}
   m_Layer: 8
   m_Name: thigh_r
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11909,7 +11909,7 @@ GameObject:
   - component: {fileID: 7184805045994636669}
   m_Layer: 8
   m_Name: calf_r
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11942,7 +11942,7 @@ GameObject:
   - component: {fileID: 7184805046003592630}
   m_Layer: 8
   m_Name: Sword6_R
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12023,7 +12023,7 @@ GameObject:
   - component: {fileID: 7184805046041990156}
   m_Layer: 8
   m_Name: Wand3_R
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12104,7 +12104,7 @@ GameObject:
   - component: {fileID: 7184805046059688609}
   m_Layer: 8
   m_Name: Sword2_L
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12184,7 +12184,7 @@ GameObject:
   - component: {fileID: 7184805046067227864}
   m_Layer: 8
   m_Name: Face1
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12331,7 +12331,7 @@ GameObject:
   - component: {fileID: 7184805046068712843}
   m_Layer: 8
   m_Name: Sword6_L
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12411,7 +12411,7 @@ GameObject:
   - component: {fileID: 7184805046083378756}
   m_Layer: 8
   m_Name: Cloth6
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12557,7 +12557,7 @@ GameObject:
   - component: {fileID: 7184805046087146147}
   m_Layer: 8
   m_Name: Shoe2
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12703,7 +12703,7 @@ GameObject:
   - component: {fileID: 7184805046105257753}
   m_Layer: 8
   m_Name: Hair3Half
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12878,7 +12878,7 @@ GameObject:
   - component: {fileID: 7184805046156783337}
   m_Layer: 8
   m_Name: pinky_01_l
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12909,7 +12909,7 @@ GameObject:
   - component: {fileID: 7184805046174987014}
   m_Layer: 8
   m_Name: upperarm_r
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12940,7 +12940,7 @@ GameObject:
   - component: {fileID: 7184805046186498543}
   m_Layer: 8
   m_Name: middle_01_l
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12972,7 +12972,7 @@ GameObject:
   - component: {fileID: 7184805046242666535}
   m_Layer: 8
   m_Name: Cloth1
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13118,7 +13118,7 @@ GameObject:
   - component: {fileID: 7184805046249278492}
   m_Layer: 8
   m_Name: Face4
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13264,7 +13264,7 @@ GameObject:
   - component: {fileID: 7184805046256035955}
   m_Layer: 8
   m_Name: Glove5
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13411,7 +13411,7 @@ GameObject:
   - component: {fileID: 7184805046258597465}
   m_Layer: 8
   m_Name: Sword7_L
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13492,7 +13492,7 @@ GameObject:
   - component: {fileID: 7184805046268093714}
   m_Layer: 8
   m_Name: Sword4_L
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13573,7 +13573,7 @@ GameObject:
   - component: {fileID: 7184805046273197556}
   m_Layer: 8
   m_Name: Wand3_L
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13652,7 +13652,7 @@ GameObject:
   - component: {fileID: 7184805046280474777}
   m_Layer: 8
   m_Name: pelvis
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13687,7 +13687,7 @@ GameObject:
   - component: {fileID: 7184805046290912519}
   m_Layer: 8
   m_Name: Shield4
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13768,7 +13768,7 @@ GameObject:
   - component: {fileID: 7184805046292924928}
   m_Layer: 8
   m_Name: Hammer1_R
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13848,7 +13848,7 @@ GameObject:
   - component: {fileID: 7184805046294885257}
   m_Layer: 8
   m_Name: Face3
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13994,7 +13994,7 @@ GameObject:
   - component: {fileID: 7184805046314619185}
   m_Layer: 8
   m_Name: Glove2
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14140,7 +14140,7 @@ GameObject:
   - component: {fileID: 7184805046329189040}
   m_Layer: 8
   m_Name: Hair4Half
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14287,7 +14287,7 @@ GameObject:
   - component: {fileID: 7184805046338532404}
   m_Layer: 8
   m_Name: Wand1_R
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14366,7 +14366,7 @@ GameObject:
   - component: {fileID: 7184805046392860303}
   m_Layer: 8
   m_Name: index_03_l
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14396,7 +14396,7 @@ GameObject:
   - component: {fileID: 7184805046393023491}
   m_Layer: 8
   m_Name: ring_03_l
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14426,7 +14426,7 @@ GameObject:
   - component: {fileID: 7184805046424131742}
   m_Layer: 8
   m_Name: ball_r
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14457,7 +14457,7 @@ GameObject:
   - component: {fileID: 7184805046424447676}
   m_Layer: 8
   m_Name: Glove4
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14603,7 +14603,7 @@ GameObject:
   - component: {fileID: 7184805046440916177}
   m_Layer: 8
   m_Name: ShoulderPad5
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14748,7 +14748,7 @@ GameObject:
   - component: {fileID: 7184805046456421709}
   m_Layer: 8
   m_Name: weaponShield_r
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14795,7 +14795,7 @@ GameObject:
   - component: {fileID: 7184805046475083203}
   m_Layer: 8
   m_Name: Crown2
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14940,7 +14940,7 @@ GameObject:
   - component: {fileID: 7184805046481780964}
   m_Layer: 8
   m_Name: lowerarm_r
-  m_TagString: Untagged
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
