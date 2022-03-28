@@ -22,8 +22,8 @@ public class QuestTargetMarker : MonoBehaviour
 
     private void Start() {
         gameObject.SetActive(false);
-        QuestSystem.Instance.onQuestRegistered += TryAddTargetQuest;
-        foreach(var quest in QuestSystem.Instance.ActiveQuests){
+        Managers.Quest.onQuestRegistered += TryAddTargetQuest;
+        foreach(var quest in Managers.Quest.ActiveQuests){
             TryAddTargetQuest(quest);
         }        
     }
@@ -34,7 +34,7 @@ public class QuestTargetMarker : MonoBehaviour
     }
 
     private void OnDestroy() {
-        QuestSystem.Instance.onQuestRegistered -= TryAddTargetQuest;
+        Managers.Quest.onQuestRegistered -= TryAddTargetQuest;
         foreach(KeyValuePair<Quest,Task>item in targetTasksByQuest){
             item.Key.onNewTaskGroup -= UpdateTargetTask;
             item.Key.onCompleted -= RemoveTargetQuest;

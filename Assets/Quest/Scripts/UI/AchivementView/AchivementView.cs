@@ -10,7 +10,7 @@ public class AchivementView : MonoBehaviour
     private AchivementDetailView achivementDetailViewPrefab;
 
     private void Start(){
-        var questSystem = QuestSystem.Instance;
+        var questSystem = Managers.Quest;
         CreateDetailView(questSystem.ActiveAchivements);
         CreateDetailView(questSystem.CompleteAchivements);
 

@@ -35,11 +35,13 @@ public class UI_Quest : UI_Scene
      {
         if (!questView.activeSelf)
         {
+            
             questView.SetActive(true);
             Managers.UI.AddLinkedList(questView);
         }
         else
         {
+            
             questView.SetActive(false);
             Managers.UI.RemoveLinkedList(questView);
         }

@@ -10,7 +10,7 @@ public class QuestView : MonoBehaviour
     private QuestDetailView questDetailView;
 
     private void Start() {
-        var questSystem = QuestSystem.Instance;
+        var questSystem =  Managers.Quest;
         foreach(var quest in questSystem.ActiveQuests){
             AddQuestToActiveListView(quest);
         }
@@ -30,17 +30,17 @@ public class QuestView : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void OnDestroy() {
-        var questSystem = QuestSystem.Instance;
-        if(questSystem){
-            questSystem.onQuestRegistered -= AddQuestToActiveListView;
-            questSystem.onQuestCompleted -= RemoveQuestFromActiveListView;
-            questSystem.onQuestCompleted -= AddQuestToCompletedListView;
-            questSystem.onQuestCompleted -= HideDetailIfQuestCanceled;
-            questSystem.onQuestCanceled -= HideDetailIfQuestCanceled;
-            questSystem.onQuestCanceled -= RemoveQuestFromActiveListView;
-        }
-    }
+    //private void OnDestroy() {
+    //    var questSystem = QuestSystem.Instance;
+    //    if(questSystem){
+    //        questSystem.onQuestRegistered -= AddQuestToActiveListView;
+    //        questSystem.onQuestCompleted -= RemoveQuestFromActiveListView;
+    //        questSystem.onQuestCompleted -= AddQuestToCompletedListView;
+    //        questSystem.onQuestCompleted -= HideDetailIfQuestCanceled;
+    //        questSystem.onQuestCanceled -= HideDetailIfQuestCanceled;
+    //        questSystem.onQuestCanceled -= RemoveQuestFromActiveListView;
+    //    }
+    //}
 
     private void Onenalbe(){
         if(questDetailView.Target != null){

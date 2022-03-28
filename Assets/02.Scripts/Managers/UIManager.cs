@@ -58,6 +58,7 @@ public class UIManager
     public void AddLinkedList(GameObject go) //esc 눌렀을때 순서대로 제어 하기위해 linkedlist 사용
     {
         _sceneLinkedList.AddLast(go);
+        go.GetComponentInParent<Canvas>().sortingOrder = _sceneLinkedList.Count;
     }
     public void RemoveLinkedList(GameObject go)
     {

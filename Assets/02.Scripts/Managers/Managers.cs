@@ -19,6 +19,7 @@ public class Managers : MonoBehaviour
     UIManager _ui = new UIManager();
     TalkManager _talk = new TalkManager();
     SoundManager _sound = new SoundManager();
+    QuestManager _quest = new QuestManager();
     public static GameManager Game { get { return instance._game; } }
 
     public static ResourceManager Resource { get { return instance._resource; } }
@@ -29,6 +30,7 @@ public class Managers : MonoBehaviour
     public static UIManager UI { get { return instance._ui;  } }
     public static TalkManager talk { get { return instance._talk; } }
     public static SoundManager Sound { get { return instance._sound; } }
+    public static QuestManager Quest { get { return instance._quest; } }
 
     #endregion
 

@@ -11,9 +11,9 @@ public class QuestGiver : MonoBehaviour
     {
         foreach (var quest in quests)
         {
-            if (quest.IsAcceptable && !QuestSystem.Instance.ContainsInCompleteQuests(quest) && !QuestSystem.Instance.ContainsInActiveQuests(quest))
+            if (quest.IsAcceptable && !Managers.Quest.ContainsInCompleteQuests(quest) && !Managers.Quest.ContainsInActiveQuests(quest))
             {
-                QuestSystem.Instance.Register(quest);
+                Managers.Quest.Register(quest);
             }
         }
     }

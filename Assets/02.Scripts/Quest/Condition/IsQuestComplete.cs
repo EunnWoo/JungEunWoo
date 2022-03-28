@@ -8,5 +8,5 @@ public class IsQuestComplete : Condition
     [SerializeField]
     private Quest target;
 
-    public override bool IsPass(Quest quest) => QuestSystem.Instance.ContainsInCompleteQuests(target);
+    public override bool IsPass(Quest quest) => Managers.Quest.ContainsInCompleteQuests(target);
 }

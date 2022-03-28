@@ -12,7 +12,7 @@ public class QuestSystemSaveTest : MonoBehaviour
     private TaskTarget target;
     void Start()
     {
-        var questSystem = QuestSystem.Instance;
+        var questSystem = Managers.Quest;
         if(questSystem.ActiveQuests.Count == 0){
             Debug.Log("Register");
             var newQuest = questSystem.Register(quest);
@@ -28,7 +28,7 @@ public class QuestSystemSaveTest : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space)){
-            QuestSystem.Instance.ReceiveReport(category, target, 1);
+            Managers.Quest.ReceiveReport(category, target, 1);
         }
     }
 }

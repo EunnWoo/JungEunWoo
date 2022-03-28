@@ -11,16 +11,16 @@ public class QuestTrackerView : MonoBehaviour
     private CategoryColor[] categoryColors;
 
     private void Start(){
-        QuestSystem.Instance.onQuestRegistered += CreateQuestTracker;
-        foreach(var quest in QuestSystem.Instance.ActiveQuests){
+        Managers.Quest.onQuestRegistered += CreateQuestTracker;
+        foreach(var quest in Managers.Quest.ActiveQuests){
             CreateQuestTracker(quest);
         }
     }
-    private void OnDestroy() {
-        if(QuestSystem.Instance){
-            QuestSystem.Instance.onQuestRegistered -=CreateQuestTracker;
-        }
-    }
+    //private void OnDestroy() {
+    //    if(QuestSystem.Instance){
+    //        QuestSystem.Instance.onQuestRegistered -=CreateQuestTracker;
+    //    }
+    //}
 
     private void CreateQuestTracker(Quest quest){
         var categoryColor = categoryColors.FirstOrDefault(x => x.category == quest.Category);

@@ -12,7 +12,7 @@ public class QuestSystemTest : MonoBehaviour
     private TaskTarget target;
     void Start()
     {
-        var questSystem = QuestSystem.Instance;
+        var questSystem = Managers.Quest;
         questSystem.onQuestRegistered += (quest) =>{
             print($"New Quest : {quest.CodeName} Register");
             print($"Active Quests Count:{questSystem.ActiveQuests.Count}");
@@ -30,7 +30,7 @@ public class QuestSystemTest : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space)){
-            QuestSystem.Instance.ReceiveReport(category, target, 1);
+            Managers.Quest.ReceiveReport(category, target, 1);
         }
     }
 }

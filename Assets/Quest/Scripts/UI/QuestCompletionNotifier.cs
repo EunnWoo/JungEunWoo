@@ -20,19 +20,19 @@ public class QuestCompletionNotifier : MonoBehaviour
     private StringBuilder stringBuilder = new StringBuilder();
 
     private void Start(){
-        var questSystem = QuestSystem.Instance;
+        var questSystem = Managers.Quest;
         questSystem.onQuestCompleted += Notify;
         questSystem.onAchivementCompleted += Notify;
 
         gameObject.SetActive(false);
     }
-    private void OnDestory(){
-        var questSystem = QuestSystem.Instance;
-        if(questSystem != null){
-            questSystem.onQuestCompleted -= Notify;
-            questSystem.onAchivementCompleted -= Notify;
-        }
-    }
+    //private void OnDestory(){
+    //    var questSystem = QuestSystem.Instance;
+    //    if(questSystem != null){
+    //        questSystem.onQuestCompleted -= Notify;
+    //        questSystem.onAchivementCompleted -= Notify;
+    //    }
+    //}
 
     private void Notify(Quest quest){
         reservedQuests.Enqueue(quest);

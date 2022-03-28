@@ -22,10 +22,10 @@ public class ResourceManager
     }
 
     
-    public void Destroy(GameObject go)
+    public void Destroy(GameObject go,float time = 0f)
     {
         if (go == null)
             return;
-        Object.Destroy(go);
+        Object.Destroy(go,time);
     }
 }
