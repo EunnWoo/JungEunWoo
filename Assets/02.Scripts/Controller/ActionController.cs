@@ -18,6 +18,7 @@ public class ActionController : MonoBehaviour
         }
         else return;
     }
+
     public void OnTriggerExit(Collider other)
     {
 
