@@ -25,13 +25,26 @@ public class QuestSystem : MonoBehaviour
         get{
             if(!isApplicationQuitting && instance == null)
             {
-                instance = FindObjectOfType<QuestSystem>();
-                if(instance == null)
+                GameObject go = GameObject.Find("Quest System");
+                if (go == null)
                 {
-                    instance = new GameObject("Quest System").AddComponent<QuestSystem>();
-                    DontDestroyOnLoad(instance.gameObject);
+                    go = new GameObject { name = "Quest System" };
+                    go.AddComponent<QuestSystem>();
+
+
                 }
+                //instance = FindObjectOfType<QuestSystem>();
+                //if(instance == null)
+                //{
+                //    instance = new GameObject("Quest System").AddComponent<QuestSystem>();
+
+                //}
+                DontDestroyOnLoad(go);
+                instance = go.GetComponent<QuestSystem>();
+                
             }
+
+            
             return instance;
 
         }
@@ -59,7 +72,10 @@ public class QuestSystem : MonoBehaviour
     public IReadOnlyList<Quest> ActiveAchivements => activeAchivements;
     public IReadOnlyList<Quest> CompleteAchivements => completeAchivements;
 
-    private void Awake() {
+    private void Awake() 
+    {
+
+
         questDatabase = Resources.Load<QuestDatabase>("Quest Database");
         achivementDatabase = Resources.Load<QuestDatabase>("Achivement Database");
         if(!Load()){

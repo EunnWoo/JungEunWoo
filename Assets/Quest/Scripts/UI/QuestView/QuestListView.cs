@@ -12,16 +12,17 @@ public class QuestListView : MonoBehaviour
     private TextMeshProUGUI elementTextPrefab;
     [SerializeField]
     private Dictionary<Quest,GameObject> elementByQuest = new Dictionary<Quest, GameObject>();
+    [SerializeField]
     private ToggleGroup toggleGroup;
 
     private void Awake() {
         ins = this;
-        
-    }
-    public void Init()
-    {
         toggleGroup = GetComponent<ToggleGroup>();
     }
+    //public void Init()
+    //{
+    //    toggleGroup = GetComponent<ToggleGroup>();
+    //}
     public void AddElement(Quest quest, UnityAction<bool> onClicked){
         var element = Instantiate(elementTextPrefab, transform);
         element.text = quest.DisplayName;

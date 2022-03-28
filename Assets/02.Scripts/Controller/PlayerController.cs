@@ -40,10 +40,9 @@ public class PlayerController : BaseController
     protected override void UpdateMoving()
     {
         
-        if (playerAttack == null ? false : !playerAttack.canMove ) return;
-        if (!Managers.UI.isAction)
-        {
-           
+        if (playerAttack == null ? false : !playerAttack.canMove ) return; // 전직을 했고, canMove -> 공격, 스킬 사용중 이동 안 됨(특정스킬 제외)
+        if (!Managers.UI.isAction) //팝업 있을때 행동 막기
+        {    
             Move();
             Run();
             Jump();
@@ -137,6 +136,7 @@ public class PlayerController : BaseController
                     }
                     else
                     {
+                        Managers.UI.ui_ErrorText.SetErrorText(Define.Error.MaxInv);
                         Debug.Log("아이템창이 가득찼습니다");
                     }
                 }
@@ -155,7 +155,8 @@ public class PlayerController : BaseController
     }
     void Run()
     {
-        if (playerAttack != null ? playerAttack.isAttack : false) return;
+        if (playerAttack != null ? playerAttack.isAttack : false) return;// 이동스킬 중 달리기 막기
+
         if (isJump) 
         {
             moveSpeed = 8f*0.8f;
@@ -168,12 +169,11 @@ public class PlayerController : BaseController
     }
 
 
-    public void MoveStop()
+    public void MoveStop() // 마우스 이동중 다른 행동시 초기화
     {
         moveVec = Vector3.zero;
         _lockTarget = null;
     }
-    //hitpoint와 거리반환 함수
 
 
     #endregion
@@ -181,14 +181,13 @@ public class PlayerController : BaseController
     private void Jump()
     {
        
-        Jumptf();
+        Jumptf(); // 떨어질때
         if (Managers.Input.jump && !isJump && !Managers.Input.roll && rigid.velocity.y == 0 )
         {
             isJump = true;
             animator.SetBool("IsJump", true);
             animator.SetTrigger("DoJump");
             rigid.AddForce(Vector3.up * 17, ForceMode.Impulse);
-
         }
         
     }
@@ -216,7 +215,7 @@ public class PlayerController : BaseController
     #region roll
     private void Roll()
     {
-        if (playerAttack != null ? playerAttack.isAttack : false) return;
+        if (playerAttack != null ? playerAttack.isAttack : false) return; //공격중에 행동금지
 
         if (!isJump && moveAmount != 0 && Managers.Input.roll)
         {
@@ -225,7 +224,7 @@ public class PlayerController : BaseController
             isRoll = true;
             animator.SetTrigger("IsRoll");
             moveSpeed *= 1.5f;
-            Invoke("RollOut", 0.5f);
+            Invoke("RollOut", 0.55f); // 0.55초간 행동 제어
         }
     }
     private void RollOut()

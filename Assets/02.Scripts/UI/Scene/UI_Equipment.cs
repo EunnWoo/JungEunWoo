@@ -94,12 +94,12 @@ public class UI_Equipment : UI_Scene
         if(!body.activeSelf)
         {
             body.SetActive(true);
-            Managers.UI.AddSceneLinkedList(body);
+            Managers.UI.AddLinkedList(body);
         }
         else
         {
             body.SetActive(false);
-            Managers.UI.RemoveSceneLinkedList(body);
+            Managers.UI.RemoveLinkedList(body);
         }
 
 

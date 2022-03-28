@@ -128,6 +128,8 @@ public class UI_Inventory : UI_Scene
             _listData.Add(null);
         }
     }
+    #region tabsetting
+
     public void Invoke_SetTab()
     {
         goEquipTab.SetActive(false);
@@ -159,22 +161,19 @@ public class UI_Inventory : UI_Scene
         goETCSlot.SetActive(true);
         Description_Text.text = tabDescription[2];
     }
-    public void Invoke_Close()
-    {
-        body.SetActive(false);
-    }
+    #endregion
 
     public void OnOffInventory()
     {
         if (!body.activeSelf)
         {
             body.SetActive(true);
-            Managers.UI.AddSceneLinkedList(body);
+            Managers.UI.AddLinkedList(body);
         }
         else
         {
             body.SetActive(false);
-            Managers.UI.RemoveSceneLinkedList(body);
+            Managers.UI.RemoveLinkedList(body);
         }
 
 
