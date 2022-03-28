@@ -14,7 +14,7 @@ public class JobController : MonoBehaviour
 
    // public JobInfo jobstate { get; private set; }//= JobState.COMMON; // 현재 전직 가능한 직업
     public string jobstring { get; private set; }
-
+    ItemData itemData;
     UI_CoolTime ui_CoolTime;
 
     void Start()
@@ -31,21 +31,25 @@ public class JobController : MonoBehaviour
         if (jobstate == (int)JobInfo.SWORD) // 전사
         {
             jobstring = "Sword";
+            itemData = new ItemData((int)Define.Itemcode.Sword1);
         }
         else if (jobstate == (int)JobInfo.MAGIC) // 법사 전직
         {
             jobstring = "Magic";
+            itemData = new ItemData((int)Define.Itemcode.Wand1);
         }
 
         else if (jobstate == (int)JobInfo.BOW) // 궁수 전직
         {
             jobstring = "Bow";
-
+            itemData = new ItemData((int)Define.Itemcode.Bow1);
         }
-       
-      
 
-    //    animator.runtimeAnimatorController = Managers.Resource.Load<RuntimeAnimatorController>($"Animator/{jobstring}");
+        
+        
+
+        Managers.UI.ui_Inventory.AddItemData(itemData);
+        //    animator.runtimeAnimatorController = Managers.Resource.Load<RuntimeAnimatorController>($"Animator/{jobstring}");
         gameObject.AddComponent(System.Type.GetType(jobstring)); // 직업에 맞는 스크립트 부여
 
     }

@@ -55,11 +55,11 @@ public class UIManager
             canvas.sortingOrder = 0;
         }
     }
-    public void AddSceneLinkedList(GameObject go) // 1 2
+    public void AddSceneLinkedList(GameObject go)
     {
         _sceneLinkedList.AddLast(go);
     }
-    public void RemoveSceneLinkedList(GameObject go) // 1 2
+    public void RemoveSceneLinkedList(GameObject go)
     {
         _sceneLinkedList.Remove(go);
     }
@@ -109,7 +109,7 @@ public class UIManager
         GameObject go= Managers.Resource.Instantiate($"UI/PopUp/{name}"); // 프리팹 소환
         T popup =  Util.GetOrAddComponent<T>(go); // 스크립트 넣어주기
         _popupStack.Push(popup); // 스택에 넣어주기
-     
+       // go.GetComponent<Canvas>().sortingOrder = _popupStack.Count;
         go.transform.SetParent(Root.transform); //부모 지정해서 한번에 관리
 
 

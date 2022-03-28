@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MonsterStatus : Status
 {
-   
+    List<GameObject> items = new List<GameObject>();
     void Start()
     {
         Hp = MAX_HP;
@@ -29,7 +29,7 @@ public class MonsterStatus : Status
         questReporter.Report();
     }
 
-    List<GameObject> items = new List<GameObject>();
+   
 
 
 
@@ -37,7 +37,9 @@ public class MonsterStatus : Status
     {
         for (int i = 0; i < 8; i++)
         {
-            items.Add(ItemSet((Define.Items)Random.Range(0, System.Enum.GetValues(typeof(Define.Items)).Length)));
+            items.Add(ItemSet(
+                (Define.Items)
+                Random.Range(0, System.Enum.GetValues(typeof(Define.Items)).Length)));
         }
         foreach(GameObject item in items)
         {

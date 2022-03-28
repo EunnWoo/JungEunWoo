@@ -55,5 +55,15 @@ public class Define
         Wand2,
         Coin
     }
+
+    public enum Itemcode
+    {
+        Sword1  = 20001,
+        Sword2 = 20002,
+        Wand1 = 20101,
+        Wand2 = 20102,
+        Bow1 = 20201,
+        Bow2 = 20202
+    }
 }
 
