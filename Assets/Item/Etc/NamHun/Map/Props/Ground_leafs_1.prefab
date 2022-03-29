@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 480772}
   - component: {fileID: 3371350}
   - component: {fileID: 2308690}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ground_leafs_1
   m_TagString: Ground
   m_Icon: {fileID: 0}

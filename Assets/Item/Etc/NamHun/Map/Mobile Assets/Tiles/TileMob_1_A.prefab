@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 426002}
   - component: {fileID: 3391274}
   - component: {fileID: 2328930}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tile_Grass1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 3348112}
   - component: {fileID: 2394088}
   - component: {fileID: 8525129896434049623}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TileMob_1_A
   m_TagString: Ground
   m_Icon: {fileID: 0}
