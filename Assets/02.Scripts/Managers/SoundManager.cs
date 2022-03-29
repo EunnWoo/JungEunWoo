@@ -75,7 +75,6 @@ public class SoundManager
         {
             if (audioClip == _audioSources[(int)Define.Sound.Moving].clip)
             {
-                Debug.Log("∏Æ≈œ");
                 return;
             }
             AudioSource audioSource = _audioSources[(int)Define.Sound.Moving];
@@ -91,14 +90,9 @@ public class SoundManager
             audioSource.Play();
         }
     }
-    public void StopSound(string path, Define.Sound type)
+    public void StopSound(Define.Sound type)
     {
         _audioSources[(int)type].clip = null;
-        //AudioClip audioClip = GetOrAddAudioClip(path, type);
-        //AudioSource audioSource = _audioSources[(int)type];
-        //audioSource.clip = audioClip;
-        //audioSource.Stop();
-        
 
     }
     public void SnowBallSound(string path ,float volume)
@@ -143,8 +137,11 @@ public class SoundManager
             }
         }
         if (audioClip == null)
+        {
+#if UNITY_EDITOR
             Debug.Log("AudioClip Missing! ");
-
+#endif
+        }
         return audioClip;
     }
 

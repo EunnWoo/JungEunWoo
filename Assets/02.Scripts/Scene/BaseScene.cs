@@ -12,7 +12,8 @@ public enum SceneState
     Town =6001,
     Map1 = 6002,
     Map2 = 6003,
-    Map3 = 6004
+    Map3 = 6004,
+    End
 
 }
 
@@ -42,10 +43,8 @@ public abstract class BaseScene : MonoBehaviour
             Managers.Resource.Instantiate("UI/EventSystem").name = "@EventSystem";
       
 
-
         if (Managers.UI.ui_MonsterHpbar != null)
         {
-
             Managers.UI.ui_MonsterHpbar.OffMonsterHpbar();
         }
     }

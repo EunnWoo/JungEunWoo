@@ -22,7 +22,7 @@ public class UI_ErrorText : UI_Scene
         errorText = GetText((int)Texts.ErrorText);
 
         alpha.a = 0f;
-        alphaSpeed = 10f;
+        alphaSpeed = 12f;
         
     }
 

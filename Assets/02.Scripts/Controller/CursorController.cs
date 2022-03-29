@@ -88,7 +88,6 @@ public class CursorController : MonoBehaviour
 					ChangeCursor(_takeItem, CursorType.TakeItem);
                 }
             }
-
             else
             {
 				if (_cursorType != CursorType.Hand)

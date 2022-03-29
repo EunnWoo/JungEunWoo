@@ -78,16 +78,10 @@ public class UI_InventorySlot : UI_Base
     {
         int clickCount = eventData.clickCount;
 
-        if (clickCount == 1) //한번클릭
-            OnSingleClick();
-        else if (clickCount == 2)//두번 클릭시
+        if (clickCount == 2)//두번 클릭시
             OnDoubleClick();
     }
 
-    void OnSingleClick() //한번 클릭시
-    {
-        //Debug.Log("Single Clicked");
-    }
 
     void OnDoubleClick() //더블클릭시
     {
@@ -95,7 +89,9 @@ public class UI_InventorySlot : UI_Base
         switch(itemData.itemType)
         {
             case eItemType.Equip:   //장비창에서 더블클릭시
+#if UNITY_EDITOR
                 Debug.Log("더블클릭 >>장비교체");
+#endif
 
                 if (WeaponAniChange()) return;
 
@@ -113,7 +109,7 @@ public class UI_InventorySlot : UI_Base
                 ItemInfoUsepart _usePart = ItemInfo.ins.GetItemInfoUsepart(itemData.itemcode);
 
                 playerStatus.SetHPMP(_usePart.hp, _usePart.mp);
-
+                Managers.Sound.Play("EffectSound/Potion");
                 itemData.itemCount--; //아이템에서 수량을 한개빼줌
                 if(itemData.itemCount <= 0)//아이템 수량이 0개가되면
                 {
@@ -124,13 +120,16 @@ public class UI_InventorySlot : UI_Base
                 {
                     SetItem(itemData);
                 }
+#if UNITY_EDITOR
                 Debug.Log("더블클릭 >>물약먹기 HP:" + _usePart.hp + " MP: " + _usePart.mp);
+#endif
                 break;
             case eItemType.ETC:   //기타창에서 더블클릭시
+#if UNITY_EDITOR
                 Debug.Log("더블클릭 >>작동안함");
+#endif
                 break;
         }
-        Debug.Log("더블클릭");
     }
 
 
@@ -139,7 +138,6 @@ public class UI_InventorySlot : UI_Base
         int weaponcode = itemData.itemcode % 20000;
         if (weaponcode < 1000) // 직업다른데 착용 시도 했을때
         {
-            JobController jobController = Managers.Game.GetPlayer().GetComponent<JobController>();
             //0,1 전사 , 101,102 법사 201,202 궁수
             if (weaponcode < 100)
             {

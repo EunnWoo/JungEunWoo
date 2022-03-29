@@ -8,8 +8,7 @@ public abstract class BaseController : MonoBehaviour
 	
 	[SerializeField]
 	protected GameObject _lockTarget;
-	public bool IsDie { get => CurrentHealth <= 0; }
-	public float CurrentHealth;
+	
 
 	public bool isAttackReady { get; protected set; } // 공격 가능
 	public float attackDelay { get; protected set; } //  딜레이 계산

@@ -12,14 +12,15 @@ public enum MonsterState {
 
 public class MonsterController : BaseController
 {
-    private float moveSpeed = 8f, rotateSpeed = 3f;
+    #region SetUp
+    float moveSpeed = 8f, rotateSpeed = 3f;
+
     public Vector3 limitRange_Min, limitRange_Max;
     
-    [SerializeField]
-    private MonsterState monsterState;
-    [SerializeField]
-    private GameObject player;
-    private Vector3 movePos;
+    MonsterState monsterState;
+    GameObject player;
+    Vector3 movePos;
+
     [SerializeField]
     float _scanRange = 10;
 
@@ -37,13 +38,10 @@ public class MonsterController : BaseController
         InvokeRepeating("RandomPos", 2f, 3f);
         monsterState = MonsterState.Idle;
         animator = GetComponent<Animator>();
-        //초기화 하는 함수
     }
-
-    protected virtual void PlayerScan()// --> 상속받은 monster들 마다 스캔방식 다르게  ex) rayhit(보는 방향)골드메탈 참고 Or 적과 플레이어 distance 값 받아서 범위 스캔
+    #endregion
+    protected virtual void PlayerScan()
     {
-        //ex RaycastHit[] rayHits = Physics.SphereCastAll(transform.position,반지름 , tarnsform.forward, scanRange, LayMask.GetMask("Player"));
-        //ex 
         if (player == null)
          return;
 
@@ -130,11 +128,6 @@ public class MonsterController : BaseController
         objTransform.position = new Vector3(Mathf.Clamp(objTransform.position.x, minRange.x, maxRange.x), objTransform.position.y, 
                                 Mathf.Clamp(objTransform.position.z, minRange.z, maxRange.z));
     }
-
-
-
-
-
 
 
     protected virtual void OnAttack()

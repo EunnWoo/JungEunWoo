@@ -54,8 +54,6 @@ public class PartInfo
 
 public class PlayerStatus : Status
 {
-
-
     #region PartInfo 정보
     // 0     1       2      3   
     //Head, Armor, Weapon, Boots
@@ -87,9 +85,9 @@ public class PlayerStatus : Status
         {
             _partInfo.partDefault.SetActive(true);
         }
-        SetEquip(_partInfo, _itemData,-1);
+        SetEquip(_partInfo, _itemData, -1);
     }
-    public void SetEquip(PartInfo _partInfo, ItemData _itemData,float Un =1f)
+    public void SetEquip(PartInfo _partInfo, ItemData _itemData, float Un = 1f)
     {
         //아이템을 장착하면 status교체(감소)
         wearAttack += _itemData.plusatt * Un;
@@ -108,11 +106,11 @@ public class PlayerStatus : Status
     }
 
     #endregion
-
+    #region SetUp
     enum eAbiltyKind { LevelHP, LevelMP, LevelAttack, LevelDefense };
     public ParticleSystem psLevelUp;
 
-    float gold1, gold2; 
+    float gold1, gold2;
     public float gold
     {
         //보안성 때문에 변수2개로 지정
@@ -120,7 +118,7 @@ public class PlayerStatus : Status
         get { return gold1 + gold2; }
         set
         {
-            float _plus =  value - (gold1 + gold2); //value =gold1 + gold2 + _pick.count
+            float _plus = value - (gold1 + gold2); //value =gold1 + gold2 + _pick.count
             int _g1 = (int)_plus / 2;
             int _g2 = (int)_plus - _g1;
 
@@ -134,22 +132,24 @@ public class PlayerStatus : Status
 
     float totalExp;
     float[] expArray;
-    public float exp { 
+    public float exp
+    {
         get { return totalExp; }
-        set {
+        set
+        {
             float _plus = value - totalExp;
             totalExp += _plus;
-            float _levelOld = level; 
+            float _levelOld = level;
 
-            level           = GetLevel(totalExp);
-            levelHP         = GetAbility(eAbiltyKind.LevelHP);
-            levelMP         = GetAbility(eAbiltyKind.LevelMP);
-            levelAttack     = GetAbility(eAbiltyKind.LevelAttack);
-            levelDefense    = GetAbility(eAbiltyKind.LevelDefense);
+            level = GetLevel(totalExp);
+            levelHP = GetAbility(eAbiltyKind.LevelHP);
+            levelMP = GetAbility(eAbiltyKind.LevelMP);
+            levelAttack = GetAbility(eAbiltyKind.LevelAttack);
+            levelDefense = GetAbility(eAbiltyKind.LevelDefense);
 
-            if(level != _levelOld) //레벨업 할시
+            if (level != _levelOld) //레벨업 할시
             {
-                if(level >=2) //레벨이2이상 
+                if (level >= 2) //레벨이2이상 
                 {
                     //StartCoroutine(Co_ShowLevelUp(2f));
                     psLevelUp.gameObject.SetActive(true);//레벨업 파티클 실행
@@ -160,38 +160,36 @@ public class PlayerStatus : Status
 
                 Hp = MAX_HP; //레벨업시 hp를 전부 회복
                 mp = MAX_MP;
-               Managers.UI.ui_PlayerData.DisplayHP(Hp, MAX_HP);
-               Managers.UI.ui_PlayerData.DisplayMP(Hp, MAX_MP);
+                Managers.UI.ui_PlayerData.DisplayHP(Hp, MAX_HP);
+                Managers.UI.ui_PlayerData.DisplayMP(Hp, MAX_MP);
             }
             float _needExp = GetNeedExp(level) - GetNeedExp(level - 1); //현재레벨 - 전레벨
             float _curExp = totalExp - GetNeedExp(level - 1); //전레벨에서 현재레벨빼기
             Managers.UI.ui_PlayerData.DisplayEXP(_curExp, _needExp);
             Managers.UI.ui_PlayerData.DisplayLevelText(level);
         }
-        
+
     }
-    bool bDeath;
 
-    IEnumerator Start()
+
+    #endregion
+    protected override void Init()
     {
+        base.Init();
         psLevelUp.gameObject.SetActive(false); //시작시 레벨업 파티클 끄기
-
-        yield return null;
-        SetHPMP(baseHP, baseMP); //시작시hp ,mp를 처음 baseHP,baseMP 선언한 값으로 시작
+        //시작시hp ,mp를 처음 baseHP,baseMP 선언한 값으로 시작
+        
         expArray = new float[10 + 1];
-        for(int i = 1; i < expArray.Length; i++)
+        for (int i = 1; i < expArray.Length; i++)
         {
             expArray[i] = GetNeedExp(i);
         }
 
-        //UI_PlayerData.ins.DisplayLevelText(1);
-
-        //시작시 스텟설정
-        Managers.UI.ui_Equipment.DisplayAttack(attack);
-        Managers.UI.ui_Equipment.DisplayDEF(defense);
-        Managers.UI.ui_Equipment.DisplayHP(Hp);
-        Managers.UI.ui_Equipment.DisplayMP(mp);
     }
+
+
+
+  
 
     float GetNeedExp(float _level) //경험치 계산하는 함수
     {
@@ -257,7 +255,7 @@ public class PlayerStatus : Status
         //mp : 캐릭터 클래스 + 장비 + 레벨이 모두 적용된 mp
         if (mp - _useMP < 0) 
         {
-            Debug.Log("엠피 부족");
+            Managers.UI.ui_ErrorText.SetErrorText(Define.Error.NoneMp);
             return false; //엠피가 부족하면 false
 
         }

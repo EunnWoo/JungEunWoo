@@ -15,7 +15,9 @@ public class ResourceManager
 
         if(prefab ==null)
         {
+#if UNITY_EDITOR
             Debug.Log($"{path}가 없습니다");
+#endif
             return null;
         }
         return Object.Instantiate(prefab, parent);  // 오브젝트 안 붙이면 재귀적인 함수 구현된다.

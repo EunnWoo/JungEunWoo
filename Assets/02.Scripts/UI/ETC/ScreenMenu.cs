@@ -14,8 +14,8 @@ public class ScreenMenu : UI_Base
         FOVSlider
     }
     Slider fovSlider;
-
-   
+    GameObject backButton;
+    RectTransform tr;
   
     public override void Init()
     {
@@ -25,7 +25,9 @@ public class ScreenMenu : UI_Base
         fovSlider = Get<GameObject>((int)GameObjects.FOVSlider).GetComponent<Slider>();
         fovSlider.onValueChanged.AddListener(Function_FOVSlider);
 
-        GetButton((int)Buttons.BackButton).gameObject.AddUIEvent(BackClick);
+        backButton = GetButton((int)Buttons.BackButton).gameObject;
+        backButton.AddUIEvent(BackClick);
+        tr = GetComponent<RectTransform>();
     }
 
 
@@ -37,7 +39,7 @@ public class ScreenMenu : UI_Base
 
     private void BackClick(PointerEventData data)
     {
-        gameObject.SetActive(false);
+        tr.gameObject.SetActive(false);
     }
 
 }

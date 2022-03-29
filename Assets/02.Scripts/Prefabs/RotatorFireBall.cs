@@ -6,10 +6,15 @@ public class RotatorFireBall : MonoBehaviour
 {
 
     PlayerAttack playerAttack;
-
+    Transform tr;
     ParticleSystem particleObject; //파티클시스템
-
+    
     bool explosion;
+    void Start()
+    {
+        particleObject = GetComponent<ParticleSystem>();
+        tr = GetComponent<Transform>();
+    }
     private void OnEnable()
     {
         if (Managers.Game.GetPlayer() != null)
@@ -17,7 +22,7 @@ public class RotatorFireBall : MonoBehaviour
             playerAttack = Managers.Game.GetPlayer().GetComponent<PlayerAttack>();
             
         }
-        particleObject = GetComponent<ParticleSystem>();
+        
         explosion = false;
 
     }
@@ -25,7 +30,7 @@ public class RotatorFireBall : MonoBehaviour
     {
        
         if (playerAttack.attackTarget.layer != (int)Layer.Monster || explosion) return;
-        transform.position = playerAttack.attackTarget.transform.position;
+        tr.position = playerAttack.attackTarget.transform.position;
         if(particleObject.time >= 6.3f)
         {
             explosion = true;

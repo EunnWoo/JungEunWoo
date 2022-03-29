@@ -6,19 +6,8 @@ public class FireBall : MonoBehaviour
 {
     Transform tr;
     Rigidbody rigid;
-    [SerializeField]
     PlayerAttack playerAttack;
-    Animator animator;
 
-
-    private float red = 0f;
-    private float green = 0f;
-    private float blue = 0f;
-
-    [SerializeField]
-    ParticleSystem ps;
-    [SerializeField]
-    ParticleSystem childps;
 
     private bool isFire;
     public void SetFire(bool value) { isFire = value; }
@@ -28,21 +17,6 @@ public class FireBall : MonoBehaviour
 
     GameObject target;
     public void SetTarget(GameObject value) {target = value ;}
-
-
-    private void Start()
-    {
-        ps = GetComponent<ParticleSystem>();
-        childps = this.transform.Find("Fire").GetComponent<ParticleSystem>();
-        red = Random.Range(0, 255);
-        green = Random.Range(0, 255);
-        blue = Random.Range(0, 255);
-        var main = ps.main;
-        main.startColor = new Color(red, green, blue, 255);
-
-        main = childps.main;
-        main.startColor = new Color(red, green, blue, 255);
-    }
 
     private void OnEnable()
     {
@@ -54,7 +28,6 @@ public class FireBall : MonoBehaviour
         if (Managers.Game.GetPlayer() != null)
         {
             playerAttack = Managers.Game.GetPlayer().GetComponent<PlayerAttack>();
-            animator = Managers.Game.GetPlayer().GetComponentInChildren<Animator>();
         }
 
 
@@ -65,7 +38,7 @@ public class FireBall : MonoBehaviour
     void Update()
     {
      
-        if ((Vector3.Distance(transform.position, offset) >= 20f))//사정거리 벗어나면
+        if ((Vector3.Distance(tr.position, offset) >= 20f))//사정거리 벗어나면
         {
             DisableFireBall();
         }
@@ -84,7 +57,7 @@ public class FireBall : MonoBehaviour
                 }
                 else if (target.layer == (int)Layer.Ground)
                 {
-                    rigid.AddForce(transform.forward * 30f);
+                    rigid.AddForce(tr.forward * 30f);
                 }
                 
 
@@ -99,14 +72,14 @@ public class FireBall : MonoBehaviour
     }
     public void DisableFireBall()
     {
-        gameObject.SetActive(false);
+        tr.gameObject.SetActive(false);
     }
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag =="Monster")
         {
-            
-            gameObject.SetActive(false);
+
+            tr.gameObject.SetActive(false);
             Status playerstatus = Managers.Game.GetPlayer().GetComponent<Status>();
             Status status = other.GetComponent<Status>();
 

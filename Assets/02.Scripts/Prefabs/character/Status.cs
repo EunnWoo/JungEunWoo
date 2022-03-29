@@ -61,17 +61,26 @@ public class Status : MonoBehaviour
     protected float wearDefense = 0;
     protected float levelDefense = 0;
     #endregion
-
-    bool bDeath;       
-            
-
-   
+    [SerializeField]
+    Animator animator;
+    [SerializeField]
+    QuestReporter questReporter;
+    public bool bDeath { get; private set; }
+    void Start()
+    {
+        Init();
+    }
+    protected virtual void Init()
+    {
+        animator = GetComponent<Animator>();
+        questReporter = GetComponent<QuestReporter>();
+    }
 
     public  virtual void TakeDamage(Status attacker,float ratio = 1f) //맞는타겟 호출함
     {
         if (bDeath) return; //만약 사망했다면
 
-        gameObject.GetComponent<Animator>().SetTrigger("Hit");
+        animator.SetTrigger("Hit");
 
         int damage = Random.Range( (int)(attacker.attack / 10),  (int)((attacker.attack- (int)defense) * ratio));
         Hp -= damage;
@@ -79,24 +88,20 @@ public class Status : MonoBehaviour
         UI_Damage ui_Damage = Managers.UI.MakeWorldSpaceUI<UI_Damage>(transform);
         ui_Damage.target = transform;
         ui_Damage.damage = damage;
-
-
-        //if (hp <= 0) //hp가 0이되면
-        //{
-        //    Die();    
-        //}
-       
   
     }
 
 
     protected virtual void Die()
     {
-        Debug.Log("@@@사망");
+#if UNITY_EDITOR
+        Debug.Log("사망");
+#endif
+
         bDeath = true;
-        QuestReporter questReporter = GetComponent<QuestReporter>();
+        
         questReporter.Report();
-        gameObject.GetComponent<Animator>().SetTrigger("Dead");
+        animator.SetTrigger("Dead");
         //gameObject.GetComponent<Rigidbody>().isKinematic = false;
 
     }

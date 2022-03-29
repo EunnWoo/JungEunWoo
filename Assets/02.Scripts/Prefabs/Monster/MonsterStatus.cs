@@ -5,10 +5,14 @@ using UnityEngine;
 public class MonsterStatus : Status
 {
     List<GameObject> items = new List<GameObject>();
-    void Start()
+   // QuestReporter questReporter;
+    Collider coll;
+    protected override void Init()
     {
+        base.Init();
         Hp = MAX_HP;
-        
+       // questReporter = GetComponent<QuestReporter>();
+        coll = GetComponent<Collider>();
     }
     
 
@@ -24,10 +28,9 @@ public class MonsterStatus : Status
     {
         base.Die();
         ItemDrop();
-        Managers.UI.ui_MonsterHpbar.OffMonsterHpbar();
-        QuestReporter questReporter = GetComponent<QuestReporter>();
-        questReporter.Report();
-        GetComponent<Collider>().isTrigger = true;
+        Managers.UI.ui_MonsterHpbar.OffMonsterHpbar();    
+       // questReporter.Report();
+        coll.isTrigger = true;
         Managers.Resource.Destroy(gameObject, 3f);
     }
 
@@ -43,15 +46,19 @@ public class MonsterStatus : Status
                 (Define.Items)
                 Random.Range(0, System.Enum.GetValues(typeof(Define.Items)).Length)));
         }
-        foreach(GameObject item in items)
+        for(int i =0; i <items.Count; i++)
         {
-            if(item.GetComponent<ItemPickUp>().itemcode == 30001)
+            if (items[i].GetComponent<ItemPickUp>().itemcode == 30001)
             {
-                item.GetComponent<ItemPickUp>().count = (int)Random.Range(100f, 1000f);
+                items[i].GetComponent<ItemPickUp>().count = (int)Random.Range(100f, 1000f);
             }
-            item.transform.position = transform.position;
-            item.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-5,5), Random.Range(5, 10), Random.Range(-5, 5)),ForceMode.Impulse);
+            items[i].transform.position = transform.position;
+            items[i].GetComponent<Rigidbody>().
+                AddForce(new Vector3(Random.Range(-5, 5), Random.Range(5, 10), Random.Range(-5, 5)), 
+                ForceMode.Impulse);
+
         }
+        
 
     }
 

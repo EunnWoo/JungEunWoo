@@ -7,10 +7,11 @@ public class ObjPoolManager
     GameObject[] arrow;
     GameObject[] fireBall;
     GameObject[] rotatorFireBall;
+    GameObject[] bombSlimePool;
 
     GameObject[] targetPool;
 
-    GameObject[] bombSlimePool;
+    
 
     public Transform objPoolManager { get; private set; }
 
@@ -74,8 +75,6 @@ public class ObjPoolManager
         {
             if(!targetPool[i].activeSelf) // 비활성화라면
             {
-               // targetPool[i].SetActive(true);
-                
                 return targetPool[i];
             }
         }

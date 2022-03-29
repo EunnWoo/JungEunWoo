@@ -32,10 +32,6 @@ public class InputManager
     public bool skillFire { get; private set; }
     public void OnUpdate()
     {
-        //if (Input.anyKey && KeyAction != null)
-        //    KeyAction.Invoke();
-        //if (Input.anyKey)
-        //Debug.Log(Input.inputString);
         hAxis = Input.GetAxisRaw(hAxisName);
         vAxis = Input.GetAxisRaw(vAxisName);
         roll = Input.GetButton(rollName);
@@ -48,6 +44,9 @@ public class InputManager
         equip = Input.GetKeyDown(KeyCode.U);
         inven = Input.GetKeyDown(KeyCode.I);
         quest = Input.GetKeyDown(KeyCode.Q);
+
+
+        skillFire = Input.GetMouseButtonUp(1);
 
     }
 }

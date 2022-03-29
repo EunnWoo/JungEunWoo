@@ -6,16 +6,13 @@ public class Sword : PlayerAttack
 {
 
 
-    private float charge;
-    [SerializeField]
-    GameObject[] weapons; //
+    float charge;
     
     private void Awake()
     {
         attackRate = 0.3f;
         skillRate = 10f;
         range = 2f;
-        weapons = GameObject.FindGameObjectsWithTag("Sword");
         attackRatio = 0.8f;
         skillRatio = 0.5f;
     }
@@ -40,11 +37,10 @@ public class Sword : PlayerAttack
         {
             charge += Time.deltaTime;
             ui_SkillTime.SetImage(charge);
-            if (Input.GetMouseButtonUp(1) || charge >=5f)
+            if (Managers.Input.skillFire || charge >=5f)
             {
                 Managers.UI.ClosePopupUI(ui_SkillTime);
                 animator.SetTrigger("Fire");
-
                 skillDelay = 0;
                 charge = 0;
                 isAttack = false;
@@ -59,6 +55,7 @@ public class Sword : PlayerAttack
     protected override void OnHitEvent()
     {
         Managers.Sound.Play("EffectSound/Attack/Sword" + Random.Range(1,3));
+
         Status playerstatus = Managers.Game.GetPlayer().GetComponent<Status>();
         Vector3 vec = transform.localPosition + transform.forward;
         Collider[] hit = Physics.OverlapSphere(vec, 1.2f, 1 << (int)Layer.Monster);
