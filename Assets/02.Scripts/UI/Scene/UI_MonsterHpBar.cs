@@ -32,7 +32,7 @@ public class UI_MonsterHpBar : UI_Scene
 
     public void ChangeMonsterHit(Status status)
     {
-        if (status.bDeath == true) return;
+        if (status.BDeath ) return;
         time = 0;
         body.SetActive(true);
         nameText.text = status.name;

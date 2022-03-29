@@ -174,8 +174,11 @@ public class UI_Equipment : UI_Scene
             }
             playerstatus.UnEquip((int)_slot, _itemData);
         }
-        Managers.Game.GetPlayer().GetComponent<JobController>().GetComponent<Animator>()
-                       .runtimeAnimatorController = Managers.Resource.Load<RuntimeAnimatorController>("Animator/None");
+        if (_slot == eEquipmentSlot.Weapon)
+        {
+            Managers.Game.GetPlayer().GetComponent<JobController>().GetComponent<Animator>()
+                           .runtimeAnimatorController = Managers.Resource.Load<RuntimeAnimatorController>("Animator/None");
+        }
         Managers.Sound.Play("EffectSound/Equip");
     }
 

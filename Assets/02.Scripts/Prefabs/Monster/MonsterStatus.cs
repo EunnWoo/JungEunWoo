@@ -29,7 +29,6 @@ public class MonsterStatus : Status
         base.Die();
         ItemDrop();
         Managers.UI.ui_MonsterHpbar.OffMonsterHpbar();    
-       // questReporter.Report();
         coll.isTrigger = true;
         Managers.Resource.Destroy(gameObject, 3f);
     }

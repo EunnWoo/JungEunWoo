@@ -11,6 +11,8 @@ public class UI_Message : UI_Popup
     Text title, content;
     [HideInInspector]
     public Button okButton;
+    [HideInInspector]
+    public Button cancelButton;
     public Slider countSlider { get; private set; }
 
     enum Texts
@@ -40,11 +42,12 @@ public class UI_Message : UI_Popup
         Bind<GameObject>(typeof(GameObjects));
 
         okButton = GetButton((int)Buttons.OKButton);
+        cancelButton = GetButton((int)Buttons.CancelButton);
         title = GetText((int)Texts.TitleText);
         content = GetText((int)Texts.ContentText);
         countSlider = Get<GameObject>((int)GameObjects.CountSlider).GetComponent<Slider>();
 
-        GetButton((int)Buttons.CancelButton).gameObject.AddUIEvent(Cancel);
+        cancelButton.gameObject.AddUIEvent(Cancel);
 
         countSlider.onValueChanged.AddListener(Function_Slider);
         countSlider.gameObject.SetActive(false);
@@ -140,13 +143,16 @@ public class UI_Message : UI_Popup
 
     public void ReSpawn(PointerEventData data) //∫Œ»∞ 
     {
-        Managers.Scene.LoadScene(SceneState.Town);
         PlayerStatus playerStatus = Managers.Game.GetPlayer().GetComponent<PlayerStatus>();
         playerStatus.Hp = playerStatus.MAX_HP;
+        playerStatus.GetComponent<Animator>().SetTrigger("Recover");
+        playerStatus.GetComponent<Animator>().SetBool("Dead", false);
+        playerStatus.bDeath = false;
         Managers.UI.ui_PlayerData.DisplayHP(playerStatus.Hp, playerStatus.MAX_HP);
 
         Managers.UI.ClosePopupUI(this);
     }
+
     public void GameQuit(PointerEventData data)
     {
         Application.Quit();

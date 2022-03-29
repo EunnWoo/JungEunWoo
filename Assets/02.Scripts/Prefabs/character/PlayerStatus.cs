@@ -155,6 +155,7 @@ public class PlayerStatus : Status
                     psLevelUp.gameObject.SetActive(true);//레벨업 파티클 실행
                     psLevelUp.Stop();
                     psLevelUp.Play();
+                    Managers.Sound.Play("EffectSound/LevelUp");
                     // Managers 소리넣기
                 }
 
@@ -279,6 +280,7 @@ public class PlayerStatus : Status
         ui_Message.Init();
         ui_Message.ShowMessage("죽음", "마을에서 부활하시겠습니까?");
         ui_Message.okButton.gameObject.AddUIEvent(ui_Message.ReSpawn);
+        ui_Message.cancelButton.gameObject.AddUIEvent(ui_Message.GameQuit);
     }
 
 

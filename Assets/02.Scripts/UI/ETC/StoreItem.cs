@@ -74,7 +74,9 @@ public class StoreItem : UI_Base
     public void OnClickStoreItem(ItemData _itemData) //아이템 사기
     {
         PlayerStatus _playerStatus = Managers.Game.GetPlayer().GetComponent<PlayerStatus>();
+#if UNITY_EDITOR
         Debug.Log("보유머니" + _playerStatus.gold + "템가격 : " + _itemData);
+#endif
         //Debug.Log("@@@ 아이템 구매버튼"+_itemData.itemcode);
 
         if (_playerStatus.gold < _itemData.gamecost)//만약 플레이어가 가지고있는 골드가 아이템금액 적으면
@@ -129,6 +131,7 @@ public class StoreItem : UI_Base
     {
         if (on != null)
         {
+            Managers.Sound.Play("EffectSound/Buy");
             itemData.itemCount = (int)ui_Message.countSlider.value; // 슬라이더 값이 변경될때 showmessage 호출해서 컨텐츠 텍스트 변경됨
             on(itemData); // OnClickStoreItem 호출
         }

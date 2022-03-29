@@ -65,7 +65,16 @@ public class Status : MonoBehaviour
     Animator animator;
     [SerializeField]
     QuestReporter questReporter;
-    public bool bDeath { get; private set; }
+    public bool BDeath { get; private set; }
+    public bool bDeath 
+    {
+
+        set
+        {
+            BDeath = value;
+        }
+
+    }
     void Start()
     {
         Init();
@@ -78,7 +87,7 @@ public class Status : MonoBehaviour
 
     public  virtual void TakeDamage(Status attacker,float ratio = 1f) //맞는타겟 호출함
     {
-        if (bDeath) return; //만약 사망했다면
+        if (BDeath) return; //만약 사망했다면
 
         animator.SetTrigger("Hit");
 
@@ -101,7 +110,7 @@ public class Status : MonoBehaviour
         bDeath = true;
         
         questReporter.Report();
-        animator.SetTrigger("Dead");
+        animator.SetBool("Dead", BDeath);
         //gameObject.GetComponent<Rigidbody>().isKinematic = false;
 
     }
