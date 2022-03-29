@@ -137,6 +137,7 @@ public class Quest : ScriptableObject
         foreach(var reward in rewards){
             reward.Give(this);
         }
+        Managers.Sound.Play("EffectSound/QuestClear");
         onCompleted?.Invoke(this);
         onTaskSuccessChanged = null;
         onNewTaskGroup = null;
