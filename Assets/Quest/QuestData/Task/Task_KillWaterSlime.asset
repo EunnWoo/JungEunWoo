@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   category: {fileID: 11400000, guid: 52872427afc027e479ca78318d48d5f4, type: 2}
   codeName: KILL_DUMMY
-  description: KillWaterSlime
+  description: Kill WaterSlime
   action: {fileID: 11400000, guid: f2e8487896b673045b8b058590e7ae6e, type: 2}
   targets:
   - {fileID: 11400000, guid: 9a44f6e270a80264bac2984590ed1d05, type: 2}

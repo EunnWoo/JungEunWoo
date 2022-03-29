@@ -38,9 +38,17 @@ public class TalkManager
         int id = npc.GetComponent<ObjData>().id;
         if (id <= 3 )
         {
-            UI_Panel ui_Panel =  Managers.UI.ShowPopupUI<UI_Panel>();
-            ui_Panel.Init();
-            ui_Panel.OkButton.gameObject.AddUIEvent(ui_Panel.OnJobChoiceButton);
+            foreach(var quest in Managers.Quest.ActiveQuests){
+                if(quest.CodeName == "TUTORIAL2"){
+                    UI_Panel ui_Panel =  Managers.UI.ShowPopupUI<UI_Panel>();
+                    ui_Panel.Init();
+                    ui_Panel.OkButton.gameObject.AddUIEvent(ui_Panel.OnJobChoiceButton);
+                    return;
+                }
+            }
+            UI_Message ui_Message = Managers.UI.ShowPopupUI<UI_Message>();
+            ui_Message.Init();
+            ui_Message.ShowMessage("에러", "튜토리얼2 퀘스트를 받아주세요.");
         }
 
         else if (id == 4)
@@ -100,7 +108,6 @@ public class TalkManager
             ui_Message.okButton.gameObject.AddUIEvent(ui_Message.SceneMoveOk);
         }
         #endregion
-    
     }
 
     public string GetTalk(int id, int talkIndex)
