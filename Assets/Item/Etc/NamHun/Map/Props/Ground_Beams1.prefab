@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 413050}
   - component: {fileID: 3353946}
   - component: {fileID: 2334722}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ground_Beams1
   m_TagString: Ground
   m_Icon: {fileID: 0}
