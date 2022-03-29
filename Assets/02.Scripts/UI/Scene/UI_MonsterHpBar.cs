@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class UI_MonsterHpBar : UI_Scene
 {
-
+    #region SetUp
     enum GameObjects
     {
         Body,
@@ -28,11 +28,11 @@ public class UI_MonsterHpBar : UI_Scene
 
         body.SetActive(false);
     }
+    #endregion
 
     public void ChangeMonsterHit(Status status)
     {
         if (status.bDeath == true) return;
-        Debug.Log("hpÄÑÁü È£Ãâ");
         time = 0;
         body.SetActive(true);
         nameText.text = status.name;
@@ -43,7 +43,6 @@ public class UI_MonsterHpBar : UI_Scene
     {
         if (body.activeSelf == true)
         {
-            Debug.Log("hp²¨Áü È£Ãâ");
             body.SetActive(false);
         }
     }

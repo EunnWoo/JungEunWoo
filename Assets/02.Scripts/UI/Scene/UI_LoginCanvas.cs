@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 
 public class UI_LoginCanvas : UI_Scene 
 {
+    #region SetUp
     enum Buttons
     {
         LoginButton, 
@@ -26,8 +27,7 @@ public class UI_LoginCanvas : UI_Scene
 
     InputField idInput;
     public string nickName { get; private set; }
-    GameObject backGround;
-    // 게임 실행과 동시에 마스터 서버 접속 시도
+
     public override void Init()
     {
         base.Init();
@@ -46,17 +46,13 @@ public class UI_LoginCanvas : UI_Scene
 
 
 
-        #region buttonevent
+        
         loginButton.gameObject.AddUIEvent(ClickLogin); // 로그인 클릭시
-
         exitButton.gameObject.AddUIEvent(Exit);
-
-
-
-        #endregion
+        
 
     }
-
+#endregion
 
     public void ClickLogin(PointerEventData data)
     {

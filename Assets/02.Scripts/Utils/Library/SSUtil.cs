@@ -28,9 +28,11 @@ public class SSUtil{
 			
 		string EncryptedString = EncryptString(Msg);
 		string DecryptedString = DecryptString(EncryptedString);
+#if UNITY_EDITOR
 		Debug.Log("Message: " + Msg);
 		Debug.Log("Encrypted string: " + EncryptedString);
 		Debug.Log("Decrypted string: " + DecryptedString);
+#endif
 	}
 		
 		
@@ -66,7 +68,9 @@ public class SSUtil{
 			Results = Encryptor.TransformFinalBlock(DataToEncrypt, 0, DataToEncrypt.Length); 
 		}catch{
 			//Debug.LogError ( e.ToString () );
+#if UNITY_EDITOR
 			Debug.LogWarning("SSUtil > EncryptString > error:" + Message);
+#endif
 			return "";
 		}finally{
 			// 중요한 3DES, Hashprovider의 속성을 해제       
@@ -105,7 +109,9 @@ public class SSUtil{
 			ICryptoTransform Decryptor = TDESAlgorithm.CreateDecryptor();
 			Results = Decryptor.TransformFinalBlock(DataToDecrypt, 0, DataToDecrypt.Length);
 		}catch{
+#if UNITY_EDITOR
 			Debug.LogWarning("SSUtil > DecryptString > error:" + Message);
+#endif
 			return "";
 		}finally{          
 			// 중요한 3DES, Hashprovider의 속성을 해제

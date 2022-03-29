@@ -87,7 +87,7 @@ public class Status : MonoBehaviour
 
         UI_Damage ui_Damage = Managers.UI.MakeWorldSpaceUI<UI_Damage>(transform);
         ui_Damage.target = transform;
-        ui_Damage.damage = damage;
+        ui_Damage.Damage = damage;
   
     }
 

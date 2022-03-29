@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class UI_Menu : UI_Scene
 {
+    #region SetUp
     bool bInit;
 
     enum Buttons
@@ -42,7 +43,6 @@ public class UI_Menu : UI_Scene
         soundMenu = Get<GameObject>((int)GameObjects.SoundMenu);
         screenMenu = Get<GameObject>((int)GameObjects.ScreenMenu);
         
-
         GetButton((int)Buttons.ResumeButton).gameObject.AddUIEvent(ResumeButton);
         GetButton((int)Buttons.SoundButton).gameObject.AddUIEvent(SoundButton);
         GetButton((int)Buttons.ScreenButton).gameObject.AddUIEvent(ScreenButton);
@@ -50,8 +50,9 @@ public class UI_Menu : UI_Scene
 
         body.SetActive(false);
     }
+    #endregion
 
-    public  void OpenMenu()
+    public void OpenMenu()
     {
         if (!body.activeSelf)
         {
@@ -69,6 +70,8 @@ public class UI_Menu : UI_Scene
 
         
     }
+
+    #region ButtonEvent
     public void ResumeButton(PointerEventData data)
     {
         body.SetActive(false);
@@ -90,4 +93,5 @@ public class UI_Menu : UI_Scene
         ui_Message.ShowMessage("종료", "종료하시겠습니까?");
         ui_Message.okButton.gameObject.AddUIEvent(ui_Message.GameQuit);
     }
+    #endregion
 }

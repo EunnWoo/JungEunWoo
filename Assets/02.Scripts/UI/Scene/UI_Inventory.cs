@@ -7,11 +7,12 @@ using UnityEngine.UI;
 
 public class UI_Inventory : UI_Scene
 {
+    #region SetUp
     bool bInit;
    
-    public List<UI_InventorySlot> slotsEquip = new List<UI_InventorySlot>();  //인벤토리 슬롯들
-    public List<UI_InventorySlot> slotsUse = new List<UI_InventorySlot>();
-    public List<UI_InventorySlot> slotsETC = new List<UI_InventorySlot>();
+    List<UI_InventorySlot> slotsEquip = new List<UI_InventorySlot>();  //인벤토리 슬롯들
+    List<UI_InventorySlot> slotsUse = new List<UI_InventorySlot>();
+    List<UI_InventorySlot> slotsETC = new List<UI_InventorySlot>();
 
     public Text Description_Text; //아이템에 대한 부연설명
     public string[] tabDescription; //탭 부연설명
@@ -25,16 +26,15 @@ public class UI_Inventory : UI_Scene
     GameObject body;
     GameObject inventory;
 
-    public int MAX_EQUIP = 20;
-    public List<ItemData> listEquip = new List<ItemData>();
-    public List<ItemData> listUse = new List<ItemData>();
-    public List<ItemData> listETC = new List<ItemData>();
+    int MAX_EQUIP = 20;
+    List<ItemData> listEquip = new List<ItemData>();
+    List<ItemData> listUse = new List<ItemData>();
+    List<ItemData> listETC = new List<ItemData>();
 
 
-    public GameObject itemInfo; //인벤토리에서 마우스 올려놓으면 아이템 정보 뜨게하는 오브젝트
     public RectTransform CanvaRect;
     public Vector2 v;
-    IEnumerator PointerCoroutine;
+    
     PlayerStatus playerstatus;
 
     enum GameObjects
@@ -58,18 +58,15 @@ public class UI_Inventory : UI_Scene
         ETC_Selected_Tab,
         CloseButton
     }
-    enum Texts
-    {
-        
-    }
+
 
     public override void Init()
     {
         if (bInit) return;
         bInit = true;
-
+        #region Set
         base.Init();
-        #region setup
+        
         Bind<GameObject>(typeof(GameObjects));
         Bind<Button>(typeof(Buttons));
         goEquipTab = Get<GameObject>((int)GameObjects.EquipPanel);
@@ -111,6 +108,7 @@ public class UI_Inventory : UI_Scene
         body.SetActive(false); //생성되면 꺼주기
 
     }
+    
     void SetSlot(GameObject _go, List<UI_InventorySlot> _slotList, List<ItemData>_listData)
     {
         GameObject _itemGO;
@@ -128,6 +126,7 @@ public class UI_Inventory : UI_Scene
             _listData.Add(null);
         }
     }
+    #endregion
     #region tabsetting
 
     public void Invoke_SetTab()
@@ -195,7 +194,7 @@ public class UI_Inventory : UI_Scene
         }
         return null;
     }
-
+    #region AddRemoveItem
     //획득한 아이템 클래스를 그대로 받아서 넣어줌
     public bool AddItemData(ItemData _itemDataNew)
     {
@@ -321,7 +320,7 @@ public class UI_Inventory : UI_Scene
         }
         return _rtn;
     }
-
+    #endregion
     public ItemData CheckAndEatHP(int _itemcode) //인벤토리 내에 아이템을 찾고 먹는
     {
         //체크 존재 유뮤
@@ -353,53 +352,6 @@ public class UI_Inventory : UI_Scene
         return _itemData;
     }
 
+    
 
-    #region 추후 시간남을시 작업예정
-    //public void PointerEnter(PointerEventData data) //마우스가 인벤토리 슬롯 위에 올려져있을때
-    //{
-    //    PointerCoroutine = PointerEnterDelay();
-    //    StartCoroutine(PointerCoroutine);
-
-    //    RectTransformUtility.ScreenPointToLocalPointInRectangle(CanvaRect, Input.mousePosition, Camera.main, out Vector2 anchoredPos);
-    //    itemInfo.GetComponent<RectTransform>().anchoredPosition = anchoredPos;
-    //}
-
-
-    //IEnumerator PointerEnterDelay() //마우스가 인벤토리 슬롯 위에 올려져있을때 0.5초뒤에 실행
-    //{
-    //    yield return new WaitForSeconds(0.3f);
-    //    itemInfo.SetActive(true);
-    //    StoreItem.ins.itemDescrip.text = StoreItem.ins.itemData.iteminfoBase.description;
-    //    //ItemInfo.GetComponentInChildren<Text>().text = 
-    //}
-
-    //public void PointerExit()//마우스가 인벤토리 슬롯 위에 빠져나갈때
-    //{
-    //    StopCoroutine(PointerCoroutine);
-    //    itemInfo.SetActive(false);
-    //}
-    #endregion
-
-
-#if UNITY_EDITOR
-    #region 직접입력
-
-    public void AddItem(int _itemcode)
-    {
-        ItemData _itemData = new ItemData(_itemcode);
-        AddItemData(_itemData);
-    }
-
-
-    //void Update()
-    //{
-    //    스크린린포인트 0,0부터 1920,1080 를 새로운 사각형 위치로 변환
-    //    RectTransformUtility.ScreenPointToLocalPointInRectangle(CanvaRect, Input.mousePosition, Camera.main, out Vector2 anchoredPos);
-
-    //    마우스를 아이템위로 올릴시 설명 유아이창이 뜰위치
-    //    itemInfo.GetComponent<RectTransform>().anchoredPosition = anchoredPos + new Vector2(700, 570);
-    //}
-
-    #endregion
-#endif
 }

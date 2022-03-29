@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UI_Money : UI_Scene
 {
+    #region SetUp
     bool bInit;
 
 
@@ -24,9 +25,9 @@ public class UI_Money : UI_Scene
         Bind<Text>(typeof(Texts));
         moneyCountText = GetText((int)Texts.MoneyCountText);
         DisplayCoin(0); //첫시작시 0으로 시작
-        //   DontDestroyOnLoad(gameObject);
 
     }
+    #endregion
     public void DisplayCoin(float _coin)
     {
 

@@ -164,7 +164,9 @@ public class UI_Equipment : UI_Scene
 
             if (slots[_index].itemData != null)
             {
+#if UNITY_EDITOR
                 Debug.Log("@@@ E¿Â¬¯«ÿ¡¶");
+#endif
                 slots[_index].itemData = null;
                 slots[_index].equipSlot.SetItem(null);
 

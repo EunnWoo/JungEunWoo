@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UI_Quest : UI_Scene
 {
+    #region SetUp
     bool bInit;
 
     enum GameObjects
@@ -30,8 +31,9 @@ public class UI_Quest : UI_Scene
         questView.SetActive(false);
         completedQuestListView.SetActive(false);
     }
+    #endregion
 
-     public void OpenQuest()
+    public void OpenQuest()
      {
         if (!questView.activeSelf)
         {

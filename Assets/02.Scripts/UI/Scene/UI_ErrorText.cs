@@ -60,6 +60,9 @@ public class UI_ErrorText : UI_Scene
             case Define.Error.NoneGold:
                 errorText.text = "보유 골드가 부족합니다";
                 break;
+            case Define.Error.NoneTarget:
+                errorText.text = "몬스터를 지정해주세요";
+                break;
             case Define.Error.MaxInv:
                 errorText.text = "인벤토리가 가득 찼습니다.";
                 break;
