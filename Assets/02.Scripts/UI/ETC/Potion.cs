@@ -33,9 +33,10 @@ public class Potion : UI_Base
             //없으면 false 갯수를 감소시키지않음
             int _itemcode = (int)potionType;
             ItemData _itemData =  Managers.UI.ui_Inventory.CheckAndEatHP(_itemcode);
-            Managers.Sound.Play("EffectSound/Potion");
+           
             if (_itemData != null)
             {
+                Managers.Sound.Play("EffectSound/Potion");
                 StartCoroutine(PotionDelay(1f, potionImage)); //딜레이 1초(쿨타임)
             }
             else

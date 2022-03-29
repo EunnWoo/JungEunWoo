@@ -14,11 +14,17 @@ public class UI_Damage : UI_Base
     private float destroyTime;
 
     TextMeshProUGUI damageText;
+    Transform tr;
 
-    [SerializeField]
     Color alpha;
 
-    public float damage;
+    private float damage;
+    public float Damage {
+        set
+        {
+            damage = value;
+        }
+    }
     public Transform target;
 
 
@@ -28,6 +34,7 @@ public class UI_Damage : UI_Base
         if (bInit) return;
         bInit = true;
 
+        tr = GetComponent<Transform>();
 
         moveSpeed = 2.0f;
         alphaSpeed = 2.0f;
@@ -39,8 +46,7 @@ public class UI_Damage : UI_Base
         damageText.text = damage.ToString();
         
         Vector3 parent = new Vector3(transform.parent.position.x, transform.parent.GetComponent<Collider>().bounds.max.y + Random.Range(-1f,1f), transform.parent.position.z);
-        
-        transform.position = parent;
+        tr.position = parent;
         
         
         Invoke("DestroyObject", destroyTime);
@@ -56,6 +62,6 @@ public class UI_Damage : UI_Base
 
     private void DestroyObject()
     {
-        Destroy(gameObject);
+        Destroy(tr.gameObject);
     }
 }

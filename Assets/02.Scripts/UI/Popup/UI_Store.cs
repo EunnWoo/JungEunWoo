@@ -23,16 +23,9 @@ public class UI_Store : UI_Popup
         ContentGroup,
     }
 
-    //#region sigletone
-    //public static UI_Store ins;
-    //private void Awake()
-    //{
-    //    ins = this;
-    //}
-    //#endregion
 
     GameObject content;
-    StoreItem storeItem; // == StoreItem
+    StoreItem storeItem; 
     Button closeButton;
 
 
@@ -52,7 +45,6 @@ public class UI_Store : UI_Popup
 
         ListInit();
         StoreItem[] _storeItem = new StoreItem[listInfo.Count];
-        // StoreItemInfo _info;
         for (int i = 0; i < _storeItem.Length; i++)
         {
             _storeItem[i] = Managers.Resource.Instantiate("StoreItem", content.transform).GetComponent<StoreItem>();
@@ -96,6 +88,5 @@ public class UI_Store : UI_Popup
     {
 
         Managers.UI.ClosePopupUI(this);
-       // Managers.UI.isTalk(false);
     }
 }

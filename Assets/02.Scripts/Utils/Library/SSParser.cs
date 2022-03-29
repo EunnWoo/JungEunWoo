@@ -102,8 +102,10 @@ public class SSParser{
 			try{
 				_rtn = System.Convert.ToInt32(_param);
 			}catch(System.FormatException e){
-				//#if DEBUG_ON
-					Debug.LogError("#### SSParser getInt error("+_param+"):" + e);
+				//#if DEBUG_ONtr
+#if UNITY_EDITOR
+				Debug.LogError("#### SSParser getInt error("+_param+"):" + e);
+#endif
 				//#endif
 			}
 			return _rtn;

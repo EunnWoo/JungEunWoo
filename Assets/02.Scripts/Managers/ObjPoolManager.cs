@@ -44,6 +44,7 @@ public class ObjPoolManager
         for (int i = 0; i < rotatorFireBall.Length; i++) 
         {
             rotatorFireBall[i] =Managers.Resource.Instantiate("RotatorFireBall", objPoolManager);
+            Managers.Sound._rotatorFireBallSource = rotatorFireBall[i].GetComponent<AudioSource>();
             rotatorFireBall[i].SetActive(false);
         }
         for (int i = 0; i < bombSlimePool.Length; i++)

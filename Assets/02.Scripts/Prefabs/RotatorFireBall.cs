@@ -8,12 +8,17 @@ public class RotatorFireBall : MonoBehaviour
     PlayerAttack playerAttack;
     Transform tr;
     ParticleSystem particleObject; //파티클시스템
-    
+    AudioSource audioSource;
+    AudioClip audioClip;
     bool explosion;
-    void Start()
+    void Awake()
     {
         particleObject = GetComponent<ParticleSystem>();
         tr = GetComponent<Transform>();
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = Managers.Resource.Load<AudioClip>("Sounds/EffectSound/Attack/MagicSkill");
+        audioClip = Managers.Resource.Load<AudioClip>("Sounds/EffectSound/Attack/Explosion");
+
     }
     private void OnEnable()
     {
@@ -21,31 +26,30 @@ public class RotatorFireBall : MonoBehaviour
         {
             playerAttack = Managers.Game.GetPlayer().GetComponent<PlayerAttack>();
             
-        }
-        
+            audioSource.Play();
+        }   
         explosion = false;
 
     }
     private void Update()
     {
-       
+        if (playerAttack.attackTarget == null) return;
         if (playerAttack.attackTarget.layer != (int)Layer.Monster || explosion) return;
         tr.position = playerAttack.attackTarget.transform.position;
         if(particleObject.time >= 6.3f)
         {
             explosion = true;
+            audioSource.Stop();
+            audioSource.PlayOneShot(audioClip);
             Status status= playerAttack.attackTarget.GetComponent<Status>(); // 몬스터 status
             Status playerStatus = playerAttack.GetComponent<Status>();
             status.TakeDamage(playerStatus, playerAttack.skillRatio);
             status.TakeDamage(playerStatus, playerAttack.skillRatio);
             status.TakeDamage(playerStatus, playerAttack.skillRatio);
 
-
         }
     }
     private void OnDisable()
     {
-        
-
     }
 }

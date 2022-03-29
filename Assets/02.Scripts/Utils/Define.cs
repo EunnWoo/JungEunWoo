@@ -42,6 +42,7 @@ public class Define
         NoneMp,
         NonePotion,
         NoneGold,
+        NoneTarget,
         MaxInv
     }
 

@@ -208,7 +208,7 @@ public class PlayerController : BaseController
         {
             animator.SetBool("IsFall", true);
             animator.SetBool("IsJump", true);
-            isJump = true;
+            
         }
 
     }
@@ -364,12 +364,18 @@ public class PlayerController : BaseController
 
     void SoundSet()
     {
-
-
-        if (animator.GetFloat("Move") > 0.3f)
+        if(isJump == true)
         {
+            Managers.Sound.Play("Moving/Jump", Define.Sound.Moving);
+        }
 
-            if (animator.GetBool("IsRun") == true)
+        else if (animator.GetFloat("Move") > 0.3f)
+        {
+            if(isRoll == true)
+            {
+                Managers.Sound.Play("Moving/Roll", Define.Sound.Moving);
+            }
+            else if (animator.GetBool("IsRun") == true)
             {
                 Managers.Sound.Play("Moving/Run", Define.Sound.Moving);
             }
@@ -379,6 +385,7 @@ public class PlayerController : BaseController
                 Managers.Sound.Play("Moving/Walk", Define.Sound.Moving);
             }
         }
+        
         else
         {
        

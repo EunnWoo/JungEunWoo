@@ -47339,7 +47339,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1130153210}
   - component: {fileID: 1130153213}
-  - component: {fileID: 1130153212}
   - component: {fileID: 1130153211}
   m_Layer: 9
   m_Name: PortalMap2
@@ -47377,18 +47376,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 6003
---- !u!114 &1130153212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1130153209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f7e81f17cf11574d9851d372d5d7eab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &1130153213
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -60629,7 +60616,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1468189147}
   - component: {fileID: 1468189150}
-  - component: {fileID: 1468189149}
   - component: {fileID: 1468189148}
   m_Layer: 9
   m_Name: PortalMap2 (1)
@@ -60667,18 +60653,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 6002
---- !u!114 &1468189149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1468189146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f7e81f17cf11574d9851d372d5d7eab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &1468189150
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -80368,7 +80342,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db4f9d25f3672849bc5683826945534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  box: {fileID: 1863929970}
 --- !u!65 &1863929970
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -108205,7 +108178,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5416558395941926663}
   - component: {fileID: 5784776274648524901}
-  - component: {fileID: 6263437186878822523}
   - component: {fileID: 6263437186878822524}
   m_Layer: 9
   m_Name: PortalMap3
@@ -108214,18 +108186,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6263437186878822523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6263437186878822522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f7e81f17cf11574d9851d372d5d7eab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6263437186878822524
 MonoBehaviour:
   m_ObjectHideFlags: 0

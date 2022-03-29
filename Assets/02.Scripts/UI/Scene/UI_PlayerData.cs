@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UI_PlayerData : UI_Scene
 {
-
+    #region SetUp
     Text levelText;
     Image hpbar, mpbar, expbar;
     Text hpText, mpText, expText;
@@ -45,7 +45,9 @@ public class UI_PlayerData : UI_Scene
         playerStatus = Managers.Game.GetPlayer().GetComponent<PlayerStatus>();
         playerStatus.SetHPMP(playerStatus.MAX_HP, playerStatus.MAX_MP);
     }
+    #endregion
 
+    #region DisPlayUpdate
     public void DisplayHP(float _hp, float _max)
     {
         float _v = _hp / _max;
@@ -73,4 +75,5 @@ public class UI_PlayerData : UI_Scene
         
         levelText.text = string.Format("{0:0}",_level); 
     }
+    #endregion
 }

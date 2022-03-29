@@ -8,7 +8,7 @@ using UnityEngine;
 public class SoundManager 
 {
     AudioSource[] _audioSources = new AudioSource[(int)Define.Sound.MaxCount]; //ºÐ·ù¿ë
-
+    public AudioSource _rotatorFireBallSource;
     Dictionary<string, AudioClip> _audipClips = new Dictionary<string, AudioClip>();
     float StateVolume;
     public void Init()
@@ -73,6 +73,7 @@ public class SoundManager
         }
         else if (type == Define.Sound.Moving)
         {
+
             if (audioClip == _audioSources[(int)Define.Sound.Moving].clip)
             {
                 return;
@@ -100,7 +101,7 @@ public class SoundManager
         AudioSource audioSource = _audioSources[(int)Define.Sound.LoopEffect];
         audioSource.volume = volume;
     }
-    AudioClip GetOrAddAudioClip(string path, Define.Sound type = Define.Sound.Effect)
+    public AudioClip GetOrAddAudioClip(string path, Define.Sound type = Define.Sound.Effect)
     {
         if (path.Contains("Sounds/") == false)
             path = $"Sounds/{path}";
@@ -142,6 +143,7 @@ public class SoundManager
             Debug.Log("AudioClip Missing! ");
 #endif
         }
+
         return audioClip;
     }
 
@@ -165,6 +167,7 @@ public class SoundManager
     }
     public void EffectSoundCtrl(float value)
     {
+        _rotatorFireBallSource.volume = value * StateVolume;
         _audioSources[(int)Define.Sound.Effect].volume = value * StateVolume;
         _audioSources[(int)Define.Sound.LoopEffect].volume = value * StateVolume;
     }

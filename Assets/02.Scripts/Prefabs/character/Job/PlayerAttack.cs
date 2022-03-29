@@ -23,7 +23,7 @@ public class PlayerAttack : BaseController
     PlayerController playerController;
     UI_CoolTime ui_CoolTime;
     PlayerStatus playerStatus;
-
+    JobController jobController;
 
     protected override void UpdateAttack() 
     {
@@ -39,8 +39,10 @@ public class PlayerAttack : BaseController
 
         playerStatus = GetComponent<PlayerStatus>();
         playerController = Managers.Game.GetPlayer().GetComponent<PlayerController>();
+        jobController = GetComponent<JobController>();
         playerController.playerAttack = GetComponent<PlayerAttack>(); // 어택을 상속받아 수정되는 값 다시 받아오기
         
+
         attackDelay = 40;
         skillDelay = 40;
         canMove = true;
@@ -49,7 +51,7 @@ public class PlayerAttack : BaseController
 
         ui_CoolTime = Managers.UI.ShowSceneUI<UI_CoolTime>();
         ui_CoolTime.Init();
-        ui_CoolTime.SetSkiilImage(GetComponent<JobController>().jobstring);
+        ui_CoolTime.SetSkiilImage(jobController.jobstring);
 
     }
 
@@ -74,6 +76,11 @@ public class PlayerAttack : BaseController
             {
                 if (isSkillReady)
                 {
+                    if (jobController.jobstring == "Magic" && attackTarget.layer != (int)Layer.Monster)
+                    {
+                        Managers.UI.ui_ErrorText.SetErrorText(Define.Error.NoneTarget);
+                        return;
+                    }
                     if (playerStatus.Skill(100))
                     {
                         isAttack = true;
@@ -92,12 +99,10 @@ public class PlayerAttack : BaseController
     }
     protected virtual IEnumerator Use()
     {
-
         yield return null;
     }
     protected virtual IEnumerator Skill()
     {
-
         yield return null;
     }
 
