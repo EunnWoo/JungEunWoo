@@ -31,7 +31,12 @@ public abstract class UI_Base : MonoBehaviour
                 objects[i] = Util.FindChild<T>(gameObject, names[i], true); // 스크립트가 달린 gameobject, 이름 , 자식까지 찾을건가
 
             if (objects[i] == null)
+            {
+#if UNITY_EDITOR
                 Debug.Log($"Failed to bind({names[i]})");
+#endif
+
+            }
         }
     }
     protected T Get<T>(int idx) where T : UnityEngine.Object //값뽑는 함수

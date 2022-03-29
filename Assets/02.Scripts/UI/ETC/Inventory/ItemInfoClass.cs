@@ -78,21 +78,9 @@ public class ItemData
 		}
 	}
 
-	//public string GetItemName()
-	//{
-	//	return iteminfoBase.itemname;
-	//}
-
-	//public string GetIcon()
-	//{
-	//	return iteminfoBase.icon;
-	//}
 	public float gamecost { get { return iteminfoBase.gamecost; } }
 	public string icon { get { return iteminfoBase.icon; } }
 	public Sprite iconSprite { get { return ItemInfo.ins.GetSprite(iteminfoBase.icon); } }
-	// public string itemIcon {	get	{return iteminfoBase.icon;}	}
-
-	//public bool equipmentStatus;
 
 
 	public float plusatt { 

@@ -6,7 +6,7 @@ public class Arrow : MonoBehaviour
 {
     public float speed = 500f;
     private Rigidbody rigid;
-
+    private Transform tr;
     Vector3 offset;
 
     public GameObject chargeParticle;
@@ -16,10 +16,7 @@ public class Arrow : MonoBehaviour
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
-        // chargeParticle = GameObject.Find("StormCharge");
-        //  fireParticle = GameObject.Find("StormCleave");
-
-
+        tr = GetComponent<Transform>();
     }
     private void OnEnable()
     {
@@ -31,7 +28,7 @@ public class Arrow : MonoBehaviour
 
     private void Update()
     {
-        if ((Vector3.Distance(transform.position, offset) >= 20f))//사정거리 벗어나면
+        if ((Vector3.Distance(tr.position, offset) >= 20f))//사정거리 벗어나면
         {
             DisableArrow();
         }
@@ -41,7 +38,7 @@ public class Arrow : MonoBehaviour
     public void FireArrow(Transform firepos)
     {
         offset = firepos.position;
-        rigid.AddForce(transform.right * speed);
+        rigid.AddForce(tr.right * speed);
 
     }
   
@@ -49,18 +46,17 @@ public class Arrow : MonoBehaviour
     {
         chargeParticle.SetActive(false);
         fireParticle.SetActive(false);
-        transform.SetParent(Managers.Pool.objPoolManager);
-        gameObject.SetActive(false);
+        tr.gameObject.SetActive(false);
             
     }
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.tag == "Monster" ) 
+        if (other.CompareTag("Monster"))
         {
             rigid.Sleep();
             rigid.useGravity = false;
-            transform.position = other.ClosestPointOnBounds(transform.position);
+            tr.position = other.ClosestPointOnBounds(tr.position);
             //피격처리
             Status playerstatus = playerAttack.GetComponent<Status>();
             Status status = other.GetComponent<Status>();
@@ -69,11 +65,11 @@ public class Arrow : MonoBehaviour
 
             DisableArrow();
         }
-        else if (other.tag == "Ground")
+        else if (other.CompareTag("Ground"))
         {
             rigid.Sleep();
             rigid.useGravity = false;
-            transform.position = other.ClosestPointOnBounds(transform.position) + new Vector3(0, 0.5f, 0);
+            tr.position = other.ClosestPointOnBounds(tr.position) + new Vector3(0, 0.5f, 0); // ClosestPointOnBounds -> 충돌지점에서 가장 가까운 곳 리턴
             Invoke("DisableArrow", 3f);
         }
         
@@ -83,9 +79,9 @@ public class Arrow : MonoBehaviour
     private void OnDisable()//오브젝트 비활성화
     {
         //값 초기화
-        
-        transform.position = Vector3.zero;
-        transform.rotation = Quaternion.identity;
+
+        tr.position = Vector3.zero;
+        tr.rotation = Quaternion.identity;
         rigid.Sleep();
 
 

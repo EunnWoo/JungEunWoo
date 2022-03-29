@@ -147,7 +147,9 @@ public class UIManager
 
         if(_popupStack.Peek() !=popup) // 마지막으로 담은게 popup이 아니라면
         {
+#if UNITY_EDITOR
             Debug.Log("Close popup failed!");
+#endif
             return;
         }
         ClosePopupUI();

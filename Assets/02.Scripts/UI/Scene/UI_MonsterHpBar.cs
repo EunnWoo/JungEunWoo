@@ -31,6 +31,8 @@ public class UI_MonsterHpBar : UI_Scene
 
     public void ChangeMonsterHit(Status status)
     {
+        if (status.bDeath == true) return;
+        Debug.Log("hpÄÑÁü È£Ãâ");
         time = 0;
         body.SetActive(true);
         nameText.text = status.name;
@@ -39,8 +41,11 @@ public class UI_MonsterHpBar : UI_Scene
     }
     public void OffMonsterHpbar()
     {
-        if(body.activeSelf == true)
-        body.SetActive(false);
+        if (body.activeSelf == true)
+        {
+            Debug.Log("hp²¨Áü È£Ãâ");
+            body.SetActive(false);
+        }
     }
 
     private void Update()

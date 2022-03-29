@@ -25,7 +25,7 @@ public class UI_PlayerData : UI_Scene
         MPBar,
         EXPBar
     }
-    Status status;
+    PlayerStatus playerStatus;
     public override void Init()
     {
         base.Init();
@@ -42,7 +42,8 @@ public class UI_PlayerData : UI_Scene
         hpbar = GetImage((int)Images.HPBar);
         mpbar = GetImage((int)Images.MPBar);
         expbar = GetImage((int)Images.EXPBar);
-        status = Managers.Game.GetPlayer().GetComponent<Status>();
+        playerStatus = Managers.Game.GetPlayer().GetComponent<PlayerStatus>();
+        playerStatus.SetHPMP(playerStatus.MAX_HP, playerStatus.MAX_MP);
     }
 
     public void DisplayHP(float _hp, float _max)

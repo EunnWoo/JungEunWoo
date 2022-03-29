@@ -8,6 +8,8 @@ using UnityEngine;
 //20001을 넣어주면 양손검이 세팅이 된다.
 public class ItemPickUp : MonoBehaviour
 {
+    Transform tr;
+
     //세팅할 아이템 코드 번호
     public int itemcode;
 
@@ -22,11 +24,12 @@ public class ItemPickUp : MonoBehaviour
     private void Start()
     {
         InitData(itemcode, count);
+        tr = GetComponent<Transform>();
     }
 
     public void ClearDestroy()
     {
-        Destroy(gameObject);
+        Destroy(tr.gameObject);
     }
 
     //Start에서 강제로 초기화 해준다
@@ -52,6 +55,6 @@ public class ItemPickUp : MonoBehaviour
     public Vector3 axis = Vector3.up;
     private void Update() 
     {
-        transform.Rotate(axis * TurnSpeed * Time.deltaTime);
+        tr.Rotate(axis * TurnSpeed * Time.deltaTime);
     }
 }

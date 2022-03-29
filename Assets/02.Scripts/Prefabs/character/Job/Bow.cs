@@ -6,10 +6,10 @@ using UnityEngine;
 public class Bow : PlayerAttack
 {
    
-    private Transform firepos;
-    private float charge;
-    private string arrowobj;
-    private Arrow arrow;
+    Transform firepos;
+    float charge;
+    string arrowobj;
+    Arrow arrow;
  
     
     private void Awake()

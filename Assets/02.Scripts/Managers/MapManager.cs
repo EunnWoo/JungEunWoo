@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
-    [SerializeField]
     private BoxCollider box;
 
     void Start()
@@ -22,6 +21,5 @@ public class MapManager : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         other.gameObject.transform.position = new Vector3(0, 1, 0);
-       // other.GetComponentInChildren<Transform>().position = new Vector3(0, 1, 0);
     }
 }

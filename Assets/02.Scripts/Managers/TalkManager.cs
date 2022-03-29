@@ -10,16 +10,11 @@ public class TalkManager
 
     
     public GameObject NPC { get; private set; }
-
-    //public int talkIndex;
-
     public string[] errorString { get; private set; }
 
     public void Init()
     {
         talkData = new Dictionary<int, string[]>();
-        talkData.Add(1000, new string[]{"...."});
-        talkData.Add(2000, new string[]{"없는거 빼고 다 있음"});
 
         talkData.Add(1, new string[] { "전사의 길을 걷겠는가?", "쉽지 않은 길일거야.."} );
         talkData.Add(2, new string[] { "마법사의 길을 걷겠는가?", "쉽지 않은 길일거야.." });
@@ -65,12 +60,11 @@ public class TalkManager
 
 
         #region SceneMove
-        else if (id /6000 == 1 ) // 보완하기
+        else if (id >= (int)SceneState.Select && id < (int)SceneState.End   ) 
         {
             
             UI_Message ui_Message = Managers.UI.ShowPopupUI<UI_Message>();
             ui_Message.Init();
-            //ui_Message.NextScene = id;
 
             if (id == (int)SceneState.Select) // 셀렉 신으로 이동
             {            
@@ -80,9 +74,11 @@ public class TalkManager
             {        
                 ui_Message.ShowMessage("맵 이동", "마을로 이동합니다.");
 
-                if(NPC.GetComponent<QuestReporter>() == null)
+                if (NPC.GetComponent<QuestReporter>() == null)
                 {
+#if UNITY_EDITOR
                     Debug.Log("QuestReporter가 아닙니다 ");
+#endif
                 }
                 else
                 {

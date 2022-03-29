@@ -6,7 +6,6 @@ public class PlayerAttack : BaseController
 {
     
     public float range { get; protected set; }
-  
     public bool canMove { get; protected set; }
     public bool isAttack { get; protected set; }
     public float attackRatio { get; protected set; }
@@ -21,11 +20,9 @@ public class PlayerAttack : BaseController
         }
 
     }
-
-    //protected Animator animator;
     PlayerController playerController;
     UI_CoolTime ui_CoolTime;
-
+    PlayerStatus playerStatus;
 
 
     protected override void UpdateAttack() 
@@ -39,10 +36,11 @@ public class PlayerAttack : BaseController
     {
 
         animator = GetComponent<Animator>();
-     
+
+        playerStatus = GetComponent<PlayerStatus>();
         playerController = Managers.Game.GetPlayer().GetComponent<PlayerController>();
         playerController.playerAttack = GetComponent<PlayerAttack>(); // 어택을 상속받아 수정되는 값 다시 받아오기
-
+        
         attackDelay = 40;
         skillDelay = 40;
         canMove = true;
@@ -63,7 +61,7 @@ public class PlayerAttack : BaseController
         }
 
 
-        else if ( !playerController.isJump&&!playerController.isRoll && !isAttack )
+        else if (!playerController.isJump&&!playerController.isRoll && !isAttack )
         {
             if (isAttackReady && playerController.attackType == Define.AttackType.NormalAttack)
             {
@@ -76,14 +74,13 @@ public class PlayerAttack : BaseController
             {
                 if (isSkillReady)
                 {
-                    if (!GetComponent<PlayerStatus>().Skill(100))
+                    if (playerStatus.Skill(100))
                     {
-                        Managers.UI.ui_ErrorText.SetErrorText(Define.Error.NoneMp);
-                        return;
+                        isAttack = true;
+                        StopCoroutine("Skill");
+                        StartCoroutine("Skill");
                     }
-                    isAttack = true;
-                    StopCoroutine("Skill");
-                    StartCoroutine("Skill");
+                   
                 }
                 else if (!isSkillReady)
                 {

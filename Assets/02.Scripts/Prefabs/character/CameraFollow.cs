@@ -12,7 +12,6 @@ public class CameraFollow : MonoBehaviour
     public void SetPlayer(GameObject player) { _player = player; }
     private void Awake()
     {
-
         var obj = FindObjectsOfType<Camera>();
 
         if (obj.Length <= 1)

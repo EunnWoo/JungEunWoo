@@ -11,7 +11,7 @@ public class ActionController : MonoBehaviour
 
     public void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Npc")
+        if (other.gameObject.CompareTag("Npc"))
         {
             nearNPC = true;
             scanNPC = other.gameObject;

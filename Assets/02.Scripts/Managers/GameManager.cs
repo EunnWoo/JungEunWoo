@@ -13,15 +13,7 @@ public class GameManager
     public string _name { get; private set; }
     public GameObject GetPlayer() { return _player; }
 
-    
 
-    
-    public void Init()
-    {
-        
-
-
-    }
     public void SetName(string name) {  _name = name;  }
     
     public GameObject Spawn(string path, Transform parent = null)

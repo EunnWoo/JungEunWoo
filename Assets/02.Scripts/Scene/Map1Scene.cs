@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Map1Scene : BaseScene
 {
-    Portal[] portals;
+
     protected override void Init()
     {
         base.Init();

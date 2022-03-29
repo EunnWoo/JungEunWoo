@@ -9,7 +9,8 @@ public class PlayerController : BaseController
 
     Rigidbody rigid;
     PlayerStatus playerStatus;
- 
+    QuestReporter questReporter;
+
     [HideInInspector]
     public PlayerAttack playerAttack;
 
@@ -32,6 +33,7 @@ public class PlayerController : BaseController
         rigid = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         playerStatus = GetComponent<PlayerStatus>();
+        questReporter = GetComponent<QuestReporter>();
 
         Managers.Mouse.MouseAction -= OnMouseEvent;
         Managers.Mouse.MouseAction += OnMouseEvent;
@@ -120,7 +122,10 @@ public class PlayerController : BaseController
             ItemPickUp _pick = _itemGO.GetComponent<ItemPickUp>(); //아이템 오브젝트안에 ItemPickUp 스크립트를찾아서
             if (_pick)
             {
+                #if UNITY_EDITOR
                 Debug.Log(_pick.itemData.itemName + " 획득했습니다");
+                #endif
+                
 
                 //인벤토리에 넣어주기
                 if(_pick.itemData.itemType == eItemType.Coin) //아이템타입이 코인이면
@@ -140,7 +145,9 @@ public class PlayerController : BaseController
                     else
                     {
                         Managers.UI.ui_ErrorText.SetErrorText(Define.Error.MaxInv);
+#if UNITY_EDITOR
                         Debug.Log("아이템창이 가득찼습니다");
+#endif
                     }
                 }
             }
@@ -207,7 +214,7 @@ public class PlayerController : BaseController
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Ground" )
+        if (collision.gameObject.CompareTag("Ground"))
         {
             isJump = false;
             animator.SetBool("IsJump", false);
@@ -333,7 +340,6 @@ public class PlayerController : BaseController
                     }
 
                     _lockTarget = hit.collider.gameObject;
-                    QuestReporter questReporter = GetComponent<QuestReporter>();
                     questReporter.Report();
 
                     break;
@@ -349,6 +355,7 @@ public class PlayerController : BaseController
                     _lockTarget = hit.collider.gameObject;
 
                     break;
+
             }
 
 
@@ -364,22 +371,20 @@ public class PlayerController : BaseController
 
             if (animator.GetBool("IsRun") == true)
             {
-                // Managers.Sound.StopSound("Moving/Run", Define.Sound.Moving);
                 Managers.Sound.Play("Moving/Run", Define.Sound.Moving);
             }
             else if (animator.GetBool("IsRun") == false)
             {
-                Debug.Log("walk 입장");
+        
                 Managers.Sound.Play("Moving/Walk", Define.Sound.Moving);
             }
         }
         else
         {
-            Debug.Log("walk 꺼짐");
-            Managers.Sound.StopSound("Moving/Walk", Define.Sound.Moving);
+       
+            Managers.Sound.StopSound(Define.Sound.Moving);
         }
-        //else if (animator.GetBool("IsRun") == false) Managers.Sound.StopSound("Moving/Run", Define.Sound.Moving);
-        //else if (animator.GetFloat("Move") == 0f) Managers.Sound.StopSound("Moving/Walk", Define.Sound.Moving);
+   
 
     }
 }

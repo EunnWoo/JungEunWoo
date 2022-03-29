@@ -6,47 +6,12 @@ using UnityEngine.EventSystems;
 
 public class UI_Message : UI_Popup
 {
-    
+    #region SetUp
     bool bInit;
     Text title, content;
-
     [HideInInspector]
     public Button okButton;
     public Slider countSlider { get; private set; }
-
-    System.Action on;
-
-    //private SceneState nextScene;
-    //public int NextScene
-    //{
-    //    set
-    //    {
-    //        if (value == 6000)
-    //        {
-    //            nextScene = SceneState.Select;
-    //        }
-    //        else if (value ==6001)
-    //        {
-    //            nextScene = SceneState.Town;
-    //        }
-    //        else if(value == 6002)
-    //        {
-    //            nextScene = SceneState.Map1;
-    //        }
-    //        else if(value == 6003)
-    //        {
-    //            nextScene = SceneState.Map2;
-    //        }
-    //        else if(value == 6004)
-    //        {
-    //            nextScene = SceneState.Map3;
-    //        }
-    //        else
-    //        {
-    //            return;
-    //        }
-    //    }
-    //}
 
     enum Texts
     {
@@ -84,10 +49,11 @@ public class UI_Message : UI_Popup
         countSlider.onValueChanged.AddListener(Function_Slider);
         countSlider.gameObject.SetActive(false);
     }
+    #endregion
     public void ShowMessage(string _title, string _content)
     {
-        title.text = _title; //타이틀은 타이틀에넣어준다
-        content.text = _content;
+        title.text = _title; //제목
+        content.text = _content;// 본문
     }
 
 
@@ -95,8 +61,7 @@ public class UI_Message : UI_Popup
     {
         Managers.UI.ClosePopupUI(this);
     }
-
-    //
+    #region OutEvent
     public void SceneMoveOk(PointerEventData data)
     {
         if (!SceneMove())
@@ -110,28 +75,6 @@ public class UI_Message : UI_Popup
 
         Managers.UI.ClosePopupUI(this);
     }
-    public void ReSpawn(PointerEventData data)
-    {
-        Managers.Scene.LoadScene(SceneState.Town);
-        PlayerStatus playerStatus = Managers.Game.GetPlayer().GetComponent<PlayerStatus>();
-        playerStatus.Hp = playerStatus.MAX_HP;
-        Managers.UI.ui_PlayerData.DisplayHP(playerStatus.Hp, playerStatus.MAX_HP);
-
-        Managers.UI.ClosePopupUI(this);
-    }
-    public void GameQuit(PointerEventData data)
-    {
-        Application.Quit();
-    }
-
-
-    private void Function_Slider(float _value) // value에 따른 개수 변경
-    {
-        ShowMessage("구매", (int)_value + "개 구매");
-       
-    }
-
-
     bool SceneMove()  // 퀘스트 완료 안 하면 못돌아감
     {
         SceneState sceneState = FindObjectOfType<BaseScene>().SceneType;
@@ -156,7 +99,7 @@ public class UI_Message : UI_Popup
         }
         else if (sceneState == SceneState.Select)
         {
-        
+
             foreach (var quest in Managers.Quest.CompletedQuests)
             {
                 foreach (var taskgroup in quest.TaskGroups)
@@ -164,9 +107,9 @@ public class UI_Message : UI_Popup
                     foreach (var task in taskgroup.Tasks)
                     {
 
-                       // if (task.CodeName == "JUMP" && task.IsComplete)
+                        // if (task.CodeName == "JUMP" && task.IsComplete)
                         //{
-                            return true;
+                        return true;
 
                         //}
                     }
@@ -175,7 +118,7 @@ public class UI_Message : UI_Popup
         }
         else if (sceneState == SceneState.Town)
         {
-      
+
             foreach (var quest in Managers.Quest.CompletedQuests)
             {
                 foreach (var taskgroup in quest.TaskGroups)
@@ -194,4 +137,30 @@ public class UI_Message : UI_Popup
         }
         return false;
     }
+
+    public void ReSpawn(PointerEventData data) //부활 
+    {
+        Managers.Scene.LoadScene(SceneState.Town);
+        PlayerStatus playerStatus = Managers.Game.GetPlayer().GetComponent<PlayerStatus>();
+        playerStatus.Hp = playerStatus.MAX_HP;
+        Managers.UI.ui_PlayerData.DisplayHP(playerStatus.Hp, playerStatus.MAX_HP);
+
+        Managers.UI.ClosePopupUI(this);
+    }
+    public void GameQuit(PointerEventData data)
+    {
+        Application.Quit();
+    }
+    #endregion
+
+
+
+    private void Function_Slider(float _value) // value에 따른 개수 변경
+    {
+        ShowMessage("구매", (int)_value + "개 구매");
+       
+    }
+
+
+
 }

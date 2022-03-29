@@ -20,6 +20,8 @@ public class SoundMenu : UI_Base
     Slider effectSlider;
     
     Button backButton;
+
+    RectTransform tr;
     public override void Init()
     {
         Bind<Button>(typeof(Buttons));
@@ -37,6 +39,8 @@ public class SoundMenu : UI_Base
         effectSlider.onValueChanged.AddListener(Function_EffectSlider);
 
         backButton.gameObject.AddUIEvent(BackClick);
+        
+        tr = GetComponent<RectTransform>();
     }
 
     private void Function_AllSlider(float _value)
@@ -57,7 +61,7 @@ public class SoundMenu : UI_Base
 
     private void BackClick(PointerEventData data)
     {
-        gameObject.SetActive(false);
+        tr.gameObject.SetActive(false);
     }
 
 }

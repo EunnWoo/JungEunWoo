@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Magic : PlayerAttack
 {
-    private GameObject[] fireBallPos;
-    private FireBall[] fireBalls;
+    GameObject[] fireBallPos;
+    FireBall[] fireBalls;
 
-    private int hasFireBall;
-    private string fireballobj;
-    private string rotatorfall;
-    private float charge;
+    int hasFireBall;
+    string fireballobj;
+    string rotatorfall;
+    float charge;
 
     private void Awake()
     {
@@ -51,7 +51,6 @@ public class Magic : PlayerAttack
                 if (fireballObj != null)
                 {
                     fireBalls[hasFireBall] = fireballObj.GetComponent<FireBall>();
-                  //  fireBalls[hasFireBall].SetFire(false);
                     fireballObj.transform.position = fireBallPos[hasFireBall].transform.position;
                     fireballObj.transform.rotation = fireBallPos[hasFireBall].transform.rotation;
                     fireballObj.gameObject.SetActive(true);

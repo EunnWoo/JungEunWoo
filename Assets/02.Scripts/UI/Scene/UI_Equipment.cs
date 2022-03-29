@@ -84,6 +84,10 @@ public class UI_Equipment : UI_Scene
 
 
         playerstatus = Managers.Game.GetPlayer().GetComponent<PlayerStatus>();
+        DisplayAttack(playerstatus.attack);
+        DisplayDEF(playerstatus.defense);
+        DisplayHP(playerstatus.Hp);
+        DisplayMP(playerstatus.mp);
 
         body.SetActive(false);
 
@@ -136,7 +140,10 @@ public class UI_Equipment : UI_Scene
             }
 
             //새것
+#if UNITY_EDITOR
             Debug.Log("@@@ UI장착중");
+#endif
+
             slots[_index].itemData = _itemData; //slots에 아이템 데이터를 넣음
             slots[_index].equipSlot.SetItem( _itemData); //_itemData에서 아이템 데이터를 세팅
 
