@@ -121,6 +121,26 @@ public class UI_Message : UI_Popup
         }
         else if (sceneState == SceneState.Town)
         {
+            foreach (var quest in Managers.Quest.CompletedQuests)
+            {
+                if(quest.CodeName == "TOWN"){
+                    foreach (var taskgroup in quest.TaskGroups)
+                    {
+                        if(taskgroup.IsComplete){
+                            return true;
+                        }                    
+                        else{
+                            return false;
+                        }
+                    }
+                }
+            }
+            if(Managers.talk.NPC.GetComponent<ObjData>().id != 6004){
+                return true;
+            }
+        }
+        else if (sceneState == SceneState.Map1)
+        {
 
             foreach (var quest in Managers.Quest.CompletedQuests)
             {
@@ -129,11 +149,28 @@ public class UI_Message : UI_Popup
                     foreach (var task in taskgroup.Tasks)
                     {
 
-                        // if (task.CodeName == "JUMP" && task.IsComplete)
-                        //{
-                        return true;
+                        if (task.CodeName == "KILL_MAP1BOSS" && task.IsComplete)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        else if (sceneState == SceneState.Map2)
+        {
 
-                        //}
+            foreach (var quest in Managers.Quest.CompletedQuests)
+            {
+                foreach (var taskgroup in quest.TaskGroups)
+                {
+                    foreach (var task in taskgroup.Tasks)
+                    {
+
+                        if (task.CodeName == "KILL_EARTHSLIME" && task.IsComplete)
+                        {
+                            return true;
+                        }
                     }
                 }
             }

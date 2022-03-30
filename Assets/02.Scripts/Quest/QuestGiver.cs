@@ -7,7 +7,7 @@ public class QuestGiver : MonoBehaviour
     [SerializeField]
     private Quest[] quests;
 
-    public async void QuestSet()
+    public void QuestSet()
     {
         foreach (var quest in quests)
         {

@@ -63,7 +63,6 @@ public class MonsterController : BaseController
 
     protected override void UpdateMoving()
     {
-        
         PlayerScan();
         switch (monsterState) {
             case MonsterState.Idle:
@@ -71,6 +70,7 @@ public class MonsterController : BaseController
                     monsterState = MonsterState.Walk;
                 break;
             case MonsterState.Walk:
+                if(movePos == Vector3.zero)return;
                 LookDirection(transform, movePos);
                 RigidMovePos(transform, movePos, moveSpeed);
                 LimitMoveRange(transform, limitRange_Min, limitRange_Max);
@@ -80,8 +80,6 @@ public class MonsterController : BaseController
                 break;
 
             case MonsterState.Trace:
-
-
                 LookTarget(transform, player.transform, rotateSpeed);
                 if(distance >= _attackRange){
                     RigidMovePos(transform, player.transform.position - transform.position, moveSpeed);
@@ -107,7 +105,7 @@ public class MonsterController : BaseController
 
     }
     private void RandomPos(){
-        movePos = new Vector3(Random.Range(-1, 2), transform.position.y, Random.Range(-1, 2));
+        movePos = new Vector3(Random.Range(-1f, 2f), transform.position.y, Random.Range(-1f, 2f));
     }
     public void LookDirection(Transform objTransform, Vector3 moveDir) {
         objTransform.rotation = Quaternion.LookRotation(-moveDir.x * Vector3.right + -moveDir.z * Vector3.forward);
@@ -115,7 +113,7 @@ public class MonsterController : BaseController
 
     public void LookTarget(Transform objTransform, Transform targetTransform, float speed) 
     {
-        if (animator.GetBool("Attack")) return;
+        if (animator.GetInteger("state") == 2) return;
         Vector3 dir = new Vector3(objTransform.position.x - targetTransform.transform.position.x, 0, objTransform.position.z - targetTransform.transform.position.z);
         objTransform.rotation = Quaternion.Lerp(objTransform.rotation, Quaternion.LookRotation(dir), speed * Time.fixedDeltaTime);
     }
@@ -132,7 +130,13 @@ public class MonsterController : BaseController
 
     protected virtual void OnAttack()
     {
-
+        Managers.Sound.Play("EffectSound/Attack/SlimeAttack");
+        Vector3 vec = transform.localPosition + (-transform.forward * 5);
+        Collider[] hit = Physics.OverlapSphere(vec, 4f,1<<(int)Layer.Player);
+        for (int i = 0; i < hit.Length; i++)
+        {
+            Status status = hit[i].GetComponent<Status>();
+            status.TakeDamage(GetComponent<Status>());
+        }
     }
-
 }

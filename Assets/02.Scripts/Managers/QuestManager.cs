@@ -36,7 +36,7 @@ public class QuestManager
 
     public event QuestRegisteredHandler onAchivementRegistered;
     public event QuestCompletedHandler onAchivementCompleted;
-    public event QuestCanceledHandler onAchivementCanceled;
+    //public event QuestCanceledHandler onAchivementCanceled;
 
     public IReadOnlyList<Quest> ActiveQuests => activeQuests;
     public IReadOnlyList<Quest> CompletedQuests => completedQuests;
