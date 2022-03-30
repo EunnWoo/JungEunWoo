@@ -278,7 +278,7 @@ public class PlayerStatus : Status
         base.Die();
         UI_Message ui_Message = Managers.UI.ShowPopupUI<UI_Message>();
         ui_Message.Init();
-        ui_Message.ShowMessage("죽음", "마을에서 부활하시겠습니까?");
+        ui_Message.ShowMessage("죽음", "부활하시겠습니까?");
         ui_Message.okButton.gameObject.AddUIEvent(ui_Message.ReSpawn);
         ui_Message.cancelButton.gameObject.AddUIEvent(ui_Message.GameQuit);
     }
