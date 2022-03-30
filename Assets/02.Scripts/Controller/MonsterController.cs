@@ -132,15 +132,7 @@ public class MonsterController : BaseController
 
     protected virtual void OnAttack()
     {
-        Vector3 vec = transform.localPosition + (-transform.forward * 5);
-        Collider[] hit = Physics.OverlapSphere(vec, 4f,1<<(int)Layer.Player);
 
-        for (int i = 0; i < hit.Length; i++)
-        {
-           
-            Status status = hit[i].GetComponent<Status>();
-            status.TakeDamage(GetComponent<Status>());
-        }
     }
 
 }
