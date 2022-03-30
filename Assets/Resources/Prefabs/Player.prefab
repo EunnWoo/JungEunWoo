@@ -29010,7 +29010,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lockTarget: {fileID: 0}
-  CurrentHealth: 0
   playerAttack: {fileID: 0}
 --- !u!114 &7509308842029391692
 MonoBehaviour:
@@ -29039,6 +29038,8 @@ MonoBehaviour:
   baseHP: 300
   baseMP: 300
   baseAttack: 100
+  animator: {fileID: 0}
+  questReporter: {fileID: 0}
   listPartInfos:
   - partName: Head
     partDefault: {fileID: 0}

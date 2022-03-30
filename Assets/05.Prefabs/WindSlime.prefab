@@ -160,8 +160,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lockTarget: {fileID: 0}
-  limitRange_Min: {x: -4, y: 0, z: 17}
-  limitRange_Max: {x: 0, y: 0, z: 11}
+  limitRange_Min: {x: -18, y: 0, z: 0}
+  limitRange_Max: {x: 0, y: 0, z: 6}
   _scanRange: 10
   _attackRange: 2
 --- !u!114 &5923520453101952595
@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   category: {fileID: 11400000, guid: 52872427afc027e479ca78318d48d5f4, type: 2}
-  target: {fileID: 11400000, guid: 9a44f6e270a80264bac2984590ed1d05, type: 2}
+  target: {fileID: 11400000, guid: 28e9d4531738d2245ac1c18de0508692, type: 2}
   successCount: 1
   colliderTags: []
 --- !u!1 &6594479772214834672
@@ -345,14 +345,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6594479772214834680}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6594479772214667728}
   m_Father: {fileID: 6594479772214667716}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &6594479772214834682
 GameObject:
   m_ObjectHideFlags: 0

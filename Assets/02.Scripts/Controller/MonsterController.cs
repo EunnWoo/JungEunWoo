@@ -80,8 +80,6 @@ public class MonsterController : BaseController
                 break;
 
             case MonsterState.Trace:
-
-
                 LookTarget(transform, player.transform, rotateSpeed);
                 if(distance >= _attackRange){
                     RigidMovePos(transform, player.transform.position - transform.position, moveSpeed);
@@ -115,7 +113,7 @@ public class MonsterController : BaseController
 
     public void LookTarget(Transform objTransform, Transform targetTransform, float speed) 
     {
-        if (animator.GetBool("Attack")) return;
+        if (animator.GetInteger("state") == 2) return;
         Vector3 dir = new Vector3(objTransform.position.x - targetTransform.transform.position.x, 0, objTransform.position.z - targetTransform.transform.position.z);
         objTransform.rotation = Quaternion.Lerp(objTransform.rotation, Quaternion.LookRotation(dir), speed * Time.fixedDeltaTime);
     }
@@ -132,6 +130,7 @@ public class MonsterController : BaseController
 
     protected virtual void OnAttack()
     {
+        Managers.Sound.Play("EffectSound/Attack/SlimeAttack");
         Vector3 vec = transform.localPosition + (-transform.forward * 5);
         Collider[] hit = Physics.OverlapSphere(vec, 4f,1<<(int)Layer.Player);
 

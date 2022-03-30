@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Task_KillWindSlime
   m_EditorClassIdentifier: 
   category: {fileID: 11400000, guid: 52872427afc027e479ca78318d48d5f4, type: 2}
-  codeName: KILL_DUMMY
-  description: Kill WaterSlime
+  codeName: KILL_WINDSLIME
+  description: Kill WindSlime
   action: {fileID: 11400000, guid: f2e8487896b673045b8b058590e7ae6e, type: 2}
   targets:
   - {fileID: 11400000, guid: 28e9d4531738d2245ac1c18de0508692, type: 2}
