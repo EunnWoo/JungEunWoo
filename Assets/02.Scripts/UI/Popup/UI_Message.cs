@@ -80,7 +80,7 @@ public class UI_Message : UI_Popup
     }
     bool SceneMove()  // 퀘스트 완료 안 하면 못돌아감
     {
-        SceneState sceneState = FindObjectOfType<BaseScene>().SceneType;
+        SceneState sceneState = BaseScene.instance.SceneType;
         if (sceneState == SceneState.Tutorial)
         {
 
