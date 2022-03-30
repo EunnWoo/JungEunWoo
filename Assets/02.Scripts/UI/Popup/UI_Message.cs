@@ -138,6 +138,24 @@ public class UI_Message : UI_Popup
                 }
             }
         }
+        else if (sceneState == SceneState.Map1)
+        {
+
+            foreach (var quest in Managers.Quest.CompletedQuests)
+            {
+                foreach (var taskgroup in quest.TaskGroups)
+                {
+                    foreach (var task in taskgroup.Tasks)
+                    {
+
+                        if (task.CodeName == "KILL_MAP1BOSS" && task.IsComplete)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
         return false;
     }
 
