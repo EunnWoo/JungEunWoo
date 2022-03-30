@@ -9968,7 +9968,7 @@ ParticleSystem:
         m_RotationOrder: 0
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -10021,7 +10021,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -19590,7 +19590,7 @@ ParticleSystem:
         m_RotationOrder: 0
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -19643,7 +19643,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -24064,7 +24064,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dbf65c0ce6084e34d8c736379de993fa, type: 2}
+  - {fileID: 2100000, guid: 64c774a016e044548b7752ac7e5d088c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -28866,7 +28866,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dbf65c0ce6084e34d8c736379de993fa, type: 2}
+  - {fileID: 2100000, guid: a53245b1b760eca4ab748c7c2f8f5513, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -29010,7 +29010,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lockTarget: {fileID: 0}
-  CurrentHealth: 0
   playerAttack: {fileID: 0}
 --- !u!114 &7509308842029391692
 MonoBehaviour:
@@ -29039,6 +29038,8 @@ MonoBehaviour:
   baseHP: 300
   baseMP: 300
   baseAttack: 100
+  animator: {fileID: 0}
+  questReporter: {fileID: 0}
   listPartInfos:
   - partName: Head
     partDefault: {fileID: 0}
@@ -29176,7 +29177,9 @@ Animator:
     by Humanoid clips.\n\tTransform 'goggle'\n\tTransform 'goggle'\n\tFrom animation
     clip 'NormalSprint_noWeapon'\n\tFrom animation clip 'Idle_noWeapon'\n\tFrom animation
     clip 'NormalWalk_noWeapon'\n\tFrom animation clip 'JumpEnd_noWeapon'\n\tFrom
-    animation clip 'JumpAir_noWeapon'\n\tFrom animation clip 'Roll_noWeapon'"
+    animation clip 'JumpAir_noWeapon'\n\tFrom animation clip 'Roll_noWeapon'\n\tFrom
+    animation clip 'Die_noWeapon'\n\tFrom animation clip 'GetHit_noWeapon'\n\tFrom
+    animation clip 'DieRecover_noWeapon'"
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
