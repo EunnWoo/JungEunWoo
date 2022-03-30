@@ -10,6 +10,7 @@ public class PlayerAttack : BaseController
     public bool isAttack { get; protected set; }
     public float attackRatio { get; protected set; }
     public float skillRatio { get; protected set; }
+
     public GameObject attackTarget { get; private set; }  //À¯µµÅºÀ» À§ÇÑ Å¸°Ù
 
     private bool hasWaepon;
@@ -106,10 +107,11 @@ public class PlayerAttack : BaseController
         yield return null;
     }
 
-    public void AttackTacrgetSet(GameObject go)
+    public void AttackTargetSet(GameObject go)
     {
         attackTarget = go;
     }
+
     protected virtual void OnHitEvent()
     {
     }

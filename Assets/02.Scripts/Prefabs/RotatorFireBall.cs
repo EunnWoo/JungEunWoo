@@ -7,6 +7,7 @@ public class RotatorFireBall : MonoBehaviour
 
     PlayerAttack playerAttack;
     Transform tr;
+    GameObject target;
     ParticleSystem particleObject; //파티클시스템
     AudioSource audioSource;
     AudioClip audioClip;
@@ -25,7 +26,7 @@ public class RotatorFireBall : MonoBehaviour
         if (Managers.Game.GetPlayer() != null)
         {
             playerAttack = Managers.Game.GetPlayer().GetComponent<PlayerAttack>();
-            
+            target = playerAttack.attackTarget;
             audioSource.Play();
         }   
         explosion = false;
@@ -33,9 +34,11 @@ public class RotatorFireBall : MonoBehaviour
     }
     private void Update()
     {
-        if (playerAttack.attackTarget == null) return;
-        if (playerAttack.attackTarget.layer != (int)Layer.Monster || explosion) return;
-        tr.position = playerAttack.attackTarget.transform.position;
+        //if (target == null) return;
+        if (target.layer != (int)Layer.Monster || explosion) return;
+
+
+        tr.position = target.transform.position;
         if(particleObject.time >= 6.3f)
         {
             explosion = true;

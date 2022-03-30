@@ -95,7 +95,7 @@ public class PlayerController : BaseController
                 {
                     if(_lockTarget.layer == (int)Layer.Npc)
                     {
-                        //Managers.talk.Action(_lockTarget);
+                        Managers.talk.Action(_lockTarget);
                     }
                     else if (_lockTarget.layer == (int)Layer.Item) //타겟의 레이어가 아이템이면
                     {
@@ -270,7 +270,7 @@ public class PlayerController : BaseController
 
                 if (DistanceAttackPos(dir)) //거리 비교 bool
                 {
-                    playerAttack.AttackTacrgetSet(_lockTarget);
+                    playerAttack.AttackTargetSet(_lockTarget);
                     _lockTarget = null;
                     playerAttack.OnAttack();
                     
@@ -289,7 +289,7 @@ public class PlayerController : BaseController
                     Managers.UI.ui_ErrorText.SetErrorText(Define.Error.NoneJob);
                     return;
                 }
-                playerAttack.AttackTacrgetSet(_lockTarget);
+                playerAttack.AttackTargetSet(_lockTarget);
                 _lockTarget = null;
                 playerAttack.OnAttack();
 

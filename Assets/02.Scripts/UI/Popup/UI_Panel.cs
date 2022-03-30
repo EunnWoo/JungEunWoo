@@ -29,7 +29,7 @@ public class UI_Panel : UI_Popup
     QuestReporter questReporter;
 
     [HideInInspector]
-    public Button OkButton;
+    public Button okButton;
 
     Text npcNameText;
     Text talkText;
@@ -46,7 +46,7 @@ public class UI_Panel : UI_Popup
         Bind<Text>(typeof(Texts));
         Bind<Image>(typeof(Images));
 
-        OkButton = GetButton((int)Buttons.JobButton);
+        okButton = GetButton((int)Buttons.JobButton);
         GetButton((int)Buttons.ExitButton).gameObject.AddUIEvent(JobExitButton);
 
         objData = Managers.talk.NPC.GetComponent<ObjData>();
@@ -95,12 +95,22 @@ public class UI_Panel : UI_Popup
             questReporter.Report();
             Managers.UI.ClosePopupUI(this);
         }
+            
 
     }
 
     public void QuestGive(PointerEventData data)
     {
-        objData.GetComponent<QuestGiver>().QuestSet();
-        Managers.UI.ClosePopupUI(this);
+        talkIndex++;
+        talkText.text = Managers.talk.GetTalk(objData.id, talkIndex);
+
+        if (Managers.talk.GetTalk(objData.id, talkIndex) == null) //말이 더 없을때
+        {
+            talkIndex = 0;
+            objData.GetComponent<QuestGiver>().QuestSet();
+            Managers.UI.ClosePopupUI(this);
+
+        }
+
     }
 }

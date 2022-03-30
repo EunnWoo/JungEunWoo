@@ -3441,6 +3441,8 @@ MonoBehaviour:
   baseHP: 400
   baseMP: 300
   baseAttack: 5
+  animator: {fileID: 0}
+  questReporter: {fileID: 0}
 --- !u!136 &649441614
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4474,6 +4476,7 @@ Transform:
   - {fileID: 942402981}
   - {fileID: 674041297}
   - {fileID: 1840356000}
+  - {fileID: 1285277989}
   - {fileID: 222448559}
   - {fileID: 694203260}
   - {fileID: 1619471787}
@@ -4493,7 +4496,6 @@ Transform:
   - {fileID: 670066734}
   - {fileID: 125220039}
   - {fileID: 440128845}
-  - {fileID: 1285277989}
   - {fileID: 28540316}
   - {fileID: 1400416006}
   - {fileID: 2008260864}
@@ -5510,7 +5512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db4f9d25f3672849bc5683826945534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  box: {fileID: 1285277988}
 --- !u!65 &1285277988
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5536,7 +5537,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 960090943}
-  m_RootOrder: 35
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1335594578
 PrefabInstance:
@@ -5716,7 +5717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7184805044447416128, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
       propertyPath: m_Name
-      value: NPC (1)
+      value: 'NPC '
       objectReference: {fileID: 0}
     - target: {fileID: 7184805044447416130, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
       propertyPath: m_RootOrder

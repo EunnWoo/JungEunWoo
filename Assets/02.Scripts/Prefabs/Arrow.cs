@@ -70,7 +70,7 @@ public class Arrow : MonoBehaviour
             rigid.Sleep();
             rigid.useGravity = false;
             tr.position = other.ClosestPointOnBounds(tr.position) + new Vector3(0, 0.5f, 0); // ClosestPointOnBounds -> 충돌지점에서 가장 가까운 곳 리턴
-            Invoke("DisableArrow", 3f);
+            DisableArrow();
         }
         
     }
