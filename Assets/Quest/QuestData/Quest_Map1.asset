@@ -20,7 +20,6 @@ MonoBehaviour:
   taskGroups:
   - tasks:
     - {fileID: 11400000, guid: 7307fa225cde93140ab04bab99cb96e1, type: 2}
-  - tasks:
     - {fileID: 11400000, guid: f911aa66e79615d4bad7ba02ddde801f, type: 2}
   rewards:
   - {fileID: 11400000, guid: c295f3f484db0614fa0d3f222a6de1e4, type: 2}

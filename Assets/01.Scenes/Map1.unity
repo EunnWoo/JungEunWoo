@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -35013,7 +35013,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5614197713920209353, guid: aa465851ae53d8b4086537eddfca3123, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.32
+      value: 8.03
       objectReference: {fileID: 0}
     - target: {fileID: 5614197713920209353, guid: aa465851ae53d8b4086537eddfca3123, type: 3}
       propertyPath: m_LocalPosition.y
@@ -35021,7 +35021,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5614197713920209353, guid: aa465851ae53d8b4086537eddfca3123, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.61
+      value: 5.99
       objectReference: {fileID: 0}
     - target: {fileID: 5614197713920209353, guid: aa465851ae53d8b4086537eddfca3123, type: 3}
       propertyPath: m_LocalRotation.w
@@ -35050,6 +35050,22 @@ PrefabInstance:
     - target: {fileID: 5614197713920209353, guid: aa465851ae53d8b4086537eddfca3123, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141244702449059244, guid: aa465851ae53d8b4086537eddfca3123, type: 3}
+      propertyPath: limitRange_Max.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141244702449059244, guid: aa465851ae53d8b4086537eddfca3123, type: 3}
+      propertyPath: limitRange_Max.z
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141244702449059244, guid: aa465851ae53d8b4086537eddfca3123, type: 3}
+      propertyPath: limitRange_Min.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141244702449059244, guid: aa465851ae53d8b4086537eddfca3123, type: 3}
+      propertyPath: limitRange_Min.z
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa465851ae53d8b4086537eddfca3123, type: 3}
@@ -35122,7 +35138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6504027550742395136, guid: 26fe43d095cd8874e8b32b42a0ffe454, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8
+      value: -8.32
       objectReference: {fileID: 0}
     - target: {fileID: 6504027550742395136, guid: 26fe43d095cd8874e8b32b42a0ffe454, type: 3}
       propertyPath: m_LocalPosition.y
@@ -35130,7 +35146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6504027550742395136, guid: 26fe43d095cd8874e8b32b42a0ffe454, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.82
+      value: 12.32
       objectReference: {fileID: 0}
     - target: {fileID: 6504027550742395136, guid: 26fe43d095cd8874e8b32b42a0ffe454, type: 3}
       propertyPath: m_LocalRotation.w
@@ -35163,6 +35179,26 @@ PrefabInstance:
     - target: {fileID: 6504027550742553888, guid: 26fe43d095cd8874e8b32b42a0ffe454, type: 3}
       propertyPath: m_Name
       value: WaterSlime
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078214141224549602, guid: 26fe43d095cd8874e8b32b42a0ffe454, type: 3}
+      propertyPath: limitRange_Max.x
+      value: -8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078214141224549602, guid: 26fe43d095cd8874e8b32b42a0ffe454, type: 3}
+      propertyPath: limitRange_Max.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078214141224549602, guid: 26fe43d095cd8874e8b32b42a0ffe454, type: 3}
+      propertyPath: limitRange_Max.z
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078214141224549602, guid: 26fe43d095cd8874e8b32b42a0ffe454, type: 3}
+      propertyPath: limitRange_Min.x
+      value: -12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078214141224549602, guid: 26fe43d095cd8874e8b32b42a0ffe454, type: 3}
+      propertyPath: limitRange_Min.z
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26fe43d095cd8874e8b32b42a0ffe454, type: 3}
@@ -35242,6 +35278,22 @@ PrefabInstance:
     - target: {fileID: 6504027550742553888, guid: 26fe43d095cd8874e8b32b42a0ffe454, type: 3}
       propertyPath: m_Name
       value: WaterSlime
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078214141224549602, guid: 26fe43d095cd8874e8b32b42a0ffe454, type: 3}
+      propertyPath: limitRange_Max.x
+      value: -8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078214141224549602, guid: 26fe43d095cd8874e8b32b42a0ffe454, type: 3}
+      propertyPath: limitRange_Max.z
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078214141224549602, guid: 26fe43d095cd8874e8b32b42a0ffe454, type: 3}
+      propertyPath: limitRange_Min.x
+      value: -12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078214141224549602, guid: 26fe43d095cd8874e8b32b42a0ffe454, type: 3}
+      propertyPath: limitRange_Min.z
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26fe43d095cd8874e8b32b42a0ffe454, type: 3}

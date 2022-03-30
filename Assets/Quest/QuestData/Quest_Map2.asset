@@ -15,14 +15,16 @@ MonoBehaviour:
   category: {fileID: 11400000, guid: a8cd8a524cffa6144ad6ddbcc3418f78, type: 2}
   icon: {fileID: 0}
   codeName: Map2
-  displayName: Qualification 1
+  displayName: Qualification 2
   description: Certification to go the way of the king.
   taskGroups:
-  - tasks: []
+  - tasks:
+    - {fileID: 11400000, guid: 1d1ad497145d1a643827152cae956d29, type: 2}
+    - {fileID: 11400000, guid: 35a9ab653eca4334a82c109de4733c48, type: 2}
   rewards:
   - {fileID: 11400000, guid: c295f3f484db0614fa0d3f222a6de1e4, type: 2}
   - {fileID: 11400000, guid: 4b862b58d7c0c9d45a66caba448ee1af, type: 2}
-  useAutoComplete: 0
+  useAutoComplete: 1
   isCancelable: 0
   isSaveable: 0
   acceptionConditions: []
