@@ -316,8 +316,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lockTarget: {fileID: 0}
+  CurrentHealth: 50
   limitRange_Min: {x: -5, y: 0, z: -5}
   limitRange_Max: {x: 5, y: 0, z: 5}
+  monsterState: 0
+  player: {fileID: 0}
   _scanRange: 10
   _attackRange: 7
   bombSpawn: []
@@ -333,11 +336,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d884a80f68802849b29901905f4c73d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 0
   baseHP: 700
   baseMP: 300
   baseAttack: 30
-  animator: {fileID: 0}
-  questReporter: {fileID: 0}
 --- !u!1 &8386886850102160327
 GameObject:
   m_ObjectHideFlags: 0
