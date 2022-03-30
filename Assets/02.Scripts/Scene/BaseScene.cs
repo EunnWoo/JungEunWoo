@@ -22,12 +22,14 @@ public enum SceneState
 public abstract class BaseScene : MonoBehaviour
 {
     public SceneState SceneType { get; protected set; } = SceneState.Unknown;
-
+    public static BaseScene instance;
+    
 
 
     private void Awake()
     {
-        
+
+        instance = this;
         Init();
        
 
