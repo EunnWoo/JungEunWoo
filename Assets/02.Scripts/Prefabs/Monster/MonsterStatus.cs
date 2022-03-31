@@ -27,12 +27,12 @@ public class MonsterStatus : Status
     protected override void Die()
     {
         base.Die();
-        ItemDrop();
         Managers.UI.ui_MonsterHpbar.OffMonsterHpbar();
         rigidbody.isKinematic = true;
         PlayerStatus playerStatus = Managers.Game.GetPlayer().GetComponent<PlayerStatus>();
         playerStatus.exp += 10;
-        Managers.Resource.Destroy(gameObject, 3f);
+        Managers.Resource.Destroy(gameObject, 2f);
+        //ItemDrop();
     }
 
    

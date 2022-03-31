@@ -190,7 +190,7 @@ public class UI_Message : UI_Popup
         playerStatus.Hp = playerStatus.MAX_HP;
         playerStatus.GetComponent<Animator>().SetTrigger("Recover");
         playerStatus.GetComponent<Animator>().SetBool("Dead", false);
-        playerStatus.bDeath = false;
+        playerStatus.BDeath = false;
         Managers.UI.ui_PlayerData.DisplayHP(playerStatus.Hp, playerStatus.MAX_HP);
 
         Managers.UI.ClosePopupUI(this);
@@ -203,7 +203,7 @@ public class UI_Message : UI_Popup
         playerStatus.Hp = playerStatus.MAX_HP;
         playerStatus.GetComponent<Animator>().SetTrigger("Recover");
         playerStatus.GetComponent<Animator>().SetBool("Dead", false);
-        playerStatus.bDeath = false;
+        playerStatus.BDeath = false;
         Managers.UI.ui_PlayerData.DisplayHP(playerStatus.Hp, playerStatus.MAX_HP);
         Managers.UI.ClosePopupUI(this);
       

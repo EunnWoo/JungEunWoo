@@ -63,17 +63,17 @@ public class Status : MonoBehaviour
     #endregion
 
     protected float levelExp = 0;
-    [SerializeField]
-    Animator animator;
+    
+    protected Animator animator;
     [SerializeField]
     QuestReporter questReporter;
-    public bool BDeath { get; private set; }
-    public bool bDeath 
+    bool bDeath;
+    public bool BDeath 
     {
-
+        get { return bDeath; }
         set
         {
-            BDeath = value;
+            bDeath = value;
         }
 
     }
@@ -108,10 +108,10 @@ public class Status : MonoBehaviour
         Debug.Log("»ç¸Á");
 #endif
 
-        bDeath = true;
+        BDeath = true;
         
         questReporter.Report();
-        animator.SetBool("Dead", BDeath);
+        animator.SetTrigger("Dead");
         //gameObject.GetComponent<Rigidbody>().isKinematic = false;
 
     }
