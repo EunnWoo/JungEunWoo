@@ -89,7 +89,6 @@ public class Status : MonoBehaviour
     {
         if (BDeath) return; //만약 사망했다면
 
-        animator.SetTrigger("Hit");
 
         int damage = Random.Range( (int)(attacker.attack / 10),  (int)((attacker.attack- (int)defense) * ratio));
         Hp -= damage;

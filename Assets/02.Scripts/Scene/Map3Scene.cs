@@ -13,6 +13,7 @@ public class Map3Scene : BaseScene
 
         Managers.Game.GetPlayer().transform.position = new Vector3(-4f, 1.06f, -22f);
         Managers.Sound.Play("BGM/Map3", Define.Sound.BGM);
+
         playableDirector = GetComponent<PlayableDirector>();
         playableDirector.Play();
         
