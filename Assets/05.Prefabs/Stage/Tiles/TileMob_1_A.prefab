@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 482800}
   - component: {fileID: 3348112}
   - component: {fileID: 2394088}
-  - component: {fileID: 8525129896434049623}
+  - component: {fileID: 5230096084941968194}
   m_Layer: 9
   m_Name: TileMob_1_A
   m_TagString: Ground
@@ -164,8 +164,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8525129896434049623
-MeshCollider:
+--- !u!65 &5230096084941968194
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -174,7 +174,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: a6761108e8fdbf547a93311560fd2594, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 2, y: 6.061752, z: 2}
+  m_Center: {x: 0, y: -2.969124, z: 0}
