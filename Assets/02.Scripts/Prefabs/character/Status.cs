@@ -112,7 +112,7 @@ public class Status : MonoBehaviour
         
         questReporter.Report();
         animator.SetTrigger("Dead");
-        //gameObject.GetComponent<Rigidbody>().isKinematic = false;
+
 
     }
 

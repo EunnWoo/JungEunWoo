@@ -32,6 +32,7 @@ public class TalkManager
         talkData.Add(8, new string[] { "어이 거기!\n 나 좀 도와줘 슬라임들이 너무 많아 지나갈 수가 없어"});
         talkData.Add(9, new string[] { "누나가 찾는다고?\n 나를 좀 도와주면 생각해볼게" });
         talkData.Add(10, new string[] { "이쪽이야 이쪽!\n 공주님이 잡혀갔어!! 구해줘" });
+        talkData.Add(11, new string[] { "구해줘서 고마워요!\n 이 은혜 잊지 않겠습니다.." });
 
         errorString = new string[] { "자네는 이미 직업이 있군"};
     }
@@ -68,6 +69,13 @@ public class TalkManager
             UI_Panel ui_Panel = Managers.UI.ShowPopupUI<UI_Panel>();
             ui_Panel.Init();
             ui_Panel.okButton.gameObject.AddUIEvent(ui_Panel.QuestGive);
+        }
+        else if(id == 11)
+        {
+            UI_Message ui_Message = Managers.UI.ShowPopupUI<UI_Message>();
+            ui_Message.Init();
+            ui_Message.ShowMessage("클리어", "게임을 종료하시겠습니까?");
+            ui_Message.okButton.gameObject.AddUIEvent(ui_Message.GameQuit);
         }
 
 

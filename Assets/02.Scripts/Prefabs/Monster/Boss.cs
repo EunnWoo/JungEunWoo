@@ -15,12 +15,14 @@ public class Boss : MonsterController
     protected override void Init()
     {
         base.Init();
-        //gameObject.SetActive(false);        
+
     }
     private void Awake() {
+
+
         bombSpawn = Util.FindChild(gameObject,"BombSpawn", true).GetComponentsInChildren<Transform>();
         bombSlime = "Boom_Slime_A";
-        //particleSystem =  GetComponent<ParticleSystem>();
+      
         attackRate = 4f;
         skillRate = 15f;
 
@@ -87,5 +89,8 @@ public class Boss : MonsterController
             BombSlime.SetActive(true);
         }
     }
-
+    void BossDie()
+    {
+        
+    }
 }

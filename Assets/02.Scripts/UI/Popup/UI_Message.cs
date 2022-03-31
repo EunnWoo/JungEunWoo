@@ -190,12 +190,16 @@ public class UI_Message : UI_Popup
         Managers.UI.ClosePopupUI(this);
     }
 
-    public void GameQuit(PointerEventData data)
+    public void TownSpawn(PointerEventData data)
     {
         Managers.Scene.LoadScene(SceneState.Town);
         RecoverSet();
         Managers.UI.ClosePopupUI(this);
       
+    }
+    public void GameQuit(PointerEventData data)
+    {
+        Application.Quit();
     }
     public void RecoverSet()
     {

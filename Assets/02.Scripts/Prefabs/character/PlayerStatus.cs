@@ -137,10 +137,9 @@ public class PlayerStatus : Status
         get { return totalExp; }
         set
         {
-            Debug.Log(totalExp+" 1");
+      
             float _plus = value - totalExp;
             totalExp += _plus;
-            Debug.Log(totalExp+" 2");
             float _levelOld = level;
 
             level = GetLevel(totalExp);
@@ -285,7 +284,7 @@ public class PlayerStatus : Status
         ui_Message.Init();
         ui_Message.ShowMessage("죽음", "부활하시겠습니까?");
         ui_Message.okButton.gameObject.AddUIEvent(ui_Message.ReSpawn);
-        ui_Message.cancelButton.gameObject.AddUIEvent(ui_Message.GameQuit);
+        ui_Message.cancelButton.gameObject.AddUIEvent(ui_Message.TownSpawn);
     }
 
 
