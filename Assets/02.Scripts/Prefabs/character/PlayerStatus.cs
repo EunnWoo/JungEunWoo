@@ -280,6 +280,7 @@ public class PlayerStatus : Status
     protected override void Die()
     {
         base.Die();
+        
         UI_Message ui_Message = Managers.UI.ShowPopupUI<UI_Message>();
         ui_Message.Init();
         ui_Message.ShowMessage("죽음", "부활하시겠습니까?");
