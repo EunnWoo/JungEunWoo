@@ -45432,6 +45432,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+--- !u!1 &1670393106 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7184805044447416128, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+  m_PrefabInstance: {fileID: 1670393105}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1670393107
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670393106}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 47388b002c80e8b49827d81977725b78, type: 3}
+  m_Controller: {fileID: 9100000, guid: 438f87954cade3a4a85515827925d22e, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'goggle'\n\tTransform 'goggle'\n\tFrom animation
+    clip 'Idle_noWeapon'"
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1673548429
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58384,7 +58411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 79b79fdbb6ef0de4e85e5d7abeac45a5, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 79b79fdbb6ef0de4e85e5d7abeac45a5, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -58459,7 +58486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d1b3d87221a9da84dabfeec65e8dbafa, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d1b3d87221a9da84dabfeec65e8dbafa, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -58489,9 +58516,9 @@ GameObject:
   - component: {fileID: 8029015202434207047}
   - component: {fileID: 7075827561680998161}
   - component: {fileID: 7075827561680998160}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: PortalBlue
-  m_TagString: Npc
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58598,7 +58625,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: af7a3075b0f4d544eac048ed1a3db91a, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: af7a3075b0f4d544eac048ed1a3db91a, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -58625,7 +58652,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7075827561842368023}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58712,7 +58739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d1b3d87221a9da84dabfeec65e8dbafa, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d1b3d87221a9da84dabfeec65e8dbafa, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -58787,7 +58814,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d1b3d87221a9da84dabfeec65e8dbafa, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d1b3d87221a9da84dabfeec65e8dbafa, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -58891,7 +58918,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7075827562135177416}
   - component: {fileID: 7075827562135177417}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58909,7 +58936,7 @@ GameObject:
   - component: {fileID: 7075827562155632402}
   - component: {fileID: 7075827562155632412}
   - component: {fileID: 7075827562155632403}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Fireflies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63726,7 +63753,7 @@ GameObject:
   - component: {fileID: 7075827562180800749}
   - component: {fileID: 7075827562180800751}
   - component: {fileID: 7075827562180800750}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: BottomParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68543,7 +68570,7 @@ GameObject:
   - component: {fileID: 7075827562440639001}
   - component: {fileID: 7075827562440639003}
   - component: {fileID: 7075827562440639002}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: BottomLightsOuter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73405,7 +73432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: af7a3075b0f4d544eac048ed1a3db91a, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: af7a3075b0f4d544eac048ed1a3db91a, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -73432,7 +73459,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7075827562925664849}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: PortalEffects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73516,7 +73543,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d1b3d87221a9da84dabfeec65e8dbafa, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d1b3d87221a9da84dabfeec65e8dbafa, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -73591,7 +73618,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: af7a3075b0f4d544eac048ed1a3db91a, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: af7a3075b0f4d544eac048ed1a3db91a, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -73666,7 +73693,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d1b3d87221a9da84dabfeec65e8dbafa, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d1b3d87221a9da84dabfeec65e8dbafa, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -78493,7 +78520,7 @@ GameObject:
   - component: {fileID: 7075827563263031464}
   - component: {fileID: 7075827563263031466}
   - component: {fileID: 7075827563263031465}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: BottomLightsInner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83229,7 +83256,7 @@ GameObject:
   - component: {fileID: 7075827563393189614}
   - component: {fileID: 7075827563393189608}
   - component: {fileID: 7075827563393189615}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: TrailParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83327,7 +83354,7 @@ GameObject:
   - component: {fileID: 7075827563393662617}
   - component: {fileID: 7075827563393662619}
   - component: {fileID: 7075827563393662618}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10167,6 +10167,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7075827561804443081, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075827562229840129, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075827562230284660, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075827562276618038, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7075827562801629334, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -10214,6 +10230,70 @@ PrefabInstance:
     - target: {fileID: 7075827562801629335, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
       propertyPath: m_Name
       value: PortalBlue
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075827562801629335, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075827562801629335, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075827562971650447, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075827563152789334, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075827563174295413, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075827563182678152, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075827563434526081, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994745291231811726, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994745291939236569, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994745291985711081, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994745292202497755, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994745292272162734, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994745292294018213, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994745292418325745, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994745293096973277, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994745293301318216, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
@@ -19663,6 +19743,7 @@ GameObject:
   - component: {fileID: 2647980216234811228}
   - component: {fileID: 5118919203736295707}
   - component: {fileID: 5118919204418074974}
+  - component: {fileID: 2647980216234811231}
   m_Layer: 8
   m_Name: NPC
   m_TagString: Npc
@@ -19670,6 +19751,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &2647980216234811231
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2647980216234811230}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 47388b002c80e8b49827d81977725b78, type: 3}
+  m_Controller: {fileID: 9100000, guid: 438f87954cade3a4a85515827925d22e, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'goggle'\n\tTransform 'goggle'\n\tFrom animation
+    clip 'Idle_noWeapon'"
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!33 &2647980216242917747
 MeshFilter:
   m_ObjectHideFlags: 0

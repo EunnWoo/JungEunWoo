@@ -13317,7 +13317,7 @@ Transform:
   m_LocalScale: {x: 4, y: 13.662237, z: 4}
   m_Children: []
   m_Father: {fileID: 1989024084}
-  m_RootOrder: 374
+  m_RootOrder: 287
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1016238640
 BoxCollider:
@@ -16114,7 +16114,7 @@ Transform:
   m_LocalScale: {x: 1.2386013, y: 8.465833, z: 10.703897}
   m_Children: []
   m_Father: {fileID: 1989024084}
-  m_RootOrder: 272
+  m_RootOrder: 245
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!65 &1157260828
 BoxCollider:
@@ -24010,6 +24010,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+--- !u!1 &1664717868 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7184805044447416128, guid: 53d5366dee6ba6e4b8afe824da60527a, type: 3}
+  m_PrefabInstance: {fileID: 1664717867}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1664717869
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664717868}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 47388b002c80e8b49827d81977725b78, type: 3}
+  m_Controller: {fileID: 9100000, guid: 438f87954cade3a4a85515827925d22e, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'goggle'\n\tTransform 'goggle'\n\tFrom animation
+    clip 'Idle_noWeapon'"
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1665701287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26762,7 +26789,7 @@ Transform:
   m_LocalScale: {x: 1, y: 16.34015, z: 32.310993}
   m_Children: []
   m_Father: {fileID: 1989024084}
-  m_RootOrder: 278
+  m_RootOrder: 261
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!65 &1861869629
 BoxCollider:
@@ -28693,6 +28720,7 @@ Transform:
   - {fileID: 2032711414}
   - {fileID: 1919799593}
   - {fileID: 1660509088}
+  - {fileID: 1157260827}
   - {fileID: 305418596}
   - {fileID: 1143235618}
   - {fileID: 1021362853}
@@ -28708,6 +28736,7 @@ Transform:
   - {fileID: 1676519957}
   - {fileID: 510145858}
   - {fileID: 1235919664}
+  - {fileID: 1861869628}
   - {fileID: 261568226}
   - {fileID: 1665701288}
   - {fileID: 195575048}
@@ -28720,13 +28749,11 @@ Transform:
   - {fileID: 1535432391}
   - {fileID: 1062166019}
   - {fileID: 667748117}
-  - {fileID: 1157260827}
   - {fileID: 454771509}
   - {fileID: 1481679216}
   - {fileID: 813945697}
   - {fileID: 1803361585}
   - {fileID: 1045458294}
-  - {fileID: 1861869628}
   - {fileID: 169475445}
   - {fileID: 1044467065}
   - {fileID: 843897886}
@@ -28735,6 +28762,7 @@ Transform:
   - {fileID: 1895958179}
   - {fileID: 1087574309}
   - {fileID: 2116387427}
+  - {fileID: 1016238639}
   - {fileID: 155599622}
   - {fileID: 1320910848}
   - {fileID: 1379640247}
@@ -28822,7 +28850,6 @@ Transform:
   - {fileID: 580718289}
   - {fileID: 53052093}
   - {fileID: 106872445}
-  - {fileID: 1016238639}
   - {fileID: 1239103894}
   - {fileID: 797689272}
   - {fileID: 847330687}
@@ -46745,7 +46772,7 @@ GameObject:
   - component: {fileID: 7075827562386129353}
   m_Layer: 9
   m_Name: PortalBlue
-  m_TagString: Npc
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
