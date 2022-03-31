@@ -62,7 +62,7 @@ public class TalkManager
         {
             Managers.UI.ShowPopupUI<UI_Store>();
         }
-        else if (id ==5 || id ==6)
+        else if (id >=5 && id<=10)
         {
 
             UI_Panel ui_Panel = Managers.UI.ShowPopupUI<UI_Panel>();

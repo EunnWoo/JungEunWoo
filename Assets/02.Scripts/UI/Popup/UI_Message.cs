@@ -110,11 +110,11 @@ public class UI_Message : UI_Popup
                     foreach (var task in taskgroup.Tasks)
                     {
 
-                        // if (task.CodeName == "JUMP" && task.IsComplete)
-                        //{
-                        return true;
+                        if (task.CodeName == "KILL_DUMMY" && task.IsComplete)
+                        {
+                            return true;
 
-                        //}
+                        }
                     }
                 }
             }
