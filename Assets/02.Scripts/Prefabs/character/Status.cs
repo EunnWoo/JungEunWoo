@@ -63,8 +63,8 @@ public class Status : MonoBehaviour
     #endregion
 
     protected float levelExp = 0;
-    [SerializeField]
-    Animator animator;
+    
+    protected Animator animator;
     [SerializeField]
     QuestReporter questReporter;
     bool bDeath;
