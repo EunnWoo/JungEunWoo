@@ -34,6 +34,7 @@ public class MonsterController : BaseController
 
     protected override void Init()
     {
+        attackRate = 1.2f;
         player = Managers.Game.GetPlayer();
         InvokeRepeating("RandomPos", 2f, 3f);
         monsterState = MonsterState.Idle;
