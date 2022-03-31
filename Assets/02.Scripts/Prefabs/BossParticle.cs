@@ -14,7 +14,6 @@ public class BossParticle : MonoBehaviour
         attackerStatus = GetComponentInParent<Status>();
         for (int i = 0; i < hit.Length; i++)
         {
-            Debug.Log("hit");
             Status status = hit[i].GetComponent<Status>();
             
             status.TakeDamage(attackerStatus);

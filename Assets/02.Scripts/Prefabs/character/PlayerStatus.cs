@@ -107,7 +107,7 @@ public class PlayerStatus : Status
 
     #endregion
     #region SetUp
-    enum eAbiltyKind { LevelHP, LevelMP, LevelAttack, LevelDefense };
+    enum eAbiltyKind { LevelHP, LevelMP, LevelAttack, LevelDefense, LevelExp };
     public ParticleSystem psLevelUp;
 
     float gold1, gold2;
@@ -137,8 +137,10 @@ public class PlayerStatus : Status
         get { return totalExp; }
         set
         {
+            Debug.Log(totalExp+" 1");
             float _plus = value - totalExp;
             totalExp += _plus;
+            Debug.Log(totalExp+" 2");
             float _levelOld = level;
 
             level = GetLevel(totalExp);
@@ -146,6 +148,7 @@ public class PlayerStatus : Status
             levelMP = GetAbility(eAbiltyKind.LevelMP);
             levelAttack = GetAbility(eAbiltyKind.LevelAttack);
             levelDefense = GetAbility(eAbiltyKind.LevelDefense);
+            levelExp = GetAbility(eAbiltyKind.LevelExp);
 
             if (level != _levelOld) //레벨업 할시
             {
@@ -164,7 +167,7 @@ public class PlayerStatus : Status
                 Managers.UI.ui_PlayerData.DisplayHP(Hp, MAX_HP);
                 Managers.UI.ui_PlayerData.DisplayMP(Hp, MAX_MP);
             }
-            float _needExp = GetNeedExp(level) - GetNeedExp(level - 1); //현재레벨 - 전레벨
+            float _needExp = GetNeedExp(level); //- GetNeedExp(level - 1); //현재레벨 - 전레벨
             float _curExp = totalExp - GetNeedExp(level - 1); //전레벨에서 현재레벨빼기
             Managers.UI.ui_PlayerData.DisplayEXP(_curExp, _needExp);
             Managers.UI.ui_PlayerData.DisplayLevelText(level);
@@ -183,7 +186,7 @@ public class PlayerStatus : Status
         expArray = new float[10 + 1];
         for (int i = 1; i < expArray.Length; i++)
         {
-            expArray[i] = GetNeedExp(i);
+            expArray[i] = GetNeedExp(i) + GetNeedExp(i-1);
         }
 
     }
@@ -194,7 +197,7 @@ public class PlayerStatus : Status
 
     float GetNeedExp(float _level) //경험치 계산하는 함수
     {
-        return _level <= 0 ? 0 : (_level * 30 + 0); //레벨당 필요경험치
+        return _level <= 0 ? 0 : (_level * 30); //레벨당 필요경험치
     }
 
 
@@ -229,6 +232,7 @@ public class PlayerStatus : Status
             case eAbiltyKind.LevelMP: _rtn = _level * 20; break;    //레벨업시 증가하는MP
             case eAbiltyKind.LevelAttack: _rtn = _level * 5.0f; break;//레벨업시 증가하는 Attack
             case eAbiltyKind.LevelDefense: _rtn = _level * 0.5f; break;//레벨업시 증가하는DEF
+            case eAbiltyKind.LevelExp: _rtn = _level * 10f; break;
         }
         Managers.UI.ui_Equipment.DisplayAttack(attack);
         Managers.UI.ui_Equipment.DisplayDEF(defense);

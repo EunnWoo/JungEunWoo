@@ -22,7 +22,7 @@ public class Boss : MonsterController
         bombSlime = "Boom_Slime_A";
         //particleSystem =  GetComponent<ParticleSystem>();
         attackRate = 4f;
-        skillRate = 7f;
+        skillRate = 15f;
 
     }
     protected override void UpdateMoving(){
@@ -35,23 +35,19 @@ public class Boss : MonsterController
         if(isSkillReady){
             switch(Random.Range(5,7)){
                 case 5:
-                for(int i=1; i<bombSpawn.Length; i++){
-                    BombSlime = Managers.Pool.MakeObj(bombSlime);
-                    BombSlime.transform.position = bombSpawn[i].transform.position;
-                    BombSlime.transform.rotation = bombSpawn[i].transform.rotation;
-                    BombSlime.SetActive(true);
+                    animator.SetInteger("state",5);
                     skillDelay = 0;
-                }
                 break;
                 case 6:
                     animator.SetInteger("state",6);
+                    skillDelay = 0;
                 break;
                 case 7:
                 break;
             }
         }
     }
-
+    
     protected override void OnAttack()
     {
         Vector3 vec = transform.localPosition + (-transform.forward * 5);
@@ -83,8 +79,13 @@ public class Boss : MonsterController
         DamageParticle.gameObject.SetActive(false);
 
     }
-    void SkillEnd()
-    {
-        
+    void BossSkill(){
+        for(int i=1; i<bombSpawn.Length; i++){
+            BombSlime = Managers.Pool.MakeObj(bombSlime);
+            BombSlime.transform.position = bombSpawn[i].transform.position;
+            BombSlime.transform.rotation = bombSpawn[i].transform.rotation;
+            BombSlime.SetActive(true);
+        }
     }
+
 }

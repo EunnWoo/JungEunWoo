@@ -61,6 +61,8 @@ public class Status : MonoBehaviour
     protected float wearDefense = 0;
     protected float levelDefense = 0;
     #endregion
+
+    protected float levelExp = 0;
     [SerializeField]
     Animator animator;
     [SerializeField]
@@ -82,7 +84,7 @@ public class Status : MonoBehaviour
     protected virtual void Init()
     {
         animator = GetComponent<Animator>();
-        questReporter = GetComponent<QuestReporter>();
+        questReporter = gameObject.GetOrAddComponent<QuestReporter>();
     }
 
     public  virtual void TakeDamage(Status attacker,float ratio = 1f) //맞는타겟 호출함

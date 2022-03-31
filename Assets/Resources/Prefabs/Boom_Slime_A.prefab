@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2003837137}
   - component: {fileID: 2003837135}
   - component: {fileID: 8159814495362088944}
-  - component: {fileID: 6960856349116532929}
+  - component: {fileID: 4149988207344931896}
   m_Layer: 7
   m_Name: Boom_Slime_A
   m_TagString: Monster
@@ -101,9 +101,9 @@ MonoBehaviour:
   _lockTarget: {fileID: 0}
   limitRange_Min: {x: -20, y: 0, z: -20}
   limitRange_Max: {x: 20, y: 0, z: 20}
-  _scanRange: 10
+  _scanRange: 30
   _attackRange: 4
---- !u!114 &6960856349116532929
+--- !u!114 &4149988207344931896
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,11 +112,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 111700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d884a80f68802849b29901905f4c73d, type: 3}
+  m_Script: {fileID: 11500000, guid: 45038393a6595bf41961e9a090b84357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   baseHP: 50
-  baseMP: 100
+  baseMP: 300
   baseAttack: 30
   animator: {fileID: 0}
   questReporter: {fileID: 0}

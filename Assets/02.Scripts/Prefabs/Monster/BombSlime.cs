@@ -4,9 +4,25 @@ using UnityEngine;
 
 public class BombSlime : MonsterController
 {
+
     float explosionTime;
+    public float ExplosionTime{
+        set{
+            explosionTime = value;
+        }
+    }
     SkinnedMeshRenderer bombColor;
-    Color baseColor;
+    public SkinnedMeshRenderer BombColor{
+        get{
+            return bombColor;
+        }
+        set{
+            bombColor = value;
+        }
+    }
+    public Color baseColor{
+        get; private set;
+    }
     
     private void Awake() {   
         bombColor = this.gameObject.GetComponentInChildren<SkinnedMeshRenderer>();
@@ -24,7 +40,7 @@ public class BombSlime : MonsterController
     {
         explosionTime += Time.deltaTime;        
         bombColor.material.color -= new Color(0f,0.001f,0.001f,0f);
-        if(explosionTime >= 5f){
+        if(explosionTime >= 3f){
             Managers.Resource.Instantiate("Explosion").transform.position = transform.position;
             gameObject.SetActive(false);
             bombColor.material.color = baseColor;

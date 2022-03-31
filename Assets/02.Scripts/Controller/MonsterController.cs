@@ -65,10 +65,10 @@ public class MonsterController : BaseController
     {
         PlayerScan();
         switch (monsterState) {
-            case MonsterState.Idle:
-                if (Random.Range(1, 20) == 2)
-                    monsterState = MonsterState.Walk;
-                break;
+            // case MonsterState.Idle:
+            //     if (Random.Range(1, 20) == 2)
+            //         monsterState = MonsterState.Walk;
+            //     break;
             case MonsterState.Walk:
                 if(movePos == Vector3.zero)return;
                 LookDirection(transform, movePos);
@@ -107,24 +107,24 @@ public class MonsterController : BaseController
     private void RandomPos(){
         movePos = new Vector3(Random.Range(-1f, 2f), transform.position.y, Random.Range(-1f, 2f));
     }
-    public void LookDirection(Transform objTransform, Vector3 moveDir) {
+    private void LookDirection(Transform objTransform, Vector3 moveDir) {
         objTransform.rotation = Quaternion.LookRotation(-moveDir.x * Vector3.right + -moveDir.z * Vector3.forward);
     }
 
-    public void LookTarget(Transform objTransform, Transform targetTransform, float speed) 
+    private void LookTarget(Transform objTransform, Transform targetTransform, float speed) 
     {
         if (animator.GetBool("Attack")) return;
         Vector3 dir = new Vector3(objTransform.position.x - targetTransform.transform.position.x, 0, objTransform.position.z - targetTransform.transform.position.z);
         objTransform.rotation = Quaternion.Lerp(objTransform.rotation, Quaternion.LookRotation(dir), speed * Time.fixedDeltaTime);
     }
 
-    public void RigidMovePos(Transform objTransform, Vector3 dir, float speed) 
+    private void RigidMovePos(Transform objTransform, Vector3 dir, float speed) 
     {
         if (animator.GetBool("Attack")) return;
         objTransform.gameObject.GetComponent<Rigidbody>().MovePosition(objTransform.position + new Vector3(dir.x, 0, dir.z).normalized * speed * Time.fixedDeltaTime);
     }
 
-    public void LimitMoveRange(Transform objTransform, Vector3 minRange, Vector3 maxRange) {
+    private void LimitMoveRange(Transform objTransform, Vector3 minRange, Vector3 maxRange) {
         objTransform.position = new Vector3(Mathf.Clamp(objTransform.position.x, minRange.x, maxRange.x), objTransform.position.y, 
                                 Mathf.Clamp(objTransform.position.z, minRange.z, maxRange.z));
     }

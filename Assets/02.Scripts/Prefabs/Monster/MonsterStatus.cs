@@ -30,6 +30,8 @@ public class MonsterStatus : Status
         ItemDrop();
         Managers.UI.ui_MonsterHpbar.OffMonsterHpbar();    
         coll.isTrigger = true;
+        PlayerStatus playerStatus = Managers.Game.GetPlayer().GetComponent<PlayerStatus>();
+        playerStatus.exp += 10;
         Managers.Resource.Destroy(gameObject, 3f);
     }
 

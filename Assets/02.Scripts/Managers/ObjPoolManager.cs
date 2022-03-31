@@ -50,6 +50,7 @@ public class ObjPoolManager
         for (int i = 0; i < bombSlimePool.Length; i++)
         {
             bombSlimePool[i] = Managers.Resource.Instantiate("Boom_Slime_A", objPoolManager);
+            bombSlimePool[i].GetOrAddComponent<QuestReporter>();
             bombSlimePool[i].SetActive(false);
         }
         
