@@ -31,7 +31,7 @@ public class TalkManager
             ,"아! 부탁이 있어\n내 동생들을 찾아줬으면해 근처에 슬라임들이 많아서 걱정되네" });
         talkData.Add(8, new string[] { "어이 거기!\n 나 좀 도와줘 슬라임들이 너무 많아 지나갈 수가 없어"});
         talkData.Add(9, new string[] { "누나가 찾는다고?\n 나를 좀 도와주면 생각해볼게" });
-        talkData.Add(10, new string[] { "" });
+        talkData.Add(10, new string[] { "이쪽이야 이쪽!\n 공주님이 잡혀갔어!! 구해줘" });
 
         errorString = new string[] { "자네는 이미 직업이 있군"};
     }
