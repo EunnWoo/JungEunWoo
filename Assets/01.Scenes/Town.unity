@@ -20703,7 +20703,7 @@ GameObject:
   - component: {fileID: 564903013}
   m_Layer: 9
   m_Name: PortalEffects
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46540,7 +46540,7 @@ GameObject:
   - component: {fileID: 1094443173}
   m_Layer: 9
   m_Name: PortalEffects
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47217,7 +47217,7 @@ GameObject:
   - component: {fileID: 1130153211}
   m_Layer: 9
   m_Name: PortalMap2
-  m_TagString: Ground
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60406,7 +60406,7 @@ GameObject:
   - component: {fileID: 1468189148}
   m_Layer: 9
   m_Name: PortalMap1
-  m_TagString: Ground
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98321,7 +98321,7 @@ GameObject:
   - component: {fileID: 2401367998153787295}
   m_Layer: 9
   m_Name: PortalEffects
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107889,7 +107889,7 @@ GameObject:
   - component: {fileID: 6263437186878822524}
   m_Layer: 9
   m_Name: PortalMap3
-  m_TagString: Ground
+  m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

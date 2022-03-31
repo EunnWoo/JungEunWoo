@@ -4421,7 +4421,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8386886850102196197, guid: 19d1d67237dbc5443a241c560367d04f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.32
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8386886850102196197, guid: 19d1d67237dbc5443a241c560367d04f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10171,6 +10171,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 7075827561804443081, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 7075827562229840129, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -10237,11 +10241,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7075827562801629335, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
       propertyPath: m_TagString
-      value: Ground
+      value: Npc
       objectReference: {fileID: 0}
     - target: {fileID: 7075827562971650447, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075827562971650447, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 7075827563152789334, guid: fb114bfa5e449e44ebaa27abbb00c3ce, type: 3}
       propertyPath: m_Layer
