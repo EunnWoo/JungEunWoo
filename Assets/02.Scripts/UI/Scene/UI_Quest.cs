@@ -35,6 +35,7 @@ public class UI_Quest : UI_Scene
 
     public void OpenQuest()
      {
+        Debug.Log(questView.activeSelf);
         if (!questView.activeSelf)
         {
             

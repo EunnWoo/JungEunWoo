@@ -17,7 +17,6 @@ public class SelectScene : BaseScene
         Managers.Sound.Play("BGM/Select",Define.Sound.BGM);
 
 
-        
     }
 
     protected override void SceneMove()

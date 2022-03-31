@@ -12,8 +12,11 @@ public class TurorialScene : BaseScene
 
         gameObject.GetOrAddComponent<CursorController>();
 
+
         GameObject  player = Managers.Game.Spawn("Player");
+
         player.name = Managers.Game._name;
+
         Camera.main.gameObject.GetOrAddComponent<CameraFollow>().SetPlayer(player);
 
 

@@ -28,6 +28,7 @@ public class RotatorFireBall : MonoBehaviour
             playerAttack = Managers.Game.GetPlayer().GetComponent<PlayerAttack>();
             target = playerAttack.attackTarget;
             audioSource.Play();
+            
         }   
         explosion = false;
 

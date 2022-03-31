@@ -9,7 +9,9 @@ public class Boss : MonsterController
     private GameObject BombSlime;
     //private float moveSpeed = 8f, rotateSpeed = 3f;
     private string bombSlime;
-    
+    public ParticleSystem RangeParticle;
+    public ParticleSystem DamageParticle;
+
     protected override void Init()
     {
         base.Init();
@@ -18,8 +20,9 @@ public class Boss : MonsterController
     private void Awake() {
         bombSpawn = Util.FindChild(gameObject,"BombSpawn", true).GetComponentsInChildren<Transform>();
         bombSlime = "Boom_Slime_A";
-        attackRate = 10f;
-        skillRate = 15f;
+        //particleSystem =  GetComponent<ParticleSystem>();
+        attackRate = 4f;
+        skillRate = 7f;
 
     }
     protected override void UpdateMoving(){
@@ -60,5 +63,28 @@ public class Boss : MonsterController
             Status status = hit[i].GetComponent<Status>();
             status.TakeDamage(GetComponent<Status>());
         }
+    }
+    void SkillStart()
+    {
+        RangeParticle.gameObject.SetActive(true);
+    }
+    void SkillAttack()
+    {
+        DamageParticle.gameObject.SetActive(true);
+        Collider[] hit = Physics.OverlapSphere(DamageParticle.transform.position, 4.5f, 1 << (int)Layer.Player);
+
+        for (int i = 0; i < hit.Length; i++)
+        {
+            Debug.Log("hit");
+            Status status = hit[i].GetComponent<Status>();
+            status.TakeDamage(GetComponentInParent<Status>());
+        }
+        RangeParticle.gameObject.SetActive(false);
+        DamageParticle.gameObject.SetActive(false);
+
+    }
+    void SkillEnd()
+    {
+        
     }
 }

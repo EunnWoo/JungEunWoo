@@ -180,6 +180,7 @@ public class UIManager
 
     public void SetSceneUI()
     {
+        Debug.Log("»ý¼º");
         ui_Menu = Managers.UI.ShowSceneUI<UI_Menu>();
         ui_ErrorText = Managers.UI.ShowSceneUI<UI_ErrorText>();
         ui_Inventory = Managers.UI.ShowSceneUI<UI_Inventory>();
@@ -191,7 +192,7 @@ public class UIManager
         Managers.UI.ShowSceneUI<UI_QuickSlot>();
       
         ui_Quest = Managers.UI.ShowSceneUI<UI_Quest>();
-        ui_Quest.Init();
+        //ui_Quest.Init();
 
     }
 

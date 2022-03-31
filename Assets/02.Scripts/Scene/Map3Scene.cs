@@ -11,7 +11,7 @@ public class Map3Scene : BaseScene
         SceneType = SceneState.Map3;
         gameObject.GetOrAddComponent<CursorController>();
 
-        Managers.Game.GetPlayer().transform.position = new Vector3(-4f, 1.06f, -22f);
+        Managers.Game.GetPlayer().transform.position = new Vector3(-4f, 1.06f, -30.24f);
         Managers.Sound.Play("BGM/Map3", Define.Sound.BGM);
 
         playableDirector = GetComponent<PlayableDirector>();

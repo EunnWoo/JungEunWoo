@@ -113,12 +113,14 @@ public class MonsterController : BaseController
 
     public void LookTarget(Transform objTransform, Transform targetTransform, float speed) 
     {
-        if (animator.GetInteger("state") == 2) return;
+        if (animator.GetBool("Attack")) return;
         Vector3 dir = new Vector3(objTransform.position.x - targetTransform.transform.position.x, 0, objTransform.position.z - targetTransform.transform.position.z);
         objTransform.rotation = Quaternion.Lerp(objTransform.rotation, Quaternion.LookRotation(dir), speed * Time.fixedDeltaTime);
     }
 
-    public void RigidMovePos(Transform objTransform, Vector3 dir, float speed) {
+    public void RigidMovePos(Transform objTransform, Vector3 dir, float speed) 
+    {
+        if (animator.GetBool("Attack")) return;
         objTransform.gameObject.GetComponent<Rigidbody>().MovePosition(objTransform.position + new Vector3(dir.x, 0, dir.z).normalized * speed * Time.fixedDeltaTime);
     }
 

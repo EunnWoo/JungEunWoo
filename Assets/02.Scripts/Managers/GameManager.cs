@@ -49,12 +49,15 @@ public class GameManager
             }
         }
 
+
         if (Managers.UI.isAction) return;
 
 
         if (Managers.Input.equip) //u를 누를시
         {
+            Debug.Log("장비창 열기");
             Managers.UI.ui_Equipment.OnOffEquipment();
+
    
         }
         if (Managers.Input.inven)
@@ -64,6 +67,8 @@ public class GameManager
         }
         if(Managers.Input.quest)
         {
+            Debug.Log("Quest 오픈");
+           
             Managers.UI.ui_Quest.OpenQuest();
 
         }
