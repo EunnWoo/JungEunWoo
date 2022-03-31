@@ -83,4 +83,30 @@ public class ObjPoolManager
 
         return null;
     }
+    public void ActiveFalse(string type)
+    {
+        switch (type)
+        {
+            case "Arrow":
+                targetPool = arrow;
+                break;
+            case "FireBall":
+                targetPool = fireBall;
+                break;
+            case "Boom_Slime_A":
+                targetPool = bombSlimePool;
+                break;
+            case "RotatorFireBall":
+                targetPool = rotatorFireBall;
+                break;
+        }
+        for(int i =0; i< targetPool.Length;i++)
+        {
+            if(targetPool[i].activeSelf) // 비활성화라면
+            {
+                targetPool[i].SetActive(false);
+            }
+        }
+
+    }
 }

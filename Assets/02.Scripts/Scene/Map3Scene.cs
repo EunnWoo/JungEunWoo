@@ -21,7 +21,7 @@ public class Map3Scene : BaseScene
 
     public override void Clear()
     {
-
+        Managers.Pool.ActiveFalse("Boom_Slime_A");
     }
     public void PlayerStop()
     {
