@@ -161,6 +161,7 @@ public class SoundManager
         _audioSources[(int)Define.Sound.BGM].volume = value * bGMVolume;
         _audioSources[(int)Define.Sound.Effect].volume = value * effectVolume;
         _audioSources[(int)Define.Sound.LoopEffect].volume = value * effectVolume;
+        _audioSources[(int)Define.Sound.Moving].volume = value * effectVolume;
     }   
     public void BGMSoundCtrl(float value)
     {
@@ -174,5 +175,6 @@ public class SoundManager
         _rotatorFireBallSource.volume = value * allVolume;
         _audioSources[(int)Define.Sound.Effect].volume = value * allVolume;
         _audioSources[(int)Define.Sound.LoopEffect].volume = value * allVolume;
+        _audioSources[(int)Define.Sound.Moving].volume = value * allVolume;
     }
 }
