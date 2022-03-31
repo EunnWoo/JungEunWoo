@@ -121,22 +121,28 @@ public class UI_Message : UI_Popup
         }
         else if (sceneState == SceneState.Town)
         {
-            foreach (var quest in Managers.Quest.CompletedQuests)
-            {
-                if(quest.CodeName == "TOWN"){
-                    foreach (var taskgroup in quest.TaskGroups)
-                    {
-                        if(taskgroup.IsComplete){
-                            return true;
-                        }                    
-                        else{
-                            return false;
-                        }
+            if(Managers.talk.NPC.GetComponent<ObjData>().id == 6004){
+                foreach (var quest in Managers.Quest.ActiveQuests)
+                {
+                    if(quest.CodeName == "BOSS"){
+                        return true;
+                    }
+                    else{
+                        return false;
                     }
                 }
             }
+            
             if(Managers.talk.NPC.GetComponent<ObjData>().id != 6004){
-                return true;
+                foreach(var quest in Managers.Quest.ActiveQuests){
+                    if(quest.CodeName == "TOWN"){
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                }
+                
             }
         }
         else if (sceneState == SceneState.Map1)
