@@ -10,7 +10,9 @@ public class SoundManager
     AudioSource[] _audioSources = new AudioSource[(int)Define.Sound.MaxCount]; //ºÐ·ù¿ë
     public AudioSource _rotatorFireBallSource;
     Dictionary<string, AudioClip> _audipClips = new Dictionary<string, AudioClip>();
-    float StateVolume;
+    float allVolume;
+    float bGMVolume;
+    float effectVolume;
     public void Init()
     {
         GameObject root = GameObject.Find("@Sound");
@@ -29,7 +31,9 @@ public class SoundManager
             _audioSources[(int)Define.Sound.BGM].loop = true;
             _audioSources[(int)Define.Sound.LoopEffect].loop = true;
         }
-        StateVolume = 1;
+        allVolume = 1;
+        bGMVolume = 1;
+        effectVolume = 1;
     }
 
     public void Clear()
@@ -153,22 +157,22 @@ public class SoundManager
 
     public void AllSoundCtrl(float value)
     {
-        StateVolume = value;
-        for (int i =0; i< _audioSources.Length; i++)
-        {
-            _audioSources[i].volume = value;
-        }
-    }
+         allVolume = value;
+        _audioSources[(int)Define.Sound.BGM].volume = value * bGMVolume;
+        _audioSources[(int)Define.Sound.Effect].volume = value * effectVolume;
+        _audioSources[(int)Define.Sound.LoopEffect].volume = value * effectVolume;
+    }   
     public void BGMSoundCtrl(float value)
     {
-       
-         _audioSources[(int)Define.Sound.BGM].volume = value * StateVolume;
+        bGMVolume = value;
+         _audioSources[(int)Define.Sound.BGM].volume = value * allVolume;
         
     }
     public void EffectSoundCtrl(float value)
     {
-        _rotatorFireBallSource.volume = value * StateVolume;
-        _audioSources[(int)Define.Sound.Effect].volume = value * StateVolume;
-        _audioSources[(int)Define.Sound.LoopEffect].volume = value * StateVolume;
+        effectVolume = value;
+        _rotatorFireBallSource.volume = value * allVolume;
+        _audioSources[(int)Define.Sound.Effect].volume = value * allVolume;
+        _audioSources[(int)Define.Sound.LoopEffect].volume = value * allVolume;
     }
 }

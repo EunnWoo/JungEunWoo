@@ -27,7 +27,11 @@ public class TalkManager
              });
         talkData.Add(6, new string[] { "여기까지 잘 왔구나!\n이제 직업을 가져봐야지!! 마음에 드는 직업을 선택해봐",
             "아 맞다!\n 왼쪽 클릭은 일반 공격이고 우측 클릭은 스킬이야\n 공격과 스킬을 활용해 더미를 잡고 마을에서 봐!" });
-
+        talkData.Add(7, new string[] { "마을에 온 걸 환영해!\n 왠지 모르겠지만 너는 자주 볼 거 같은걸\n옆에 상점이 있으니 돈이 있다면 방문해봐!"
+            ,"아! 부탁이 있어\n내 동생들을 찾아줬으면해 근처에 슬라임들이 많아서 걱정되네" });
+        talkData.Add(8, new string[] { "어이 거기!\n 나 좀 도와줘 슬라임들이 너무 많아 지나갈 수가 없어"});
+        talkData.Add(9, new string[] { "누나가 찾는다고?\n 나를 좀 도와주면 생각해볼게" });
+        talkData.Add(10, new string[] { "" });
 
         errorString = new string[] { "자네는 이미 직업이 있군"};
     }
