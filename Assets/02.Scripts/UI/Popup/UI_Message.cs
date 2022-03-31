@@ -186,27 +186,25 @@ public class UI_Message : UI_Popup
 
     public void ReSpawn(PointerEventData data) //∫Œ»∞ 
     {
-        PlayerStatus playerStatus = Managers.Game.GetPlayer().GetComponent<PlayerStatus>();
-        playerStatus.Hp = playerStatus.MAX_HP;
-        playerStatus.GetComponent<Animator>().SetTrigger("Recover");
-        playerStatus.GetComponent<Animator>().SetBool("Dead", false);
-        playerStatus.BDeath = false;
-        Managers.UI.ui_PlayerData.DisplayHP(playerStatus.Hp, playerStatus.MAX_HP);
-
+        RecoverSet();
         Managers.UI.ClosePopupUI(this);
     }
 
     public void GameQuit(PointerEventData data)
     {
         Managers.Scene.LoadScene(SceneState.Town);
+        RecoverSet();
+        Managers.UI.ClosePopupUI(this);
+      
+    }
+    public void RecoverSet()
+    {
         PlayerStatus playerStatus = Managers.Game.GetPlayer().GetComponent<PlayerStatus>();
         playerStatus.Hp = playerStatus.MAX_HP;
         playerStatus.GetComponent<Animator>().SetTrigger("Recover");
-        playerStatus.GetComponent<Animator>().SetBool("Dead", false);
+        playerStatus.GetComponent<Animator>().SetBool("PlayerDead", false);
         playerStatus.BDeath = false;
         Managers.UI.ui_PlayerData.DisplayHP(playerStatus.Hp, playerStatus.MAX_HP);
-        Managers.UI.ClosePopupUI(this);
-      
     }
     #endregion
 
