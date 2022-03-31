@@ -5,14 +5,14 @@ using UnityEngine;
 public class MonsterStatus : Status
 {
     List<GameObject> items = new List<GameObject>();
-   // QuestReporter questReporter;
-    Collider coll;
+    // QuestReporter questReporter;
+    Rigidbody rigidbody;
     protected override void Init()
     {
         base.Init();
         Hp = MAX_HP;
-       // questReporter = GetComponent<QuestReporter>();
-        coll = GetComponent<Collider>();
+        // questReporter = GetComponent<QuestReporter>();
+        rigidbody = GetComponent<Rigidbody>();
     }
     
 
@@ -28,8 +28,8 @@ public class MonsterStatus : Status
     {
         base.Die();
         ItemDrop();
-        Managers.UI.ui_MonsterHpbar.OffMonsterHpbar();    
-        coll.isTrigger = true;
+        Managers.UI.ui_MonsterHpbar.OffMonsterHpbar();
+        rigidbody.isKinematic = true;
         PlayerStatus playerStatus = Managers.Game.GetPlayer().GetComponent<PlayerStatus>();
         playerStatus.exp += 10;
         Managers.Resource.Destroy(gameObject, 3f);
