@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 810645212c15a81498f03d280e54bd1b, type: 3}
   m_Name: Task_KillBoss
   m_EditorClassIdentifier: 
-  category: {fileID: 0}
+  category: {fileID: 11400000, guid: 52872427afc027e479ca78318d48d5f4, type: 2}
   codeName: KILL_BOSS
   description: Kill boss
   action: {fileID: 11400000, guid: f2e8487896b673045b8b058590e7ae6e, type: 2}
