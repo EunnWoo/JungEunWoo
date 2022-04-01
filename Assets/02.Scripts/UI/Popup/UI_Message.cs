@@ -206,7 +206,7 @@ public class UI_Message : UI_Popup
         PlayerStatus playerStatus = Managers.Game.GetPlayer().GetComponent<PlayerStatus>();
         playerStatus.Hp = playerStatus.MAX_HP;
         playerStatus.GetComponent<Animator>().SetTrigger("Recover");
-        playerStatus.GetComponent<Animator>().SetBool("PlayerDead", false);
+        playerStatus.GetComponent<Animator>().SetBool("PlayerDie", false);
         playerStatus.BDeath = false;
         Managers.UI.ui_PlayerData.DisplayHP(playerStatus.Hp, playerStatus.MAX_HP);
     }

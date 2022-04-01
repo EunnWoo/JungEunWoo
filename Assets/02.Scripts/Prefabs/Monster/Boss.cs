@@ -11,7 +11,7 @@ public class Boss : MonsterController
     private string bombSlime;
     public ParticleSystem RangeParticle;
     public ParticleSystem DamageParticle;
-
+    Status status;
     protected override void Init()
     {
         base.Init();
@@ -22,8 +22,8 @@ public class Boss : MonsterController
 
         bombSpawn = Util.FindChild(gameObject,"BombSpawn", true).GetComponentsInChildren<Transform>();
         bombSlime = "Boom_Slime_A";
-      
-        attackRate = 4f;
+        status = GetComponent<Status>();
+         attackRate = 4f;
         skillRate = 15f;
 
     }
@@ -55,11 +55,11 @@ public class Boss : MonsterController
         Vector3 vec = transform.localPosition + (-transform.forward * 5);
         Collider[] hit = Physics.OverlapSphere(vec, 4f,1<<(int)Layer.Player);
 
-        for (int i = 0; i < hit.Length; i++)
+        if (hit != null)
         {
            
-            Status status = hit[i].GetComponent<Status>();
-            status.TakeDamage(GetComponent<Status>());
+            Status tagetstatus = hit[0].GetComponent<Status>();
+            tagetstatus.TakeDamage(status);
         }
     }
     void SkillStart()
@@ -71,15 +71,14 @@ public class Boss : MonsterController
         DamageParticle.gameObject.SetActive(true);
         Collider[] hit = Physics.OverlapSphere(DamageParticle.transform.position, 4.5f, 1 << (int)Layer.Player);
 
-        for (int i = 0; i < hit.Length; i++)
-        {
-            Debug.Log("hit");
-            Status status = hit[i].GetComponent<Status>();
-            status.TakeDamage(GetComponentInParent<Status>());
-        }
+        
         RangeParticle.gameObject.SetActive(false);
         DamageParticle.gameObject.SetActive(false);
-
+        if(hit != null)
+        {
+            Status status = hit[0].GetComponent<Status>();
+            status.TakeDamage(GetComponentInParent<Status>());
+        }
     }
     void BossSkill(){
         for(int i=1; i<bombSpawn.Length; i++){
@@ -91,6 +90,7 @@ public class Boss : MonsterController
     }
     void BossDie()
     {
-        
+        status.questReporter.Report();
+        Managers.Resource.Destroy(gameObject);
     }
 }

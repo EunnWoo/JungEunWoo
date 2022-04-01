@@ -72,10 +72,18 @@ public class TalkManager
         }
         else if(id == 11)
         {
-            UI_Message ui_Message = Managers.UI.ShowPopupUI<UI_Message>();
-            ui_Message.Init();
-            ui_Message.ShowMessage("클리어", "게임을 종료하시겠습니까?");
-            ui_Message.okButton.gameObject.AddUIEvent(ui_Message.GameQuit);
+            foreach (var quest in Managers.Quest.CompletedQuests)
+            {
+                if (quest.CodeName == "BOSS")
+                {
+                    UI_Message ui_Message = Managers.UI.ShowPopupUI<UI_Message>();
+                    ui_Message.Init();
+                    ui_Message.ShowMessage("클리어", "게임을 종료하시겠습니까?");
+                    ui_Message.okButton.gameObject.AddUIEvent(ui_Message.GameQuit);
+                }
+            }
+                
+                  
         }
 
 

@@ -113,7 +113,7 @@ ModelImporter:
       name: Die
       takeName: Take 001
       internalID: 0
-      firstFrame: 1
+      firstFrame: 30
       lastFrame: 50
       wrapMode: 0
       orientationOffsetY: 0
@@ -134,7 +134,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.09290735
+      - time: 0.91830415
         functionName: BossDie
         data: 
         objectReferenceParameter: {instanceID: 0}

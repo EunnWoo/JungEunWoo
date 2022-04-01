@@ -3441,7 +3441,6 @@ MonoBehaviour:
   baseHP: 400
   baseMP: 300
   baseAttack: 5
-  animator: {fileID: 0}
   questReporter: {fileID: 0}
 --- !u!54 &649441613
 Rigidbody:
@@ -3457,7 +3456,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!136 &649441614
 CapsuleCollider:
@@ -5426,7 +5425,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &1273118993
 PrefabInstance:
@@ -9481,7 +9480,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7276163395929096263, guid: ee0e956c5ec03364cba0586336de3d9b, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7276163395929096263, guid: ee0e956c5ec03364cba0586336de3d9b, type: 3}
       propertyPath: m_LocalPosition.x

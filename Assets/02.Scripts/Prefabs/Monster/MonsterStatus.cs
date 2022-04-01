@@ -6,13 +6,12 @@ public class MonsterStatus : Status
 {
     List<GameObject> items = new List<GameObject>();
     // QuestReporter questReporter;
-    Rigidbody rigidbody;
+    Rigidbody rigid;
     protected override void Init()
     {
         base.Init();
         Hp = MAX_HP;
-        // questReporter = GetComponent<QuestReporter>();
-        rigidbody = GetComponent<Rigidbody>();
+        rigid = GetComponent<Rigidbody>();
     }
     
 
@@ -28,11 +27,10 @@ public class MonsterStatus : Status
     {
         base.Die();
         Managers.UI.ui_MonsterHpbar.OffMonsterHpbar();
-        rigidbody.isKinematic = true;
+        rigid.isKinematic = true;
         PlayerStatus playerStatus = Managers.Game.GetPlayer().GetComponent<PlayerStatus>();
         playerStatus.exp += 10;
-        Managers.Resource.Destroy(gameObject, 2f);
-        //ItemDrop();
+        
     }
 
    
@@ -41,6 +39,7 @@ public class MonsterStatus : Status
 
     public void ItemDrop()
     {
+        Managers.Resource.Destroy(rigid.gameObject);
         for (int i = 0; i < 8; i++)
         {
             items.Add(ItemSet(

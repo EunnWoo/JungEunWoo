@@ -192,7 +192,7 @@ public class PlayerController : BaseController
     {
        
         Jumptf(); // ¶³¾îÁú¶§
-        if (Managers.Input.jump && !isJump && !Managers.Input.roll && rigid.velocity.y == 0 && isRoll)
+        if (Managers.Input.jump && !isJump && !Managers.Input.roll && rigid.velocity.y == 0 && !isRoll)
         {
             isJump = true;
             animator.SetBool("IsJump", true);

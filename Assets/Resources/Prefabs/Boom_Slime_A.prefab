@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2003837135}
   - component: {fileID: 8159814495362088944}
   - component: {fileID: 4149988207344931896}
+  - component: {fileID: 7774650085566942658}
   m_Layer: 7
   m_Name: Boom_Slime_A
   m_TagString: Monster
@@ -118,8 +119,23 @@ MonoBehaviour:
   baseHP: 50
   baseMP: 300
   baseAttack: 30
-  animator: {fileID: 0}
   questReporter: {fileID: 0}
+--- !u!114 &7774650085566942658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa48d235d234f8e4f91f9827bdb35724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  category: {fileID: 0}
+  target: {fileID: 0}
+  successCount: 0
+  colliderTags: []
 --- !u!1 &124876
 GameObject:
   m_ObjectHideFlags: 0
