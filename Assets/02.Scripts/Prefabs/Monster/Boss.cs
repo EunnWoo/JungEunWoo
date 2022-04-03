@@ -55,7 +55,7 @@ public class Boss : MonsterController
         Vector3 vec = transform.localPosition + (-transform.forward * 5);
         Collider[] hit = Physics.OverlapSphere(vec, 4f,1<<(int)Layer.Player);
 
-        if (hit != null)
+        for(int i =0; i < hit.Length; i++)
         {
            
             Status tagetstatus = hit[0].GetComponent<Status>();
@@ -74,7 +74,7 @@ public class Boss : MonsterController
         
         RangeParticle.gameObject.SetActive(false);
         DamageParticle.gameObject.SetActive(false);
-        if(hit != null)
+        for (int i = 0; i < hit.Length; i++)
         {
             Status status = hit[0].GetComponent<Status>();
             status.TakeDamage(GetComponentInParent<Status>());

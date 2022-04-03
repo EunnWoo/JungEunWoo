@@ -66,10 +66,6 @@ public class MonsterController : BaseController
     {
         PlayerScan();
         switch (monsterState) {
-            // case MonsterState.Idle:
-            //     if (Random.Range(1, 20) == 2)
-            //         monsterState = MonsterState.Walk;
-            //     break;
             case MonsterState.Walk:
                 if(movePos == Vector3.zero)return;
                 LookDirection(transform, movePos);

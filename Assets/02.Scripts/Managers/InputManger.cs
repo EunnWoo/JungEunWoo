@@ -29,7 +29,9 @@ public class InputManager
     public bool equip { get; private set; }
     public bool inven { get; private set; }
     public bool quest { get; private set; }
+    public bool help { get; private set; }
     public bool skillFire { get; private set; }
+    
     public void OnUpdate()
     {
         hAxis = Input.GetAxisRaw(hAxisName);
@@ -44,7 +46,7 @@ public class InputManager
         equip = Input.GetKeyDown(KeyCode.U);
         inven = Input.GetKeyDown(KeyCode.I);
         quest = Input.GetKeyDown(KeyCode.Q);
-
+        help = Input.GetKeyDown(KeyCode.F12);
 
         skillFire = Input.GetMouseButtonUp(1);
 

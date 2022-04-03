@@ -26,6 +26,8 @@ public class UIManager
     public UI_ErrorText ui_ErrorText { get; private set; }
     public UI_PlayerData ui_PlayerData { get; private set; }
     public UI_Money ui_Money { get; private set; }
+    public UI_Help ui_Help { get; private set; }
+   
     #endregion
 
     public GameObject Root
@@ -187,7 +189,7 @@ public class UIManager
         ui_Equipment = Managers.UI.ShowSceneUI<UI_Equipment>();
         ui_PlayerData = Managers.UI.ShowSceneUI<UI_PlayerData>();
         ui_Money = Managers.UI.ShowSceneUI<UI_Money>();
-
+        ui_Help = Managers.UI.ShowSceneUI<UI_Help>();
         Managers.UI.ShowSceneUI<UI_QuickSlot>();
       
         ui_Quest = Managers.UI.ShowSceneUI<UI_Quest>();

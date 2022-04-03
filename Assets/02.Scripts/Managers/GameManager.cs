@@ -52,7 +52,10 @@ public class GameManager
 
         if (Managers.UI.isAction) return;
 
-
+        if (Managers.Input.help)
+        {
+            Managers.UI.ui_Help.OpenHelp();
+        }
         if (Managers.Input.equip) //u를 누를시
         {
             Debug.Log("장비창 열기");
