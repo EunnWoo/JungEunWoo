@@ -11,7 +11,7 @@ public class ResourceManager
 
     public GameObject Instantiate(string path, Transform parent = null) // parent -> 없으면 null 자동 대입
     {
-        GameObject prefab = Load<GameObject>($"Prefabs/{path}");   // $ 
+        GameObject prefab = Load<GameObject>($"Prefabs/{path}"); 
 
         if(prefab ==null)
         {

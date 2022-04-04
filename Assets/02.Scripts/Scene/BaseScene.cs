@@ -17,10 +17,9 @@ public enum SceneState
 
 }
 
-
-
 public abstract class BaseScene : MonoBehaviour
 {
+    #region SetUp
     public SceneState SceneType { get; protected set; } = SceneState.Unknown;
     public static BaseScene instance;
     
@@ -50,8 +49,8 @@ public abstract class BaseScene : MonoBehaviour
             Managers.UI.ui_MonsterHpbar.OffMonsterHpbar();
         }
     }
-
+    #endregion
     protected virtual void SceneMove() { }
 
-    public abstract void Clear(); // 추상함수로 Clear내용을 자식씬에게 맡김
+    public abstract void Clear(); // 추상함수로 Clear내용을 자식씬에게 맡김 -> 씬이 변하기전에 실행
 }

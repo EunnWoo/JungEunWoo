@@ -9,7 +9,8 @@ public class UI_Inventory : UI_Scene
 {
     #region SetUp
     bool bInit;
-   
+
+    #region Object
     List<UI_InventorySlot> slotsEquip = new List<UI_InventorySlot>();  //인벤토리 슬롯들
     List<UI_InventorySlot> slotsUse = new List<UI_InventorySlot>();
     List<UI_InventorySlot> slotsETC = new List<UI_InventorySlot>();
@@ -36,7 +37,7 @@ public class UI_Inventory : UI_Scene
     public Vector2 v;
     
     PlayerStatus playerstatus;
-
+    #endregion
     enum GameObjects
     {
         EquipBody,
